@@ -489,28 +489,62 @@ function setSort(mode,el){
 
 function onSearchInput(val){clearTimeout(debT);if(!val.trim()){clearSearch();return;}debT=setTimeout(doSearch,300);}
 
-function psLookup(q){
-  const l=q.toLowerCase().trim();
-  if(trans[l])return trans[l];
-  for(const[k,v]of Object.entries(trans)){if(k.includes(l)||l.includes(k))return v;}
-  return null;
+// Resolve a raw query (English or Pashto) into Pashto search terms + display hint
+function resolveQuery(raw) {
+  const isPashto = /[؀-ۿ]/.test(raw);
+  if(isPashto) {
+    // Already Pashto — split on whitespace, each token is a term
+    const terms = raw.split(/\s+/).filter(Boolean);
+    return { terms, hlWord: raw, hint: '' };
+  }
+  // English: translate each word
+  const words = raw.toLowerCase().trim().split(/\s+/);
+  const pairs = []; // [{en, ps}]
+  words.forEach(w => {
+    // Exact match first
+    if(trans[w]) { pairs.push({en:w, ps:trans[w]}); return; }
+    // Prefix/contains match
+    for(const[k,v] of Object.entries(trans)) {
+      if(k.startsWith(w) || w.startsWith(k)) { pairs.push({en:w, ps:v}); return; }
+    }
+    // Substring match
+    for(const[k,v] of Object.entries(trans)) {
+      if(k.includes(w) || w.includes(k)) { pairs.push({en:w, ps:v}); return; }
+    }
+    // No match — keep the raw word for direct substring search
+    pairs.push({en:w, ps:null});
+  });
+  const terms = pairs.map(p => p.ps || p.en);
+  const hlWord = pairs[0]?.ps || raw;
+  const mapped = pairs.filter(p=>p.ps).map(p=>`"${p.en}" → ${p.ps}`);
+  const unmapped = pairs.filter(p=>!p.ps).map(p=>`"${p.en}" (no translation)`);
+  const hint = [...mapped, ...unmapped].join(' · ');
+  return { terms, hlWord, hint };
 }
 
 function tokPs(t){return t.split(/[\s،؛؟۔؟!؛:.،()\[\]{}\-«»]+/).filter(x=>x&&/[؀-ۿ]/.test(x));}
+
+let lastHlWord = '';
 
 function doSearch(){
   const raw=document.getElementById('search-input').value.trim();
   if(!raw){showFeatured();return;}
   if(!pages.length){initSearch().then(doSearch);return;}
   document.getElementById('intro-banner').style.display='none';
-  let q=raw,hint='';
-  if(!/[؀-ۿ]/.test(raw)){const ps=psLookup(raw);if(ps){q=ps;hint=`Searching for: "${raw}" → ${ps} in Pashto`;}else{hint=`No Pashto translation for "${raw}" — searching as-is`;}}
-  document.getElementById('search-hint').textContent=hint;
-  const toks=tokPs(q);const scores={};
-  toks.forEach(tok=>(si[tok]||[]).forEach(([pid,sc])=>{scores[pid]=(scores[pid]||0)+sc;}));
-  if(!Object.keys(scores).length)pages.forEach(p=>{if(((p.right_page||'')+(p.left_page||'')).includes(q))scores[p.id]=1;});
+  const {terms, hlWord, hint} = resolveQuery(raw);
+  lastHlWord = hlWord;
+  document.getElementById('search-hint').textContent = hint;
+  const scores = {};
+  terms.forEach(term => {
+    // TF-IDF index lookup (Pashto tokens)
+    tokPs(term).forEach(tok => (si[tok]||[]).forEach(([pid,sc]) => { scores[pid]=(scores[pid]||0)+sc; }));
+    // Fallback: direct substring scan
+    if(!tokPs(term).length || !/[؀-ۿ]/.test(term)) {
+      pages.forEach(p => { if(((p.right_page||'')+(p.left_page||'')).includes(term)) scores[p.id]=(scores[p.id]||0)+0.5; });
+    }
+  });
   results=Object.entries(scores).sort((a,b)=>b[1]-a[1]).map(([id])=>pageMap[id]).filter(Boolean);
-  if(activeIssue)results=results.filter(p=>p.issue_date===activeIssue);
+  if(activeIssue) results=results.filter(p=>p.issue_date===activeIssue);
   searchPg=0;
   if(!results.length){
     document.getElementById('search-results').innerHTML=`<div class="empty"><h3>No results for "${esc(raw)}"</h3><p>Try:</p><div class="sug-row">${['freedom','education','Palestine','poetry','Peshawar','religion'].map(s=>`<span class="sug" onclick="document.getElementById('search-input').value='${s}';doSearch()">${s}</span>`).join('')}</div></div>`;
@@ -526,8 +560,7 @@ function renderResults(){
   const start=searchPg*PG;const slice=sorted.slice(start,start+PG);
   document.getElementById('results-info').textContent=`${results.length} result${results.length!==1?'s':''} — showing ${start+1}–${Math.min(start+PG,results.length)}`;
   const r=document.getElementById('search-results');r.innerHTML='';
-  const hl=document.getElementById('search-input').value.trim();
-  slice.forEach(p=>r.appendChild(buildCard(p,hl)));
+  slice.forEach(p=>r.appendChild(buildCard(p,lastHlWord)));
   buildPag();
 }
 
@@ -553,7 +586,7 @@ function showFeatured(){
 
 function clearSearch(){
   document.getElementById('search-input').value='';document.getElementById('search-hint').textContent='';
-  results=[];searchPg=0;
+  results=[];searchPg=0;lastHlWord='';
   document.getElementById('search-results').innerHTML='';
   document.getElementById('results-info').textContent='';document.getElementById('search-pag').innerHTML='';
   if(pages.length)showFeatured();
@@ -714,7 +747,20 @@ function buildDriftChips(){
 
 function doTimeline(){
   const raw=document.getElementById('tl-input').value.trim();if(!raw||!semData)return;
-  let w=raw;if(!/[؀-ۿ]/.test(raw)){const ps=psLookup(raw);if(ps)w=ps;}
+  // Try to resolve to a Pashto word that exists in the semantic index
+  let w=raw;
+  if(!/[؀-ۿ]/.test(raw)){
+    // English input — translate
+    const {terms} = resolveQuery(raw);
+    // Pick the first term that exists in semData.words
+    const found = terms.find(t=>semData.words[t]);
+    w = found || terms[0] || raw;
+    // Show translation hint
+    const hint = terms[0] !== raw ? `"${raw}" → ${terms[0]}` : `No translation for "${raw}"`;
+    document.getElementById('tl-hint').textContent = hint;
+  } else {
+    document.getElementById('tl-hint').textContent = '';
+  }
   loadTlWord(w);
 }
 
