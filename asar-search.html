@@ -46,14 +46,19 @@ body{background:var(--bg);color:var(--ink);font-family:var(--font-ui);min-height
 .results-info{font-size:.76rem;color:var(--muted);margin-bottom:.5rem}
 
 /* Cards — text-first */
-.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);margin-bottom:.75rem;padding:.85rem 1rem;box-shadow:var(--shadow);transition:box-shadow .15s;cursor:pointer}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);margin-bottom:.75rem;padding:.85rem 1rem;box-shadow:var(--shadow);transition:box-shadow .15s,border-color .15s;cursor:pointer}
 .card:hover{box-shadow:0 4px 14px rgba(0,0,0,.12)}
+.card.expanded{border-color:var(--accent);box-shadow:0 6px 20px rgba(107,18,0,.15);cursor:default}
 .card-meta{display:flex;justify-content:space-between;align-items:center;margin-bottom:.38rem}
 .card-date{font-size:.68rem;color:var(--muted);font-family:var(--font-ui)}
 .side-tag{display:inline-block;margin-left:.35rem;background:var(--sand);border-radius:3px;font-size:.6rem;padding:.05rem .3rem;color:var(--muted);vertical-align:middle;font-family:var(--font-ui)}
 .card-snippet{direction:rtl;font-family:var(--font-ps);font-size:.93rem;line-height:1.9;margin-bottom:.2rem;word-break:break-word}
 .card-en{direction:ltr;font-family:var(--font-ui);font-size:.75rem;color:var(--muted);line-height:1.55;margin-bottom:.35rem;font-style:italic;border-left:2px solid var(--border);padding-left:.5rem}
-.card-snippet mark{background:#fde68a;color:#000;border-radius:2px;padding:0 2px;font-style:normal}
+.card-snippet mark,.card-full-text mark{background:#fde68a;color:#000;border-radius:2px;padding:0 2px;font-style:normal}
+.card-full-text{direction:rtl;font-family:var(--font-ps);font-size:.97rem;line-height:2.1;word-break:break-word;margin:.6rem 0}
+.card-full-en{direction:ltr;font-family:var(--font-ui);font-size:.82rem;color:#333;line-height:1.7;margin:.6rem 0;border-left:3px solid var(--accent);padding-left:.75rem}
+.card-expand-bar{display:flex;align-items:center;gap:.4rem;flex-wrap:wrap;padding:.55rem 0 .3rem;border-top:1px solid var(--border);margin-top:.5rem}
+.card-pg-label{font-size:.7rem;color:var(--muted);font-family:var(--font-ui);margin-right:auto}
 .scan-preview{margin-top:.45rem}
 .scan-preview img{max-width:100%;border-radius:4px;border:1px solid var(--border);display:block}
 .tags-row{display:flex;flex-wrap:wrap;gap:.28rem;margin-top:.42rem}
@@ -617,40 +622,109 @@ function buildCards(p, hlWord) {
   return cards;
 }
 
+// Build flat column-page list for an issue: left col first, right col second, per spread
+function buildColPages(issueDate){
+  const spreads=pages.filter(p=>p.issue_date===issueDate).sort((a,b)=>a.id-b.id);
+  const cols=[];
+  spreads.forEach(p=>{
+    if(p.left_page)  cols.push({spread:p,side:'left', text:p.left_page});
+    if(p.right_page) cols.push({spread:p,side:'right',text:p.right_page});
+  });
+  return cols;
+}
+
 function buildCard(p, hlWord, side) {
   const card = document.createElement('div');
   card.className = 'card';
-  card.onclick = () => openReader(p.id, hlWord, side);
-  const pageText = side === 'right' ? (p.right_page || '') : side === 'left' ? (p.left_page || '') : (p.right_page || '') + ' ' + (p.left_page || '');
-  const fullText = pageText;
-  const snippet = getSnippet(fullText, hlWord, 240);
+  const pageText = side==='right'?(p.right_page||''):side==='left'?(p.left_page||''):((p.right_page||'')+' '+(p.left_page||''));
+  const snippet = getSnippet(pageText, hlWord, 240);
   const safeHL = hlWord ? esc(hlWord).replace(/[.*+?^${}()|[\]\\]/g,'\\$&') : null;
-  const displaySnippet = safeHL
-    ? esc(snippet).replace(new RegExp(safeHL, 'g'), m => `<mark>${m}</mark>`)
-    : esc(snippet);
-  const tags = (p.tags||[]).slice(0,5).map(t =>
-    `<span class="tag ${esc(t.type)}" onclick="event.stopPropagation();jumpToTag('${esc(t.label)}')">${esc(t.label)}</span>`
-  ).join('');
-  const imgUrl = esc(p.img_url);
-  const sideStr = side ? `'${side}'` : 'null';
-  card.innerHTML = `
+  const displaySnippet = safeHL ? esc(snippet).replace(new RegExp(safeHL,'g'),m=>`<mark>${m}</mark>`) : esc(snippet);
+  const tags = (p.tags||[]).slice(0,5).map(t=>`<span class="tag ${esc(t.type)}" onclick="event.stopPropagation();jumpToTag('${esc(t.label)}')">${esc(t.label)}</span>`).join('');
+  const pt=pageTrans?.[String(p.id)];
+  const enSnip=(pt?(side==='right'?pt.right:side==='left'?pt.left:(pt.right||pt.left)):'')||'';
+  const sideLabel=side==='right'?'<span class="side-tag">R</span>':side==='left'?'<span class="side-tag">L</span>':'';
+  card.innerHTML=`
     <div class="card-meta">
-      <span class="card-date">${fmtDate(p.issue_date)}${side==='right'?'<span class="side-tag">R</span>':side==='left'?'<span class="side-tag">L</span>':''}</span>
-      <div class="card-actions">
-        <button class="act-btn" onclick="event.stopPropagation();openReader(${p.id},${hlWord?`'${esc(hlWord)}'`:'null'},${sideStr})">Read full page</button>
-        <button class="act-btn" onclick="event.stopPropagation();toggleScan(this,'${imgUrl}')">📷 Scan</button>
-      </div>
+      <span class="card-date">${fmtDate(p.issue_date)}${sideLabel}</span>
+      <button class="act-btn" onclick="event.stopPropagation();this.closest('.card').classList.remove('expanded');renderCollapsed(this.closest('.card'))">✕ Collapse</button>
     </div>
     <div class="card-snippet">${displaySnippet}</div>
-    ${(()=>{
-      if(!pageTrans) return '';
-      const pt=pageTrans[String(p.id)];if(!pt) return '';
-      const enText=(side==='right'?pt.right:side==='left'?pt.left:(pt.right||pt.left))||'';
-      return enText?`<div class="card-en">${esc(enText.slice(0,200))}${enText.length>200?'…':''}</div>`:'';
-    })()}
-    <div class="scan-preview" style="display:none"><img src="" loading="lazy" alt="Scan"></div>
+    ${enSnip?`<div class="card-en">${esc(enSnip.slice(0,200))}${enSnip.length>200?'…':''}</div>`:''}
     <div class="tags-row">${tags}</div>`;
+  // Collapsed: clicking expands in-place
+  card.onclick=()=>expandCard(card, p, hlWord, side);
+  // Hide collapse button initially
+  card.querySelector('.act-btn').style.display='none';
   return card;
+}
+
+function renderCollapsed(card){
+  // Restore collapsed state — just hide expand content and show snippet
+  const exp=card.querySelector('.card-expand');
+  if(exp)exp.remove();
+  card.classList.remove('expanded');
+  card.querySelector('.act-btn').style.display='none';
+  card.style.cursor='pointer';
+}
+
+function expandCard(card, p, hlWord, side){
+  if(card.classList.contains('expanded'))return;
+  // Collapse any other open card
+  document.querySelectorAll('.card.expanded').forEach(c=>{const e=c.querySelector('.card-expand');if(e)e.remove();c.classList.remove('expanded');const b=c.querySelector('.act-btn');if(b)b.style.display='none';c.style.cursor='pointer';});
+  card.classList.add('expanded');
+  card.style.cursor='default';
+  card.querySelector('.act-btn').style.display='inline-block';
+
+  const cols=buildColPages(p.issue_date);
+  let idx=cols.findIndex(c=>c.spread.id===p.id&&c.side===side);
+  if(idx<0)idx=cols.findIndex(c=>c.spread.id===p.id);
+  card._expandCols=cols;card._expandIdx=idx;card._expandHl=hlWord;
+  renderExpandContent(card);
+}
+
+function renderExpandContent(card){
+  const cols=card._expandCols,idx=card._expandIdx,hlWord=card._expandHl;
+  const col=cols[idx];if(!col)return;
+  const safeHL=hlWord?esc(hlWord).replace(/[.*+?^${}()|[\]\\]/g,'\\$&'):null;
+  const fullHtml=safeHL?esc(col.text).replace(new RegExp(safeHL,'g'),m=>`<mark>${m}</mark>`):esc(col.text);
+  const pt=pageTrans?.[String(col.spread.id)];
+  const enFull=(pt?(col.side==='right'?pt.right:pt.left):'')||'';
+  const pgNum=idx+1,total=cols.length;
+  const sideLabel=col.side==='left'?'Left column':'Right column';
+  let exp=card.querySelector('.card-expand');
+  if(!exp){exp=document.createElement('div');exp.className='card-expand';card.appendChild(exp);}
+  exp.innerHTML=`
+    <div class="card-expand-bar">
+      <span class="card-pg-label">Page ${pgNum} of ${total} · ${sideLabel} · ${fmtDate(col.spread.issue_date)}</span>
+      <button class="act-btn" onclick="event.stopPropagation();cardNav(this.closest('.card'),-1)" ${idx===0?'disabled':''}>◀ Prev</button>
+      <button class="act-btn" onclick="event.stopPropagation();cardNav(this.closest('.card'),1)" ${idx===cols.length-1?'disabled':''}>Next ▶</button>
+      <button class="act-btn" onclick="event.stopPropagation();toggleCardEn(this.closest('.card-expand'))">🌐 Translate</button>
+      <button class="act-btn" onclick="event.stopPropagation();toggleCardScan(this,'${esc(col.spread.img_url)}')">📷 Scan</button>
+      <button class="act-btn" onclick="event.stopPropagation();openReader(${col.spread.id},${hlWord?`'${esc(hlWord)}'`:null},'${col.side}')">⛶ Full screen</button>
+    </div>
+    <div class="card-full-text">${fullHtml}</div>
+    <div class="card-full-en" style="display:none">${esc(enFull)||'(no translation available)'}</div>
+    <div class="card-scan-inline" style="display:none"><img src="" loading="lazy" style="max-width:100%;border-radius:4px;border:1px solid var(--border);display:block;margin-top:.5rem" alt="Scan"></div>`;
+  setTimeout(()=>{const h=exp.querySelector('mark');if(h)h.scrollIntoView({block:'center',behavior:'smooth'});},80);
+}
+
+function cardNav(card,dir){
+  card._expandIdx=Math.max(0,Math.min(card._expandCols.length-1,card._expandIdx+dir));
+  renderExpandContent(card);
+}
+function toggleCardEn(exp){
+  const en=exp.querySelector('.card-full-en');
+  en.style.display=en.style.display==='none'?'block':'none';
+  const btn=[...exp.querySelectorAll('.act-btn')].find(b=>b.textContent.includes('Translate')||b.textContent.includes('Pashto'));
+  if(btn)btn.textContent=en.style.display==='none'?'🌐 Translate':'📖 Pashto';
+}
+function toggleCardScan(btn,imgUrl){
+  const wrap=btn.closest('.card-expand').querySelector('.card-scan-inline');
+  const show=wrap.style.display==='none';
+  wrap.style.display=show?'block':'none';
+  if(show&&!wrap.querySelector('img').src.includes('http'))wrap.querySelector('img').src=imgUrl;
+  btn.textContent=show?'📷 Hide':'📷 Scan';
 }
 
 function toggleScan(btn, imgUrl) {
@@ -658,7 +732,7 @@ function toggleScan(btn, imgUrl) {
   const img = preview.querySelector('img');
   const hidden = preview.style.display === 'none';
   preview.style.display = hidden ? 'block' : 'none';
-  if(hidden) img.src = imgUrl;
+  if(hidden && img) img.src = imgUrl;
   btn.textContent = hidden ? '📷 Hide' : '📷 Scan';
 }
 
