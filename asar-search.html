@@ -510,10 +510,6 @@ function resolveQuery(raw) {
     for(const[k,v] of Object.entries(trans)) {
       if(k.startsWith(w) || w.startsWith(k)) { pairs.push({en:w, ps:v}); return; }
     }
-    // Substring match
-    for(const[k,v] of Object.entries(trans)) {
-      if(k.includes(w) || w.includes(k)) { pairs.push({en:w, ps:v}); return; }
-    }
     // No match — keep the raw word for direct substring search
     pairs.push({en:w, ps:null});
   });
