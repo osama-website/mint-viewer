@@ -934,21 +934,52 @@ function drawTl(word,wd,dates,hlIdx,noAnim){
       });
     }
   });
-  // Neighbor words (pan mode only)
+  // Neighbor words (pan mode only) — with hover-spread for overlapping clusters
   if(isPan&&hlIdx>=0){
     const dt=dates[hlIdx];
+    const nbItems=[];
     (wd.neighbors[dt]||[]).slice(0,18).forEach(nb=>{
       const nc=semData.words[nb]?.coords[dt];if(!nc)return;
       const[nx,ny]=toS(nc);
       const ndot=svgEl('circle',{cx:nx.toFixed(1),cy:ny.toFixed(1),r:'9',fill:'#e8833a',stroke:'#fff','stroke-width':'2',cursor:'pointer'});
       ndot.addEventListener('click',e=>{e.stopPropagation();navigateToWord(nb);});
-      ndot.appendChild(Object.assign(svgEl('title',{}),{textContent:`${nb}${psEnMap[nb]?' ('+psEnMap[nb]+')':''} — click for snippets`}));
+      ndot.appendChild(Object.assign(svgEl('title',{}),{textContent:`${nb}${psEnMap[nb]?' ('+psEnMap[nb]+')':''} — click to explore`}));
       svg.appendChild(ndot);
       const lx=(nx+13).toFixed(1),ly=(ny-3).toFixed(1);
       const nl=svgEl('text',{x:lx,y:ly,'font-size':'12',fill:'#7a2c00','font-family':"'Noto Nastaliq Urdu',serif",'paint-order':'stroke fill',stroke:'#fdf9f4','stroke-width':'3'});
       nl.textContent=nb;svg.appendChild(nl);
       const en=psEnMap[nb]||'';
-      if(en){const enl=svgEl('text',{x:lx,y:(ny+13).toFixed(1),'font-size':'9.5',fill:'#999','font-family':'system-ui','paint-order':'stroke fill',stroke:'#fdf9f4','stroke-width':'2.5'});enl.textContent=`(${en})`;svg.appendChild(enl);}
+      let enl=null;
+      if(en){enl=svgEl('text',{x:lx,y:(ny+13).toFixed(1),'font-size':'9.5',fill:'#999','font-family':'system-ui','paint-order':'stroke fill',stroke:'#fdf9f4','stroke-width':'2.5'});enl.textContent=`(${en})`;svg.appendChild(enl);}
+      nbItems.push({nb,ndot,nl,enl,nx,ny});
+    });
+    // Detect overlap groups and add hover-spread behavior
+    const THRESH=30,visited=new Set();
+    nbItems.forEach((a,i)=>{
+      if(visited.has(i))return;
+      const grp=[i];
+      nbItems.forEach((b,j)=>{if(i!==j&&!visited.has(j)){const dx=a.nx-b.nx,dy=a.ny-b.ny;if(Math.sqrt(dx*dx+dy*dy)<THRESH)grp.push(j);}});
+      if(grp.length<2)return;
+      grp.forEach(idx=>visited.add(idx));
+      const cx=grp.reduce((s,idx)=>s+nbItems[idx].nx,0)/grp.length;
+      const cy=grp.reduce((s,idx)=>s+nbItems[idx].ny,0)/grp.length;
+      const doSpread=spread=>{
+        grp.forEach((idx,k)=>{
+          const item=nbItems[idx];
+          const angle=(2*Math.PI*k/grp.length)-Math.PI/2;
+          const tx=spread?cx+Math.cos(angle)*48:item.nx;
+          const ty=spread?cy+Math.sin(angle)*48:item.ny;
+          item.ndot.setAttribute('cx',tx.toFixed(1));item.ndot.setAttribute('cy',ty.toFixed(1));
+          const lxs=(tx+13).toFixed(1);
+          item.nl.setAttribute('x',lxs);item.nl.setAttribute('y',(ty-3).toFixed(1));
+          if(item.enl){item.enl.setAttribute('x',lxs);item.enl.setAttribute('y',(ty+13).toFixed(1));}
+        });
+      };
+      const hov=svgEl('circle',{cx:cx.toFixed(1),cy:cy.toFixed(1),r:THRESH.toFixed(1),fill:'transparent',cursor:'pointer','pointer-events':'all'});
+      hov.addEventListener('mouseenter',()=>doSpread(true));
+      hov.addEventListener('mouseleave',()=>doSpread(false));
+      grp.forEach(idx=>{nbItems[idx].ndot.addEventListener('mouseenter',()=>doSpread(true));nbItems[idx].ndot.addEventListener('mouseleave',()=>doSpread(false));});
+      svg.appendChild(hov);
     });
   }
   // Main word label
