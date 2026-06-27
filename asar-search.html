@@ -113,9 +113,10 @@ body{background:var(--bg);color:var(--ink);font-family:var(--font-ui);min-height
 .tl-svg-wrap{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:.9rem;overflow:hidden}
 .tl-svg-title{font-size:.78rem;color:var(--accent);margin-bottom:.4rem}
 .tl-controls{margin-top:.7rem}
-.tl-slider-row{display:flex;align-items:center;gap:.7rem}
-.tl-active-year{font-size:1.05rem;font-weight:700;color:var(--accent);font-family:var(--font-ui);min-width:110px;direction:ltr;letter-spacing:.01em}
-#tl-range{flex:1;accent-color:var(--accent);cursor:pointer;height:4px}
+.tl-nav-row{display:flex;align-items:center;gap:.8rem;justify-content:center}
+.tl-active-year{font-size:1.05rem;font-weight:700;color:var(--accent);font-family:var(--font-ui);min-width:140px;text-align:center;direction:ltr;letter-spacing:.01em}
+.tl-nav-btn{background:var(--accent);color:#fff;border:none;border-radius:6px;padding:.3rem .9rem;font-size:1.15rem;cursor:pointer;transition:opacity .15s}
+.tl-nav-btn:disabled{opacity:.3;cursor:default}
 .tl-tick-row{display:flex;justify-content:space-between;margin-top:.28rem;padding:0 2px}
 .tl-tick{font-size:.62rem;color:var(--muted);font-family:var(--font-ui)}
 .tl-no-word{font-size:.85rem;color:var(--muted);padding:2rem 1rem;text-align:center}
@@ -274,9 +275,10 @@ body{background:var(--bg);color:var(--ink);font-family:var(--font-ui);min-height
         <div class="tl-svg-title" id="tl-svg-title">Semantic Trajectory</div>
         <svg id="tl-svg" width="100%" height="400" viewBox="0 0 640 400" style="display:block"></svg>
         <div class="tl-controls" id="tl-controls" style="display:none">
-          <div class="tl-slider-row">
+          <div class="tl-nav-row">
+            <button class="tl-nav-btn" id="tl-prev" onclick="tlNav(-1)" disabled>&#8592;</button>
             <span class="tl-active-year" id="tl-active-year">Overview</span>
-            <input type="range" id="tl-range" min="0" max="7" value="0" step="1" oninput="selectYear(+this.value)">
+            <button class="tl-nav-btn" id="tl-next" onclick="tlNav(1)">&#8594;</button>
           </div>
           <div class="tl-tick-row" id="tl-tick-row"></div>
         </div>
@@ -522,6 +524,7 @@ function resolveQuery(raw) {
 }
 
 function tokPs(t){return t.split(/[\s،؛؟۔؟!؛:.،()\[\]{}\-«»]+/).filter(x=>x&&/[؀-ۿ]/.test(x));}
+function containsWord(text,word){if(!text||!word)return false;const e=word.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');return new RegExp('(?:^|[\\s،؛؟۔!:.،()\\[\\]{}\\-«»])'+e+'(?=$|[\\s،؛؟۔!:.،()\\[\\]{}\\-«»])','u').test(text);}
 
 let lastHlWord = '';
 
@@ -539,7 +542,7 @@ function doSearch(){
     tokPs(term).forEach(tok => (si[tok]||[]).forEach(([pid,sc]) => { scores[pid]=(scores[pid]||0)+sc; }));
     // Fallback: direct substring scan
     if(!tokPs(term).length || !/[؀-ۿ]/.test(term)) {
-      pages.forEach(p => { if(((p.right_page||'')+(p.left_page||'')).includes(term)) scores[p.id]=(scores[p.id]||0)+0.5; });
+      pages.forEach(p => { if(containsWord((p.right_page||'')+(p.left_page||''),term)) scores[p.id]=(scores[p.id]||0)+0.5; });
     }
   });
   results=Object.entries(scores).sort((a,b)=>b[1]-a[1]).map(([id])=>pageMap[id]).filter(Boolean);
@@ -782,11 +785,10 @@ function loadTlWord(word){
   }
   const en=psEnMap[word]?` (${psEnMap[word]})`:'';
   document.getElementById('tl-svg-title').textContent=`${word}${en} · drift: ${(wd.drift_score||0).toFixed(3)} · ${dates.length} issue${dates.length!==1?'s':''}`;
-  document.getElementById('tl-hint').textContent='Drag the slider to move through time and see how the word\'s context changes. Click any neighbor to see snippets.';
+  document.getElementById('tl-hint').textContent='Use the arrows to step through issues and see how the word\'s context changes. Click any neighbor to see snippets.';
   document.getElementById('tl-controls').style.display='block';
-  // Build slider
-  const range=document.getElementById('tl-range');
-  range.min=0;range.max=dates.length-1;range.value=0;
+  document.getElementById('tl-prev').disabled=true;
+  document.getElementById('tl-next').disabled=dates.length===0;
   // Build tick labels
   const ticks=document.getElementById('tl-tick-row');ticks.innerHTML='';
   dates.forEach(dt=>{const s=document.createElement('span');s.className='tl-tick';s.textContent=dt.slice(0,7);ticks.appendChild(s);});
@@ -799,12 +801,30 @@ function loadTlWord(word){
 function selectYear(i){
   tlSlider=i;
   const wd=semData.words[tlWord];if(!wd)return;
-  // Same filter as loadTlWord — only issues with actual neighbor context
   const dates=semData.issue_dates.filter(dt=>(wd.neighbors[dt]||[]).length>0);
-  document.getElementById('tl-range').value=i;
   document.getElementById('tl-active-year').textContent=dates[i]?fmtDate(dates[i]):'';
+  document.getElementById('tl-prev').disabled=false;
+  document.getElementById('tl-next').disabled=i>=dates.length-1;
   drawTl(tlWord,wd,dates,i,true);
   showTlSnippets(tlWord,dates[i]);
+}
+
+function selectOverview(){
+  tlSlider=-1;
+  const wd=semData.words[tlWord];if(!wd)return;
+  const dates=semData.issue_dates.filter(dt=>(wd.neighbors[dt]||[]).length>0);
+  document.getElementById('tl-active-year').textContent='Overview';
+  document.getElementById('tl-prev').disabled=true;
+  document.getElementById('tl-next').disabled=dates.length===0;
+  drawTl(tlWord,wd,dates,-1,false);
+  showTlSnippets(tlWord,null);
+}
+
+function tlNav(dir){
+  const wd=semData.words[tlWord];if(!wd)return;
+  const dates=semData.issue_dates.filter(dt=>(wd.neighbors[dt]||[]).length>0);
+  if(dir>0){if(tlSlider<dates.length-1)selectYear(tlSlider+1);}
+  else{if(tlSlider===0)selectOverview();else if(tlSlider>0)selectYear(tlSlider-1);}
 }
 
 function drawTl(word,wd,dates,hlIdx,noAnim){
@@ -857,14 +877,6 @@ function drawTl(word,wd,dates,hlIdx,noAnim){
     circ.addEventListener('click',()=>selectYear(i));
     circ.appendChild(Object.assign(svgEl('title',{}),{textContent:`${fmtDate(dt)} — click to explore`}));
     svg.appendChild(circ);
-    if(!isPan){
-      const lbl=svgEl('text',{x:(cx+10).toFixed(1),y:(cy+4).toFixed(1),'font-size':'9',fill:'#888','font-family':'system-ui'});
-      lbl.textContent=dt.slice(0,7);svg.appendChild(lbl);
-    }else if(i===hlIdx){
-      svg.appendChild(Object.assign(svgEl('rect',{x:(cx-40).toFixed(1),y:(cy-30).toFixed(1),width:'80',height:'18',rx:'9',fill:'#c44b00'}),{}));
-      const lbl=svgEl('text',{x:cx.toFixed(1),y:(cy-17).toFixed(1),'font-size':'10.5',fill:'#fff','font-family':'system-ui','text-anchor':'middle','font-weight':'bold'});
-      lbl.textContent=fmtDate(dt);svg.appendChild(lbl);
-    }
   });
   // Neighbor words (pan mode only)
   if(isPan&&hlIdx>=0){
@@ -893,7 +905,7 @@ function drawTl(word,wd,dates,hlIdx,noAnim){
 function showTlSnippets(word,filterDate){
   const w=document.getElementById('tl-pages-wrap');
   if(!pages.length){w.innerHTML='';return;}
-  const m=pages.filter(p=>{const t=(p.right_page||'')+' '+(p.left_page||'');return t.includes(word)&&(!filterDate||p.issue_date===filterDate);});
+  const m=pages.filter(p=>{const t=(p.right_page||'')+' '+(p.left_page||'');return containsWord(t,word)&&(!filterDate||p.issue_date===filterDate);});
   if(!m.length){w.innerHTML=`<div class="tl-pages-title">No pages found for "${esc(word)}"${filterDate?' in '+fmtDate(filterDate):''}</div>`;return;}
   const en=psEnMap[word]||'';
   w.innerHTML=`<div class="tl-pages-title">"${esc(word)}"${en?' ('+esc(en)+')':''} — ${m.length} page${m.length!==1?'s':''} ${filterDate?'in '+fmtDate(filterDate):'across all issues'}</div>`;
