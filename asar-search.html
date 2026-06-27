@@ -112,12 +112,12 @@ body{background:var(--bg);color:var(--ink);font-family:var(--font-ui);min-height
 .tl-main{}
 .tl-svg-wrap{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:.9rem;overflow:hidden}
 .tl-svg-title{font-size:.78rem;color:var(--accent);margin-bottom:.4rem}
-.tl-controls{margin-top:.65rem}
-.tl-active-year{font-size:1.05rem;font-weight:700;color:var(--accent);font-family:var(--font-ui);margin-bottom:.38rem;min-height:1.6rem;direction:ltr;letter-spacing:.01em}
-.tl-year-strip{display:flex;flex-wrap:wrap;gap:.3rem}
-.tl-year-btn{padding:.26rem .62rem;border:1.5px solid var(--border);border-radius:14px;background:var(--surface);cursor:pointer;font-size:.73rem;font-family:var(--font-ui);color:var(--muted);transition:background .12s,color .12s,border-color .12s;white-space:nowrap}
-.tl-year-btn:hover{background:var(--sand);border-color:var(--accent);color:var(--accent)}
-.tl-year-btn.active{background:var(--accent);color:#fff;border-color:var(--accent);box-shadow:0 1px 4px rgba(107,18,0,.3)}
+.tl-controls{margin-top:.7rem}
+.tl-slider-row{display:flex;align-items:center;gap:.7rem}
+.tl-active-year{font-size:1.05rem;font-weight:700;color:var(--accent);font-family:var(--font-ui);min-width:110px;direction:ltr;letter-spacing:.01em}
+#tl-range{flex:1;accent-color:var(--accent);cursor:pointer;height:4px}
+.tl-tick-row{display:flex;justify-content:space-between;margin-top:.28rem;padding:0 2px}
+.tl-tick{font-size:.62rem;color:var(--muted);font-family:var(--font-ui)}
 .tl-no-word{font-size:.85rem;color:var(--muted);padding:2rem 1rem;text-align:center}
 .tl-side h4{font-size:.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;margin-bottom:.4rem}
 .drift-btn{display:block;width:100%;text-align:right;padding:.3rem .5rem;border:none;border-radius:3px;background:none;cursor:pointer;margin-bottom:2px;line-height:1.4}
@@ -274,8 +274,11 @@ body{background:var(--bg);color:var(--ink);font-family:var(--font-ui);min-height
         <div class="tl-svg-title" id="tl-svg-title">Semantic Trajectory</div>
         <svg id="tl-svg" width="100%" height="400" viewBox="0 0 640 400" style="display:block"></svg>
         <div class="tl-controls" id="tl-controls" style="display:none">
-          <div class="tl-active-year" id="tl-active-year"></div>
-          <div class="tl-year-strip" id="tl-year-strip"></div>
+          <div class="tl-slider-row">
+            <span class="tl-active-year" id="tl-active-year">Overview</span>
+            <input type="range" id="tl-range" min="0" max="7" value="0" step="1" oninput="selectYear(+this.value)">
+          </div>
+          <div class="tl-tick-row" id="tl-tick-row"></div>
         </div>
       </div>
       <div id="tl-pages-wrap"></div>
@@ -774,17 +777,24 @@ function loadTlWord(word){
     document.getElementById('tl-hint').textContent=`"${word}" not found. Try: ${top}`;
     document.getElementById('tl-pages-wrap').innerHTML='';return;
   }
-  const dates=semData.issue_dates.filter(dt=>wd.coords[dt]);
+  // Only include issues where the word has actual neighbor context — not just a coord projection
+  const dates=semData.issue_dates.filter(dt=>(wd.neighbors[dt]||[]).length>0);
+  if(dates.length===0){
+    svg.innerHTML=`<text x="320" y="200" text-anchor="middle" fill="#aaa" font-family="system-ui" font-size="13">No contextual data found for "${esc(word)}"</text>`;
+    document.getElementById('tl-controls').style.display='none';
+    document.getElementById('tl-pages-wrap').innerHTML='';return;
+  }
   const en=psEnMap[word]?` (${psEnMap[word]})`:'';
-  document.getElementById('tl-svg-title').textContent=`${word}${en} · semantic drift: ${(wd.drift_score||0).toFixed(3)}`;
-  document.getElementById('tl-hint').textContent='Overview of all issues. Click a year button to explore its semantic neighborhood — then click any word or neighbor to see text snippets.';
+  document.getElementById('tl-svg-title').textContent=`${word}${en} · drift: ${(wd.drift_score||0).toFixed(3)} · ${dates.length} issue${dates.length!==1?'s':''}`;
+  document.getElementById('tl-hint').textContent='Drag the slider to move through time and see how the word\'s context changes. Click any neighbor to see snippets.';
   document.getElementById('tl-controls').style.display='block';
-  document.getElementById('tl-active-year').textContent='';
-  const strip=document.getElementById('tl-year-strip');strip.innerHTML='';
-  dates.forEach((dt,i)=>{
-    const b=document.createElement('button');b.className='tl-year-btn';b.textContent=fmtDate(dt);
-    b.onclick=()=>selectYear(i);strip.appendChild(b);
-  });
+  // Build slider
+  const range=document.getElementById('tl-range');
+  range.min=0;range.max=dates.length-1;range.value=0;
+  // Build tick labels
+  const ticks=document.getElementById('tl-tick-row');ticks.innerHTML='';
+  dates.forEach(dt=>{const s=document.createElement('span');s.className='tl-tick';s.textContent=dt.slice(0,7);ticks.appendChild(s);});
+  document.getElementById('tl-active-year').textContent='Overview';
   tlSlider=-1;
   drawTl(word,wd,dates,-1,false);
   showTlSnippets(word,null);
@@ -793,8 +803,9 @@ function loadTlWord(word){
 function selectYear(i){
   tlSlider=i;
   const wd=semData.words[tlWord];if(!wd)return;
-  const dates=semData.issue_dates.filter(dt=>wd.coords[dt]);
-  document.querySelectorAll('.tl-year-btn').forEach((b,j)=>b.classList.toggle('active',j===i));
+  // Same filter as loadTlWord — only issues with actual neighbor context
+  const dates=semData.issue_dates.filter(dt=>(wd.neighbors[dt]||[]).length>0);
+  document.getElementById('tl-range').value=i;
   document.getElementById('tl-active-year').textContent=dates[i]?fmtDate(dates[i]):'';
   drawTl(tlWord,wd,dates,i,true);
   showTlSnippets(tlWord,dates[i]);
