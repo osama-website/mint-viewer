@@ -51,7 +51,8 @@ body{background:var(--bg);color:var(--ink);font-family:var(--font-ui);min-height
 .card-meta{display:flex;justify-content:space-between;align-items:center;margin-bottom:.38rem}
 .card-date{font-size:.68rem;color:var(--muted);font-family:var(--font-ui)}
 .side-tag{display:inline-block;margin-left:.35rem;background:var(--sand);border-radius:3px;font-size:.6rem;padding:.05rem .3rem;color:var(--muted);vertical-align:middle;font-family:var(--font-ui)}
-.card-snippet{direction:rtl;font-family:var(--font-ps);font-size:.93rem;line-height:1.9;margin-bottom:.42rem;word-break:break-word}
+.card-snippet{direction:rtl;font-family:var(--font-ps);font-size:.93rem;line-height:1.9;margin-bottom:.2rem;word-break:break-word}
+.card-en{direction:ltr;font-family:var(--font-ui);font-size:.75rem;color:var(--muted);line-height:1.55;margin-bottom:.35rem;font-style:italic;border-left:2px solid var(--border);padding-left:.5rem}
 .card-snippet mark{background:#fde68a;color:#000;border-radius:2px;padding:0 2px;font-style:normal}
 .scan-preview{margin-top:.45rem}
 .scan-preview img{max-width:100%;border-radius:4px;border:1px solid var(--border);display:block}
@@ -461,10 +462,11 @@ let debT=null;
 
 async function initSearch(){
   showSkels();
-  const[pg,tr,s]=await Promise.all([loadJSON('tooba_pages'),loadJSON('tooba_translations'),loadJSON('tooba_search')]);
+  const[pg,tr,s,pt]=await Promise.all([loadJSON('tooba_pages'),loadJSON('tooba_translations'),loadJSON('tooba_search'),loadJSON('tooba_page_translations').catch(()=>null)]);
   if(!pg)return;
   pages=pg;pages.forEach(p=>pageMap[p.id]=p);
   trans=tr||{};si=s||{};
+  if(pt)pageTrans=pt;
   buildIssueChips();
   showFeatured();
   document.getElementById('intro-banner').style.display='none';
@@ -640,6 +642,12 @@ function buildCard(p, hlWord, side) {
       </div>
     </div>
     <div class="card-snippet">${displaySnippet}</div>
+    ${(()=>{
+      if(!pageTrans) return '';
+      const pt=pageTrans[String(p.id)];if(!pt) return '';
+      const enText=(side==='right'?pt.right:side==='left'?pt.left:(pt.right||pt.left))||'';
+      return enText?`<div class="card-en">${esc(enText.slice(0,200))}${enText.length>200?'…':''}</div>`:'';
+    })()}
     <div class="scan-preview" style="display:none"><img src="" loading="lazy" alt="Scan"></div>
     <div class="tags-row">${tags}</div>`;
   return card;
