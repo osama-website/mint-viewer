@@ -660,21 +660,35 @@ function buildCard(p, hlWord, side) {
 }
 
 function renderCollapsed(card){
-  // Restore collapsed state — just hide expand content and show snippet
   const exp=card.querySelector('.card-expand');
   if(exp)exp.remove();
   card.classList.remove('expanded');
   card.querySelector('.act-btn').style.display='none';
   card.style.cursor='pointer';
+  const snip=card.querySelector('.card-snippet');if(snip)snip.style.display='';
+  const en=card.querySelector('.card-en');if(en)en.style.display='';
+  const tags=card.querySelector('.tags-row');if(tags)tags.style.display='';
 }
 
 function expandCard(card, p, hlWord, side){
   if(card.classList.contains('expanded'))return;
-  // Collapse any other open card
-  document.querySelectorAll('.card.expanded').forEach(c=>{const e=c.querySelector('.card-expand');if(e)e.remove();c.classList.remove('expanded');const b=c.querySelector('.act-btn');if(b)b.style.display='none';c.style.cursor='pointer';});
+  // Collapse any other open card, restoring hidden elements
+  document.querySelectorAll('.card.expanded').forEach(c=>{
+    const e=c.querySelector('.card-expand');if(e)e.remove();
+    c.classList.remove('expanded');
+    const b=c.querySelector('.act-btn');if(b)b.style.display='none';
+    c.style.cursor='pointer';
+    const s=c.querySelector('.card-snippet');if(s)s.style.display='';
+    const en=c.querySelector('.card-en');if(en)en.style.display='';
+    const tr=c.querySelector('.tags-row');if(tr)tr.style.display='';
+  });
   card.classList.add('expanded');
   card.style.cursor='default';
   card.querySelector('.act-btn').style.display='inline-block';
+  // Hide snippet/translation preview — full text shown in expand area
+  const snip=card.querySelector('.card-snippet');if(snip)snip.style.display='none';
+  const cen=card.querySelector('.card-en');if(cen)cen.style.display='none';
+  const tags=card.querySelector('.tags-row');if(tags)tags.style.display='none';
 
   const cols=buildColPages(p.issue_date);
   let idx=cols.findIndex(c=>c.spread.id===p.id&&c.side===side);
