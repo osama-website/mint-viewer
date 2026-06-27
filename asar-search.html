@@ -861,7 +861,12 @@ function drawTl(word,wd,dates,hlIdx,noAnim){
         const[nx,ny]=toS(nc);
         svg.appendChild(svgEl('line',{x1:mx.toFixed(1),y1:my.toFixed(1),x2:nx.toFixed(1),y2:ny.toFixed(1),stroke:'#e8833a','stroke-width':'1','stroke-dasharray':'3 2',opacity:'.3'}));
       });
-      svg.appendChild(svgEl('path',{d:pathD,fill:'none',stroke:'#ddd','stroke-width':'1.2','stroke-dasharray':'4 3'}));
+      // Revealed path up to current issue
+      const revPts=coords.slice(0,hlIdx+1).filter(Boolean);
+      if(revPts.length>=2){const revD=revPts.map(([cx,cy],i)=>(i===0?'M':'L')+cx.toFixed(1)+' '+cy.toFixed(1)).join(' ');svg.appendChild(svgEl('path',{d:revD,fill:'none',stroke:'#8b1a00','stroke-width':'2','stroke-dasharray':'6 3'}));}
+      // Future path (faint)
+      const futPts=coords.slice(hlIdx).filter(Boolean);
+      if(futPts.length>=2){const futD=futPts.map(([cx,cy],i)=>(i===0?'M':'L')+cx.toFixed(1)+' '+cy.toFixed(1)).join(' ');svg.appendChild(svgEl('path',{d:futD,fill:'none',stroke:'#e0d8d0','stroke-width':'1','stroke-dasharray':'3 4'}));}
     }
   }
   // Dots
@@ -882,9 +887,12 @@ function drawTl(word,wd,dates,hlIdx,noAnim){
       const lx=cx>W*0.62?(cx-12).toFixed(1):(cx+12).toFixed(1);
       const yrl=svgEl('text',{x:lx,y:(cy-2).toFixed(1),'font-size':'10','font-weight':'bold',fill:'#6b1200','font-family':'system-ui','text-anchor':anchor,'paint-order':'stroke fill',stroke:'#fdf9f4','stroke-width':'2.5'});
       yrl.textContent=dt.slice(0,4);svg.appendChild(yrl);
-      (wd.neighbors[dt]||[]).slice(0,3).forEach((nb,j)=>{
-        const nl=svgEl('text',{x:lx,y:(cy+11+j*12).toFixed(1),'font-size':'8.5',fill:'#a05020','font-family':"'Noto Nastaliq Urdu',serif",'text-anchor':anchor,'paint-order':'stroke fill',stroke:'#fdf9f4','stroke-width':'2'});
-        nl.textContent=nb;svg.appendChild(nl);
+      let nbY=cy+12;
+      (wd.neighbors[dt]||[]).slice(0,3).forEach(nb=>{
+        const nl=svgEl('text',{x:lx,y:nbY.toFixed(1),'font-size':'8.5',fill:'#a05020','font-family':"'Noto Nastaliq Urdu',serif",'text-anchor':anchor,'paint-order':'stroke fill',stroke:'#fdf9f4','stroke-width':'2'});
+        nl.textContent=nb;svg.appendChild(nl);nbY+=11;
+        const en=psEnMap[nb]||'';
+        if(en){const el=svgEl('text',{x:lx,y:nbY.toFixed(1),'font-size':'7.5',fill:'#bbb','font-family':'system-ui','text-anchor':anchor,'paint-order':'stroke fill',stroke:'#fdf9f4','stroke-width':'1.5'});el.textContent=en;svg.appendChild(el);nbY+=10;}else{nbY+=11;}
       });
     }
   });
