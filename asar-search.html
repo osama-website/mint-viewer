@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Asar — اثر: Tooba Magazine Archive 1928–1939</title>
+<title>پښتون — Pukhtoon Magazine Digital Archive 1928–1939</title>
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <style>
@@ -45,25 +45,23 @@ body{background:var(--bg);color:var(--ink);font-family:var(--font-ui);min-height
 .sort-btn.active{background:var(--accent);color:#fff;border-color:var(--accent)}
 .results-info{font-size:.76rem;color:var(--muted);margin-bottom:.5rem}
 
-/* Cards */
-.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);margin-bottom:.75rem;padding:.85rem;box-shadow:var(--shadow);transition:box-shadow .15s}
+/* Cards — text-first */
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);margin-bottom:.75rem;padding:.85rem 1rem;box-shadow:var(--shadow);transition:box-shadow .15s;cursor:pointer}
 .card:hover{box-shadow:0 4px 14px rgba(0,0,0,.12)}
-.card-inner{display:flex;gap:.8rem}
-.thumb-wrap{position:relative;flex-shrink:0;cursor:pointer;width:64px;height:80px}
-.thumb-wrap img{width:64px;height:80px;object-fit:cover;border-radius:3px;border:1px solid var(--border);display:block}
-.thumb-overlay{position:absolute;inset:0;background:rgba(0,0,0,.38);border-radius:3px;display:none;align-items:center;justify-content:center;color:#fff;font-size:.58rem;text-align:center}
-.thumb-wrap:hover .thumb-overlay{display:flex}
-.card-body{flex:1;min-width:0}
-.card-date{font-size:.68rem;color:var(--muted);margin-bottom:.18rem}
-.card-text{font-size:.9rem;line-height:1.75;direction:rtl;font-family:var(--font-ps)}
-.tags-row{display:flex;flex-wrap:wrap;gap:.28rem;margin-top:.45rem}
+.card-meta{display:flex;justify-content:space-between;align-items:center;margin-bottom:.38rem}
+.card-date{font-size:.68rem;color:var(--muted);font-family:var(--font-ui)}
+.card-snippet{direction:rtl;font-family:var(--font-ps);font-size:.93rem;line-height:1.9;margin-bottom:.42rem;word-break:break-word}
+.card-snippet mark{background:#fde68a;color:#000;border-radius:2px;padding:0 2px;font-style:normal}
+.scan-preview{margin-top:.45rem}
+.scan-preview img{max-width:100%;border-radius:4px;border:1px solid var(--border);display:block}
+.tags-row{display:flex;flex-wrap:wrap;gap:.28rem;margin-top:.42rem}
 .tag{font-size:.63rem;padding:.13rem .38rem;border-radius:3px;cursor:pointer}
 .tag:hover{opacity:.8}
 .tag.keyword{background:#e8f4e8;color:#2a6a2a}
 .tag.location{background:#e8eef8;color:#1a3a7a}
 .tag.person{background:#fde8e8;color:#7a1a1a}
-.card-actions{display:flex;gap:.35rem;margin-top:.45rem}
-.act-btn{font-size:.68rem;padding:.2rem .5rem;border:1px solid var(--border);border-radius:3px;background:var(--sand);cursor:pointer}
+.card-actions{display:flex;gap:.3rem}
+.act-btn{font-size:.68rem;padding:.2rem .5rem;border:1px solid var(--border);border-radius:3px;background:var(--sand);cursor:pointer;font-family:var(--font-ui)}
 .act-btn:hover{background:var(--border)}
 
 /* Skeleton */
@@ -114,15 +112,16 @@ body{background:var(--bg);color:var(--ink);font-family:var(--font-ui);min-height
 .tl-main{}
 .tl-svg-wrap{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:.9rem;overflow:hidden}
 .tl-svg-title{font-size:.78rem;color:var(--accent);margin-bottom:.4rem}
-.tl-controls{display:flex;gap:.4rem;align-items:center;margin-top:.5rem}
-.tl-play-btn{padding:.22rem .55rem;border:1px solid var(--border);border-radius:3px;background:var(--sand);cursor:pointer;font-size:.72rem}
-.tl-play-btn:hover{background:var(--border)}
-.tl-slider{flex:1;cursor:pointer}
-.tl-slider-label{font-size:.68rem;color:var(--muted);min-width:80px}
+.tl-controls{margin-top:.65rem}
+.tl-active-year{font-size:1.05rem;font-weight:700;color:var(--accent);font-family:var(--font-ui);margin-bottom:.38rem;min-height:1.6rem;direction:ltr;letter-spacing:.01em}
+.tl-year-strip{display:flex;flex-wrap:wrap;gap:.3rem}
+.tl-year-btn{padding:.26rem .62rem;border:1.5px solid var(--border);border-radius:14px;background:var(--surface);cursor:pointer;font-size:.73rem;font-family:var(--font-ui);color:var(--muted);transition:background .12s,color .12s,border-color .12s;white-space:nowrap}
+.tl-year-btn:hover{background:var(--sand);border-color:var(--accent);color:var(--accent)}
+.tl-year-btn.active{background:var(--accent);color:#fff;border-color:var(--accent);box-shadow:0 1px 4px rgba(107,18,0,.3)}
 .tl-no-word{font-size:.85rem;color:var(--muted);padding:2rem 1rem;text-align:center}
 .tl-side h4{font-size:.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;margin-bottom:.4rem}
-.drift-btn{display:block;width:100%;text-align:right;padding:.28rem .4rem;border:none;border-radius:3px;background:none;font-family:var(--font-ps);font-size:.8rem;cursor:pointer;margin-bottom:1px}
-.drift-btn:hover{background:var(--sand);color:var(--accent)}
+.drift-btn{display:block;width:100%;text-align:right;padding:.3rem .5rem;border:none;border-radius:3px;background:none;cursor:pointer;margin-bottom:2px;line-height:1.4}
+.drift-btn:hover{background:var(--sand)}
 .drift-btn.active{background:var(--accent);color:#fff}
 .tl-pages-title{font-size:.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;margin:.8rem 0 .4rem}
 
@@ -167,40 +166,41 @@ body{background:var(--bg);color:var(--ink);font-family:var(--font-ui);min-height
 .stat-num{font-size:1.65rem;font-weight:bold;color:var(--accent)}
 .stat-label{font-size:.7rem;color:var(--muted)}
 
-/* Reader */
+/* Reader — text-first two-column */
 #reader{display:none;position:fixed;inset:0;background:#111;z-index:9999;flex-direction:column}
 #reader.open{display:flex}
 .rd-header{background:#1a1a1a;color:#eee;padding:.45rem .9rem;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #333;flex-shrink:0}
-.rd-title{font-size:.82rem}
+.rd-title{font-size:.82rem;font-family:system-ui}
 .rd-nav{display:flex;gap:.35rem;align-items:center}
-.rd-nav-btn{background:#333;color:#eee;border:none;border-radius:3px;padding:.28rem .55rem;cursor:pointer;font-size:.76rem}
+.rd-nav-btn{background:#333;color:#eee;border:none;border-radius:3px;padding:.28rem .55rem;cursor:pointer;font-size:.76rem;font-family:system-ui}
 .rd-nav-btn:hover{background:#555}
 .rd-nav-btn:disabled{opacity:.35;cursor:default}
 .rd-close{background:none;border:none;color:#eee;font-size:1.4rem;cursor:pointer;line-height:1;padding:0 .3rem}
 .rd-close:hover{color:#fff}
-.rd-body{flex:1;display:grid;grid-template-columns:1fr 1fr;overflow:hidden}
-.rd-img-panel{position:relative;background:#0a0a0a;overflow:hidden;border-right:1px solid #333}
-#rd-img{position:relative;display:block;width:100%;height:auto;cursor:grab;user-select:none;transform-origin:top left}
-#rd-img.zoomed{position:absolute;width:auto;height:auto}
-#rd-img:active{cursor:grabbing}
-.zoom-bar{position:absolute;bottom:.55rem;left:.55rem;display:flex;gap:.28rem;z-index:10}
-.z-btn{background:rgba(0,0,0,.65);color:#eee;border:1px solid #555;border-radius:3px;padding:.22rem .48rem;cursor:pointer;font-size:.74rem}
-.z-btn:hover{background:rgba(255,255,255,.15)}
-.rd-text-panel{background:#1c1c1c;color:#e8e0d0;overflow-y:auto;padding:1.1rem}
-.rd-sec-label{font-size:.65rem;text-transform:uppercase;letter-spacing:.07em;color:#777;margin-bottom:.4rem}
-.rd-text{direction:rtl;font-family:var(--font-ps);font-size:.98rem;line-height:2;margin-bottom:1.1rem}
-.rd-text .hl{background:#d4a900;color:#000;border-radius:2px;padding:0 1px}
-.rd-text-actions{display:flex;gap:.45rem;margin-top:.4rem}
-.ta-btn{background:#2a2a2a;color:#ccc;border:1px solid #444;border-radius:3px;padding:.22rem .55rem;cursor:pointer;font-size:.7rem}
-.ta-btn:hover{background:#3a3a3a;color:#eee}
-.rd-footer{background:#1a1a1a;color:#777;padding:.38rem .9rem;display:flex;justify-content:space-between;align-items:center;font-size:.72rem;border-top:1px solid #333;flex-shrink:0}
+.rd-body{flex:1;display:grid;grid-template-columns:1fr 1px 1fr;overflow:hidden}
+.rd-divider{background:#282828}
+.rd-col{padding:1.2rem 1.5rem;overflow-y:auto;background:#1c1c1c;color:#e8e0d0;display:flex;flex-direction:column}
+.rd-page-label{font-size:.6rem;text-transform:uppercase;letter-spacing:.1em;color:#444;font-family:system-ui;direction:ltr;margin-bottom:.2rem}
+.rd-page-num{font-size:.68rem;color:#3a3a3a;font-family:system-ui;direction:ltr;margin-bottom:.75rem}
+.rd-text{direction:rtl;font-family:var(--font-ps);font-size:1.02rem;line-height:2.15;color:#ddd5c5;flex:1}
+.rd-text .hl{background:#c8a500;color:#000;border-radius:2px;padding:0 2px}
+.rd-scan-strip{background:#0d0d0d;border-top:1px solid #202020;padding:.4rem .8rem;display:flex;align-items:center;gap:.65rem;flex-shrink:0}
+.rd-scan-thumb{height:50px;width:auto;border-radius:2px;border:1px solid #2a2a2a;cursor:zoom-in;opacity:.65;transition:opacity .15s}
+.rd-scan-thumb:hover{opacity:1}
+.ta-btn{background:#252525;color:#bbb;border:1px solid #3a3a3a;border-radius:3px;padding:.22rem .55rem;cursor:pointer;font-size:.7rem;font-family:system-ui;text-decoration:none;display:inline-block}
+.ta-btn:hover{background:#333;color:#eee}
+.rd-footer{background:#161616;color:#555;padding:.38rem .9rem;display:flex;justify-content:space-between;align-items:center;font-size:.72rem;border-top:1px solid #222;flex-shrink:0;font-family:system-ui}
+#rd-scan-full{display:none;position:fixed;inset:0;background:rgba(0,0,0,.94);z-index:10001;align-items:center;justify-content:center;cursor:zoom-out}
+#rd-scan-full.open{display:flex}
+#rd-scan-full img{max-width:95vw;max-height:95vh;object-fit:contain;border-radius:3px}
 
 /* Error */
 .error-bar{background:#fff3cd;border:1px solid #ffc107;border-radius:var(--radius);padding:.7rem .9rem;font-size:.82rem;margin-bottom:.8rem;color:#856404}
 
 @media(max-width:700px){
-  .rd-body{grid-template-columns:1fr}
-  .rd-img-panel{height:220px}
+  .rd-body{grid-template-columns:1fr;grid-template-rows:1fr 1px 1fr}
+  .rd-divider{width:100%;height:1px}
+  .rd-col{max-height:45vh}
   .tl-layout{grid-template-columns:1fr}
   .tag-cols{grid-template-columns:1fr 1fr}
 }
@@ -210,8 +210,8 @@ body{background:var(--bg);color:var(--ink);font-family:var(--font-ui);min-height
 
 <header class="site-header">
   <div>
-    <div class="site-title">اثر <span style="font-size:.85rem;font-family:var(--font-en);opacity:.82">Asar</span></div>
-    <div class="site-tagline">Tooba Magazine Archive · 1928–1939 · پښتو</div>
+    <div class="site-title">پښتون <span style="font-size:.85rem;font-family:var(--font-en);opacity:.82">Pukhtoon</span></div>
+    <div class="site-tagline">The پښتون Magazine · Peshawar 1928–1939 · Digital Archive</div>
   </div>
   <button class="lang-toggle" id="lang-toggle" onclick="toggleLang()">پښتو</button>
 </header>
@@ -223,18 +223,18 @@ body{background:var(--bg);color:var(--ink);font-family:var(--font-ui);min-height
   <button class="tab-btn"        onclick="switchTab('map')"      id="tab-map"      data-en="Map"      data-ps="نقشه">Map</button>
   <button class="tab-btn"        onclick="switchTab('tags')"     id="tab-tags"     data-en="Tags"     data-ps="نښانې">Tags</button>
   <button class="tab-btn"        onclick="switchTab('topics')"   id="tab-topics"   data-en="Topics"   data-ps="موضوعات">Topics</button>
-  <button class="tab-btn"        onclick="switchTab('about')"    id="tab-about"    data-en="About"    data-ps="د اثر کیسه">About</button>
+  <button class="tab-btn"        onclick="switchTab('about')"    id="tab-about"    data-en="About"    data-ps="د پښتون کیسه">About</button>
 </nav>
 
 <!-- Search -->
 <div class="view active" id="view-search">
   <div class="about-banner" id="intro-banner">
-    <h3>Welcome to Asar — اثر</h3>
-    <p>A searchable digital archive of <em>Tooba</em>, a Pashto-language magazine published in Peshawar 1928–1939. Search in English or Pashto, browse scans, explore the archive.</p>
+    <h3>پښتون — Pukhtoon Magazine, 1928–1939</h3>
+    <p>A searchable digital archive of <em>Pukhtoon</em> (پښتون), a Pashto-language magazine published in Peshawar under British colonial rule. Search in English or Pashto, browse issues, explore the archive.</p>
   </div>
   <div class="search-bar">
     <input type="text" id="search-input"
-      placeholder="Search in English or Pashto — try 'freedom', 'Palestine', 'education'"
+      placeholder="Search in English or Pashto"
       oninput="onSearchInput(this.value)" onkeydown="if(event.key==='Enter')doSearch()">
     <button class="btn btn-primary" onclick="doSearch()">Search</button>
     <button class="btn btn-secondary" onclick="clearSearch()">Clear</button>
@@ -264,7 +264,7 @@ body{background:var(--bg);color:var(--ink);font-family:var(--font-ui);min-height
 <!-- Timeline -->
 <div class="view" id="view-timeline">
   <div class="tl-search">
-    <input type="text" id="tl-input" placeholder="Word in English or Pashto — try 'freedom', 'ازادي'" onkeydown="if(event.key==='Enter')doTimeline()">
+    <input type="text" id="tl-input" placeholder="Search in English or Pashto" onkeydown="if(event.key==='Enter')doTimeline()">
     <button class="btn btn-primary" onclick="doTimeline()">Show</button>
   </div>
   <div class="tl-hint" id="tl-hint">Semantic trajectory across issues. Click a word on the right to explore its drift.</div>
@@ -272,11 +272,10 @@ body{background:var(--bg);color:var(--ink);font-family:var(--font-ui);min-height
     <div class="tl-main">
       <div class="tl-svg-wrap">
         <div class="tl-svg-title" id="tl-svg-title">Semantic Trajectory</div>
-        <svg id="tl-svg" width="100%" height="340" viewBox="0 0 580 340" style="display:block"></svg>
+        <svg id="tl-svg" width="100%" height="400" viewBox="0 0 640 400" style="display:block"></svg>
         <div class="tl-controls" id="tl-controls" style="display:none">
-          <button class="tl-play-btn" id="tl-play-btn" onclick="togglePlay()">▶ Play</button>
-          <input type="range" class="tl-slider" id="tl-slider" min="0" max="7" value="0" oninput="onSlider(this.value)">
-          <span class="tl-slider-label" id="tl-slider-label"></span>
+          <div class="tl-active-year" id="tl-active-year"></div>
+          <div class="tl-year-strip" id="tl-year-strip"></div>
         </div>
       </div>
       <div id="tl-pages-wrap"></div>
@@ -337,15 +336,15 @@ body{background:var(--bg);color:var(--ink);font-family:var(--font-ui);min-height
 
 <!-- About -->
 <div class="view" id="view-about">
-  <h2>Asar — اثر (Traces)</h2>
-  <p><strong>Asar</strong> (اثر, meaning "traces" or "heritage") is a digital archive of <em>Tooba</em>, a Pashto-language magazine published in Peshawar between 1928 and 1939. This viewer makes the full text of all preserved spreads searchable for the first time.</p>
+  <h2>پښتون — Pukhtoon Magazine (1928–1939)</h2>
+  <p><em>Pukhtoon</em> (پښتون) was a Pashto-language magazine published in Peshawar under British colonial rule. This digital archive makes the full text of all preserved spreads searchable for the first time.</p>
   <div class="stat-grid" id="about-stats"></div>
   <h3>About the Magazine</h3>
-  <p>Tooba covered politics, literature, religion, education, and daily life under British colonial rule in the North-West Frontier Province. It was an important voice for Pashto literacy and cultural identity, featuring poetry, news, and commentary.</p>
+  <p>Pukhtoon covered politics, literature, religion, education, and daily life in the North-West Frontier Province. It was a significant voice for Pashto literacy and cultural identity, featuring poetry, news, and commentary.</p>
   <h3>Methodology</h3>
   <p>Each spread was photographed, reduced to JPEG, and transcribed using Google Gemini's multimodal OCR. Analysis uses TF-IDF for search indexing, K-Means + UMAP for topic clustering, and PPMI co-occurrence matrices with UMAP projection to measure semantic drift across issues.</p>
   <h3>Attribution</h3>
-  <p style="color:var(--muted);font-size:.85rem">OCR and analysis by Asar. Magazine: <em>Tooba</em>, 1928–1939, NWFP, British India. Archive viewer built with Claude Code.</p>
+  <p style="color:var(--muted);font-size:.85rem">Magazine: <em>Pukhtoon</em> (پښتون), 1928–1939, Peshawar, NWFP, British India. OCR and archive viewer built with Claude Code.</p>
 </div>
 
 <!-- Reader -->
@@ -362,32 +361,34 @@ body{background:var(--bg);color:var(--ink);font-family:var(--font-ui);min-height
     </div>
   </div>
   <div class="rd-body">
-    <div class="rd-img-panel" id="rd-img-panel">
-      <img id="rd-img" src="" alt="">
-      <div class="zoom-bar">
-        <button class="z-btn" onclick="zoomIn()">🔍+</button>
-        <button class="z-btn" onclick="zoomOut()">🔍−</button>
-        <button class="z-btn" onclick="zoomFit()">⊡ Fit</button>
-      </div>
-    </div>
-    <div class="rd-text-panel">
-      <div class="rd-sec-label">RIGHT PAGE</div>
+    <div class="rd-col" id="rd-col-right">
+      <div class="rd-page-label">Right Page</div>
+      <div class="rd-page-num" id="rd-num-right"></div>
       <div class="rd-text" id="rd-right"></div>
-      <div class="rd-sec-label">LEFT PAGE</div>
+    </div>
+    <div class="rd-divider"></div>
+    <div class="rd-col" id="rd-col-left">
+      <div class="rd-page-label">Left Page</div>
+      <div class="rd-page-num" id="rd-num-left"></div>
       <div class="rd-text" id="rd-left"></div>
-      <div class="rd-text-actions">
-        <button class="ta-btn" onclick="copyText()">📋 Copy</button>
-        <button class="ta-btn" onclick="translateText()">🌐 Translate</button>
-        <a class="ta-btn" id="rd-dl" download style="text-decoration:none">⬇ Image</a>
-      </div>
+    </div>
+  </div>
+  <div class="rd-scan-strip">
+    <span style="font-size:.63rem;color:#3a3a3a;font-family:system-ui;flex-shrink:0">Scan:</span>
+    <img class="rd-scan-thumb" id="rd-scan-thumb" src="" alt="Page scan" onclick="openScanFull()">
+    <div style="display:flex;gap:.38rem;margin-left:auto;align-items:center">
+      <button class="ta-btn" onclick="copyText()">📋 Copy text</button>
+      <button class="ta-btn" onclick="translateText()">🌐 Translate</button>
+      <a class="ta-btn" id="rd-dl" download>⬇ Scan</a>
     </div>
   </div>
   <div class="rd-footer">
     <button class="rd-nav-btn" onclick="readerNav(-1)">◀ Previous</button>
-    <span id="rd-footer-label" style="font-size:.72rem;color:#777"></span>
+    <span id="rd-footer-label"></span>
     <button class="rd-nav-btn" onclick="readerNav(1)">Next ▶</button>
   </div>
 </div>
+<div id="rd-scan-full" onclick="closeScanFull()"><img id="rd-scan-full-img" src="" alt="Full scan"></div>
 
 <script>
 const BASE='https://raw.githubusercontent.com/osama-website/mint-viewer/master';
@@ -558,23 +559,51 @@ function clearSearch(){
   if(pages.length)showFeatured();
 }
 
-function buildCard(p,hlWord){
-  const card=document.createElement('div');card.className='card';
-  const preview=((p.right_page||'')+(p.left_page||'')).trim().slice(0,120);
-  const tags=(p.tags||[]).slice(0,6).map(t=>`<span class="tag ${esc(t.type)}" onclick="jumpToTag('${esc(t.label)}')">${esc(t.label)}</span>`).join('');
-  card.innerHTML=`<div class="card-inner">
-    <div class="thumb-wrap" onclick="openReader(${p.id})">
-      <img src="${esc(p.img_url)}" loading="lazy" alt="" onerror="this.style.display='none'">
-      <div class="thumb-overlay">Click to read</div>
+function getSnippet(text, word, chars=240) {
+  if(!text) return '';
+  const idx = word ? text.indexOf(word) : -1;
+  if(idx === -1) return text.slice(0, chars) + (text.length > chars ? '…' : '');
+  const half = Math.floor((chars - word.length) / 2);
+  const start = Math.max(0, idx - half);
+  const end = Math.min(text.length, idx + word.length + half);
+  return (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
+}
+
+function buildCard(p, hlWord) {
+  const card = document.createElement('div');
+  card.className = 'card';
+  card.onclick = () => openReader(p.id, hlWord);
+  const fullText = (p.right_page || '') + ' ' + (p.left_page || '');
+  const snippet = getSnippet(fullText, hlWord, 240);
+  const safeHL = hlWord ? esc(hlWord).replace(/[.*+?^${}()|[\]\\]/g,'\\$&') : null;
+  const displaySnippet = safeHL
+    ? esc(snippet).replace(new RegExp(safeHL, 'g'), m => `<mark>${m}</mark>`)
+    : esc(snippet);
+  const tags = (p.tags||[]).slice(0,5).map(t =>
+    `<span class="tag ${esc(t.type)}" onclick="event.stopPropagation();jumpToTag('${esc(t.label)}')">${esc(t.label)}</span>`
+  ).join('');
+  const imgUrl = esc(p.img_url);
+  card.innerHTML = `
+    <div class="card-meta">
+      <span class="card-date">${fmtDate(p.issue_date)}</span>
+      <div class="card-actions">
+        <button class="act-btn" onclick="event.stopPropagation();openReader(${p.id},${hlWord?`'${esc(hlWord)}'`:'null'})">Read full page</button>
+        <button class="act-btn" onclick="event.stopPropagation();toggleScan(this,'${imgUrl}')">📷 Scan</button>
+      </div>
     </div>
-    <div class="card-body">
-      <div class="card-date">${fmtDate(p.issue_date)} · ${esc(p.file)}</div>
-      <div class="card-text">${esc(preview)}${preview.length>=120?'…':''}</div>
-      <div class="tags-row">${tags}</div>
-      <div class="card-actions"><button class="act-btn" onclick="openReader(${p.id})">Read →</button></div>
-    </div>
-  </div>`;
+    <div class="card-snippet">${displaySnippet}</div>
+    <div class="scan-preview" style="display:none"><img src="" loading="lazy" alt="Scan"></div>
+    <div class="tags-row">${tags}</div>`;
   return card;
+}
+
+function toggleScan(btn, imgUrl) {
+  const preview = btn.closest('.card').querySelector('.scan-preview');
+  const img = preview.querySelector('img');
+  const hidden = preview.style.display === 'none';
+  preview.style.display = hidden ? 'block' : 'none';
+  if(hidden) img.src = imgUrl;
+  btn.textContent = hidden ? '📷 Hide' : '📷 Scan';
 }
 
 function jumpToTag(label){switchTab('tags');setTimeout(()=>showTagResults(label),150);}
@@ -612,62 +641,72 @@ function showIssuePgs(dt){
 }
 
 // ── READER ────────────────────────────────────────────────────────────────────
-let rPgs=[],rIdx=0,zScale=1,zX=0,zY=0,zDrag=false,zLast={x:0,y:0};
+let rPgs=[],rIdx=0,rdHlW=null;
 
-function openReader(pid,hlW){
-  const p=pageMap[pid];if(!p)return;
-  rPgs=pages.filter(pg=>pg.issue_date===p.issue_date).sort((a,b)=>a.id-b.id);
-  rIdx=rPgs.findIndex(pg=>pg.id===pid);
-  renderRd(hlW);
+function openReader(pid, hlW) {
+  const p = pageMap[pid]; if(!p) return;
+  rPgs = pages.filter(pg => pg.issue_date === p.issue_date).sort((a,b) => a.id - b.id);
+  rIdx = rPgs.findIndex(pg => pg.id === pid);
+  rdHlW = hlW || null;
+  renderRd();
   document.getElementById('reader').classList.add('open');
-  document.body.style.overflow='hidden';
+  document.body.style.overflow = 'hidden';
 }
-function closeReader(){document.getElementById('reader').classList.remove('open');document.body.style.overflow='';}
+function closeReader() { document.getElementById('reader').classList.remove('open'); document.body.style.overflow = ''; }
+function openScanFull() { const p=rPgs[rIdx]; if(!p) return; document.getElementById('rd-scan-full-img').src=p.img_url; document.getElementById('rd-scan-full').classList.add('open'); }
+function closeScanFull() { document.getElementById('rd-scan-full').classList.remove('open'); }
 
-function renderRd(hlW){
-  const p=rPgs[rIdx];if(!p)return;
-  document.getElementById('rd-title').textContent=`اثر Asar | ${fmtDate(p.issue_date)} · Page ${rIdx+1} of ${rPgs.length}`;
-  document.getElementById('rd-counter').textContent=`${rIdx+1} / ${rPgs.length}`;
-  document.getElementById('rd-footer-label').textContent=`${fmtDate(p.issue_date)} (${rPgs.length} pages)`;
-  document.getElementById('rd-prev').disabled=rIdx===0;
-  document.getElementById('rd-next').disabled=rIdx===rPgs.length-1;
-  const img=document.getElementById('rd-img');img.src=p.img_url;
-  const dl=document.getElementById('rd-dl');dl.href=p.img_url;dl.download=p.file;
-  zoomFit();
-  const hlFn=t=>{if(!hlW||!t)return esc(t||'');return esc(t).replace(new RegExp(esc(hlW).replace(/[.*+?^${}()|[\]\\]/g,'\\$&'),'g'),m=>`<span class="hl">${m}</span>`);};
-  document.getElementById('rd-right').innerHTML=hlFn(p.right_page);
-  document.getElementById('rd-left').innerHTML=hlFn(p.left_page);
-  if(hlW)setTimeout(()=>{const h=document.querySelector('.rd-text-panel .hl');if(h)h.scrollIntoView({block:'center',behavior:'smooth'});},120);
+function renderRd() {
+  const p = rPgs[rIdx]; if(!p) return;
+  document.getElementById('rd-title').textContent = `پښتون · ${fmtDate(p.issue_date)} · Page ${rIdx+1} of ${rPgs.length}`;
+  document.getElementById('rd-counter').textContent = `${rIdx+1} / ${rPgs.length}`;
+  document.getElementById('rd-footer-label').textContent = `${fmtDate(p.issue_date)} — ${rPgs.length} pages in this issue`;
+  document.getElementById('rd-prev').disabled = rIdx === 0;
+  document.getElementById('rd-next').disabled = rIdx === rPgs.length - 1;
+  document.getElementById('rd-num-right').textContent = `Page ${rIdx+1} · right spread`;
+  document.getElementById('rd-num-left').textContent = `Page ${rIdx+1} · left spread`;
+  const thumb = document.getElementById('rd-scan-thumb'); thumb.src = p.img_url;
+  const dl = document.getElementById('rd-dl'); dl.href = p.img_url; dl.download = p.file;
+  const hlFn = t => {
+    if(!t) return '<span style="color:#333;font-size:.85rem">(no text)</span>';
+    if(!rdHlW) return esc(t);
+    return esc(t).replace(new RegExp(esc(rdHlW).replace(/[.*+?^${}()|[\]\\]/g,'\\$&'), 'g'), m => `<span class="hl">${m}</span>`);
+  };
+  document.getElementById('rd-right').innerHTML = hlFn(p.right_page);
+  document.getElementById('rd-left').innerHTML = hlFn(p.left_page);
+  if(rdHlW) setTimeout(() => { const h = document.querySelector('#reader .hl'); if(h) h.scrollIntoView({block:'center',behavior:'smooth'}); }, 120);
 }
-function readerNav(d){const n=rIdx+d;if(n<0||n>=rPgs.length)return;rIdx=n;renderRd();}
-function copyText(){const p=rPgs[rIdx];if(p)navigator.clipboard.writeText((p.right_page||'')+'\n\n'+(p.left_page||''));}
-function translateText(){const p=rPgs[rIdx];if(!p)return;window.open('https://translate.google.com/?sl=ps&tl=en&text='+encodeURIComponent(((p.right_page||'')+(p.left_page||'')).slice(0,1000)),'_blank');}
-
-const rdImg=document.getElementById('rd-img');
-const rdPanel=document.getElementById('rd-img-panel');
-function zoomFit(){zScale=1;zX=0;zY=0;rdImg.className='rd-img';rdImg.style.transform='';rdImg.style.width='100%';rdImg.style.height='auto';rdImg.style.position='relative';rdImg.style.cursor='grab';}
-function applyZoom(){rdImg.className='rd-img zoomed';rdImg.style.transform=`translate(${zX}px,${zY}px) scale(${zScale})`;rdImg.style.transformOrigin='top left';rdImg.style.width='auto';rdImg.style.height='auto';rdImg.style.position='absolute';}
-function zoomIn(){if(zScale===1){zX=0;zY=0;}zScale=Math.min(zScale*1.25,8);applyZoom();}
-function zoomOut(){zScale=Math.max(zScale/1.25,.5);if(zScale<=.5)zoomFit();else applyZoom();}
-rdImg.addEventListener('wheel',e=>{e.preventDefault();const rect=rdPanel.getBoundingClientRect();const mx=e.clientX-rect.left,my=e.clientY-rect.top;const f=e.deltaY<0?1.15:1/1.15;const ns=Math.max(.5,Math.min(8,zScale*f));zX=mx-(mx-zX)*(ns/zScale);zY=my-(my-zY)*(ns/zScale);zScale=ns;applyZoom();},{passive:false});
-rdImg.addEventListener('mousedown',e=>{if(zScale<=1)return;zDrag=true;zLast={x:e.clientX,y:e.clientY};rdImg.style.cursor='grabbing';e.preventDefault();});
-document.addEventListener('mousemove',e=>{if(!zDrag)return;zX+=e.clientX-zLast.x;zY+=e.clientY-zLast.y;zLast={x:e.clientX,y:e.clientY};applyZoom();});
-document.addEventListener('mouseup',()=>{zDrag=false;if(zScale>1)rdImg.style.cursor='grab';});
-document.addEventListener('keydown',e=>{if(!document.getElementById('reader').classList.contains('open'))return;if(e.key==='ArrowLeft')readerNav(1);if(e.key==='ArrowRight')readerNav(-1);if(e.key==='Escape')closeReader();});
+function readerNav(d) { const n = rIdx+d; if(n<0||n>=rPgs.length) return; rIdx = n; renderRd(); }
+function copyText() { const p=rPgs[rIdx]; if(p) navigator.clipboard.writeText((p.right_page||'')+'\n\n'+(p.left_page||'')); }
+function translateText() { const p=rPgs[rIdx]; if(!p) return; window.open('https://translate.google.com/?sl=ps&tl=en&text='+encodeURIComponent(((p.right_page||'')+(p.left_page||'')).slice(0,1000)),'_blank'); }
+document.addEventListener('keydown', e => {
+  const scanOpen = document.getElementById('rd-scan-full').classList.contains('open');
+  const rdOpen = document.getElementById('reader').classList.contains('open');
+  if(scanOpen) { if(e.key==='Escape') closeScanFull(); return; }
+  if(!rdOpen) return;
+  if(e.key==='ArrowLeft') readerNav(-1);
+  if(e.key==='ArrowRight') readerNav(1);
+  if(e.key==='Escape') closeReader();
+});
 
 // ── TIMELINE ──────────────────────────────────────────────────────────────────
-let semData=null,tlWord=null,tlPlaying=false,tlPlayT=null,tlSlider=0;
+let semData=null,tlWord=null,tlSlider=-1,psEnMap={};
 
 async function initTimeline(){
   if(semData)return buildDriftChips();
-  const d=await loadJSON('tooba_semantic');if(!d)return;
-  semData=d;buildDriftChips();
+  const[d,t]=await Promise.all([loadJSON('tooba_semantic'),loadJSON('tooba_translations')]);
+  if(!d)return;
+  semData=d;
+  if(t){if(!Object.keys(trans).length)trans=t;psEnMap={};Object.entries(t).forEach(([en,ps])=>{psEnMap[ps]=en;});}
+  buildDriftChips();
 }
 
 function buildDriftChips(){
   const w=document.getElementById('drift-chips');w.innerHTML='';
   (semData.top_drift||[]).slice(0,20).forEach(word=>{
-    const b=document.createElement('button');b.className='drift-btn';b.textContent=word;
+    const en=psEnMap[word]||'';
+    const b=document.createElement('button');b.className='drift-btn';
+    b.innerHTML=`<span style="font-family:var(--font-ps);font-size:.83rem">${esc(word)}</span>${en?`<span style="font-family:system-ui;font-size:.63rem;color:var(--muted);display:block;direction:ltr"> ${esc(en)}</span>`:''}`;
     b.onclick=()=>{document.querySelectorAll('.drift-btn').forEach(x=>x.classList.remove('active'));b.classList.add('active');document.getElementById('tl-input').value=word;loadTlWord(word);};
     w.appendChild(b);
   });
@@ -680,94 +719,132 @@ function doTimeline(){
 }
 
 function loadTlWord(word){
-  tlWord=word;const wd=semData.words[word];const svg=document.getElementById('tl-svg');svg.innerHTML='';
+  tlWord=word;const wd=semData.words[word];
+  const svg=document.getElementById('tl-svg');svg.innerHTML='';
   if(!wd){
     const top=(semData.top_drift||[]).slice(0,3).join('، ');
-    svg.innerHTML=`<text x="290" y="170" text-anchor="middle" fill="#888" font-family="system-ui" font-size="13">Word not found — try: ${esc(top)}</text>`;
+    svg.innerHTML=`<text x="320" y="200" text-anchor="middle" fill="#aaa" font-family="system-ui" font-size="13">Word not found — try: ${esc(top)}</text>`;
     document.getElementById('tl-controls').style.display='none';
-    document.getElementById('tl-hint').textContent=`"${word}" not in semantic index. Try: ${top}`;
+    document.getElementById('tl-hint').textContent=`"${word}" not found. Try: ${top}`;
     document.getElementById('tl-pages-wrap').innerHTML='';return;
   }
-  document.getElementById('tl-svg-title').textContent=`Semantic trajectory: ${word}  (drift score: ${wd.drift_score})`;
   const dates=semData.issue_dates.filter(dt=>wd.coords[dt]);
-  document.getElementById('tl-slider').max=dates.length-1;
-  document.getElementById('tl-slider').value=0;tlSlider=0;
-  document.getElementById('tl-slider-label').textContent=dates[0]?fmtDate(dates[0]):'';
-  document.getElementById('tl-controls').style.display='flex';
-  drawTl(word,wd,dates,-1);showTlPages(word,null);
-}
-
-function drawTl(word,wd,dates,hlIdx){
-  const svg=document.getElementById('tl-svg');svg.innerHTML='';
-  const W=580,H=340,PAD=48;
-  const pts=dates.map(dt=>wd.coords[dt]).filter(Boolean);
-  if(pts.length<2){svg.innerHTML=`<text x="290" y="170" text-anchor="middle" fill="#888" font-size="13">Not enough data (need ≥2 issues)</text>`;return;}
-  let mnX=Infinity,mxX=-Infinity,mnY=Infinity,mxY=-Infinity;
-  pts.forEach(([x,y])=>{if(x<mnX)mnX=x;if(x>mxX)mxX=x;if(y<mnY)mnY=y;if(y>mxY)mxY=y;});
-  const rX=(mxX-mnX)||1,rY=(mxY-mnY)||1,pd=.15;
-  const toS=([x,y])=>[PAD+((x-mnX)/rX*(1-2*pd)+pd)*(W-2*PAD),H-PAD-((y-mnY)/rY*(1-2*pd)+pd)*(H-2*PAD)];
-  const coords=dates.map(dt=>wd.coords[dt]?toS(wd.coords[dt]):null).filter(Boolean);
-  const n=coords.length;
-  function svgEl(tag,attrs){const e=document.createElementNS('http://www.w3.org/2000/svg',tag);Object.entries(attrs).forEach(([k,v])=>e.setAttribute(k,v));return e;}
-  const pathD=coords.map(([cx,cy],i)=>(i===0?'M':'L')+cx.toFixed(1)+' '+cy.toFixed(1)).join(' ');
-  svg.appendChild(svgEl('path',{d:pathD,fill:'none',stroke:'#888','stroke-width':'1.5','stroke-dasharray':'4 3'}));
-  const animPath=svgEl('path',{d:pathD,fill:'none',stroke:'#6b1200','stroke-width':'2.5'});
-  const tLen=300;
-  animPath.setAttribute('stroke-dasharray',tLen);animPath.setAttribute('stroke-dashoffset',tLen);
-  const anim=svgEl('animate',{attributeName:'stroke-dashoffset',from:tLen,to:'0',dur:'1.4s',fill:'freeze'});
-  animPath.appendChild(anim);svg.appendChild(animPath);
-  coords.forEach(([cx,cy],i)=>{
-    const dt=dates[i];const t=i/(n-1);
-    const col=`rgb(${Math.round(26+(107-26)*t)},${Math.round(58-58*t)},${Math.round(139-139*t)})`;
-    const isHL=hlIdx===i;
-    const circ=svgEl('circle',{cx,cy,r:isHL?10:7,fill:isHL?'#c44b00':col,stroke:'#fff','stroke-width':'2'});
-    circ.style.cursor='pointer';
-    circ.addEventListener('click',()=>{document.getElementById('tl-slider').value=i;onSlider(i);});
-    const ttl=svgEl('title',{});ttl.textContent=`${fmtDate(dt)}: ${(wd.neighbors[dt]||[]).join(', ')}`;
-    circ.appendChild(ttl);svg.appendChild(circ);
-    const lbl=svgEl('text',{x:cx+10,y:cy+4,'font-size':'9',fill:'#555','font-family':'system-ui'});lbl.textContent=dt.slice(0,7);svg.appendChild(lbl);
-    if(isHL){
-      (wd.neighbors[dt]||[]).slice(0,4).forEach(nb=>{
-        const nc=semData.words[nb]?.coords[dt];if(!nc)return;
-        const[nx,ny]=toS(nc);
-        const ndot=svgEl('circle',{cx:nx,cy:ny,r:'5',fill:'#f0a060',stroke:'#fff','stroke-width':'1.5'});
-        ndot.style.cursor='pointer';
-        ndot.addEventListener('click',()=>{document.getElementById('tl-input').value=nb;loadTlWord(nb);});
-        svg.appendChild(ndot);
-        const nl=svgEl('text',{x:nx+7,y:ny+4,'font-size':'9',fill:'#777','font-family':"'Noto Nastaliq Urdu',serif"});nl.textContent=nb;svg.appendChild(nl);
-      });
-    }
+  const en=psEnMap[word]?` (${psEnMap[word]})`:'';
+  document.getElementById('tl-svg-title').textContent=`${word}${en} · semantic drift: ${(wd.drift_score||0).toFixed(3)}`;
+  document.getElementById('tl-hint').textContent='Overview of all issues. Click a year button to explore its semantic neighborhood — then click any word or neighbor to see text snippets.';
+  document.getElementById('tl-controls').style.display='block';
+  document.getElementById('tl-active-year').textContent='';
+  const strip=document.getElementById('tl-year-strip');strip.innerHTML='';
+  dates.forEach((dt,i)=>{
+    const b=document.createElement('button');b.className='tl-year-btn';b.textContent=fmtDate(dt);
+    b.onclick=()=>selectYear(i);strip.appendChild(b);
   });
-  const wl=svgEl('text',{x:'8',y:'20','font-size':'12',fill:'#6b1200','font-family':"'Noto Nastaliq Urdu',serif"});wl.textContent=word;svg.appendChild(wl);
+  tlSlider=-1;
+  drawTl(word,wd,dates,-1,false);
+  showTlSnippets(word,null);
 }
 
-function onSlider(v){
-  tlSlider=parseInt(v);if(!semData||!tlWord)return;
+function selectYear(i){
+  tlSlider=i;
   const wd=semData.words[tlWord];if(!wd)return;
   const dates=semData.issue_dates.filter(dt=>wd.coords[dt]);
-  document.getElementById('tl-slider-label').textContent=dates[tlSlider]?fmtDate(dates[tlSlider]):'';
-  drawTl(tlWord,wd,dates,tlSlider);showTlPages(tlWord,dates[tlSlider]);
+  document.querySelectorAll('.tl-year-btn').forEach((b,j)=>b.classList.toggle('active',j===i));
+  document.getElementById('tl-active-year').textContent=dates[i]?fmtDate(dates[i]):'';
+  drawTl(tlWord,wd,dates,i,true);
+  showTlSnippets(tlWord,dates[i]);
 }
 
-function togglePlay(){
-  tlPlaying=!tlPlaying;document.getElementById('tl-play-btn').textContent=tlPlaying?'⏸ Pause':'▶ Play';
-  if(tlPlaying){
-    tlPlayT=setInterval(()=>{
-      const max=parseInt(document.getElementById('tl-slider').max);
-      tlSlider=(tlSlider+1)%(max+1);
-      document.getElementById('tl-slider').value=tlSlider;onSlider(tlSlider);
-      if(tlSlider===max){tlPlaying=false;document.getElementById('tl-play-btn').textContent='▶ Play';clearInterval(tlPlayT);}
-    },900);
-  }else clearInterval(tlPlayT);
+function drawTl(word,wd,dates,hlIdx,noAnim){
+  const svg=document.getElementById('tl-svg');svg.innerHTML='';
+  const W=640,H=400,PAD=56;
+  const allPts=[];
+  dates.forEach(dt=>{if(wd.coords[dt])allPts.push(wd.coords[dt]);});
+  if(hlIdx>=0){
+    const dt=dates[hlIdx];
+    (wd.neighbors[dt]||[]).slice(0,18).forEach(nb=>{const nc=semData.words[nb]?.coords[dt];if(nc)allPts.push(nc);});
+  }
+  if(allPts.length<1){svg.innerHTML=`<text x="320" y="200" text-anchor="middle" fill="#aaa" font-size="13">Not enough data</text>`;return;}
+  let mnX=Infinity,mxX=-Infinity,mnY=Infinity,mxY=-Infinity;
+  allPts.forEach(([x,y])=>{if(x<mnX)mnX=x;if(x>mxX)mxX=x;if(y<mnY)mnY=y;if(y>mxY)mxY=y;});
+  const rX=(mxX-mnX)||1,rY=(mxY-mnY)||1,pd=.13;
+  const toS=([x,y])=>[PAD+((x-mnX)/rX*(1-2*pd)+pd)*(W-2*PAD),H-PAD-((y-mnY)/rY*(1-2*pd)+pd)*(H-2*PAD)];
+  const coords=dates.map(dt=>wd.coords[dt]?toS(wd.coords[dt]):null);
+  const n=dates.length;
+  const isPan=hlIdx>=0;
+  function svgEl(tag,attrs){const e=document.createElementNS('http://www.w3.org/2000/svg',tag);Object.entries(attrs).forEach(([k,v])=>e.setAttribute(k,v));return e;}
+  const validC=coords.filter(Boolean);
+  const pathD=validC.map(([cx,cy],i)=>(i===0?'M':'L')+cx.toFixed(1)+' '+cy.toFixed(1)).join(' ');
+  if(validC.length>=2){
+    if(!isPan){
+      svg.appendChild(svgEl('path',{d:pathD,fill:'none',stroke:'#e8dfd0','stroke-width':'1.5','stroke-dasharray':'5 3'}));
+      const ap=svgEl('path',{d:pathD,fill:'none',stroke:'#8b1a00','stroke-width':'2.5'});
+      if(!noAnim){const tL=500;ap.setAttribute('stroke-dasharray',tL);ap.setAttribute('stroke-dashoffset',tL);ap.appendChild(svgEl('animate',{attributeName:'stroke-dashoffset',from:tL,to:'0',dur:'1.2s',fill:'freeze'}));}
+      svg.appendChild(ap);
+    }else{
+      const[mx,my]=coords[hlIdx]||[0,0];
+      const dt=dates[hlIdx];
+      (wd.neighbors[dt]||[]).slice(0,18).forEach(nb=>{
+        const nc=semData.words[nb]?.coords[dt];if(!nc)return;
+        const[nx,ny]=toS(nc);
+        svg.appendChild(svgEl('line',{x1:mx.toFixed(1),y1:my.toFixed(1),x2:nx.toFixed(1),y2:ny.toFixed(1),stroke:'#e8833a','stroke-width':'1','stroke-dasharray':'3 2',opacity:'.3'}));
+      });
+      svg.appendChild(svgEl('path',{d:pathD,fill:'none',stroke:'#ddd','stroke-width':'1.2','stroke-dasharray':'4 3'}));
+    }
+  }
+  // Dots
+  coords.forEach((c,i)=>{
+    if(!c)return;
+    const[cx,cy]=c;const dt=dates[i];const t=n>1?i/(n-1):0;
+    const gradCol=`rgb(${Math.round(26+(107-26)*t)},${Math.round(58*(1-t))},${Math.round(139*(1-t))})`;
+    let fill,r,op,sw;
+    if(!isPan){fill=gradCol;r=7;op=1;sw=2;}
+    else if(i===hlIdx){fill='#c44b00';r=14;op=1;sw=3;}
+    else{fill='#ccc5bb';r=4;op=0.4;sw=1;}
+    const circ=svgEl('circle',{cx:cx.toFixed(1),cy:cy.toFixed(1),r,fill,stroke:'#fff','stroke-width':sw,opacity:op,cursor:'pointer'});
+    circ.addEventListener('click',()=>selectYear(i));
+    circ.appendChild(Object.assign(svgEl('title',{}),{textContent:`${fmtDate(dt)} — click to explore`}));
+    svg.appendChild(circ);
+    if(!isPan){
+      const lbl=svgEl('text',{x:(cx+10).toFixed(1),y:(cy+4).toFixed(1),'font-size':'9',fill:'#888','font-family':'system-ui'});
+      lbl.textContent=dt.slice(0,7);svg.appendChild(lbl);
+    }else if(i===hlIdx){
+      svg.appendChild(Object.assign(svgEl('rect',{x:(cx-40).toFixed(1),y:(cy-30).toFixed(1),width:'80',height:'18',rx:'9',fill:'#c44b00'}),{}));
+      const lbl=svgEl('text',{x:cx.toFixed(1),y:(cy-17).toFixed(1),'font-size':'10.5',fill:'#fff','font-family':'system-ui','text-anchor':'middle','font-weight':'bold'});
+      lbl.textContent=fmtDate(dt);svg.appendChild(lbl);
+    }
+  });
+  // Neighbor words (pan mode only)
+  if(isPan&&hlIdx>=0){
+    const dt=dates[hlIdx];
+    (wd.neighbors[dt]||[]).slice(0,18).forEach(nb=>{
+      const nc=semData.words[nb]?.coords[dt];if(!nc)return;
+      const[nx,ny]=toS(nc);
+      const ndot=svgEl('circle',{cx:nx.toFixed(1),cy:ny.toFixed(1),r:'9',fill:'#e8833a',stroke:'#fff','stroke-width':'2',cursor:'pointer'});
+      ndot.addEventListener('click',e=>{e.stopPropagation();showTlSnippets(nb,dt);});
+      ndot.appendChild(Object.assign(svgEl('title',{}),{textContent:`${nb}${psEnMap[nb]?' ('+psEnMap[nb]+')':''} — click for snippets`}));
+      svg.appendChild(ndot);
+      const lx=(nx+13).toFixed(1),ly=(ny-3).toFixed(1);
+      const nl=svgEl('text',{x:lx,y:ly,'font-size':'12',fill:'#7a2c00','font-family':"'Noto Nastaliq Urdu',serif",'paint-order':'stroke fill',stroke:'#fdf9f4','stroke-width':'3'});
+      nl.textContent=nb;svg.appendChild(nl);
+      const en=psEnMap[nb]||'';
+      if(en){const enl=svgEl('text',{x:lx,y:(ny+13).toFixed(1),'font-size':'9.5',fill:'#999','font-family':'system-ui','paint-order':'stroke fill',stroke:'#fdf9f4','stroke-width':'2.5'});enl.textContent=`(${en})`;svg.appendChild(enl);}
+    });
+  }
+  // Main word label
+  const ml=svgEl('text',{x:'10',y:'24','font-size':'14',fill:'#6b1200','font-family':"'Noto Nastaliq Urdu',serif",'font-weight':'bold'});
+  ml.textContent=word;svg.appendChild(ml);
+  const enW=psEnMap[word]||'';
+  if(enW){const el=svgEl('text',{x:'10',y:'40','font-size':'10',fill:'#999','font-family':'system-ui'});el.textContent=enW;svg.appendChild(el);}
 }
 
-function showTlPages(word,filterDate){
+function showTlSnippets(word,filterDate){
   const w=document.getElementById('tl-pages-wrap');
   if(!pages.length){w.innerHTML='';return;}
-  const m=pages.filter(p=>{const t=(p.right_page||'')+(p.left_page||'');return t.includes(word)&&(!filterDate||p.issue_date===filterDate);});
-  if(!m.length){w.innerHTML='';return;}
-  w.innerHTML=`<div class="tl-pages-title">Pages containing "${esc(word)}"${filterDate?' in '+fmtDate(filterDate):''} (${m.length})</div>`;
-  m.slice(0,10).forEach(p=>w.appendChild(buildCard(p,word)));
+  const m=pages.filter(p=>{const t=(p.right_page||'')+' '+(p.left_page||'');return t.includes(word)&&(!filterDate||p.issue_date===filterDate);});
+  if(!m.length){w.innerHTML=`<div class="tl-pages-title">No pages found for "${esc(word)}"${filterDate?' in '+fmtDate(filterDate):''}</div>`;return;}
+  const en=psEnMap[word]||'';
+  w.innerHTML=`<div class="tl-pages-title">"${esc(word)}"${en?' ('+esc(en)+')':''} — ${m.length} page${m.length!==1?'s':''} ${filterDate?'in '+fmtDate(filterDate):'across all issues'}</div>`;
+  m.slice(0,15).forEach(p=>w.appendChild(buildCard(p,word)));
 }
 
 // ── MAP ───────────────────────────────────────────────────────────────────────
@@ -874,7 +951,7 @@ function backToTopics(){document.getElementById('cluster-grid').style.display='g
 // ── ABOUT ─────────────────────────────────────────────────────────────────────
 function buildAbout(){
   const g=document.getElementById('about-stats');if(g.children.length)return;
-  [[pages.length||282,'Total Pages'],[8,'Issues (1928–1939)'],[8,'Topic Clusters'],[43,'Places Mapped']].forEach(([n,l])=>{
+  [[pages.length||282,'Total Pages'],[8,'Issues'],[8,'Topic Clusters'],[43,'Places Mapped']].forEach(([n,l])=>{
     const c=document.createElement('div');c.className='stat-card';c.innerHTML=`<div class="stat-num">${n}</div><div class="stat-label">${l}</div>`;g.appendChild(c);
   });
 }
