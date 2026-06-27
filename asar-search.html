@@ -50,6 +50,7 @@ body{background:var(--bg);color:var(--ink);font-family:var(--font-ui);min-height
 .card:hover{box-shadow:0 4px 14px rgba(0,0,0,.12)}
 .card-meta{display:flex;justify-content:space-between;align-items:center;margin-bottom:.38rem}
 .card-date{font-size:.68rem;color:var(--muted);font-family:var(--font-ui)}
+.side-tag{display:inline-block;margin-left:.35rem;background:var(--sand);border-radius:3px;font-size:.6rem;padding:.05rem .3rem;color:var(--muted);vertical-align:middle;font-family:var(--font-ui)}
 .card-snippet{direction:rtl;font-family:var(--font-ps);font-size:.93rem;line-height:1.9;margin-bottom:.42rem;word-break:break-word}
 .card-snippet mark{background:#fde68a;color:#000;border-radius:2px;padding:0 2px;font-style:normal}
 .scan-preview{margin-top:.45rem}
@@ -523,8 +524,9 @@ function resolveQuery(raw) {
   return { terms, hlWord, hint };
 }
 
-function tokPs(t){return t.split(/[\s،؛؟۔؟!؛:.،()\[\]{}\-«»]+/).filter(x=>x&&/[؀-ۿ]/.test(x));}
-function containsWord(text,word){if(!text||!word)return false;const e=word.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');return new RegExp('(?:^|[\\s،؛؟۔!:.،()\\[\\]{}\\-«»])'+e+'(?=$|[\\s،؛؟۔!:.،()\\[\\]{}\\-«»])','u').test(text);}
+function normalizePashto(t){if(!t)return '';t=t.replace(/ـ/g,'');t=t.replace(/[ً-ٰٟ]/g,'');t=t.replace(/[آأإ]/g,'ا');t=t.replace(/[يى]/g,'ی');return t;}
+function tokPs(t){return normalizePashto(t).split(/[\s،؛؟۔؟!؛:.،()\[\]{}\-«»]+/).filter(x=>x&&x.length>1&&/[؀-ۿ]/.test(x));}
+function containsWord(text,word){text=normalizePashto(text);word=normalizePashto(word);if(!text||!word)return false;const e=word.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');return new RegExp('(?:^|[\\s،؛؟۔!:.،()\\[\\]{}\\-«»])'+e+'(?=$|[\\s،؛؟۔!:.،()\\[\\]{}\\-«»])','u').test(text);}
 
 let lastHlWord = '';
 
@@ -562,7 +564,7 @@ function renderResults(){
   const start=searchPg*PG;const slice=sorted.slice(start,start+PG);
   document.getElementById('results-info').textContent=`${results.length} result${results.length!==1?'s':''} — showing ${start+1}–${Math.min(start+PG,results.length)}`;
   const r=document.getElementById('search-results');r.innerHTML='';
-  slice.forEach(p=>r.appendChild(buildCard(p,lastHlWord)));
+  slice.forEach(p=>buildCards(p,lastHlWord).forEach(c=>r.appendChild(c)));
   buildPag();
 }
 
@@ -582,7 +584,7 @@ function showFeatured(){
   const shown=activeIssue?pages.filter(p=>p.issue_date===activeIssue):pages.filter(p=>p.issue_date===pages[0].issue_date);
   document.getElementById('results-info').textContent=`Showing ${shown.length} pages from ${fmtDate(shown[0]?.issue_date||'')}`;
   document.getElementById('search-results').innerHTML='';
-  shown.slice(0,20).forEach(p=>document.getElementById('search-results').appendChild(buildCard(p)));
+  shown.slice(0,20).forEach(p=>buildCards(p).forEach(c=>document.getElementById('search-results').appendChild(c)));
   document.getElementById('search-pag').innerHTML='';
 }
 
@@ -604,11 +606,20 @@ function getSnippet(text, word, chars=240) {
   return (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
 }
 
-function buildCard(p, hlWord) {
+function buildCards(p, hlWord) {
+  const cards = [];
+  if (p.right_page) cards.push(buildCard(p, hlWord, 'right'));
+  if (p.left_page)  cards.push(buildCard(p, hlWord, 'left'));
+  if (!cards.length) cards.push(buildCard(p, hlWord, null));
+  return cards;
+}
+
+function buildCard(p, hlWord, side) {
   const card = document.createElement('div');
   card.className = 'card';
   card.onclick = () => openReader(p.id, hlWord);
-  const fullText = (p.right_page || '') + ' ' + (p.left_page || '');
+  const pageText = side === 'right' ? (p.right_page || '') : side === 'left' ? (p.left_page || '') : (p.right_page || '') + ' ' + (p.left_page || '');
+  const fullText = pageText;
   const snippet = getSnippet(fullText, hlWord, 240);
   const safeHL = hlWord ? esc(hlWord).replace(/[.*+?^${}()|[\]\\]/g,'\\$&') : null;
   const displaySnippet = safeHL
@@ -620,7 +631,7 @@ function buildCard(p, hlWord) {
   const imgUrl = esc(p.img_url);
   card.innerHTML = `
     <div class="card-meta">
-      <span class="card-date">${fmtDate(p.issue_date)}</span>
+      <span class="card-date">${fmtDate(p.issue_date)}${side==='right'?'<span class="side-tag">R</span>':side==='left'?'<span class="side-tag">L</span>':''}</span>
       <div class="card-actions">
         <button class="act-btn" onclick="event.stopPropagation();openReader(${p.id},${hlWord?`'${esc(hlWord)}'`:'null'})">Read full page</button>
         <button class="act-btn" onclick="event.stopPropagation();toggleScan(this,'${imgUrl}')">📷 Scan</button>
@@ -936,7 +947,7 @@ function showTlSnippets(word,filterDate){
   if(!m.length){w.innerHTML=`<div class="tl-pages-title">No pages found for "${esc(word)}"${filterDate?' in '+fmtDate(filterDate):''}</div>`;return;}
   const en=psEnMap[word]||'';
   w.innerHTML=`<div class="tl-pages-title">"${esc(word)}"${en?' ('+esc(en)+')':''} — ${m.length} page${m.length!==1?'s':''} ${filterDate?'in '+fmtDate(filterDate):'across all issues'}</div>`;
-  m.slice(0,15).forEach(p=>w.appendChild(buildCard(p,word)));
+  m.slice(0,15).forEach(p=>buildCards(p,word).forEach(c=>w.appendChild(c)));
 }
 
 // ── MAP ───────────────────────────────────────────────────────────────────────
