@@ -266,6 +266,7 @@ body{background:var(--bg);color:var(--ink);font-family:var(--font-ui);min-height
 <!-- Timeline -->
 <div class="view" id="view-timeline">
   <div class="tl-search">
+    <button class="tl-back-btn" id="tl-back" onclick="tlBack()" style="display:none">&#8592; Back</button>
     <input type="text" id="tl-input" placeholder="Search in English or Pashto" onkeydown="if(event.key==='Enter')doTimeline()">
     <button class="btn btn-primary" onclick="doTimeline()">Show</button>
   </div>
@@ -617,7 +618,7 @@ function buildCards(p, hlWord) {
 function buildCard(p, hlWord, side) {
   const card = document.createElement('div');
   card.className = 'card';
-  card.onclick = () => openReader(p.id, hlWord);
+  card.onclick = () => openReader(p.id, hlWord, side);
   const pageText = side === 'right' ? (p.right_page || '') : side === 'left' ? (p.left_page || '') : (p.right_page || '') + ' ' + (p.left_page || '');
   const fullText = pageText;
   const snippet = getSnippet(fullText, hlWord, 240);
@@ -629,11 +630,12 @@ function buildCard(p, hlWord, side) {
     `<span class="tag ${esc(t.type)}" onclick="event.stopPropagation();jumpToTag('${esc(t.label)}')">${esc(t.label)}</span>`
   ).join('');
   const imgUrl = esc(p.img_url);
+  const sideStr = side ? `'${side}'` : 'null';
   card.innerHTML = `
     <div class="card-meta">
       <span class="card-date">${fmtDate(p.issue_date)}${side==='right'?'<span class="side-tag">R</span>':side==='left'?'<span class="side-tag">L</span>':''}</span>
       <div class="card-actions">
-        <button class="act-btn" onclick="event.stopPropagation();openReader(${p.id},${hlWord?`'${esc(hlWord)}'`:'null'})">Read full page</button>
+        <button class="act-btn" onclick="event.stopPropagation();openReader(${p.id},${hlWord?`'${esc(hlWord)}'`:'null'},${sideStr})">Read full page</button>
         <button class="act-btn" onclick="event.stopPropagation();toggleScan(this,'${imgUrl}')">📷 Scan</button>
       </div>
     </div>
@@ -687,13 +689,14 @@ function showIssuePgs(dt){
 }
 
 // ── READER ────────────────────────────────────────────────────────────────────
-let rPgs=[],rIdx=0,rdHlW=null;
+let rPgs=[],rIdx=0,rdHlW=null,rdSide=null;
 
-function openReader(pid, hlW) {
+function openReader(pid, hlW, side) {
   const p = pageMap[pid]; if(!p) return;
   rPgs = pages.filter(pg => pg.issue_date === p.issue_date).sort((a,b) => a.id - b.id);
   rIdx = rPgs.findIndex(pg => pg.id === pid);
   rdHlW = hlW || null;
+  rdSide = side || null;
   renderRd();
   document.getElementById('reader').classList.add('open');
   document.body.style.overflow = 'hidden';
@@ -720,6 +723,11 @@ function renderRd() {
   };
   document.getElementById('rd-right').innerHTML = hlFn(p.right_page);
   document.getElementById('rd-left').innerHTML = hlFn(p.left_page);
+  // Show only the relevant column when opened from a side card
+  const colR=document.getElementById('rd-col-right'),colL=document.getElementById('rd-col-left'),div=document.querySelector('.rd-divider');
+  if(rdSide==='right'){colR.style.display='flex';colL.style.display='none';div.style.display='none';document.querySelector('.rd-body').style.gridTemplateColumns='1fr';}
+  else if(rdSide==='left'){colR.style.display='none';colL.style.display='flex';div.style.display='none';document.querySelector('.rd-body').style.gridTemplateColumns='1fr';}
+  else{colR.style.display='flex';colL.style.display='flex';div.style.display='block';document.querySelector('.rd-body').style.gridTemplateColumns='';}
   if(rdHlW) setTimeout(() => { const h = document.querySelector('#reader .hl'); if(h) h.scrollIntoView({block:'center',behavior:'smooth'}); }, 120);
 }
 function readerNav(d) { const n = rIdx+d; if(n<0||n>=rPgs.length) return; rIdx = n; renderRd(); }
@@ -736,14 +744,14 @@ document.addEventListener('keydown', e => {
 });
 
 // ── TIMELINE ──────────────────────────────────────────────────────────────────
-let semData=null,tlWord=null,tlSlider=-1,psEnMap={};
+let semData=null,tlWord=null,tlSlider=-1,psEnMap={},tlHistory=[];
 
 async function initTimeline(){
   if(semData)return buildDriftChips();
   const[d,t]=await Promise.all([loadJSON('tooba_semantic'),loadJSON('tooba_translations')]);
   if(!d)return;
   semData=d;
-  if(t){if(!Object.keys(trans).length)trans=t;psEnMap={};Object.entries(t).forEach(([en,ps])=>{psEnMap[ps]=en;});}
+  if(t){if(!Object.keys(trans).length)trans=t;psEnMap={};Object.entries(t).forEach(([en,ps])=>{psEnMap[normalizePashto(ps)]=en;});}
   buildDriftChips();
 }
 
@@ -778,8 +786,10 @@ function doTimeline(){
   loadTlWord(w);
 }
 
-function loadTlWord(word){
-  tlWord=word;const wd=semData.words[word];
+function loadTlWord(word,keepHistory){
+  tlWord=word;
+  if(!keepHistory){tlHistory=[];document.getElementById('tl-back').style.display='none';}
+  const wd=semData.words[word];
   const svg=document.getElementById('tl-svg');svg.innerHTML='';
   if(!wd){
     const top=(semData.top_drift||[]).slice(0,3).join('، ');
@@ -808,6 +818,22 @@ function loadTlWord(word){
   tlSlider=-1;
   drawTl(word,wd,dates,-1,false);
   showTlSnippets(word,null);
+}
+
+function navigateToWord(word){
+  if(tlWord)tlHistory.push({word:tlWord,slider:tlSlider});
+  document.getElementById('tl-back').style.display='inline-block';
+  document.getElementById('tl-input').value=word;
+  loadTlWord(word,true);
+}
+
+function tlBack(){
+  if(!tlHistory.length)return;
+  const prev=tlHistory.pop();
+  document.getElementById('tl-back').style.display=tlHistory.length?'inline-block':'none';
+  document.getElementById('tl-input').value=prev.word;
+  loadTlWord(prev.word,true);
+  if(prev.slider>=0)setTimeout(()=>selectYear(prev.slider),0);
 }
 
 function selectYear(i){
@@ -915,7 +941,7 @@ function drawTl(word,wd,dates,hlIdx,noAnim){
       const nc=semData.words[nb]?.coords[dt];if(!nc)return;
       const[nx,ny]=toS(nc);
       const ndot=svgEl('circle',{cx:nx.toFixed(1),cy:ny.toFixed(1),r:'9',fill:'#e8833a',stroke:'#fff','stroke-width':'2',cursor:'pointer'});
-      ndot.addEventListener('click',e=>{e.stopPropagation();showTlSnippets(nb,dt);});
+      ndot.addEventListener('click',e=>{e.stopPropagation();navigateToWord(nb);});
       ndot.appendChild(Object.assign(svgEl('title',{}),{textContent:`${nb}${psEnMap[nb]?' ('+psEnMap[nb]+')':''} — click for snippets`}));
       svg.appendChild(ndot);
       const lx=(nx+13).toFixed(1),ly=(ny-3).toFixed(1);
@@ -975,7 +1001,8 @@ function showPlace(name){
   const d=geoData[name];if(!d)return;
   document.getElementById('place-title').textContent=`${name} · ${d.en||''} (${d.page_count} pages)`;
   const list=document.getElementById('place-list');list.innerHTML='';
-  (d.page_ids||[]).map(id=>pageMap[id]).filter(Boolean).forEach(p=>list.appendChild(buildCard(p)));
+  const normName=normalizePashto(name);
+  (d.page_ids||[]).map(id=>pageMap[id]).filter(Boolean).forEach(p=>buildCards(p,normName).forEach(c=>list.appendChild(c)));
   document.getElementById('map-main').style.display='none';document.getElementById('map-results').style.display='block';
 }
 function backToMap(){document.getElementById('map-main').style.display='block';document.getElementById('map-results').style.display='none';if(leafMap)leafMap.invalidateSize();}
