@@ -516,8 +516,8 @@ function resolveQuery(raw) {
     // No match — keep the raw word for direct substring search
     pairs.push({en:w, ps:null});
   });
-  const terms = pairs.map(p => p.ps || p.en);
-  const hlWord = pairs[0]?.ps || raw;
+  const terms = pairs.map(p => p.ps ? normalizePashto(p.ps) : p.en);
+  const hlWord = pairs[0]?.ps ? normalizePashto(pairs[0].ps) : raw;
   const mapped = pairs.filter(p=>p.ps).map(p=>`"${p.en}" → ${p.ps}`);
   const unmapped = pairs.filter(p=>!p.ps).map(p=>`"${p.en}" (no translation)`);
   const hint = [...mapped, ...unmapped].join(' · ');
@@ -765,13 +765,14 @@ function doTimeline(){
   if(!/[؀-ۿ]/.test(raw)){
     // English input — translate
     const {terms} = resolveQuery(raw);
-    // Pick the first term that exists in semData.words
-    const found = terms.find(t=>semData.words[t]);
-    w = found || terms[0] || raw;
+    // Normalize each term before looking up in the semantic index
+    const found = terms.find(t=>semData.words[normalizePashto(t)]);
+    w = found ? normalizePashto(found) : (terms[0] ? normalizePashto(terms[0]) : raw);
     // Show translation hint
-    const hint = terms[0] !== raw ? `"${raw}" → ${terms[0]}` : `No translation for "${raw}"`;
+    const hint = terms[0] !== raw ? `"${raw}" → ${w}` : `No translation for "${raw}"`;
     document.getElementById('tl-hint').textContent = hint;
   } else {
+    w = normalizePashto(w);
     document.getElementById('tl-hint').textContent = '';
   }
   loadTlWord(w);
