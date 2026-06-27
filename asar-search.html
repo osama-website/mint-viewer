@@ -877,6 +877,16 @@ function drawTl(word,wd,dates,hlIdx,noAnim){
     circ.addEventListener('click',()=>selectYear(i));
     circ.appendChild(Object.assign(svgEl('title',{}),{textContent:`${fmtDate(dt)} — click to explore`}));
     svg.appendChild(circ);
+    if(!isPan){
+      const anchor=cx>W*0.62?'end':'start';
+      const lx=cx>W*0.62?(cx-12).toFixed(1):(cx+12).toFixed(1);
+      const yrl=svgEl('text',{x:lx,y:(cy-2).toFixed(1),'font-size':'10','font-weight':'bold',fill:'#6b1200','font-family':'system-ui','text-anchor':anchor,'paint-order':'stroke fill',stroke:'#fdf9f4','stroke-width':'2.5'});
+      yrl.textContent=dt.slice(0,4);svg.appendChild(yrl);
+      (wd.neighbors[dt]||[]).slice(0,3).forEach((nb,j)=>{
+        const nl=svgEl('text',{x:lx,y:(cy+11+j*12).toFixed(1),'font-size':'8.5',fill:'#a05020','font-family':"'Noto Nastaliq Urdu',serif",'text-anchor':anchor,'paint-order':'stroke fill',stroke:'#fdf9f4','stroke-width':'2'});
+        nl.textContent=nb;svg.appendChild(nl);
+      });
+    }
   });
   // Neighbor words (pan mode only)
   if(isPan&&hlIdx>=0){
@@ -905,7 +915,16 @@ function drawTl(word,wd,dates,hlIdx,noAnim){
 function showTlSnippets(word,filterDate){
   const w=document.getElementById('tl-pages-wrap');
   if(!pages.length){w.innerHTML='';return;}
-  const m=pages.filter(p=>{const t=(p.right_page||'')+' '+(p.left_page||'');return containsWord(t,word)&&(!filterDate||p.issue_date===filterDate);});
+  // Use TF-IDF index if available (same tokeniser as build pipeline), else substring fallback
+  let m;
+  const toks=tokPs(word);
+  if(toks.length&&Object.keys(si).length){
+    const ids=new Set();toks.forEach(tok=>(si[tok]||[]).forEach(([pid])=>ids.add(pid)));
+    m=[...ids].map(id=>pageMap[id]).filter(Boolean);
+  }else{
+    m=pages.filter(p=>((p.right_page||'')+' '+(p.left_page||'')).includes(word));
+  }
+  if(filterDate)m=m.filter(p=>p.issue_date===filterDate);
   if(!m.length){w.innerHTML=`<div class="tl-pages-title">No pages found for "${esc(word)}"${filterDate?' in '+fmtDate(filterDate):''}</div>`;return;}
   const en=psEnMap[word]||'';
   w.innerHTML=`<div class="tl-pages-title">"${esc(word)}"${en?' ('+esc(en)+')':''} — ${m.length} page${m.length!==1?'s':''} ${filterDate?'in '+fmtDate(filterDate):'across all issues'}</div>`;
