@@ -622,13 +622,13 @@ function buildCards(p, hlWord) {
   return cards;
 }
 
-// Build flat column-page list for an issue: left col first, right col second, per spread
+// Build flat column-page list for an issue: right col first (RTL reading order), left col second
 function buildColPages(issueDate){
   const spreads=pages.filter(p=>p.issue_date===issueDate).sort((a,b)=>a.id-b.id);
   const cols=[];
   spreads.forEach(p=>{
-    if(p.left_page)  cols.push({spread:p,side:'left', text:p.left_page});
     if(p.right_page) cols.push({spread:p,side:'right',text:p.right_page});
+    if(p.left_page)  cols.push({spread:p,side:'left', text:p.left_page});
   });
   return cols;
 }
@@ -868,7 +868,7 @@ async function initTimeline(){
   const[d,t]=await Promise.all([loadJSON('tooba_semantic'),loadJSON('tooba_translations')]);
   if(!d)return;
   semData=d;
-  if(t){if(!Object.keys(trans).length)trans=t;psEnMap={};Object.entries(t).forEach(([en,ps])=>{psEnMap[normalizePashto(ps)]=en;});}
+  if(t){if(!Object.keys(trans).length)trans=t;psEnMap={};Object.entries(t).forEach(([en,ps])=>{psEnMap[normalizePashto(ps)]=en.replace(/_w\d+$/,'');});}
   buildDriftChips();
 }
 
