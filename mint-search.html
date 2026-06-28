@@ -869,7 +869,7 @@ async function initTimeline(){
   const[d,t]=await Promise.all([loadJSON('mint_semantic'),loadJSON('mint_translations')]);
   if(!d)return;
   semData=d;
-  if(t){if(!Object.keys(trans).length)trans=t;psEnMap={};Object.entries(t).forEach(([en,ps])=>{psEnMap[normalizePashto(ps)]=en.replace(/_w\d+$/,'').replace(/_\d+$/,'').replace(/_/g,'/');});}
+  if(t){if(!Object.keys(trans).length)trans=t;psEnMap={};Object.entries(t).forEach(([en,ps])=>{psEnMap[normalizePashto(ps)]=en;});}
   buildDriftChips();
 }
 
