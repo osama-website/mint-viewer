@@ -868,14 +868,14 @@ async function initTimeline(){
   const[d,t]=await Promise.all([loadJSON('mint_semantic'),loadJSON('mint_translations')]);
   if(!d)return;
   semData=d;
-  if(t){if(!Object.keys(trans).length)trans=t;psEnMap={};Object.entries(t).forEach(([en,ps])=>{psEnMap[normalizePashto(ps)]=en.replace(/_w\d+$/,'');});}
+  if(t){if(!Object.keys(trans).length)trans=t;psEnMap={};Object.entries(t).forEach(([en,ps])=>{psEnMap[normalizePashto(ps)]=en.replace(/_w\d+$/,'').replace(/_\d+$/,'').replace(/_/g,'/');});}
   buildDriftChips();
 }
 
 function buildDriftChips(){
   const w=document.getElementById('drift-chips');w.innerHTML='';
   (semData.top_drift||[]).slice(0,20).forEach(word=>{
-    const en=psEnMap[word]||'';
+    const en=psEnMap[normalizePashto(word)]||'';
     const b=document.createElement('button');b.className='drift-btn';
     b.innerHTML=`<span style="font-family:var(--font-ps);font-size:.83rem">${esc(word)}</span>${en?`<span style="font-family:system-ui;font-size:.63rem;color:var(--muted);display:block;direction:ltr"> ${esc(en)}</span>`:''}`;
     b.onclick=()=>{document.querySelectorAll('.drift-btn').forEach(x=>x.classList.remove('active'));b.classList.add('active');document.getElementById('tl-input').value=word;loadTlWord(word);};
@@ -922,7 +922,7 @@ function loadTlWord(word,keepHistory){
     document.getElementById('tl-controls').style.display='none';
     document.getElementById('tl-pages-wrap').innerHTML='';return;
   }
-  const en=psEnMap[word]?` (${psEnMap[word]})`:'';
+  const en=psEnMap[normalizePashto(word)]?` (${psEnMap[normalizePashto(word)]})`:'';
   document.getElementById('tl-svg-title').textContent=`${word}${en} · drift: ${(wd.drift_score||0).toFixed(3)} · ${dates.length} issue${dates.length!==1?'s':''}`;
   document.getElementById('tl-hint').textContent='Use the arrows to step through issues and see how the word\'s context changes. Click any neighbor to see snippets.';
   document.getElementById('tl-controls').style.display='block';
@@ -1046,7 +1046,7 @@ function drawTl(word,wd,dates,hlIdx,noAnim){
       (wd.neighbors[dt]||[]).slice(0,3).forEach(nb=>{
         const nl=svgEl('text',{x:lx,y:nbY.toFixed(1),'font-size':'8.5',fill:'#a05020','font-family':"'Noto Nastaliq Urdu',serif",'text-anchor':anchor,'paint-order':'stroke fill',stroke:'#fdf9f4','stroke-width':'2'});
         nl.textContent=nb;svg.appendChild(nl);nbY+=11;
-        const en=psEnMap[nb]||'';
+        const en=psEnMap[normalizePashto(nb)]||'';
         if(en){const el=svgEl('text',{x:lx,y:nbY.toFixed(1),'font-size':'7.5',fill:'#bbb','font-family':'system-ui','text-anchor':anchor,'paint-order':'stroke fill',stroke:'#fdf9f4','stroke-width':'1.5'});el.textContent=en;svg.appendChild(el);nbY+=10;}else{nbY+=11;}
       });
     }
@@ -1060,12 +1060,12 @@ function drawTl(word,wd,dates,hlIdx,noAnim){
       const[nx,ny]=toS(nc);
       const ndot=svgEl('circle',{cx:nx.toFixed(1),cy:ny.toFixed(1),r:'9',fill:'#e8833a',stroke:'#fff','stroke-width':'2',cursor:'pointer'});
       ndot.addEventListener('click',e=>{e.stopPropagation();navigateToWord(nb);});
-      ndot.appendChild(Object.assign(svgEl('title',{}),{textContent:`${nb}${psEnMap[nb]?' ('+psEnMap[nb]+')':''} — click to explore`}));
+      ndot.appendChild(Object.assign(svgEl('title',{}),{textContent:`${nb}${psEnMap[normalizePashto(nb)]?' ('+psEnMap[normalizePashto(nb)]+')':''} — click to explore`}));
       svg.appendChild(ndot);
       const lx=(nx+13).toFixed(1),ly=(ny-3).toFixed(1);
       const nl=svgEl('text',{x:lx,y:ly,'font-size':'12',fill:'#7a2c00','font-family':"'Noto Nastaliq Urdu',serif",'paint-order':'stroke fill',stroke:'#fdf9f4','stroke-width':'3'});
       nl.textContent=nb;svg.appendChild(nl);
-      const en=psEnMap[nb]||'';
+      const en=psEnMap[normalizePashto(nb)]||'';
       let enl=null;
       if(en){enl=svgEl('text',{x:lx,y:(ny+13).toFixed(1),'font-size':'9.5',fill:'#999','font-family':'system-ui','paint-order':'stroke fill',stroke:'#fdf9f4','stroke-width':'2.5'});enl.textContent=`(${en})`;svg.appendChild(enl);}
       nbItems.push({nb,ndot,nl,enl,nx,ny});
@@ -1121,7 +1121,7 @@ function drawTl(word,wd,dates,hlIdx,noAnim){
   // Main word label
   const ml=svgEl('text',{x:'10',y:'24','font-size':'14',fill:'#6b1200','font-family':"'Noto Nastaliq Urdu',serif",'font-weight':'bold'});
   ml.textContent=word;svg.appendChild(ml);
-  const enW=psEnMap[word]||'';
+  const enW=psEnMap[normalizePashto(word)]||'';
   if(enW){const el=svgEl('text',{x:'10',y:'40','font-size':'10',fill:'#999','font-family':'system-ui'});el.textContent=enW;svg.appendChild(el);}
 }
 
@@ -1139,7 +1139,7 @@ function showTlSnippets(word,filterDate){
   }
   if(filterDate)m=m.filter(p=>p.issue_date===filterDate);
   if(!m.length){w.innerHTML=`<div class="tl-pages-title">No pages found for "${esc(word)}"${filterDate?' in '+fmtDate(filterDate):''}</div>`;return;}
-  const en=psEnMap[word]||'';
+  const en=psEnMap[normalizePashto(word)]||'';
   w.innerHTML=`<div class="tl-pages-title">"${esc(word)}"${en?' ('+esc(en)+')':''} — ${m.length} page${m.length!==1?'s':''} ${filterDate?'in '+fmtDate(filterDate):'across all issues'}</div>`;
   m.slice(0,15).forEach(p=>buildCards(p,word).forEach(c=>w.appendChild(c)));
 }
