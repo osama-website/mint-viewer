@@ -1,0 +1,1261 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>پښتون — Pukhtoon Magazine Digital Archive 1928–1939</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<style>
+:root{--bg:#fdf9f4;--surface:#fff;--border:#ddd4c4;--ink:#1a1209;--muted:#7a6a55;--accent:#6b1200;--accent2:#c44b00;--sand:#f5edd8;--font-ps:'Noto Nastaliq Urdu','Jameel Noori Nastaleeq',serif;--font-en:Georgia,serif;--font-ui:system-ui,sans-serif;--radius:6px;--shadow:0 2px 8px rgba(0,0,0,.08)}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:var(--font-ui);min-height:100vh}
+.site-header{background:var(--accent);color:#fff;padding:.7rem 1.4rem;display:flex;align-items:center;justify-content:space-between}
+.site-title{font-size:1.5rem;font-family:var(--font-ps);line-height:1.2}
+.site-tagline{font-size:.72rem;opacity:.8}
+.lang-toggle{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.35);color:#fff;border-radius:4px;padding:.25rem .65rem;cursor:pointer;font-size:.78rem}
+.lang-toggle:hover{background:rgba(255,255,255,.25)}
+.tab-bar{display:flex;border-bottom:2px solid var(--border);background:var(--surface);overflow-x:auto}
+.tab-btn{padding:.55rem 1rem;font-size:.82rem;cursor:pointer;border:none;background:none;color:var(--muted);white-space:nowrap;border-bottom:3px solid transparent;margin-bottom:-2px;transition:color .15s}
+.tab-btn.active{color:var(--accent);border-bottom-color:var(--accent);font-weight:600}
+.tab-btn:hover{color:var(--ink)}
+.view{display:none;padding:1.2rem;max-width:980px;margin:0 auto}
+.view.active{display:block}
+
+/* Buttons */
+.btn{padding:.45rem .9rem;border:none;border-radius:var(--radius);cursor:pointer;font-size:.82rem;transition:background .15s}
+.btn-primary{background:var(--accent);color:#fff}
+.btn-primary:hover{background:var(--accent2)}
+.btn-secondary{background:var(--sand);color:var(--ink);border:1px solid var(--border)}
+.btn-secondary:hover{background:var(--border)}
+
+/* Search */
+.search-bar{display:flex;gap:.5rem;margin-bottom:.6rem}
+.search-bar input{flex:1;padding:.55rem .9rem;border:1.5px solid var(--border);border-radius:var(--radius);font-size:.95rem;background:var(--surface)}
+.search-bar input:focus{outline:none;border-color:var(--accent)}
+.search-hint{font-size:.78rem;color:var(--accent);margin-bottom:.5rem;min-height:1.1em}
+.filter-row{display:flex;flex-wrap:wrap;gap:.35rem;margin-bottom:.6rem;align-items:center}
+.filter-label{font-size:.72rem;color:var(--muted)}
+.chip{font-size:.7rem;padding:.18rem .5rem;border-radius:12px;cursor:pointer;border:1.5px solid var(--border);background:var(--surface);transition:all .15s}
+.chip.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+.chip:hover:not(.active){background:var(--sand)}
+.sort-row{display:flex;gap:.4rem;align-items:center;margin-bottom:.6rem}
+.sort-label{font-size:.72rem;color:var(--muted)}
+.sort-btn{font-size:.72rem;padding:.2rem .5rem;border:1px solid var(--border);border-radius:3px;background:var(--surface);cursor:pointer}
+.sort-btn.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+.results-info{font-size:.76rem;color:var(--muted);margin-bottom:.5rem}
+
+/* Cards — text-first */
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);margin-bottom:.75rem;padding:.85rem 1rem;box-shadow:var(--shadow);transition:box-shadow .15s,border-color .15s;cursor:pointer}
+.card:hover{box-shadow:0 4px 14px rgba(0,0,0,.12)}
+.card.expanded{border-color:var(--accent);box-shadow:0 6px 20px rgba(107,18,0,.15);cursor:default}
+.card-meta{display:flex;justify-content:space-between;align-items:center;margin-bottom:.38rem}
+.card-date{font-size:.68rem;color:var(--muted);font-family:var(--font-ui)}
+.side-tag{display:inline-block;margin-left:.35rem;background:var(--sand);border-radius:3px;font-size:.6rem;padding:.05rem .3rem;color:var(--muted);vertical-align:middle;font-family:var(--font-ui)}
+.card-snippet{direction:rtl;font-family:var(--font-ps);font-size:.93rem;line-height:1.9;margin-bottom:.2rem;word-break:break-word}
+.card-en{direction:ltr;font-family:var(--font-ui);font-size:.75rem;color:var(--muted);line-height:1.55;margin-bottom:.35rem;font-style:italic;border-left:2px solid var(--border);padding-left:.5rem}
+.card-snippet mark,.card-full-text mark{background:#fde68a;color:#000;border-radius:2px;padding:0 2px;font-style:normal}
+.card-full-text{direction:rtl;font-family:var(--font-ps);font-size:.97rem;line-height:2.1;word-break:break-word;margin:.6rem 0}
+.card-full-en{direction:ltr;font-family:var(--font-ui);font-size:.82rem;color:#333;line-height:1.7;margin:.6rem 0;border-left:3px solid var(--accent);padding-left:.75rem}
+.card-expand-bar{display:flex;align-items:center;gap:.4rem;flex-wrap:wrap;padding:.55rem 0 .3rem;border-top:1px solid var(--border);margin-top:.5rem}
+.card-pg-label{font-size:.7rem;color:var(--muted);font-family:var(--font-ui);margin-right:auto}
+.scan-preview{margin-top:.45rem}
+.scan-preview img{max-width:100%;border-radius:4px;border:1px solid var(--border);display:block}
+.tags-row{display:flex;flex-wrap:wrap;gap:.28rem;margin-top:.42rem}
+.tag{font-size:.63rem;padding:.13rem .38rem;border-radius:3px;cursor:pointer}
+.tag:hover{opacity:.8}
+.tag.keyword{background:#e8f4e8;color:#2a6a2a}
+.tag.location{background:#e8eef8;color:#1a3a7a}
+.tag.person{background:#fde8e8;color:#7a1a1a}
+.card-actions{display:flex;gap:.3rem}
+.act-btn{font-size:.68rem;padding:.2rem .5rem;border:1px solid var(--border);border-radius:3px;background:var(--sand);cursor:pointer;font-family:var(--font-ui)}
+.act-btn:hover{background:var(--border)}
+
+/* Skeleton */
+.skeleton{background:linear-gradient(90deg,#eee 25%,#f8f8f8 50%,#eee 75%);background-size:200%;animation:shimmer 1.2s infinite;border-radius:4px;height:95px;margin-bottom:.75rem}
+@keyframes shimmer{0%{background-position:200%}100%{background-position:-200%}}
+
+/* Pagination */
+.pagination{display:flex;align-items:center;gap:.5rem;margin-top:.7rem;font-size:.76rem}
+.pg-btn{padding:.28rem .55rem;border:1px solid var(--border);border-radius:3px;background:var(--surface);cursor:pointer}
+.pg-btn:disabled{opacity:.4;cursor:default}
+.pg-btn:hover:not(:disabled){background:var(--sand)}
+
+/* About banner */
+.about-banner{background:linear-gradient(135deg,var(--accent) 0%,#a02010 100%);color:#fff;border-radius:var(--radius);padding:1rem 1.2rem;margin-bottom:1rem}
+.about-banner h3{font-size:.95rem;margin-bottom:.3rem}
+.about-banner p{font-size:.77rem;opacity:.85;line-height:1.5}
+
+/* Empty state */
+.empty{text-align:center;padding:2.5rem 1rem;color:var(--muted)}
+.empty h3{font-size:1rem;margin-bottom:.4rem;color:var(--ink)}
+.sug-row{display:flex;flex-wrap:wrap;gap:.4rem;justify-content:center;margin-top:.7rem}
+.sug{font-size:.75rem;padding:.2rem .55rem;border:1px solid var(--border);border-radius:12px;cursor:pointer;background:var(--surface)}
+.sug:hover{background:var(--sand);border-color:var(--accent);color:var(--accent)}
+
+/* Browse */
+.issue-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(195px,1fr));gap:1rem;margin-bottom:1.2rem}
+.issue-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;cursor:pointer;box-shadow:var(--shadow);transition:box-shadow .15s}
+.issue-card:hover{box-shadow:0 4px 14px rgba(0,0,0,.14)}
+.issue-card img{width:100%;height:135px;object-fit:cover;display:block;border-bottom:1px solid var(--border)}
+.issue-card-body{padding:.65rem}
+.ic-date{font-size:.82rem;font-weight:600;color:var(--accent);margin-bottom:.15rem}
+.ic-meta{font-size:.68rem;color:var(--muted)}
+.ic-snippet{font-size:.73rem;direction:rtl;font-family:var(--font-ps);margin-top:.3rem;line-height:1.5}
+.page-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(95px,1fr));gap:.55rem}
+.pg-item{cursor:pointer;border-radius:4px;overflow:hidden;border:2px solid transparent;transition:border-color .15s}
+.pg-item:hover{border-color:var(--accent)}
+.pg-item img{width:100%;height:115px;object-fit:cover;display:block}
+.pg-label{text-align:center;font-size:.58rem;color:var(--muted);padding:.18rem}
+.back-btn{font-size:.76rem;color:var(--accent);cursor:pointer;border:none;background:none;margin-bottom:.75rem;display:none}
+.back-btn:hover{text-decoration:underline}
+
+/* Timeline */
+.tl-search{display:flex;gap:.5rem;margin-bottom:.5rem}
+.tl-search input{flex:1;padding:.5rem .8rem;border:1.5px solid var(--border);border-radius:var(--radius);font-size:.93rem}
+.tl-search input:focus{outline:none;border-color:var(--accent)}
+.tl-hint{font-size:.73rem;color:var(--muted);margin-bottom:.7rem}
+.tl-layout{display:grid;grid-template-columns:1fr 200px;gap:1rem}
+.tl-main{}
+.tl-svg-wrap{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:.9rem;overflow:hidden}
+.tl-svg-title{font-size:.78rem;color:var(--accent);margin-bottom:.4rem}
+.tl-controls{margin-top:.7rem}
+.tl-nav-row{display:flex;align-items:center;gap:.8rem;justify-content:center}
+.tl-active-year{font-size:1.05rem;font-weight:700;color:var(--accent);font-family:var(--font-ui);min-width:140px;text-align:center;direction:ltr;letter-spacing:.01em}
+.tl-nav-btn{background:var(--accent);color:#fff;border:none;border-radius:6px;padding:.3rem .9rem;font-size:1.15rem;cursor:pointer;transition:opacity .15s}
+.tl-nav-btn:disabled{opacity:.3;cursor:default}
+.tl-tick-row{display:flex;justify-content:space-between;margin-top:.28rem;padding:0 2px}
+.tl-tick{font-size:.62rem;color:var(--muted);font-family:var(--font-ui)}
+.tl-no-word{font-size:.85rem;color:var(--muted);padding:2rem 1rem;text-align:center}
+.tl-side h4{font-size:.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;margin-bottom:.4rem}
+.drift-btn{display:block;width:100%;text-align:right;padding:.3rem .5rem;border:none;border-radius:3px;background:none;cursor:pointer;margin-bottom:2px;line-height:1.4}
+.drift-btn:hover{background:var(--sand)}
+.drift-btn.active{background:var(--accent);color:#fff}
+.tl-pages-title{font-size:.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;margin:.8rem 0 .4rem}
+
+/* Map */
+#leaflet-map{height:460px;border-radius:var(--radius);border:1px solid var(--border)}
+.place-header{display:flex;justify-content:space-between;align-items:center;margin:.6rem 0}
+.place-title{font-size:1rem;color:var(--accent);font-weight:600}
+.back-link{font-size:.73rem;color:var(--accent);cursor:pointer;border:none;background:none}
+.back-link:hover{text-decoration:underline}
+
+/* Tags */
+.tags-toolbar{display:flex;gap:.5rem;margin-bottom:.75rem;align-items:center;flex-wrap:wrap}
+.tag-search-input{flex:1;min-width:130px;padding:.38rem .65rem;border:1.5px solid var(--border);border-radius:var(--radius);font-size:.85rem}
+.tag-search-input:focus{outline:none;border-color:var(--accent)}
+.ttype-btn{font-size:.7rem;padding:.2rem .48rem;border:1px solid var(--border);border-radius:3px;background:var(--surface);cursor:pointer}
+.ttype-btn.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+.tag-cols{display:grid;grid-template-columns:repeat(auto-fill,minmax(195px,1fr));gap:.8rem}
+.tag-col h4{font-size:.7rem;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;margin-bottom:.35rem}
+.tag-list{max-height:360px;overflow-y:auto}
+.tag-row{display:flex;justify-content:space-between;align-items:center;padding:.26rem .38rem;border-radius:3px;cursor:pointer;font-size:.8rem;font-family:var(--font-ps)}
+.tag-row:hover{background:var(--sand)}
+.tag-count{font-size:.65rem;color:var(--muted);font-family:var(--font-ui)}
+
+/* Topics */
+.cluster-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(215px,1fr));gap:.9rem;margin-bottom:1rem}
+.cluster-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:.85rem;cursor:pointer;box-shadow:var(--shadow);transition:box-shadow .15s;position:relative}
+.cluster-card:hover{box-shadow:0 4px 14px rgba(0,0,0,.12)}
+.cluster-header{display:flex;align-items:center;gap:.45rem;margin-bottom:.45rem}
+.cluster-dot{width:11px;height:11px;border-radius:50%;flex-shrink:0}
+.cluster-label{font-size:.88rem;font-family:var(--font-ps);color:var(--accent);font-weight:600}
+.cluster-badge{position:absolute;top:.65rem;right:.65rem;background:var(--sand);border-radius:10px;font-size:.65rem;padding:.12rem .38rem;color:var(--muted)}
+.cluster-words{display:flex;flex-wrap:wrap;gap:.22rem}
+.cw{font-size:.7rem;padding:.1rem .32rem;background:var(--sand);border-radius:3px;font-family:var(--font-ps);color:var(--muted)}
+
+/* About */
+#view-about{direction:ltr;font-family:var(--font-en)}
+#view-about h2{font-size:1.25rem;color:var(--accent);margin-bottom:.65rem}
+#view-about h3{font-size:.95rem;color:var(--accent);margin:1rem 0 .35rem}
+#view-about p{margin-bottom:.65rem;line-height:1.75;font-size:.9rem}
+.stat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(125px,1fr));gap:.55rem;margin:1rem 0}
+.stat-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:.75rem;text-align:center}
+.stat-num{font-size:1.65rem;font-weight:bold;color:var(--accent)}
+.stat-label{font-size:.7rem;color:var(--muted)}
+
+/* Reader — text-first two-column */
+#reader{display:none;position:fixed;inset:0;background:#111;z-index:9999;flex-direction:column}
+#reader.open{display:flex}
+.rd-header{background:#1a1a1a;color:#eee;padding:.45rem .9rem;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #333;flex-shrink:0}
+.rd-title{font-size:.82rem;font-family:system-ui}
+.rd-nav{display:flex;gap:.35rem;align-items:center}
+.rd-nav-btn{background:#333;color:#eee;border:none;border-radius:3px;padding:.28rem .55rem;cursor:pointer;font-size:.76rem;font-family:system-ui}
+.rd-nav-btn:hover{background:#555}
+.rd-nav-btn:disabled{opacity:.35;cursor:default}
+.rd-close{background:none;border:none;color:#eee;font-size:1.4rem;cursor:pointer;line-height:1;padding:0 .3rem}
+.rd-close:hover{color:#fff}
+.rd-body{flex:1;display:grid;grid-template-columns:1fr 1px 1fr;overflow:hidden}
+.rd-divider{background:#282828}
+.rd-col{padding:1.2rem 1.5rem;overflow-y:auto;background:#1c1c1c;color:#e8e0d0;display:flex;flex-direction:column}
+.rd-page-label{font-size:.6rem;text-transform:uppercase;letter-spacing:.1em;color:#444;font-family:system-ui;direction:ltr;margin-bottom:.2rem}
+.rd-page-num{font-size:.68rem;color:#3a3a3a;font-family:system-ui;direction:ltr;margin-bottom:.75rem}
+.rd-text{direction:rtl;font-family:var(--font-ps);font-size:1.02rem;line-height:2.15;color:#ddd5c5;flex:1}
+.rd-text .hl{background:#c8a500;color:#000;border-radius:2px;padding:0 2px}
+.rd-scan-strip{background:#0d0d0d;border-top:1px solid #202020;padding:.4rem .8rem;display:flex;align-items:center;gap:.65rem;flex-shrink:0}
+.rd-scan-thumb{height:50px;width:auto;border-radius:2px;border:1px solid #2a2a2a;cursor:zoom-in;opacity:.65;transition:opacity .15s}
+.rd-scan-thumb:hover{opacity:1}
+.ta-btn{background:#252525;color:#bbb;border:1px solid #3a3a3a;border-radius:3px;padding:.22rem .55rem;cursor:pointer;font-size:.7rem;font-family:system-ui;text-decoration:none;display:inline-block}
+.ta-btn:hover{background:#333;color:#eee}
+.rd-footer{background:#161616;color:#555;padding:.38rem .9rem;display:flex;justify-content:space-between;align-items:center;font-size:.72rem;border-top:1px solid #222;flex-shrink:0;font-family:system-ui}
+#rd-scan-full{display:none;position:fixed;inset:0;background:rgba(0,0,0,.94);z-index:10001;align-items:center;justify-content:center;cursor:zoom-out}
+#rd-scan-full.open{display:flex}
+#rd-scan-full img{max-width:95vw;max-height:95vh;object-fit:contain;border-radius:3px}
+
+/* Error */
+.error-bar{background:#fff3cd;border:1px solid #ffc107;border-radius:var(--radius);padding:.7rem .9rem;font-size:.82rem;margin-bottom:.8rem;color:#856404}
+
+@media(max-width:700px){
+  .rd-body{grid-template-columns:1fr;grid-template-rows:1fr 1px 1fr}
+  .rd-divider{width:100%;height:1px}
+  .rd-col{max-height:45vh}
+  .tl-layout{grid-template-columns:1fr}
+  .tag-cols{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div>
+    <div class="site-title">پښتون <span style="font-size:.85rem;font-family:var(--font-en);opacity:.82">Pukhtoon</span></div>
+    <div class="site-tagline">The پښتون Magazine · Peshawar 1928–1939 · Digital Archive</div>
+  </div>
+  <button class="lang-toggle" id="lang-toggle" onclick="toggleLang()">پښتو</button>
+</header>
+
+<nav class="tab-bar">
+  <button class="tab-btn active" onclick="switchTab('search')"   id="tab-search"   data-en="Search"   data-ps="لټون">Search</button>
+  <button class="tab-btn"        onclick="switchTab('browse')"   id="tab-browse"   data-en="Browse"   data-ps="پراته">Browse</button>
+  <button class="tab-btn"        onclick="switchTab('timeline')" id="tab-timeline" data-en="Timeline" data-ps="تاریخي لړۍ">Timeline</button>
+  <button class="tab-btn"        onclick="switchTab('map')"      id="tab-map"      data-en="Map"      data-ps="نقشه">Map</button>
+  <button class="tab-btn"        onclick="switchTab('tags')"     id="tab-tags"     data-en="Tags"     data-ps="نښانې">Tags</button>
+  <button class="tab-btn"        onclick="switchTab('topics')"   id="tab-topics"   data-en="Topics"   data-ps="موضوعات">Topics</button>
+  <button class="tab-btn"        onclick="switchTab('about')"    id="tab-about"    data-en="About"    data-ps="د پښتون کیسه">About</button>
+</nav>
+
+<!-- Search -->
+<div class="view active" id="view-search">
+  <div class="about-banner" id="intro-banner">
+    <h3>پښتون — Pukhtoon Magazine, 1928–1939</h3>
+    <p>A searchable digital archive of <em>Pukhtoon</em> (پښتون), a Pashto-language magazine published in Peshawar under British colonial rule. Search in English or Pashto, browse issues, explore the archive.</p>
+  </div>
+  <div class="search-bar">
+    <input type="text" id="search-input"
+      placeholder="Search in English or Pashto"
+      oninput="onSearchInput(this.value)" onkeydown="if(event.key==='Enter')doSearch()">
+    <button class="btn btn-primary" onclick="doSearch()">Search</button>
+    <button class="btn btn-secondary" onclick="clearSearch()">Clear</button>
+  </div>
+  <div class="search-hint" id="search-hint"></div>
+  <div class="filter-row">
+    <span class="filter-label">Issue:</span>
+    <span class="chip active" id="chip-all" onclick="setIssue(null,this)">All</span>
+    <span id="issue-chips"></span>
+  </div>
+  <div class="sort-row">
+    <span class="sort-label">Sort:</span>
+    <button class="sort-btn active" onclick="setSort('rel',this)">Relevance</button>
+    <button class="sort-btn" onclick="setSort('date',this)">Date</button>
+  </div>
+  <div class="results-info" id="results-info"></div>
+  <div id="search-results"></div>
+  <div class="pagination" id="search-pag"></div>
+</div>
+
+<!-- Browse -->
+<div class="view" id="view-browse">
+  <button class="back-btn" id="browse-back" onclick="showIssueGrid()">← Back to issues</button>
+  <div id="browse-body"></div>
+</div>
+
+<!-- Timeline -->
+<div class="view" id="view-timeline">
+  <div class="tl-search">
+    <button class="tl-back-btn" id="tl-back" onclick="tlBack()" style="display:none">&#8592; Back</button>
+    <input type="text" id="tl-input" placeholder="Search in English or Pashto" onkeydown="if(event.key==='Enter')doTimeline()">
+    <button class="btn btn-primary" onclick="doTimeline()">Show</button>
+  </div>
+  <div class="tl-hint" id="tl-hint">Semantic trajectory across issues. Click a word on the right to explore its drift.</div>
+  <div class="tl-layout">
+    <div class="tl-main">
+      <div class="tl-svg-wrap">
+        <div class="tl-svg-title" id="tl-svg-title">Semantic Trajectory</div>
+        <svg id="tl-svg" width="100%" height="400" viewBox="0 0 640 400" style="display:block"></svg>
+        <div class="tl-controls" id="tl-controls" style="display:none">
+          <div class="tl-nav-row">
+            <button class="tl-nav-btn" id="tl-prev" onclick="tlNav(-1)" disabled>&#8592;</button>
+            <span class="tl-active-year" id="tl-active-year">Overview</span>
+            <button class="tl-nav-btn" id="tl-next" onclick="tlNav(1)">&#8594;</button>
+          </div>
+          <div class="tl-tick-row" id="tl-tick-row"></div>
+        </div>
+      </div>
+      <div id="tl-pages-wrap"></div>
+    </div>
+    <div class="tl-side">
+      <h4>Most Changed Words</h4>
+      <div id="drift-chips"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Map -->
+<div class="view" id="view-map">
+  <div id="map-main">
+    <div id="leaflet-map"></div>
+  </div>
+  <div id="map-results" style="display:none">
+    <div class="place-header">
+      <div class="place-title" id="place-title"></div>
+      <button class="back-link" onclick="backToMap()">← Back to map</button>
+    </div>
+    <div id="place-list"></div>
+  </div>
+</div>
+
+<!-- Tags -->
+<div class="view" id="view-tags">
+  <div id="tags-browser">
+    <div class="tags-toolbar">
+      <input type="text" class="tag-search-input" id="tag-filter" placeholder="Filter tags…" oninput="filterTags(this.value)">
+      <button class="ttype-btn active" onclick="setTagType('all',this)">All</button>
+      <button class="ttype-btn" onclick="setTagType('location',this)">Locations</button>
+      <button class="ttype-btn" onclick="setTagType('person',this)">People</button>
+      <button class="ttype-btn" onclick="setTagType('keyword',this)">Keywords</button>
+    </div>
+    <div class="tag-cols" id="tag-cols"></div>
+  </div>
+  <div id="tags-results" style="display:none">
+    <div class="place-header">
+      <div class="place-title" id="tag-res-title"></div>
+      <button class="back-link" onclick="backToTags()">← Back to tags</button>
+    </div>
+    <div id="tag-res-list"></div>
+  </div>
+</div>
+
+<!-- Topics -->
+<div class="view" id="view-topics">
+  <div class="cluster-grid" id="cluster-grid"></div>
+  <div id="topic-results" style="display:none">
+    <div class="place-header">
+      <div class="place-title" id="topic-res-title"></div>
+      <button class="back-link" onclick="backToTopics()">← Back to topics</button>
+    </div>
+    <div id="topic-res-list"></div>
+  </div>
+</div>
+
+<!-- About -->
+<div class="view" id="view-about">
+  <h2>پښتون — Pukhtoon Magazine (1928–1939)</h2>
+  <p><em>Pukhtoon</em> (پښتون) was a Pashto-language magazine published in Peshawar under British colonial rule. This digital archive makes the full text of all preserved spreads searchable for the first time.</p>
+  <div class="stat-grid" id="about-stats"></div>
+  <h3>About the Magazine</h3>
+  <p>Pukhtoon covered politics, literature, religion, education, and daily life in the North-West Frontier Province. It was a significant voice for Pashto literacy and cultural identity, featuring poetry, news, and commentary.</p>
+  <h3>Methodology</h3>
+  <p>Each spread was photographed, reduced to JPEG, and transcribed using Google Gemini's multimodal OCR. Analysis uses TF-IDF for search indexing, K-Means + UMAP for topic clustering, and PPMI co-occurrence matrices with UMAP projection to measure semantic drift across issues.</p>
+  <h3>Attribution</h3>
+  <p style="color:var(--muted);font-size:.85rem">Magazine: <em>Pukhtoon</em> (پښتون), 1928–1939, Peshawar, NWFP, British India. OCR and archive viewer built with Claude Code.</p>
+</div>
+
+<!-- Reader -->
+<div id="reader">
+  <div class="rd-header">
+    <div style="display:flex;align-items:center;gap:.7rem">
+      <button class="rd-close" onclick="closeReader()">×</button>
+      <span class="rd-title" id="rd-title">پښتون Pukhtoon</span>
+    </div>
+    <div class="rd-nav">
+      <button class="rd-nav-btn" id="rd-prev" onclick="readerNav(-1)">◀ Prev</button>
+      <span id="rd-counter" style="font-size:.72rem;color:#888"></span>
+      <button class="rd-nav-btn" id="rd-next" onclick="readerNav(1)">Next ▶</button>
+    </div>
+  </div>
+  <div class="rd-body">
+    <div class="rd-col" id="rd-col-right">
+      <div class="rd-page-label">Right Page</div>
+      <div class="rd-page-num" id="rd-num-right"></div>
+      <div class="rd-text" id="rd-right"></div>
+    </div>
+    <div class="rd-divider"></div>
+    <div class="rd-col" id="rd-col-left">
+      <div class="rd-page-label">Left Page</div>
+      <div class="rd-page-num" id="rd-num-left"></div>
+      <div class="rd-text" id="rd-left"></div>
+    </div>
+  </div>
+  <div class="rd-scan-strip">
+    <span style="font-size:.63rem;color:#3a3a3a;font-family:system-ui;flex-shrink:0">Scan:</span>
+    <img class="rd-scan-thumb" id="rd-scan-thumb" src="" alt="Page scan" onclick="openScanFull()">
+    <div style="display:flex;gap:.38rem;margin-left:auto;align-items:center">
+      <button class="ta-btn" onclick="copyText()">📋 Copy text</button>
+      <button class="ta-btn" id="rd-translate-btn" onclick="translateText()">🌐 Translate</button>
+      <a class="ta-btn" id="rd-dl" download>⬇ Scan</a>
+    </div>
+  </div>
+  <div class="rd-footer">
+    <button class="rd-nav-btn" onclick="readerNav(-1)">◀ Previous</button>
+    <span id="rd-footer-label"></span>
+    <button class="rd-nav-btn" onclick="readerNav(1)">Next ▶</button>
+  </div>
+</div>
+<div id="rd-scan-full" onclick="closeScanFull()"><img id="rd-scan-full-img" src="" alt="Full scan"></div>
+
+<script>
+const BASE='https://raw.githubusercontent.com/osama-website/mint-viewer/master';
+const JBASE=BASE+'/json';
+const CACHE={};
+const LANG={cur:'en'};
+
+async function loadJSON(name){
+  if(CACHE[name])return CACHE[name];
+  try{
+    const r=await fetch(`${JBASE}/${name}.json`);
+    if(!r.ok)throw new Error(r.status);
+    CACHE[name]=await r.json();
+    return CACHE[name];
+  }catch(e){
+    showError('Unable to load data — check connection ('+name+')');
+    return null;
+  }
+}
+
+function showError(msg){
+  let b=document.getElementById('global-err');
+  if(!b){b=document.createElement('div');b.id='global-err';b.className='error-bar';document.querySelector('.view.active').prepend(b);}
+  b.textContent=msg;
+}
+
+function esc(s){if(!s)return'';return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+
+function fmtDate(iso){
+  const M=['January','February','March','April','May','June','July','August','September','October','November','December'];
+  const[y,m]=iso.split('-');return M[parseInt(m)-1]+' '+y;
+}
+
+const CC=['#8b1a00','#1a5c8b','#2a7a2a','#7a5c1a','#5c1a7a','#8b5c2a','#1a7a6a','#6a1a5c'];
+const cc=id=>CC[id%CC.length];
+
+function toggleLang(){
+  LANG.cur=LANG.cur==='en'?'ps':'en';
+  document.getElementById('lang-toggle').textContent=LANG.cur==='en'?'پښتو':'EN';
+  document.querySelectorAll('[data-en]').forEach(el=>{el.textContent=el.dataset[LANG.cur]||el.dataset.en;});
+}
+
+let activeTab='search';
+function switchTab(name){
+  document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('view-'+name).classList.add('active');
+  document.getElementById('tab-'+name).classList.add('active');
+  activeTab=name;
+  if(name==='browse')initBrowse();
+  if(name==='timeline')initTimeline();
+  if(name==='map')setTimeout(initMap,80);
+  if(name==='tags')initTags();
+  if(name==='topics')initTopics();
+  if(name==='about')buildAbout();
+}
+
+// ── SEARCH ────────────────────────────────────────────────────────────────────
+let pages=[],pageMap={},trans={},si={};
+let activeIssue=null,sortMode='rel',results=[],searchPg=0;
+const PG=20;
+let debT=null;
+
+async function initSearch(){
+  showSkels();
+  const[pg,tr,s,pt]=await Promise.all([loadJSON('mint_pages'),loadJSON('mint_translations'),loadJSON('mint_search'),loadJSON('mint_page_translations').catch(()=>null)]);
+  if(!pg)return;
+  pages=pg;pages.forEach(p=>pageMap[p.id]=p);
+  trans=tr||{};si=s||{};
+  if(pt)pageTrans=pt;
+  buildIssueChips();
+  showFeatured();
+  document.getElementById('intro-banner').style.display='none';
+}
+
+function showSkels(){
+  document.getElementById('search-results').innerHTML=Array(4).fill('<div class="skeleton"></div>').join('');
+}
+
+function buildIssueChips(){
+  const dates=[...new Set(pages.map(p=>p.issue_date))].sort();
+  const w=document.getElementById('issue-chips');w.innerHTML='';
+  dates.forEach(dt=>{
+    const c=document.createElement('span');c.className='chip';c.textContent=fmtDate(dt);c.dataset.date=dt;
+    c.onclick=()=>setIssue(dt,c);w.appendChild(c);
+  });
+}
+
+function setIssue(dt,el){
+  activeIssue=dt;
+  document.querySelectorAll('.chip').forEach(c=>c.classList.remove('active'));el.classList.add('active');
+  document.getElementById('search-input').value.trim()?doSearch():showFeatured();
+}
+
+function setSort(mode,el){
+  sortMode=mode;document.querySelectorAll('.sort-btn').forEach(b=>b.classList.remove('active'));el.classList.add('active');
+  renderResults();
+}
+
+function onSearchInput(val){clearTimeout(debT);if(!val.trim()){clearSearch();return;}debT=setTimeout(doSearch,300);}
+
+// Resolve a raw query (English or Pashto) into Pashto search terms + display hint
+function resolveQuery(raw) {
+  const isPashto = /[؀-ۿ]/.test(raw);
+  if(isPashto) {
+    // Already Pashto — split on whitespace, each token is a term
+    const terms = raw.split(/\s+/).filter(Boolean);
+    return { terms, hlWord: raw, hint: '' };
+  }
+  // English: translate each word
+  const words = raw.toLowerCase().trim().split(/\s+/);
+  const pairs = []; // [{en, ps}]
+  words.forEach(w => {
+    // Exact match first
+    if(trans[w]) { pairs.push({en:w, ps:trans[w]}); return; }
+    // Prefix/contains match
+    for(const[k,v] of Object.entries(trans)) {
+      if(k.startsWith(w) || w.startsWith(k)) { pairs.push({en:w, ps:v}); return; }
+    }
+    // No match — keep the raw word for direct substring search
+    pairs.push({en:w, ps:null});
+  });
+  const terms = pairs.map(p => p.ps ? normalizePashto(p.ps) : p.en);
+  const hlWord = pairs[0]?.ps ? normalizePashto(pairs[0].ps) : raw;
+  const mapped = pairs.filter(p=>p.ps).map(p=>`"${p.en}" → ${p.ps}`);
+  const unmapped = pairs.filter(p=>!p.ps).map(p=>`"${p.en}" (no translation)`);
+  const hint = [...mapped, ...unmapped].join(' · ');
+  return { terms, hlWord, hint };
+}
+
+function normalizePashto(t){if(!t)return '';t=t.replace(/ـ/g,'');t=t.replace(/[ً-ٰٟ]/g,'');t=t.replace(/[آأإ]/g,'ا');t=t.replace(/[يى]/g,'ی');return t;}
+function tokPs(t){return normalizePashto(t).split(/[\s،؛؟۔؟!؛:.،()\[\]{}\-«»]+/).filter(x=>x&&x.length>1&&/[؀-ۿ]/.test(x));}
+function containsWord(text,word){text=normalizePashto(text);word=normalizePashto(word);if(!text||!word)return false;const e=word.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');return new RegExp('(?:^|[\\s،؛؟۔!:.،()\\[\\]{}\\-«»])'+e+'(?=$|[\\s،؛؟۔!:.،()\\[\\]{}\\-«»])','u').test(text);}
+
+let lastHlWord = '';
+
+function doSearch(){
+  const raw=document.getElementById('search-input').value.trim();
+  if(!raw){showFeatured();return;}
+  if(!pages.length){initSearch().then(doSearch);return;}
+  document.getElementById('intro-banner').style.display='none';
+  const {terms, hlWord, hint} = resolveQuery(raw);
+  lastHlWord = hlWord;
+  document.getElementById('search-hint').textContent = hint;
+  const scores = {};
+  terms.forEach(term => {
+    // TF-IDF index lookup (Pashto tokens)
+    tokPs(term).forEach(tok => (si[tok]||[]).forEach(([pid,sc]) => { scores[pid]=(scores[pid]||0)+sc; }));
+    // Fallback: direct substring scan
+    if(!tokPs(term).length || !/[؀-ۿ]/.test(term)) {
+      pages.forEach(p => { if(containsWord((p.right_page||'')+(p.left_page||''),term)) scores[p.id]=(scores[p.id]||0)+0.5; });
+    }
+  });
+  results=Object.entries(scores).sort((a,b)=>b[1]-a[1]).map(([id])=>pageMap[id]).filter(Boolean);
+  if(activeIssue) results=results.filter(p=>p.issue_date===activeIssue);
+  searchPg=0;
+  if(!results.length){
+    document.getElementById('search-results').innerHTML=`<div class="empty"><h3>No results for "${esc(raw)}"</h3><p>Try:</p><div class="sug-row">${['freedom','education','Palestine','poetry','Peshawar','religion'].map(s=>`<span class="sug" onclick="document.getElementById('search-input').value='${s}';doSearch()">${s}</span>`).join('')}</div></div>`;
+    document.getElementById('results-info').textContent='0 results';
+    document.getElementById('search-pag').innerHTML='';return;
+  }
+  renderResults();
+}
+
+function renderResults(){
+  let sorted=[...results];
+  if(sortMode==='date')sorted.sort((a,b)=>a.issue_date.localeCompare(b.issue_date));
+  const start=searchPg*PG;const slice=sorted.slice(start,start+PG);
+  document.getElementById('results-info').textContent=`${results.length} result${results.length!==1?'s':''} — showing ${start+1}–${Math.min(start+PG,results.length)}`;
+  const r=document.getElementById('search-results');r.innerHTML='';
+  slice.forEach(p=>buildCards(p,lastHlWord).forEach(c=>r.appendChild(c)));
+  buildPag();
+}
+
+function buildPag(){
+  const w=document.getElementById('search-pag');const total=Math.ceil(results.length/PG);w.innerHTML='';
+  if(total<=1)return;
+  const prev=document.createElement('button');prev.className='pg-btn';prev.textContent='← Prev';prev.disabled=searchPg===0;
+  prev.onclick=()=>{searchPg--;renderResults();};
+  const info=document.createElement('span');info.textContent=`Page ${searchPg+1} of ${total}`;
+  const next=document.createElement('button');next.className='pg-btn';next.textContent='Next →';next.disabled=searchPg>=total-1;
+  next.onclick=()=>{searchPg++;renderResults();};
+  w.append(prev,info,next);
+}
+
+function showFeatured(){
+  if(!pages.length)return;
+  const shown=activeIssue?pages.filter(p=>p.issue_date===activeIssue):pages.filter(p=>p.issue_date===pages[0].issue_date);
+  document.getElementById('results-info').textContent=`Showing ${shown.length} pages from ${fmtDate(shown[0]?.issue_date||'')}`;
+  document.getElementById('search-results').innerHTML='';
+  shown.slice(0,20).forEach(p=>buildCards(p).forEach(c=>document.getElementById('search-results').appendChild(c)));
+  document.getElementById('search-pag').innerHTML='';
+}
+
+function clearSearch(){
+  document.getElementById('search-input').value='';document.getElementById('search-hint').textContent='';
+  results=[];searchPg=0;lastHlWord='';
+  document.getElementById('search-results').innerHTML='';
+  document.getElementById('results-info').textContent='';document.getElementById('search-pag').innerHTML='';
+  if(pages.length)showFeatured();
+}
+
+function getSnippet(text, word, chars=240) {
+  if(!text) return '';
+  const idx = word ? text.indexOf(word) : -1;
+  if(idx === -1) return text.slice(0, chars) + (text.length > chars ? '…' : '');
+  const half = Math.floor((chars - word.length) / 2);
+  const start = Math.max(0, idx - half);
+  const end = Math.min(text.length, idx + word.length + half);
+  return (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
+}
+
+function buildCards(p, hlWord) {
+  const cards = [];
+  if (p.right_page) cards.push(buildCard(p, hlWord, 'right'));
+  if (p.left_page)  cards.push(buildCard(p, hlWord, 'left'));
+  if (!cards.length) cards.push(buildCard(p, hlWord, null));
+  return cards;
+}
+
+// Build flat column-page list for an issue: right col first (RTL reading order), left col second
+function buildColPages(issueDate){
+  const spreads=pages.filter(p=>p.issue_date===issueDate).sort((a,b)=>a.id-b.id);
+  const cols=[];
+  spreads.forEach(p=>{
+    if(p.right_page) cols.push({spread:p,side:'right',text:p.right_page});
+    if(p.left_page)  cols.push({spread:p,side:'left', text:p.left_page});
+  });
+  return cols;
+}
+
+function buildCard(p, hlWord, side) {
+  const card = document.createElement('div');
+  card.className = 'card';
+  const pageText = side==='right'?(p.right_page||''):side==='left'?(p.left_page||''):((p.right_page||'')+' '+(p.left_page||''));
+  const snippet = getSnippet(pageText, hlWord, 240);
+  const safeHL = hlWord ? esc(hlWord).replace(/[.*+?^${}()|[\]\\]/g,'\\$&') : null;
+  const displaySnippet = safeHL ? esc(snippet).replace(new RegExp(safeHL,'g'),m=>`<mark>${m}</mark>`) : esc(snippet);
+  const tags = (p.tags||[]).slice(0,5).map(t=>`<span class="tag ${esc(t.type)}" onclick="event.stopPropagation();jumpToTag('${esc(t.label)}')">${esc(t.label)}</span>`).join('');
+  const pt=pageTrans?.[String(p.id)];
+  const enSnip=(pt?(side==='right'?pt.right:side==='left'?pt.left:(pt.right||pt.left)):'')||'';
+  const sideLabel=side==='right'?'<span class="side-tag">R</span>':side==='left'?'<span class="side-tag">L</span>':'';
+  card.innerHTML=`
+    <div class="card-meta">
+      <span class="card-date">${fmtDate(p.issue_date)}${sideLabel}</span>
+      <button class="act-btn" onclick="event.stopPropagation();this.closest('.card').classList.remove('expanded');renderCollapsed(this.closest('.card'))">✕ Collapse</button>
+    </div>
+    <div class="card-snippet">${displaySnippet}</div>
+    ${enSnip?`<div class="card-en">${esc(enSnip.slice(0,200))}${enSnip.length>200?'…':''}</div>`:''}
+    <div class="tags-row">${tags}</div>`;
+  // Collapsed: clicking expands in-place
+  card.onclick=()=>expandCard(card, p, hlWord, side);
+  // Hide collapse button initially
+  card.querySelector('.act-btn').style.display='none';
+  return card;
+}
+
+function renderCollapsed(card){
+  const exp=card.querySelector('.card-expand');
+  if(exp)exp.remove();
+  card.classList.remove('expanded');
+  card.querySelector('.act-btn').style.display='none';
+  card.style.cursor='pointer';
+  const snip=card.querySelector('.card-snippet');if(snip)snip.style.display='';
+  const en=card.querySelector('.card-en');if(en)en.style.display='';
+  const tags=card.querySelector('.tags-row');if(tags)tags.style.display='';
+}
+
+function expandCard(card, p, hlWord, side){
+  if(card.classList.contains('expanded'))return;
+  // Collapse any other open card, restoring hidden elements
+  document.querySelectorAll('.card.expanded').forEach(c=>{
+    const e=c.querySelector('.card-expand');if(e)e.remove();
+    c.classList.remove('expanded');
+    const b=c.querySelector('.act-btn');if(b)b.style.display='none';
+    c.style.cursor='pointer';
+    const s=c.querySelector('.card-snippet');if(s)s.style.display='';
+    const en=c.querySelector('.card-en');if(en)en.style.display='';
+    const tr=c.querySelector('.tags-row');if(tr)tr.style.display='';
+  });
+  card.classList.add('expanded');
+  card.style.cursor='default';
+  card.querySelector('.act-btn').style.display='inline-block';
+  // Hide snippet/translation preview — full text shown in expand area
+  const snip=card.querySelector('.card-snippet');if(snip)snip.style.display='none';
+  const cen=card.querySelector('.card-en');if(cen)cen.style.display='none';
+  const tags=card.querySelector('.tags-row');if(tags)tags.style.display='none';
+
+  const cols=buildColPages(p.issue_date);
+  let idx=cols.findIndex(c=>c.spread.id===p.id&&c.side===side);
+  if(idx<0)idx=cols.findIndex(c=>c.spread.id===p.id);
+  card._expandCols=cols;card._expandIdx=idx;card._expandHl=hlWord;
+  renderExpandContent(card);
+}
+
+function renderExpandContent(card){
+  const cols=card._expandCols,idx=card._expandIdx,hlWord=card._expandHl;
+  const col=cols[idx];if(!col)return;
+  const safeHL=hlWord?esc(hlWord).replace(/[.*+?^${}()|[\]\\]/g,'\\$&'):null;
+  const fullHtml=safeHL?esc(col.text).replace(new RegExp(safeHL,'g'),m=>`<mark>${m}</mark>`):esc(col.text);
+  const pt=pageTrans?.[String(col.spread.id)];
+  const enFull=(pt?(col.side==='right'?pt.right:pt.left):'')||'';
+  const pgNum=idx+1,total=cols.length;
+  const sideLabel=col.side==='left'?'Left column':'Right column';
+  let exp=card.querySelector('.card-expand');
+  if(!exp){exp=document.createElement('div');exp.className='card-expand';card.appendChild(exp);}
+  exp.innerHTML=`
+    <div class="card-expand-bar">
+      <span class="card-pg-label">Page ${pgNum} of ${total} · ${sideLabel} · ${fmtDate(col.spread.issue_date)}</span>
+      <button class="act-btn" onclick="event.stopPropagation();cardNav(this.closest('.card'),-1)" ${idx===0?'disabled':''}>◀ Prev</button>
+      <button class="act-btn" onclick="event.stopPropagation();cardNav(this.closest('.card'),1)" ${idx===cols.length-1?'disabled':''}>Next ▶</button>
+      <button class="act-btn" onclick="event.stopPropagation();toggleCardEn(this.closest('.card-expand'))">🌐 Translate</button>
+      <button class="act-btn" onclick="event.stopPropagation();toggleCardScan(this,'${esc(col.spread.img_url)}')">📷 Scan</button>
+      <button class="act-btn" onclick="event.stopPropagation();openReader(${col.spread.id},${hlWord?`'${esc(hlWord)}'`:null},'${col.side}')">⛶ Full screen</button>
+    </div>
+    <div class="card-full-text">${fullHtml}</div>
+    <div class="card-full-en" style="display:none">${esc(enFull)||'(no translation available)'}</div>
+    <div class="card-scan-inline" style="display:none"><img src="" loading="lazy" style="max-width:100%;border-radius:4px;border:1px solid var(--border);display:block;margin-top:.5rem" alt="Scan"></div>`;
+  setTimeout(()=>{const h=exp.querySelector('mark');if(h)h.scrollIntoView({block:'center',behavior:'smooth'});},80);
+}
+
+function cardNav(card,dir){
+  card._expandIdx=Math.max(0,Math.min(card._expandCols.length-1,card._expandIdx+dir));
+  renderExpandContent(card);
+}
+function toggleCardEn(exp){
+  const en=exp.querySelector('.card-full-en');
+  en.style.display=en.style.display==='none'?'block':'none';
+  const btn=[...exp.querySelectorAll('.act-btn')].find(b=>b.textContent.includes('Translate')||b.textContent.includes('Pashto'));
+  if(btn)btn.textContent=en.style.display==='none'?'🌐 Translate':'📖 Pashto';
+}
+function toggleCardScan(btn,imgUrl){
+  const wrap=btn.closest('.card-expand').querySelector('.card-scan-inline');
+  const show=wrap.style.display==='none';
+  wrap.style.display=show?'block':'none';
+  if(show&&!wrap.querySelector('img').src.includes('http'))wrap.querySelector('img').src=imgUrl;
+  btn.textContent=show?'📷 Hide':'📷 Scan';
+}
+
+function toggleScan(btn, imgUrl) {
+  const preview = btn.closest('.card').querySelector('.scan-preview');
+  const img = preview.querySelector('img');
+  const hidden = preview.style.display === 'none';
+  preview.style.display = hidden ? 'block' : 'none';
+  if(hidden && img) img.src = imgUrl;
+  btn.textContent = hidden ? '📷 Hide' : '📷 Scan';
+}
+
+function jumpToTag(label){switchTab('tags');setTimeout(()=>showTagResults(label),150);}
+
+// ── BROWSE ────────────────────────────────────────────────────────────────────
+async function initBrowse(){if(!pages.length)await initSearch();showIssueGrid();}
+
+function showIssueGrid(){
+  document.getElementById('browse-back').style.display='none';
+  const dates=[...new Set(pages.map(p=>p.issue_date))].sort();
+  const w=document.getElementById('browse-body');
+  w.innerHTML='<div class="issue-grid" id="ig"></div>';
+  const g=document.getElementById('ig');
+  dates.forEach(dt=>{
+    const pgs=pages.filter(p=>p.issue_date===dt);
+    const f=pgs[0];const snip=((f.right_page||'')+(f.left_page||'')).trim().slice(0,80);
+    const c=document.createElement('div');c.className='issue-card';c.onclick=()=>showIssuePgs(dt);
+    c.innerHTML=`<img src="${esc(f.img_url)}" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="issue-card-body"><div class="ic-date">${fmtDate(dt)}</div><div class="ic-meta">${pgs.length} pages</div><div class="ic-snippet">${esc(snip)}…</div></div>`;
+    g.appendChild(c);
+  });
+}
+
+function showIssuePgs(dt){
+  document.getElementById('browse-back').style.display='inline-block';
+  const pgs=pages.filter(p=>p.issue_date===dt);
+  const w=document.getElementById('browse-body');
+  w.innerHTML=`<h3 style="font-size:.9rem;color:var(--accent);margin-bottom:.7rem">${fmtDate(dt)} — ${pgs.length} pages</h3><div class="page-grid" id="pg-grid"></div>`;
+  const g=document.getElementById('pg-grid');
+  pgs.forEach((p,i)=>{
+    const item=document.createElement('div');item.className='pg-item';item.onclick=()=>openReader(p.id);
+    item.innerHTML=`<img src="${esc(p.img_url)}" loading="lazy" alt="" onerror="this.style.display='none'"><div class="pg-label">pg ${i+1}</div>`;
+    g.appendChild(item);
+  });
+}
+
+// ── READER ────────────────────────────────────────────────────────────────────
+let rPgs=[],rIdx=0,rdHlW=null,rdSide=null,pageTrans=null,rdTransMode=false;
+
+function openReader(pid, hlW, side) {
+  const p = pageMap[pid]; if(!p) return;
+  rPgs = pages.filter(pg => pg.issue_date === p.issue_date).sort((a,b) => a.id - b.id);
+  rIdx = rPgs.findIndex(pg => pg.id === pid);
+  rdHlW = hlW || null;
+  rdSide = side || null;
+  renderRd();
+  document.getElementById('reader').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeReader() { document.getElementById('reader').classList.remove('open'); document.body.style.overflow = ''; }
+function openScanFull() { const p=rPgs[rIdx]; if(!p) return; document.getElementById('rd-scan-full-img').src=p.img_url; document.getElementById('rd-scan-full').classList.add('open'); }
+function closeScanFull() { document.getElementById('rd-scan-full').classList.remove('open'); }
+
+function renderRd() {
+  const p = rPgs[rIdx]; if(!p) return;
+  document.getElementById('rd-title').textContent = `پښتون · ${fmtDate(p.issue_date)} · Page ${rIdx+1} of ${rPgs.length}`;
+  document.getElementById('rd-counter').textContent = `${rIdx+1} / ${rPgs.length}`;
+  document.getElementById('rd-footer-label').textContent = `${fmtDate(p.issue_date)} — ${rPgs.length} pages in this issue`;
+  document.getElementById('rd-prev').disabled = rIdx === 0;
+  document.getElementById('rd-next').disabled = rIdx === rPgs.length - 1;
+  document.getElementById('rd-num-right').textContent = `Page ${rIdx+1} · right spread`;
+  document.getElementById('rd-num-left').textContent = `Page ${rIdx+1} · left spread`;
+  const thumb = document.getElementById('rd-scan-thumb'); thumb.src = p.img_url;
+  const dl = document.getElementById('rd-dl'); dl.href = p.img_url; dl.download = p.file;
+  const hlFn = t => {
+    if(!t) return '<span style="color:#333;font-size:.85rem">(no text)</span>';
+    if(!rdHlW) return esc(t);
+    return esc(t).replace(new RegExp(esc(rdHlW).replace(/[.*+?^${}()|[\]\\]/g,'\\$&'), 'g'), m => `<span class="hl">${m}</span>`);
+  };
+  document.getElementById('rd-right').innerHTML = hlFn(p.right_page);
+  document.getElementById('rd-left').innerHTML = hlFn(p.left_page);
+  // Show only the relevant column when opened from a side card
+  const colR=document.getElementById('rd-col-right'),colL=document.getElementById('rd-col-left'),div=document.querySelector('.rd-divider');
+  if(rdSide==='right'){colR.style.display='flex';colL.style.display='none';div.style.display='none';document.querySelector('.rd-body').style.gridTemplateColumns='1fr';}
+  else if(rdSide==='left'){colR.style.display='none';colL.style.display='flex';div.style.display='none';document.querySelector('.rd-body').style.gridTemplateColumns='1fr';}
+  else{colR.style.display='flex';colL.style.display='flex';div.style.display='block';document.querySelector('.rd-body').style.gridTemplateColumns='';}
+  if(rdHlW) setTimeout(() => { const h = document.querySelector('#reader .hl'); if(h) h.scrollIntoView({block:'center',behavior:'smooth'}); }, 120);
+}
+function readerNav(d) { const n = rIdx+d; if(n<0||n>=rPgs.length) return; rIdx = n; rdTransMode=false;document.getElementById('rd-translate-btn').textContent='🌐 Translate';renderRd(); }
+function copyText() { const p=rPgs[rIdx]; if(p) navigator.clipboard.writeText((p.right_page||'')+'\n\n'+(p.left_page||'')); }
+
+async function translateText(){
+  const p=rPgs[rIdx]; if(!p) return;
+  // If already in translation mode, toggle back to Pashto
+  if(rdTransMode){rdTransMode=false;document.getElementById('rd-translate-btn').textContent='🌐 Translate';renderRd();return;}
+  // Try cached translations first
+  if(!pageTrans) pageTrans=await loadJSON('mint_page_translations').catch(()=>null);
+  const pid=String(p.id);
+  if(pageTrans&&pageTrans[pid]){
+    rdTransMode=true;
+    document.getElementById('rd-translate-btn').textContent='📖 Pashto';
+    const t=pageTrans[pid];
+    // Determine which columns to show based on rdSide
+    const showRight=!rdSide||rdSide==='right';
+    const showLeft=!rdSide||rdSide==='left';
+    if(showRight)document.getElementById('rd-right').innerHTML='<div style="direction:ltr;font-family:system-ui;font-size:.92rem;line-height:1.75;color:#ddd5c5">'+(t.right||'(no translation)')+' </div>';
+    if(showLeft)document.getElementById('rd-left').innerHTML='<div style="direction:ltr;font-family:system-ui;font-size:.92rem;line-height:1.75;color:#ddd5c5">'+(t.left||'(no translation)')+' </div>';
+  } else {
+    // Fall back to Google Translate
+    window.open('https://translate.google.com/?sl=ps&tl=en&text='+encodeURIComponent(((p.right_page||'')+(p.left_page||'')).slice(0,1000)),'_blank');
+  }
+}
+document.addEventListener('keydown', e => {
+  const scanOpen = document.getElementById('rd-scan-full').classList.contains('open');
+  const rdOpen = document.getElementById('reader').classList.contains('open');
+  if(scanOpen) { if(e.key==='Escape') closeScanFull(); return; }
+  if(!rdOpen) return;
+  if(e.key==='ArrowLeft') readerNav(-1);
+  if(e.key==='ArrowRight') readerNav(1);
+  if(e.key==='Escape') closeReader();
+});
+
+// ── TIMELINE ──────────────────────────────────────────────────────────────────
+let semData=null,tlWord=null,tlSlider=-1,psEnMap={},tlHistory=[];
+
+async function initTimeline(){
+  if(semData)return buildDriftChips();
+  const[d,t]=await Promise.all([loadJSON('mint_semantic'),loadJSON('mint_translations')]);
+  if(!d)return;
+  semData=d;
+  if(t){if(!Object.keys(trans).length)trans=t;psEnMap={};Object.entries(t).forEach(([en,ps])=>{psEnMap[normalizePashto(ps)]=en.replace(/_w\d+$/,'');});}
+  buildDriftChips();
+}
+
+function buildDriftChips(){
+  const w=document.getElementById('drift-chips');w.innerHTML='';
+  (semData.top_drift||[]).slice(0,20).forEach(word=>{
+    const en=psEnMap[word]||'';
+    const b=document.createElement('button');b.className='drift-btn';
+    b.innerHTML=`<span style="font-family:var(--font-ps);font-size:.83rem">${esc(word)}</span>${en?`<span style="font-family:system-ui;font-size:.63rem;color:var(--muted);display:block;direction:ltr"> ${esc(en)}</span>`:''}`;
+    b.onclick=()=>{document.querySelectorAll('.drift-btn').forEach(x=>x.classList.remove('active'));b.classList.add('active');document.getElementById('tl-input').value=word;loadTlWord(word);};
+    w.appendChild(b);
+  });
+}
+
+function doTimeline(){
+  const raw=document.getElementById('tl-input').value.trim();if(!raw||!semData)return;
+  // Try to resolve to a Pashto word that exists in the semantic index
+  let w=raw;
+  if(!/[؀-ۿ]/.test(raw)){
+    // English input — translate
+    const {terms} = resolveQuery(raw);
+    // Normalize each term before looking up in the semantic index
+    const found = terms.find(t=>semData.words[normalizePashto(t)]);
+    w = found ? normalizePashto(found) : (terms[0] ? normalizePashto(terms[0]) : raw);
+    // Show translation hint
+    const hint = terms[0] !== raw ? `"${raw}" → ${w}` : `No translation for "${raw}"`;
+    document.getElementById('tl-hint').textContent = hint;
+  } else {
+    w = normalizePashto(w);
+    document.getElementById('tl-hint').textContent = '';
+  }
+  loadTlWord(w);
+}
+
+function loadTlWord(word,keepHistory){
+  tlWord=word;
+  if(!keepHistory){tlHistory=[];document.getElementById('tl-back').style.display='none';}
+  const wd=semData.words[word];
+  const svg=document.getElementById('tl-svg');svg.innerHTML='';
+  if(!wd){
+    const top=(semData.top_drift||[]).slice(0,3).join('، ');
+    svg.innerHTML=`<text x="320" y="200" text-anchor="middle" fill="#aaa" font-family="system-ui" font-size="13">Word not found — try: ${esc(top)}</text>`;
+    document.getElementById('tl-controls').style.display='none';
+    document.getElementById('tl-hint').textContent=`"${word}" not found. Try: ${top}`;
+    document.getElementById('tl-pages-wrap').innerHTML='';return;
+  }
+  // Only include issues where the word has actual neighbor context — not just a coord projection
+  const dates=semData.issue_dates.filter(dt=>(wd.neighbors[dt]||[]).length>0);
+  if(dates.length===0){
+    svg.innerHTML=`<text x="320" y="200" text-anchor="middle" fill="#aaa" font-family="system-ui" font-size="13">No contextual data found for "${esc(word)}"</text>`;
+    document.getElementById('tl-controls').style.display='none';
+    document.getElementById('tl-pages-wrap').innerHTML='';return;
+  }
+  const en=psEnMap[word]?` (${psEnMap[word]})`:'';
+  document.getElementById('tl-svg-title').textContent=`${word}${en} · drift: ${(wd.drift_score||0).toFixed(3)} · ${dates.length} issue${dates.length!==1?'s':''}`;
+  document.getElementById('tl-hint').textContent='Use the arrows to step through issues and see how the word\'s context changes. Click any neighbor to see snippets.';
+  document.getElementById('tl-controls').style.display='block';
+  document.getElementById('tl-prev').disabled=true;
+  document.getElementById('tl-next').disabled=dates.length===0;
+  // Build tick labels
+  const ticks=document.getElementById('tl-tick-row');ticks.innerHTML='';
+  dates.forEach(dt=>{const s=document.createElement('span');s.className='tl-tick';s.textContent=dt.slice(0,7);ticks.appendChild(s);});
+  document.getElementById('tl-active-year').textContent='Overview';
+  tlSlider=-1;
+  drawTl(word,wd,dates,-1,false);
+  showTlSnippets(word,null);
+}
+
+function navigateToWord(word){
+  if(tlWord)tlHistory.push({word:tlWord,slider:tlSlider});
+  document.getElementById('tl-back').style.display='inline-block';
+  document.getElementById('tl-input').value=word;
+  loadTlWord(word,true);
+}
+
+function tlBack(){
+  if(!tlHistory.length)return;
+  const prev=tlHistory.pop();
+  document.getElementById('tl-back').style.display=tlHistory.length?'inline-block':'none';
+  document.getElementById('tl-input').value=prev.word;
+  loadTlWord(prev.word,true);
+  if(prev.slider>=0)setTimeout(()=>selectYear(prev.slider),0);
+}
+
+function selectYear(i){
+  tlSlider=i;
+  const wd=semData.words[tlWord];if(!wd)return;
+  const dates=semData.issue_dates.filter(dt=>(wd.neighbors[dt]||[]).length>0);
+  document.getElementById('tl-active-year').textContent=dates[i]?fmtDate(dates[i]):'';
+  document.getElementById('tl-prev').disabled=false;
+  document.getElementById('tl-next').disabled=i>=dates.length-1;
+  drawTl(tlWord,wd,dates,i,true);
+  showTlSnippets(tlWord,dates[i]);
+}
+
+function selectOverview(){
+  tlSlider=-1;
+  const wd=semData.words[tlWord];if(!wd)return;
+  const dates=semData.issue_dates.filter(dt=>(wd.neighbors[dt]||[]).length>0);
+  document.getElementById('tl-active-year').textContent='Overview';
+  document.getElementById('tl-prev').disabled=true;
+  document.getElementById('tl-next').disabled=dates.length===0;
+  drawTl(tlWord,wd,dates,-1,false);
+  showTlSnippets(tlWord,null);
+}
+
+function tlNav(dir){
+  const wd=semData.words[tlWord];if(!wd)return;
+  const dates=semData.issue_dates.filter(dt=>(wd.neighbors[dt]||[]).length>0);
+  if(dir>0){if(tlSlider<dates.length-1)selectYear(tlSlider+1);}
+  else{if(tlSlider===0)selectOverview();else if(tlSlider>0)selectYear(tlSlider-1);}
+}
+
+function drawTl(word,wd,dates,hlIdx,noAnim){
+  const svg=document.getElementById('tl-svg');svg.innerHTML='';
+  const W=640,H=400,PAD=56;
+  const allPts=[];
+  dates.forEach(dt=>{if(wd.coords[dt])allPts.push(wd.coords[dt]);});
+  if(hlIdx>=0){
+    const dt=dates[hlIdx];
+    (wd.neighbors[dt]||[]).slice(0,18).forEach(nb=>{const nc=semData.words[nb]?.coords[dt];if(nc)allPts.push(nc);});
+  }
+  if(allPts.length<1){svg.innerHTML=`<text x="320" y="200" text-anchor="middle" fill="#aaa" font-size="13">Not enough data</text>`;return;}
+  let mnX=Infinity,mxX=-Infinity,mnY=Infinity,mxY=-Infinity;
+  allPts.forEach(([x,y])=>{if(x<mnX)mnX=x;if(x>mxX)mxX=x;if(y<mnY)mnY=y;if(y>mxY)mxY=y;});
+  const rX=(mxX-mnX)||1,rY=(mxY-mnY)||1,pd=.13;
+  const toS=([x,y])=>[PAD+((x-mnX)/rX*(1-2*pd)+pd)*(W-2*PAD),H-PAD-((y-mnY)/rY*(1-2*pd)+pd)*(H-2*PAD)];
+  const coords=dates.map(dt=>wd.coords[dt]?toS(wd.coords[dt]):null);
+  const n=dates.length;
+  const isPan=hlIdx>=0;
+  function svgEl(tag,attrs){const e=document.createElementNS('http://www.w3.org/2000/svg',tag);Object.entries(attrs).forEach(([k,v])=>e.setAttribute(k,v));return e;}
+  const validC=coords.filter(Boolean);
+  const pathD=validC.map(([cx,cy],i)=>(i===0?'M':'L')+cx.toFixed(1)+' '+cy.toFixed(1)).join(' ');
+  if(validC.length>=2){
+    if(!isPan){
+      svg.appendChild(svgEl('path',{d:pathD,fill:'none',stroke:'#e8dfd0','stroke-width':'1.5','stroke-dasharray':'5 3'}));
+      const ap=svgEl('path',{d:pathD,fill:'none',stroke:'#8b1a00','stroke-width':'2.5'});
+      if(!noAnim){const tL=500;ap.setAttribute('stroke-dasharray',tL);ap.setAttribute('stroke-dashoffset',tL);ap.appendChild(svgEl('animate',{attributeName:'stroke-dashoffset',from:tL,to:'0',dur:'1.2s',fill:'freeze'}));}
+      svg.appendChild(ap);
+    }else{
+      const[mx,my]=coords[hlIdx]||[0,0];
+      const dt=dates[hlIdx];
+      (wd.neighbors[dt]||[]).slice(0,18).forEach(nb=>{
+        const nc=semData.words[nb]?.coords[dt];if(!nc)return;
+        const[nx,ny]=toS(nc);
+        svg.appendChild(svgEl('line',{x1:mx.toFixed(1),y1:my.toFixed(1),x2:nx.toFixed(1),y2:ny.toFixed(1),stroke:'#e8833a','stroke-width':'1','stroke-dasharray':'3 2',opacity:'.3'}));
+      });
+      // Revealed path up to current issue
+      const revPts=coords.slice(0,hlIdx+1).filter(Boolean);
+      if(revPts.length>=2){const revD=revPts.map(([cx,cy],i)=>(i===0?'M':'L')+cx.toFixed(1)+' '+cy.toFixed(1)).join(' ');svg.appendChild(svgEl('path',{d:revD,fill:'none',stroke:'#8b1a00','stroke-width':'2','stroke-dasharray':'6 3'}));}
+      // Future path (faint)
+      const futPts=coords.slice(hlIdx).filter(Boolean);
+      if(futPts.length>=2){const futD=futPts.map(([cx,cy],i)=>(i===0?'M':'L')+cx.toFixed(1)+' '+cy.toFixed(1)).join(' ');svg.appendChild(svgEl('path',{d:futD,fill:'none',stroke:'#e0d8d0','stroke-width':'1','stroke-dasharray':'3 4'}));}
+    }
+  }
+  // Dots
+  coords.forEach((c,i)=>{
+    if(!c)return;
+    const[cx,cy]=c;const dt=dates[i];const t=n>1?i/(n-1):0;
+    const gradCol=`rgb(${Math.round(26+(107-26)*t)},${Math.round(58*(1-t))},${Math.round(139*(1-t))})`;
+    let fill,r,op,sw;
+    if(!isPan){fill=gradCol;r=7;op=1;sw=2;}
+    else if(i===hlIdx){fill='#c44b00';r=14;op=1;sw=3;}
+    else{fill='#ccc5bb';r=4;op=0.4;sw=1;}
+    const circ=svgEl('circle',{cx:cx.toFixed(1),cy:cy.toFixed(1),r,fill,stroke:'#fff','stroke-width':sw,opacity:op,cursor:'pointer'});
+    circ.addEventListener('click',()=>selectYear(i));
+    circ.appendChild(Object.assign(svgEl('title',{}),{textContent:`${fmtDate(dt)} — click to explore`}));
+    svg.appendChild(circ);
+    if(!isPan){
+      const anchor=cx>W*0.62?'end':'start';
+      const lx=cx>W*0.62?(cx-12).toFixed(1):(cx+12).toFixed(1);
+      const yrl=svgEl('text',{x:lx,y:(cy-2).toFixed(1),'font-size':'10','font-weight':'bold',fill:'#6b1200','font-family':'system-ui','text-anchor':anchor,'paint-order':'stroke fill',stroke:'#fdf9f4','stroke-width':'2.5'});
+      yrl.textContent=dt.slice(0,4);svg.appendChild(yrl);
+      let nbY=cy+12;
+      (wd.neighbors[dt]||[]).slice(0,3).forEach(nb=>{
+        const nl=svgEl('text',{x:lx,y:nbY.toFixed(1),'font-size':'8.5',fill:'#a05020','font-family':"'Noto Nastaliq Urdu',serif",'text-anchor':anchor,'paint-order':'stroke fill',stroke:'#fdf9f4','stroke-width':'2'});
+        nl.textContent=nb;svg.appendChild(nl);nbY+=11;
+        const en=psEnMap[nb]||'';
+        if(en){const el=svgEl('text',{x:lx,y:nbY.toFixed(1),'font-size':'7.5',fill:'#bbb','font-family':'system-ui','text-anchor':anchor,'paint-order':'stroke fill',stroke:'#fdf9f4','stroke-width':'1.5'});el.textContent=en;svg.appendChild(el);nbY+=10;}else{nbY+=11;}
+      });
+    }
+  });
+  // Neighbor words (pan mode only) — with hover-spread for overlapping clusters
+  if(isPan&&hlIdx>=0){
+    const dt=dates[hlIdx];
+    const nbItems=[];
+    (wd.neighbors[dt]||[]).slice(0,18).forEach(nb=>{
+      const nc=semData.words[nb]?.coords[dt];if(!nc)return;
+      const[nx,ny]=toS(nc);
+      const ndot=svgEl('circle',{cx:nx.toFixed(1),cy:ny.toFixed(1),r:'9',fill:'#e8833a',stroke:'#fff','stroke-width':'2',cursor:'pointer'});
+      ndot.addEventListener('click',e=>{e.stopPropagation();navigateToWord(nb);});
+      ndot.appendChild(Object.assign(svgEl('title',{}),{textContent:`${nb}${psEnMap[nb]?' ('+psEnMap[nb]+')':''} — click to explore`}));
+      svg.appendChild(ndot);
+      const lx=(nx+13).toFixed(1),ly=(ny-3).toFixed(1);
+      const nl=svgEl('text',{x:lx,y:ly,'font-size':'12',fill:'#7a2c00','font-family':"'Noto Nastaliq Urdu',serif",'paint-order':'stroke fill',stroke:'#fdf9f4','stroke-width':'3'});
+      nl.textContent=nb;svg.appendChild(nl);
+      const en=psEnMap[nb]||'';
+      let enl=null;
+      if(en){enl=svgEl('text',{x:lx,y:(ny+13).toFixed(1),'font-size':'9.5',fill:'#999','font-family':'system-ui','paint-order':'stroke fill',stroke:'#fdf9f4','stroke-width':'2.5'});enl.textContent=`(${en})`;svg.appendChild(enl);}
+      nbItems.push({nb,ndot,nl,enl,nx,ny});
+    });
+    // Detect overlap groups — click to toggle spread, hover maintains it
+    const THRESH=30,visited=new Set();
+    nbItems.forEach((a,i)=>{
+      if(visited.has(i))return;
+      const grp=[i];
+      nbItems.forEach((b,j)=>{if(i!==j&&!visited.has(j)){const dx=a.nx-b.nx,dy=a.ny-b.ny;if(Math.sqrt(dx*dx+dy*dy)<THRESH)grp.push(j);}});
+      if(grp.length<2)return;
+      grp.forEach(idx=>visited.add(idx));
+      const cx=grp.reduce((s,idx)=>s+nbItems[idx].nx,0)/grp.length;
+      const cy=grp.reduce((s,idx)=>s+nbItems[idx].ny,0)/grp.length;
+      let spreadOn=false,collapseTimer=null;
+      const doSpread=spread=>{
+        spreadOn=spread;
+        grp.forEach((idx,k)=>{
+          const item=nbItems[idx];
+          const angle=(2*Math.PI*k/grp.length)-Math.PI/2;
+          const tx=spread?cx+Math.cos(angle)*55:item.nx;
+          const ty=spread?cy+Math.sin(angle)*55:item.ny;
+          item.ndot.setAttribute('cx',tx.toFixed(1));item.ndot.setAttribute('cy',ty.toFixed(1));
+          const lxs=(tx+13).toFixed(1);
+          item.nl.setAttribute('x',lxs);item.nl.setAttribute('y',(ty-3).toFixed(1));
+          if(item.enl){item.enl.setAttribute('x',lxs);item.enl.setAttribute('y',(ty+13).toFixed(1));}
+        });
+        // Update hover zone fill to show active state
+        hov.setAttribute('fill',spread?'rgba(232,131,58,0.08)':'transparent');
+        hov.setAttribute('stroke',spread?'#e8833a':'none');
+      };
+      const onEnter=()=>{if(collapseTimer){clearTimeout(collapseTimer);collapseTimer=null;}doSpread(true);};
+      const onLeave=()=>{collapseTimer=setTimeout(()=>{collapseTimer=null;doSpread(false);},300);};
+      // Hover zone stays at original cluster position — behind dots (insertBefore)
+      const hov=svgEl('circle',{cx:cx.toFixed(1),cy:cy.toFixed(1),r:'35',fill:'transparent',stroke:'none','stroke-width':'1','stroke-dasharray':'3 2',cursor:'pointer','pointer-events':'all'});
+      // Insert behind first dot so dots stay on top and receive click events
+      svg.insertBefore(hov,nbItems[grp[0]].ndot);
+      hov.addEventListener('mouseenter',onEnter);
+      hov.addEventListener('mouseleave',onLeave);
+      // Each dot also maintains spread while hovered
+      grp.forEach(idx=>{
+        nbItems[idx].ndot.addEventListener('mouseenter',onEnter);
+        nbItems[idx].ndot.addEventListener('mouseleave',onLeave);
+        // Labels also keep spread active
+        nbItems[idx].nl.addEventListener('mouseenter',onEnter);
+        nbItems[idx].nl.addEventListener('mouseleave',onLeave);
+      });
+      // Add count badge so user knows there's a cluster here
+      const badge=svgEl('text',{x:(cx-1).toFixed(1),y:(cy+4).toFixed(1),'font-size':'8','font-weight':'bold',fill:'#fff','font-family':'system-ui','text-anchor':'middle','pointer-events':'none'});
+      badge.textContent=grp.length;svg.insertBefore(badge,nbItems[grp[0]].ndot);
+    });
+  }
+  // Main word label
+  const ml=svgEl('text',{x:'10',y:'24','font-size':'14',fill:'#6b1200','font-family':"'Noto Nastaliq Urdu',serif",'font-weight':'bold'});
+  ml.textContent=word;svg.appendChild(ml);
+  const enW=psEnMap[word]||'';
+  if(enW){const el=svgEl('text',{x:'10',y:'40','font-size':'10',fill:'#999','font-family':'system-ui'});el.textContent=enW;svg.appendChild(el);}
+}
+
+function showTlSnippets(word,filterDate){
+  const w=document.getElementById('tl-pages-wrap');
+  if(!pages.length){w.innerHTML='';return;}
+  // Use TF-IDF index if available (same tokeniser as build pipeline), else substring fallback
+  let m;
+  const toks=tokPs(word);
+  if(toks.length&&Object.keys(si).length){
+    const ids=new Set();toks.forEach(tok=>(si[tok]||[]).forEach(([pid])=>ids.add(pid)));
+    m=[...ids].map(id=>pageMap[id]).filter(Boolean);
+  }else{
+    m=pages.filter(p=>((p.right_page||'')+' '+(p.left_page||'')).includes(word));
+  }
+  if(filterDate)m=m.filter(p=>p.issue_date===filterDate);
+  if(!m.length){w.innerHTML=`<div class="tl-pages-title">No pages found for "${esc(word)}"${filterDate?' in '+fmtDate(filterDate):''}</div>`;return;}
+  const en=psEnMap[word]||'';
+  w.innerHTML=`<div class="tl-pages-title">"${esc(word)}"${en?' ('+esc(en)+')':''} — ${m.length} page${m.length!==1?'s':''} ${filterDate?'in '+fmtDate(filterDate):'across all issues'}</div>`;
+  m.slice(0,15).forEach(p=>buildCards(p,word).forEach(c=>w.appendChild(c)));
+}
+
+// ── MAP ───────────────────────────────────────────────────────────────────────
+let leafMap=null,geoData=null;
+
+async function initMap(){
+  if(leafMap){leafMap.invalidateSize();return;}
+  geoData=await loadJSON('mint_geo');if(!geoData)return;
+  leafMap=L.map('leaflet-map').setView([33.5,67],5);
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',{attribution:'© OpenStreetMap © CARTO',subdomains:'abcd',maxZoom:18}).addTo(leafMap);
+  const rc=name=>{const e=(geoData[name]?.en||'').toLowerCase();if(/pesh|kohat|swat|mardan|chars|bannu|swabi|chitral|dir|khyber|qissa/.test(e))return'#8b1a00';if(/kabul|kandahar|herat|afghanistan|balkh|mazar|nangarhar|jalalabad/.test(e))return'#1a5c8b';if(/lahore|delhi|karachi|bombay|calcutta|india|amritsar|dera/.test(e))return'#2a7a2a';if(/palestine|jerusalem|cairo|egypt|iraq|baghdad|syria|damascus|arabia|mecca|medina|yemen|lebanon|jordan/.test(e))return'#7a5c1a';if(/turkey|istanbul|ankara|ottoman|constanti|tehran|iran/.test(e))return'#5c1a7a';return'#1a7a6a';};
+  Object.entries(geoData).forEach(([name,d])=>{
+    const r=Math.max(8,Math.min(24,Math.log2((d.page_count||0)+1)*4));
+    const m=L.circleMarker([d.lat,d.lon],{radius:r,fillColor:rc(name),color:'#fff',weight:1.5,fillOpacity:.75}).addTo(leafMap);
+    m.bindPopup(`<strong>${name}</strong><br>${d.en||''}<br>${d.page_count} pages<br><button onclick="showPlace('${name.replace(/'/g,"\\'")}')" style="margin-top:4px;padding:2px 6px;background:#6b1200;color:#fff;border:none;border-radius:3px;cursor:pointer;font-size:.75rem">View pages →</button>`,{maxWidth:190});
+  });
+  const leg=L.control({position:'bottomright'});
+  leg.onAdd=()=>{const d=L.DomUtil.create('div');d.style.cssText='background:#fff;padding:.45rem .6rem;border-radius:4px;border:1px solid #ccc;font-family:system-ui;font-size:.68rem;line-height:1.9';d.innerHTML=[['#8b1a00','NWFP'],['#1a5c8b','Afghanistan'],['#2a7a2a','British India'],['#7a5c1a','Middle East'],['#5c1a7a','Iran/Turkey'],['#1a7a6a','Other']].map(([c,l])=>`<span style="display:inline-block;width:9px;height:9px;border-radius:50%;background:${c};margin-right:4px;vertical-align:middle"></span>${l}`).join('<br>');return d;};
+  leg.addTo(leafMap);
+}
+
+function showPlace(name){
+  if(!pages.length||!geoData)return;
+  const d=geoData[name];if(!d)return;
+  document.getElementById('place-title').textContent=`${name} · ${d.en||''} (${d.page_count} pages)`;
+  const list=document.getElementById('place-list');list.innerHTML='';
+  const normName=normalizePashto(name);
+  (d.page_ids||[]).map(id=>pageMap[id]).filter(Boolean).forEach(p=>buildCards(p,normName).forEach(c=>list.appendChild(c)));
+  document.getElementById('map-main').style.display='none';document.getElementById('map-results').style.display='block';
+}
+function backToMap(){document.getElementById('map-main').style.display='block';document.getElementById('map-results').style.display='none';if(leafMap)leafMap.invalidateSize();}
+
+// ── TAGS ──────────────────────────────────────────────────────────────────────
+let tagMap={},allTags=[],tagType='all';
+
+async function initTags(){
+  if(allTags.length)return renderTagCols();
+  if(!pages.length)await initSearch();
+  const m={};
+  pages.forEach(p=>(p.tags||[]).forEach(t=>{if(!m[t.label])m[t.label]={label:t.label,type:t.type,ids:[]};m[t.label].ids.push(p.id);}));
+  allTags=Object.values(m).sort((a,b)=>b.ids.length-a.ids.length);tagMap=m;
+  renderTagCols();
+}
+
+function setTagType(type,el){tagType=type;document.querySelectorAll('.ttype-btn').forEach(b=>b.classList.remove('active'));el.classList.add('active');renderTagCols();}
+function filterTags(){renderTagCols();}
+
+function renderTagCols(){
+  const q=(document.getElementById('tag-filter')?.value||'').toLowerCase();
+  let tags=allTags;
+  if(tagType!=='all')tags=tags.filter(t=>t.type===tagType);
+  if(q)tags=tags.filter(t=>t.label.includes(q)||t.label.toLowerCase().includes(q));
+  const cols={location:[],person:[],keyword:[]};
+  tags.forEach(t=>(cols[t.type]||(cols.keyword)).push(t));
+  const w=document.getElementById('tag-cols');w.innerHTML='';
+  [['location','Locations'],['person','People'],['keyword','Keywords']].forEach(([type,label])=>{
+    const items=(tagType==='all'||tagType===type)?cols[type]:[];
+    const col=document.createElement('div');col.innerHTML=`<h4>${label}</h4><div class="tag-list" id="tc-${type}"></div>`;w.appendChild(col);
+    const list=col.querySelector('.tag-list');
+    items.slice(0,60).forEach(t=>{
+      const row=document.createElement('div');row.className='tag-row';
+      row.innerHTML=`<span>${esc(t.label)}</span><span class="tag-count">${t.ids.length}</span>`;
+      row.onclick=()=>showTagResults(t.label);list.appendChild(row);
+    });
+  });
+}
+
+function showTagResults(label){
+  const t=tagMap[label];if(!t)return;
+  document.getElementById('tag-res-title').textContent=`${label} — ${t.ids.length} pages`;
+  const list=document.getElementById('tag-res-list');list.innerHTML='';
+  t.ids.map(id=>pageMap[id]).filter(Boolean).forEach(p=>buildCards(p,label).forEach(c=>list.appendChild(c)));
+  document.getElementById('tags-browser').style.display='none';document.getElementById('tags-results').style.display='block';
+}
+function backToTags(){document.getElementById('tags-browser').style.display='block';document.getElementById('tags-results').style.display='none';}
+
+// ── TOPICS ────────────────────────────────────────────────────────────────────
+let clustersData=null;
+
+async function initTopics(){
+  if(clustersData)return renderClusters();
+  clustersData=await loadJSON('mint_clusters');if(!clustersData)return;
+  if(!pages.length)await initSearch();renderClusters();
+}
+
+function renderClusters(){
+  const g=document.getElementById('cluster-grid');g.innerHTML='';
+  clustersData.forEach(c=>{
+    const card=document.createElement('div');card.className='cluster-card';
+    card.innerHTML=`<span class="cluster-badge">${c.page_count}</span>
+      <div class="cluster-header"><div class="cluster-dot" style="background:${cc(c.id)}"></div><div class="cluster-label">${esc(c.label)}</div></div>
+      <div class="cluster-words">${(c.top_words||[]).slice(0,5).map(w=>`<span class="cw">${esc(w)}</span>`).join('')}</div>`;
+    card.onclick=()=>showTopicResults(c);g.appendChild(card);
+  });
+}
+
+function showTopicResults(c){
+  document.getElementById('topic-res-title').textContent=`${c.label} — ${c.page_count} pages`;
+  const list=document.getElementById('topic-res-list');list.innerHTML='';
+  (c.page_ids||[]).map(id=>pageMap[id]).filter(Boolean).forEach(p=>buildCards(p).forEach(c=>list.appendChild(c)));
+  document.getElementById('cluster-grid').style.display='none';document.getElementById('topic-results').style.display='block';
+}
+function backToTopics(){document.getElementById('cluster-grid').style.display='grid';document.getElementById('topic-results').style.display='none';}
+
+// ── ABOUT ─────────────────────────────────────────────────────────────────────
+function buildAbout(){
+  const g=document.getElementById('about-stats');if(g.children.length)return;
+  [[pages.length||282,'Total Pages'],[8,'Issues'],[8,'Topic Clusters'],[43,'Places Mapped']].forEach(([n,l])=>{
+    const c=document.createElement('div');c.className='stat-card';c.innerHTML=`<div class="stat-num">${n}</div><div class="stat-label">${l}</div>`;g.appendChild(c);
+  });
+}
+
+// ── INIT ──────────────────────────────────────────────────────────────────────
+initSearch();
+</script>
+</body>
+</html>
