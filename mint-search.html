@@ -212,6 +212,11 @@ body{background:var(--bg);color:var(--ink);font-family:var(--font-ui);min-height
   .tl-layout{grid-template-columns:1fr}
   .tag-cols{grid-template-columns:1fr 1fr}
 }
+.subset-search-wrap{margin:.5rem 0 .75rem}
+.subset-search-input{width:100%;padding:.45rem .8rem;border:1.5px solid var(--border);border-radius:var(--radius);font-size:.88rem;background:var(--surface)}
+.subset-search-input:focus{outline:none;border-color:var(--accent)}
+.il-ps{direction:rtl;font-family:var(--font-ps);font-size:.97rem;line-height:2.1;text-align:center;color:var(--ink)}
+.il-en{direction:ltr;font-family:var(--font-ui);font-size:.8rem;color:var(--muted);font-style:italic;text-align:center;border-bottom:1px solid var(--border);padding-bottom:.3rem;margin-bottom:.2rem;line-height:1.6}
 </style>
 </head>
 <body>
@@ -331,6 +336,9 @@ body{background:var(--bg);color:var(--ink);font-family:var(--font-ui);min-height
       <div class="place-title" id="tag-res-title"></div>
       <button class="back-link" onclick="backToTags()">← Back to tags</button>
     </div>
+    <div class="subset-search-wrap">
+      <input id="tag-subset-search" class="subset-search-input" type="search" placeholder="Search within this tag…" autocomplete="off" oninput="filterTagResults()"/>
+    </div>
     <div id="tag-res-list"></div>
   </div>
 </div>
@@ -342,6 +350,9 @@ body{background:var(--bg);color:var(--ink);font-family:var(--font-ui);min-height
     <div class="place-header">
       <div class="place-title" id="topic-res-title"></div>
       <button class="back-link" onclick="backToTopics()">← Back to topics</button>
+    </div>
+    <div class="subset-search-wrap">
+      <input id="topic-subset-search" class="subset-search-input" type="search" placeholder="Search within this topic…" autocomplete="off" oninput="filterTopicResults()"/>
     </div>
     <div id="topic-res-list"></div>
   </div>
@@ -719,7 +730,7 @@ function renderExpandContent(card){
       <button class="act-btn" onclick="event.stopPropagation();openReader(${col.spread.id},${hlWord?`'${esc(hlWord)}'`:null},'${col.side}')">⛶ Full screen</button>
     </div>
     <div class="card-full-text">${fullHtml}</div>
-    <div class="card-full-en" style="display:none">${esc(enFull)||'(no translation available)'}</div>
+    <div class="card-full-en" style="display:none" data-ps-text="${esc(col.text)}" data-en-text="${esc(enFull)}"></div>
     <div class="card-scan-inline" style="display:none"><img src="" loading="lazy" style="max-width:100%;border-radius:4px;border:1px solid var(--border);display:block;margin-top:.5rem" alt="Scan"></div>`;
   setTimeout(()=>{const h=exp.querySelector('mark');if(h)h.scrollIntoView({block:'center',behavior:'smooth'});},80);
 }
@@ -728,11 +739,32 @@ function cardNav(card,dir){
   card._expandIdx=Math.max(0,Math.min(card._expandCols.length-1,card._expandIdx+dir));
   renderExpandContent(card);
 }
+function buildInterleavedHtml(psText,enText){
+  const psLines=(psText||'').split('\n');
+  const enLines=(enText||'').split('\n');
+  const rows=[];
+  const max=Math.max(psLines.length,enLines.length);
+  for(let i=0;i<max;i++){
+    const ps=psLines[i]||'';const en=enLines[i]||'';
+    if(ps.trim())rows.push(`<div class="il-ps">${esc(ps)}</div>`);
+    if(en.trim())rows.push(`<div class="il-en">${esc(en)}</div>`);
+  }
+  return rows.join('')||'<div class="il-en">(no translation available)</div>';
+}
 function toggleCardEn(exp){
-  const en=exp.querySelector('.card-full-en');
-  en.style.display=en.style.display==='none'?'block':'none';
+  const psDiv=exp.querySelector('.card-full-text');
+  const enDiv=exp.querySelector('.card-full-en');
   const btn=[...exp.querySelectorAll('.act-btn')].find(b=>b.textContent.includes('Translate')||b.textContent.includes('Pashto'));
-  if(btn)btn.textContent=en.style.display==='none'?'🌐 Translate':'📖 Pashto';
+  if(enDiv.style.display!=='none'){
+    enDiv.style.display='none';psDiv.style.display='block';
+    if(btn)btn.textContent='🌐 Translate';
+  } else {
+    if(!enDiv.innerHTML.trim()){
+      enDiv.innerHTML=buildInterleavedHtml(enDiv.dataset.psText||'',enDiv.dataset.enText||'');
+    }
+    enDiv.style.display='block';psDiv.style.display='none';
+    if(btn)btn.textContent='📖 Pashto';
+  }
 }
 function toggleCardScan(btn,imgUrl){
   const wrap=btn.closest('.card-expand').querySelector('.card-scan-inline');
@@ -841,11 +873,20 @@ async function translateText(){
     rdTransMode=true;
     document.getElementById('rd-translate-btn').textContent='📖 Pashto';
     const t=pageTrans[pid];
-    // Determine which columns to show based on rdSide
     const showRight=!rdSide||rdSide==='right';
     const showLeft=!rdSide||rdSide==='left';
-    if(showRight)document.getElementById('rd-right').innerHTML='<div style="direction:ltr;font-family:system-ui;font-size:.92rem;line-height:1.75;color:#ddd5c5;white-space:pre-wrap;text-align:center">'+(t.right||'(no translation)')+' </div>';
-    if(showLeft)document.getElementById('rd-left').innerHTML='<div style="direction:ltr;font-family:system-ui;font-size:.92rem;line-height:1.75;color:#ddd5c5;white-space:pre-wrap;text-align:center">'+(t.left||'(no translation)')+' </div>';
+    function rdInterleaved(psText,enText){
+      const psLines=(psText||'').split('\n');const enLines=(enText||'').split('\n');
+      const rows=[];const max=Math.max(psLines.length,enLines.length);
+      for(let i=0;i<max;i++){
+        const ps=psLines[i]||'';const en=enLines[i]||'';
+        if(ps.trim())rows.push(`<div style="direction:rtl;font-family:var(--font-ps);font-size:1.02rem;line-height:2.15;color:#ddd5c5;text-align:center">${esc(ps)}</div>`);
+        if(en.trim())rows.push(`<div style="direction:ltr;font-family:system-ui;font-size:.82rem;line-height:1.6;color:#999;text-align:center;font-style:italic;border-bottom:1px solid #2a2a2a;padding-bottom:.3rem;margin-bottom:.2rem">${esc(en)}</div>`);
+      }
+      return rows.join('')||'<div style="color:#888;text-align:center">(no translation available)</div>';
+    }
+    if(showRight)document.getElementById('rd-right').innerHTML=rdInterleaved(p.right_page,t.right);
+    if(showLeft)document.getElementById('rd-left').innerHTML=rdInterleaved(p.left_page,t.left);
   } else {
     // Fall back to Google Translate
     window.open('https://translate.google.com/?sl=ps&tl=en&text='+encodeURIComponent(((p.right_page||'')+(p.left_page||'')).slice(0,1000)),'_blank');
@@ -1211,17 +1252,34 @@ function renderTagCols(){
   });
 }
 
+let currentTagPageIds=[];
 function showTagResults(label){
   const t=tagMap[label];if(!t)return;
   document.getElementById('tag-res-title').textContent=`${label} — ${t.ids.length} pages`;
-  const list=document.getElementById('tag-res-list');list.innerHTML='';
-  t.ids.map(id=>pageMap[id]).filter(Boolean).forEach(p=>buildCards(p,label).forEach(c=>list.appendChild(c)));
+  document.getElementById('tag-subset-search').value='';
+  currentTagPageIds=t.ids.slice();
+  renderTagList(currentTagPageIds,label);
   document.getElementById('tags-browser').style.display='none';document.getElementById('tags-results').style.display='block';
+}
+function renderTagList(ids,label){
+  const list=document.getElementById('tag-res-list');list.innerHTML='';
+  ids.map(id=>pageMap[id]).filter(Boolean).forEach(p=>buildCards(p,label).forEach(c=>list.appendChild(c)));
+  if(!ids.length){const e=document.createElement('div');e.className='empty';e.innerHTML='<h3>No pages found</h3>';list.appendChild(e);}
+}
+function filterTagResults(){
+  const q=document.getElementById('tag-subset-search').value.trim().toLowerCase();
+  const label=document.getElementById('tag-res-title').textContent.split(' — ')[0];
+  if(!q){renderTagList(currentTagPageIds,label);return;}
+  const filtered=currentTagPageIds.filter(id=>{
+    const p=pageMap[id];if(!p)return false;
+    return ((p.right_page||'')+(p.left_page||'')).toLowerCase().includes(q);
+  });
+  renderTagList(filtered,label);
 }
 function backToTags(){document.getElementById('tags-browser').style.display='block';document.getElementById('tags-results').style.display='none';}
 
 // ── TOPICS ────────────────────────────────────────────────────────────────────
-let clustersData=null;
+let clustersData=null,currentTopicPageIds=[];
 
 async function initTopics(){
   if(clustersData)return renderClusters();
@@ -1242,9 +1300,24 @@ function renderClusters(){
 
 function showTopicResults(c){
   document.getElementById('topic-res-title').textContent=`${c.label} — ${c.page_count} pages`;
-  const list=document.getElementById('topic-res-list');list.innerHTML='';
-  (c.page_ids||[]).map(id=>pageMap[id]).filter(Boolean).forEach(p=>buildCards(p).forEach(c=>list.appendChild(c)));
+  document.getElementById('topic-subset-search').value='';
+  currentTopicPageIds=(c.page_ids||[]).slice();
+  renderTopicList(currentTopicPageIds);
   document.getElementById('cluster-grid').style.display='none';document.getElementById('topic-results').style.display='block';
+}
+function renderTopicList(ids){
+  const list=document.getElementById('topic-res-list');list.innerHTML='';
+  ids.map(id=>pageMap[id]).filter(Boolean).forEach(p=>buildCards(p).forEach(c=>list.appendChild(c)));
+  if(!ids.length){const e=document.createElement('div');e.className='empty';e.innerHTML='<h3>No pages found</h3>';list.appendChild(e);}
+}
+function filterTopicResults(){
+  const q=document.getElementById('topic-subset-search').value.trim().toLowerCase();
+  if(!q){renderTopicList(currentTopicPageIds);return;}
+  const filtered=currentTopicPageIds.filter(id=>{
+    const p=pageMap[id];if(!p)return false;
+    return ((p.right_page||'')+(p.left_page||'')).toLowerCase().includes(q);
+  });
+  renderTopicList(filtered);
 }
 function backToTopics(){document.getElementById('cluster-grid').style.display='grid';document.getElementById('topic-results').style.display='none';}
 
