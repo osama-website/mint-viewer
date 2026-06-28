@@ -507,9 +507,10 @@ function onSearchInput(val){clearTimeout(debT);if(!val.trim()){clearSearch();ret
 function resolveQuery(raw) {
   const isPashto = /[؀-ۿ]/.test(raw);
   if(isPashto) {
-    // Already Pashto — split on whitespace, each token is a term
     const terms = raw.split(/\s+/).filter(Boolean);
-    return { terms, hlWord: raw, hint: '' };
+    const enLabels = terms.map(t => psEnMap[normalizePashto(t)]).filter(Boolean);
+    const hint = enLabels.length ? enLabels.join(' / ') : '';
+    return { terms, hlWord: raw, hint };
   }
   // English: translate each word
   const words = raw.toLowerCase().trim().split(/\s+/);
@@ -898,7 +899,8 @@ function doTimeline(){
     document.getElementById('tl-hint').textContent = hint;
   } else {
     w = normalizePashto(w);
-    document.getElementById('tl-hint').textContent = '';
+    const en = psEnMap[w];
+    document.getElementById('tl-hint').textContent = en ? `${w} — ${en}` : '';
   }
   loadTlWord(w);
 }
