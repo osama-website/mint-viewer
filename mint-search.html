@@ -710,21 +710,28 @@ function expandArtCard(card,a){
   card.classList.add('expanded');card.style.cursor='default';
   card.querySelector('.act-btn').style.display='inline-block';
   card.querySelector('.art-snippet').style.display='none';
-  // Build full text from all columns
-  const fullText=(a.columns||[]).map((col,i)=>{
+  // Build full Pashto text and concatenated English translation from all columns
+  const colParts=(a.columns||[]).map(col=>{
     const pg=pageMap[col.page_id];
-    const text=pg?(col.side==='right'?pg.right_page:pg.left_page)||'':'';
-    return text.trim();
-  }).filter(Boolean).join('\n\n— — —\n\n');
+    const ps=pg?(col.side==='right'?pg.right_page:pg.left_page)||'':'';
+    const pt=pageTrans?.[String(col.page_id)];
+    const en=pt?(col.side==='right'?pt.right:pt.left)||'':'';
+    return{ps:ps.trim(),en:en.trim()};
+  }).filter(c=>c.ps);
+  const fullText=colParts.map(c=>c.ps).join('\n\n— — —\n\n');
+  const fullEn=colParts.map(c=>c.en).join('\n\n— — —\n\n');
+  const colCount=(a.columns||[]).length;
+  const pgCount=[...new Set((a.columns||[]).map(c=>c.page_id))].length;
   let exp=card.querySelector('.card-expand');
   if(!exp){exp=document.createElement('div');exp.className='card-expand';card.appendChild(exp);}
-  const firstPg=a.columns&&a.columns[0]?pageMap[a.columns[0].page_id]:null;
   exp.innerHTML=`
     <div class="card-expand-bar">
-      <span class="card-pg-label">${(a.columns||[]).length} column${(a.columns||[]).length!==1?'s':''} · ${[...new Set((a.columns||[]).map(c=>c.page_id))].length} page${[...new Set((a.columns||[]).map(c=>c.page_id))].length!==1?'s':''}</span>
+      <span class="card-pg-label">${colCount} column${colCount!==1?'s':''} · ${pgCount} page${pgCount!==1?'s':''}</span>
+      <button class="act-btn" onclick="event.stopPropagation();toggleCardEn(this.closest('.card-expand'))">🌐 Translate</button>
       <button class="act-btn" onclick="event.stopPropagation();showArtScan(${a.id})">📷 Scan</button>
     </div>
-    <div class="card-full-text">${esc(fullText)}</div>`;
+    <div class="card-full-text">${esc(fullText)}</div>
+    <div class="card-full-en" style="display:none" data-ps-text="${esc(fullText)}" data-en-text="${esc(fullEn)}"></div>`;
 }
 
 function collapseArtCard(card){
