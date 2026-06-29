@@ -1244,6 +1244,7 @@ function backToMap(){document.getElementById('map-main').style.display='block';d
 let tagMap={},allTags=[],tagType='all';
 
 async function initTags(){
+  backToTags();
   if(allTags.length)return renderTagCols();
   if(!pages.length)await initSearch();
   const m={};
@@ -1305,6 +1306,7 @@ function backToTags(){document.getElementById('tags-browser').style.display='blo
 let clustersData=null,currentTopicPageIds=[];
 
 async function initTopics(){
+  backToTopics();
   if(clustersData)return renderClusters();
   clustersData=await loadJSON('mint_clusters');if(!clustersData)return;
   if(!pages.length)await initSearch();renderClusters();
