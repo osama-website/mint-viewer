@@ -299,6 +299,7 @@ body{background:var(--bg);color:var(--ink);font-family:var(--font-ui);min-height
             <button class="tl-nav-btn" id="tl-prev" onclick="tlNav(-1)" disabled>&#8592;</button>
             <span class="tl-active-year" id="tl-active-year">Overview</span>
             <button class="tl-nav-btn" id="tl-next" onclick="tlNav(1)">&#8594;</button>
+            <button class="tl-nav-btn" id="tl-nb-btn" onclick="toggleTlNeighbors()" style="margin-left:.6rem;font-size:.68rem;opacity:.75">Neighbors ✓</button>
           </div>
           <div class="tl-tick-row" id="tl-tick-row"></div>
         </div>
@@ -947,7 +948,7 @@ document.addEventListener('keydown', e => {
 });
 
 // ── TIMELINE ──────────────────────────────────────────────────────────────────
-let semData=null,tlWord=null,tlSlider=-1,psEnMap={},tlHistory=[];
+let semData=null,tlWord=null,tlSlider=-1,psEnMap={},tlHistory=[],tlShowNeighbors=true;
 
 async function initTimeline(){
   if(semData)return buildDriftChips();
@@ -1077,6 +1078,14 @@ function tlNav(dir){
   else{if(tlSlider===0)selectOverview();else if(tlSlider>0)selectYear(tlSlider-1);}
 }
 
+function toggleTlNeighbors(){
+  tlShowNeighbors=!tlShowNeighbors;
+  const btn=document.getElementById('tl-nb-btn');
+  btn.textContent=tlShowNeighbors?'Neighbors ✓':'Neighbors ○';
+  btn.style.opacity=tlShowNeighbors?'.75':'.45';
+  if(tlWord&&semData){const wd=semData.words[tlWord];if(wd)drawTl(tlWord,wd,semData.issue_dates.filter(dt=>(wd.neighbors[dt]||[]).length>0),tlSlider,true);}
+}
+
 function drawTl(word,wd,dates,hlIdx,noAnim){
   const svg=document.getElementById('tl-svg');svg.innerHTML='';
   const W=640,H=400,PAD=56;
@@ -1098,11 +1107,11 @@ function drawTl(word,wd,dates,hlIdx,noAnim){
 
   // Arrow marker definition
   const defs=svgEl('defs',{});
-  const mkr=svgEl('marker',{id:'arr',markerWidth:'8',markerHeight:'8',refX:'6',refY:'3',orient:'auto'});
-  const poly=svgEl('polygon',{points:'0 0, 8 3, 0 6',fill:'#8b1a00'});
+  const mkr=svgEl('marker',{id:'arr',markerWidth:'4',markerHeight:'4',refX:'3',refY:'2',orient:'auto'});
+  const poly=svgEl('polygon',{points:'0 0, 4 2, 0 4',fill:'#8b1a00'});
   mkr.appendChild(poly);defs.appendChild(mkr);svg.appendChild(defs);
-  const mkrF=svgEl('marker',{id:'arrF',markerWidth:'6',markerHeight:'6',refX:'5',refY:'2.5',orient:'auto'});
-  const polyF=svgEl('polygon',{points:'0 0, 6 2.5, 0 5',fill:'#bbb0a0'});
+  const mkrF=svgEl('marker',{id:'arrF',markerWidth:'3',markerHeight:'3',refX:'2.5',refY:'1.5',orient:'auto'});
+  const polyF=svgEl('polygon',{points:'0 0, 3 1.5, 0 3',fill:'#bbb0a0'});
   mkrF.appendChild(polyF);defs.appendChild(mkrF);
 
   function pathStr(pts){return pts.map(([cx,cy],i)=>(i===0?'M':'L')+cx.toFixed(1)+' '+cy.toFixed(1)).join(' ');}
@@ -1119,7 +1128,7 @@ function drawTl(word,wd,dates,hlIdx,noAnim){
       // Pan mode: neighbour spokes at current date
       const[mx,my]=coords[hlIdx]||[W/2,H/2];
       const dt=dates[hlIdx];
-      (wd.neighbors[dt]||[]).slice(0,18).forEach(nb=>{
+      if(tlShowNeighbors)(wd.neighbors[dt]||[]).slice(0,18).forEach(nb=>{
         const nc=semData.words[nb]?.coords[dt];if(!nc)return;
         const[nx,ny]=toS(nc);
         svg.appendChild(svgEl('line',{x1:mx.toFixed(1),y1:my.toFixed(1),x2:nx.toFixed(1),y2:ny.toFixed(1),stroke:'#e8833a','stroke-width':'1','stroke-dasharray':'3 2',opacity:'.35'}));
@@ -1162,7 +1171,7 @@ function drawTl(word,wd,dates,hlIdx,noAnim){
     }
   });
   // Neighbor words (pan mode only) — with hover-spread for overlapping clusters
-  if(isPan&&hlIdx>=0){
+  if(isPan&&hlIdx>=0&&tlShowNeighbors){
     const dt=dates[hlIdx];
     const nbItems=[];
     (wd.neighbors[dt]||[]).slice(0,18).forEach(nb=>{
