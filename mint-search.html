@@ -677,11 +677,14 @@ function renderArticleResults(){
   buildArtPag();
 }
 
-function buildArtCard(a){
+function buildArtCard(a, hlWord){
   const div=document.createElement('div');div.className='art-card';
-  const firstCol=a.columns&&a.columns[0];
-  const pg=firstCol?pageMap[firstCol.page_id]:null;
-  const snippet=pg?(firstCol.side==='right'?pg.right_page:pg.left_page)||'':'';
+  // Search across all columns to find the one containing the search term
+  const fullText=getArticleText(a);
+  const hl=hlWord||lastHlWord||'';
+  const rawSnip=getSnippet(fullText, normalizePashto(hl), 280);
+  const safeHL=hl?esc(normalizePashto(hl)).replace(/[.*+?^${}()|[\]\\]/g,'\\$&'):null;
+  const snippetHtml=safeHL?esc(rawSnip).replace(new RegExp(safeHL,'g'),m=>`<mark>${m}</mark>`):esc(rawSnip);
   const pageNums=[...new Set((a.columns||[]).map(c=>c.page_id))];
   const pageRange=pageNums.length===1?`Page ${pageNums[0]}`:`Pages ${pageNums[0]}–${pageNums[pageNums.length-1]}`;
   const scanLabel=pageNums.length>1?`📷 Scan (${pageNums.length}p)`:'📷 Scan';
@@ -699,7 +702,7 @@ function buildArtCard(a){
       <span class="art-pages">${pageRange}</span>
       <button class="art-card-scan-btn" onclick="event.stopPropagation();showArtScan(${a.id})">${scanLabel}</button>
     </div>
-    <div class="art-snippet">${esc(snippet.slice(0,300))}</div>`;
+    ${rawSnip?`<div class="art-snippet">${snippetHtml}</div>`:''}`;
   div.onclick=()=>expandArtCard(div,a);
   return div;
 }
