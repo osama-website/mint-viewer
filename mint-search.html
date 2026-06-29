@@ -217,8 +217,8 @@ body{background:var(--bg);color:var(--ink);font-family:var(--font-ui);min-height
 .subset-search-input:focus{outline:none;border-color:var(--accent)}
 .il-ps{direction:rtl;font-family:var(--font-ps);font-size:.97rem;line-height:2.1;text-align:center;color:var(--ink);white-space:pre-wrap}
 .il-divider{border-top:1px solid var(--border);margin:.7rem 0 .5rem}
-.il-en-block{direction:ltr;font-family:var(--font-ui);font-size:.82rem;color:var(--muted);font-style:italic;line-height:1.75;text-align:left;white-space:pre-wrap}
-.il-en{direction:ltr;font-family:var(--font-ui);font-size:.8rem;color:var(--muted);font-style:italic;line-height:1.55;text-align:left;border-bottom:1px solid var(--border);padding-bottom:.25rem;margin-bottom:.2rem}
+.il-en-block{direction:ltr;font-family:var(--font-ui);font-size:.82rem;color:var(--muted);font-style:italic;line-height:1.75;text-align:center;white-space:pre-wrap}
+.il-en{direction:ltr;font-family:var(--font-ui);font-size:.8rem;color:var(--muted);font-style:italic;line-height:1.55;text-align:center;border-bottom:1px solid var(--border);padding-bottom:.25rem;margin-bottom:.2rem}
 .il-gap{height:.6rem}
 </style>
 </head>
@@ -895,7 +895,7 @@ async function translateText(){
         const ps=psLines[i]||'';const en=enLines[i]||'';
         if(ps.trim()||en.trim()){
           rows.push(`<div style="direction:rtl;font-family:var(--font-ps);font-size:1.02rem;line-height:2.15;color:#ddd5c5;text-align:center">${ps.trim()?esc(ps):'<span style="opacity:.2">—</span>'}</div>`);
-          rows.push(`<div style="direction:ltr;font-family:system-ui;font-size:.82rem;line-height:1.55;color:#999;text-align:left;font-style:italic;border-bottom:1px solid #252525;padding-bottom:.25rem;margin-bottom:.2rem">${en.trim()?esc(en):'<span style="opacity:.2">—</span>'}</div>`);
+          rows.push(`<div style="direction:ltr;font-family:system-ui;font-size:.82rem;line-height:1.55;color:#999;text-align:center;font-style:italic;border-bottom:1px solid #252525;padding-bottom:.25rem;margin-bottom:.2rem">${en.trim()?esc(en):'<span style="opacity:.2">—</span>'}</div>`);
         } else {
           rows.push(`<div style="height:.6rem"></div>`);
         }
