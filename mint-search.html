@@ -39,11 +39,28 @@ body{background:var(--bg);color:var(--ink);font-family:var(--font-ui);min-height
 .chip{font-size:.7rem;padding:.18rem .5rem;border-radius:12px;cursor:pointer;border:1.5px solid var(--border);background:var(--surface);transition:all .15s}
 .chip.active{background:var(--accent);color:#fff;border-color:var(--accent)}
 .chip:hover:not(.active){background:var(--sand)}
-.sort-row{display:flex;gap:.4rem;align-items:center;margin-bottom:.6rem}
+.sort-row{display:flex;gap:.4rem;align-items:center;margin-bottom:.6rem;flex-wrap:wrap}
 .sort-label{font-size:.72rem;color:var(--muted)}
 .sort-btn{font-size:.72rem;padding:.2rem .5rem;border:1px solid var(--border);border-radius:3px;background:var(--surface);cursor:pointer}
 .sort-btn.active{background:var(--accent);color:#fff;border-color:var(--accent)}
 .results-info{font-size:.76rem;color:var(--muted);margin-bottom:.5rem}
+/* Mode toggle */
+.mode-toggle{display:flex;border:1.5px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-bottom:.6rem;width:fit-content}
+.mode-btn{font-size:.78rem;padding:.28rem .75rem;border:none;background:var(--surface);cursor:pointer;color:var(--muted)}
+.mode-btn.active{background:var(--accent);color:#fff}
+/* Article cards */
+.art-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);margin-bottom:.75rem;padding:.85rem 1rem;box-shadow:var(--shadow);cursor:pointer;transition:box-shadow .15s,border-color .15s}
+.art-card:hover{box-shadow:0 4px 14px rgba(0,0,0,.12);border-color:var(--accent)}
+.art-card-title{font-family:var(--font-ps);font-size:1.05rem;direction:rtl;color:var(--ink);line-height:1.5;margin-bottom:.18rem}
+.art-card-title-en{font-size:.82rem;color:var(--muted);font-style:italic;margin-bottom:.4rem}
+.art-card-meta{display:flex;gap:.5rem;flex-wrap:wrap;align-items:center;margin-bottom:.35rem}
+.art-type-badge{font-size:.62rem;padding:.1rem .4rem;border-radius:10px;background:#2a1f14;color:#c8b89a;border:1px solid #3a2e20;text-transform:capitalize}
+.art-author-btn{font-size:.72rem;padding:.1rem .45rem;border-radius:10px;background:none;border:1px solid var(--accent);color:var(--accent);cursor:pointer}
+.art-author-btn:hover{background:var(--accent);color:#fff}
+.art-unsigned{font-size:.7rem;color:#555;font-style:italic}
+.art-date{font-size:.7rem;color:var(--muted)}
+.art-pages{font-size:.68rem;color:#666}
+.art-snippet{font-family:var(--font-ps);font-size:.82rem;direction:rtl;color:#aaa;line-height:1.7;margin-top:.35rem;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
 
 /* Cards — text-first */
 .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);margin-bottom:.75rem;padding:.85rem 1rem;box-shadow:var(--shadow);transition:box-shadow .15s,border-color .15s;cursor:pointer}
@@ -269,6 +286,10 @@ body{background:var(--bg);color:var(--ink);font-family:var(--font-ui);min-height
     <span class="chip active" id="chip-all" onclick="setIssue(null,this)">All</span>
     <span id="issue-chips"></span>
   </div>
+  <div class="mode-toggle">
+    <button class="mode-btn active" id="mode-pages" onclick="setSearchMode('pages',this)">Pages</button>
+    <button class="mode-btn" id="mode-articles" onclick="setSearchMode('articles',this)">Articles</button>
+  </div>
   <div class="sort-row">
     <span class="sort-label">Sort:</span>
     <button class="sort-btn active" onclick="setSort('rel',this)">Relevance</button>
@@ -491,6 +512,10 @@ let pages=[],pageMap={},trans={},si={};
 let activeIssue=null,sortMode='rel',results=[],searchPg=0;
 const PG=20;
 let debT=null;
+// Article mode
+let searchMode='pages'; // 'pages' | 'articles'
+let articles=[],articleMap={},articleIndex={};
+let artResults=[],artSearchPg=0,activeAuthor=null;
 
 async function initSearch(){
   showSkels();
@@ -520,17 +545,148 @@ function buildIssueChips(){
 function setIssue(dt,el){
   activeIssue=dt;
   document.querySelectorAll('.chip').forEach(c=>c.classList.remove('active'));el.classList.add('active');
-  document.getElementById('search-input').value.trim()?doSearch():showFeatured();
+  const raw=document.getElementById('search-input').value.trim();
+  if(raw) doSearch();
+  else if(searchMode==='articles') showAllArticlesByAuthor();
+  else showFeatured();
 }
 
 function setSort(mode,el){
   sortMode=mode;document.querySelectorAll('.sort-btn').forEach(b=>b.classList.remove('active'));el.classList.add('active');
-  renderResults();
+  if(searchMode==='articles') renderArticleResults(); else renderResults();
 }
 
 function onSearchInput(val){clearTimeout(debT);if(!val.trim()){clearSearch();return;}debT=setTimeout(doSearch,300);}
 
-// Resolve a raw query (English or Pashto) into Pashto search terms + display hint
+// ── Search mode toggle ─────────────────────────────────────────────────────────
+function setSearchMode(mode,el){
+  searchMode=mode;
+  document.querySelectorAll('.mode-btn').forEach(b=>b.classList.remove('active'));
+  el.classList.add('active');
+  activeAuthor=null;
+  const raw=document.getElementById('search-input').value.trim();
+  if(raw) doSearch(); else clearSearch();
+}
+
+// ── Article data loading ───────────────────────────────────────────────────────
+async function ensureArticles(){
+  if(articles.length) return;
+  const[arts,ai]=await Promise.all([loadJSON('mint_articles'),loadJSON('mint_article_search').catch(()=>null)]);
+  if(!arts) return;
+  articles=arts;
+  articles.forEach(a=>articleMap[a.id]=a);
+  articleIndex=ai||{};
+}
+
+// ── Article search ─────────────────────────────────────────────────────────────
+async function doSearchArticles(raw){
+  await ensureArticles();
+  if(!articles.length){ document.getElementById('search-results').innerHTML='<div class="empty">Articles unavailable</div>'; return; }
+  const {terms, hlWord, hint} = resolveQuery(raw);
+  lastHlWord=hlWord;
+  document.getElementById('search-hint').textContent=hint;
+  const scores={};
+  terms.forEach(term=>{
+    tokPs(term).forEach(tok=>(articleIndex[tok]||[]).forEach(([aid,sc])=>{ scores[aid]=(scores[aid]||0)+sc; }));
+    if(!tokPs(term).length||!/[؀-ۿ]/.test(term)){
+      articles.forEach(a=>{
+        const text=getArticleText(a);
+        if(containsWord(text,term)) scores[a.id]=(scores[a.id]||0)+0.5;
+      });
+    }
+  });
+  artResults=Object.entries(scores).sort((a,b)=>b[1]-a[1]).map(([id])=>articleMap[id]).filter(Boolean);
+  if(activeIssue) artResults=artResults.filter(a=>a.issue_date===activeIssue);
+  if(activeAuthor) artResults=artResults.filter(a=>a.author===activeAuthor);
+  artSearchPg=0;
+  if(!artResults.length){
+    document.getElementById('search-results').innerHTML=`<div class="empty"><h3>No articles for "${esc(raw)}"</h3></div>`;
+    document.getElementById('results-info').textContent='0 articles';
+    document.getElementById('search-pag').innerHTML='';return;
+  }
+  renderArticleResults();
+}
+
+function getArticleText(a){
+  return (a.columns||[]).map(col=>{
+    const pg=pageMap[col.page_id];
+    return pg?(col.side==='right'?pg.right_page:pg.left_page)||'':'';
+  }).join(' ');
+}
+
+function renderArticleResults(){
+  let sorted=[...artResults];
+  if(sortMode==='date') sorted.sort((a,b)=>a.issue_date.localeCompare(b.issue_date));
+  const start=artSearchPg*PG;
+  const slice=sorted.slice(start,start+PG);
+  document.getElementById('results-info').textContent=
+    `${artResults.length} article${artResults.length!==1?'s':''}${activeAuthor?' by '+activeAuthor:''} — showing ${start+1}–${Math.min(start+PG,artResults.length)}`;
+  const r=document.getElementById('search-results');r.innerHTML='';
+  slice.forEach(a=>r.appendChild(buildArtCard(a)));
+  buildArtPag();
+}
+
+function buildArtCard(a){
+  const div=document.createElement('div');div.className='art-card';
+  const firstCol=a.columns&&a.columns[0];
+  const pg=firstCol?pageMap[firstCol.page_id]:null;
+  const snippet=pg?(firstCol.side==='right'?pg.right_page:pg.left_page)||'':'';
+  const pageNums=[...new Set((a.columns||[]).map(c=>c.page_id))];
+  const pageRange=pageNums.length===1?`Page ${pageNums[0]}`:`Pages ${pageNums[0]}–${pageNums[pageNums.length-1]}`;
+  div.innerHTML=`
+    <div class="art-card-title">${esc(a.title||'')}</div>
+    ${a.title_en?`<div class="art-card-title-en">${esc(a.title_en)}</div>`:''}
+    <div class="art-card-meta">
+      <span class="art-type-badge">${esc(a.type||'article')}</span>
+      ${a.author
+        ?`<button class="art-author-btn" onclick="event.stopPropagation();filterByAuthor(${JSON.stringify(a.author)})">${esc(a.author_en||a.author)}</button>`
+        :`<span class="art-unsigned">Unsigned</span>`}
+      <span class="art-date">${fmtDate(a.issue_date)}</span>
+      <span class="art-pages">${pageRange}</span>
+    </div>
+    ${snippet?`<div class="art-snippet">${esc(snippet.slice(0,300))}</div>`:''}`;
+  div.onclick=()=>openArticle(a);
+  return div;
+}
+
+function openArticle(a){
+  const firstCol=a.columns&&a.columns[0];
+  if(!firstCol) return;
+  const pg=pageMap[firstCol.page_id];
+  if(!pg) return;
+  // Open browse reader at the first page of this article
+  switchTab('browse');
+  setTimeout(()=>openPage(pg),50);
+}
+
+function filterByAuthor(author){
+  activeAuthor=activeAuthor===author?null:author;
+  const raw=document.getElementById('search-input').value.trim();
+  if(artResults.length) renderArticleResults();
+  else if(raw) doSearchArticles(raw);
+  else showAllArticlesByAuthor();
+}
+
+async function showAllArticlesByAuthor(){
+  await ensureArticles();
+  artResults=activeAuthor?articles.filter(a=>a.author===activeAuthor):[...articles];
+  if(activeIssue) artResults=artResults.filter(a=>a.issue_date===activeIssue);
+  artSearchPg=0;
+  renderArticleResults();
+}
+
+function buildArtPag(){
+  const w=document.getElementById('search-pag');
+  const total=Math.ceil(artResults.length/PG);w.innerHTML='';
+  if(total<=1)return;
+  for(let i=0;i<total;i++){
+    const b=document.createElement('button');b.className='pag-btn'+(i===artSearchPg?' active':'');
+    b.textContent=i+1;b.onclick=()=>{artSearchPg=i;renderArticleResults();window.scrollTo(0,0);};
+    w.appendChild(b);
+  }
+}
+
+// ── Resolve a raw query (English or Pashto) into Pashto search terms + display hint
 function resolveQuery(raw) {
   const isPashto = /[؀-ۿ]/.test(raw);
   if(isPashto) {
@@ -569,6 +725,7 @@ let lastHlWord = '';
 function doSearch(){
   const raw=document.getElementById('search-input').value.trim();
   if(!raw){showFeatured();return;}
+  if(searchMode==='articles'){doSearchArticles(raw);return;}
   if(!pages.length){initSearch().then(doSearch);return;}
   document.getElementById('intro-banner').style.display='none';
   const {terms, hlWord, hint} = resolveQuery(raw);
@@ -626,7 +783,7 @@ function showFeatured(){
 
 function clearSearch(){
   document.getElementById('search-input').value='';document.getElementById('search-hint').textContent='';
-  results=[];searchPg=0;lastHlWord='';
+  results=[];searchPg=0;lastHlWord='';artResults=[];artSearchPg=0;activeAuthor=null;
   document.getElementById('search-results').innerHTML='';
   document.getElementById('results-info').textContent='';document.getElementById('search-pag').innerHTML='';
   if(pages.length)showFeatured();

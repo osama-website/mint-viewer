@@ -1,0 +1,4790 @@
+[
+  {
+    "id": 1,
+    "issue_date": "1928-06-06",
+    "title": "په سود سودا اخستو کښی دوه خبرے",
+    "title_en": "Two things to remember when buying goods",
+    "author": null,
+    "author_en": null,
+    "unsigned": true,
+    "type": "other",
+    "columns": [
+      {
+        "page_id": 0,
+        "side": "right"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "issue_date": "1928-06-06",
+    "title": "پښتون",
+    "title_en": "Pukhtoon (Magazine Masthead)",
+    "author": "عبدالغفار خان",
+    "author_en": "Abdul Ghaffar Khan",
+    "unsigned": false,
+    "type": "other",
+    "columns": [
+      {
+        "page_id": 0,
+        "side": "right"
+      },
+      {
+        "page_id": 0,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "issue_date": "1928-06-06",
+    "title": "نور قومونه چه څنګه دی په ترقی کښی علم وفن زده کړه که داسے کینئ غواړے",
+    "title_en": "How other nations are in progress, learn science and art if you want to sit like them",
+    "author": null,
+    "author_en": null,
+    "unsigned": true,
+    "type": "poem",
+    "columns": [
+      {
+        "page_id": 0,
+        "side": "right"
+      },
+      {
+        "page_id": 0,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "issue_date": "1928-06-06",
+    "title": "که څوک خپل دکان و کاروبار زياتول غواړي",
+    "title_en": "If anyone wants to increase their shop and business",
+    "author": null,
+    "author_en": null,
+    "unsigned": true,
+    "type": "announcement",
+    "columns": [
+      {
+        "page_id": 1,
+        "side": "right"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "issue_date": "1928-06-06",
+    "title": "فهرست د مضمونونو",
+    "title_en": "Table of Contents",
+    "author": null,
+    "author_en": null,
+    "unsigned": true,
+    "type": "other",
+    "columns": [
+      {
+        "page_id": 1,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "issue_date": "1928-06-06",
+    "title": "د شاه افغانستان قومي مینه",
+    "title_en": "The National Love of the King of Afghanistan",
+    "author": "سيد مولانا عبدالمجيد افغاني",
+    "author_en": "Syed Maulana Abdul Majeed Afghani",
+    "unsigned": false,
+    "type": "article",
+    "columns": [
+      {
+        "page_id": 1,
+        "side": "left"
+      },
+      {
+        "page_id": 2,
+        "side": "left"
+      },
+      {
+        "page_id": 3,
+        "side": "left"
+      },
+      {
+        "page_id": 4,
+        "side": "right"
+      },
+      {
+        "page_id": 4,
+        "side": "left"
+      },
+      {
+        "page_id": 5,
+        "side": "right"
+      },
+      {
+        "page_id": 5,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "issue_date": "1928-06-06",
+    "title": "غزل د بادشاه احمدشاه ابدالي",
+    "title_en": "Ghazal by King Ahmad Shah Abdali",
+    "author": "احمد شاه بادشاه ابدالي",
+    "author_en": "Ahmad Shah Badshah Abdali",
+    "unsigned": false,
+    "type": "poem",
+    "columns": [
+      {
+        "page_id": 2,
+        "side": "right"
+      },
+      {
+        "page_id": 3,
+        "side": "right"
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "issue_date": "1928-06-06",
+    "title": "جوړ ګلزار کړ په سينه د ګلۆ هار بيا",
+    "title_en": "Made a garden again on the chest of the flower garland",
+    "author": "ميان عبدالحميد",
+    "author_en": "Mian Abdul Hamid",
+    "unsigned": false,
+    "type": "poem",
+    "columns": [
+      {
+        "page_id": 5,
+        "side": "left"
+      },
+      {
+        "page_id": 6,
+        "side": "right"
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "issue_date": "1928-06-06",
+    "title": "ياغستان او ازادی",
+    "title_en": "Yaghistan and Freedom",
+    "author": "چلوونکی",
+    "author_en": "Editor",
+    "unsigned": false,
+    "type": "article",
+    "columns": [
+      {
+        "page_id": 6,
+        "side": "left"
+      },
+      {
+        "page_id": 7,
+        "side": "right"
+      },
+      {
+        "page_id": 7,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "issue_date": "1928-06-06",
+    "title": "مالیه او د اوړی فصل",
+    "title_en": "Tax and the Summer Harvest",
+    "author": "چلونکئے",
+    "author_en": "Editor",
+    "unsigned": false,
+    "type": "article",
+    "columns": [
+      {
+        "page_id": 8,
+        "side": "right"
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "issue_date": "1928-06-06",
+    "title": "د یوے فرنکۍ خور چټۍ",
+    "title_en": "A letter from a foreign sister",
+    "author": null,
+    "author_en": null,
+    "unsigned": true,
+    "type": "letter",
+    "columns": [
+      {
+        "page_id": 8,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "issue_date": "1928-06-06",
+    "title": "زمیندار ایسوسی ایشن مردان",
+    "title_en": "Zamindar Association Mardan",
+    "author": "محمد اشرف",
+    "author_en": "Muhammad Ashraf",
+    "unsigned": false,
+    "type": "article",
+    "columns": [
+      {
+        "page_id": 9,
+        "side": "right"
+      },
+      {
+        "page_id": 9,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 13,
+    "issue_date": "1928-06-06",
+    "title": "د اتمانزو د انجمن ”اصلاح الافاغنه“ د لسمۀ کاليزه جلسه د هرکلی خطبه",
+    "title_en": "Welcome address at the 10th anniversary meeting of the Atmanzai Association 'Islah-ul-Afaghina'",
+    "author": "مولوي عبدالرؤف کلاګی",
+    "author_en": "Maulvi Abdul Rauf Kalagi",
+    "unsigned": false,
+    "type": "article",
+    "columns": [
+      {
+        "page_id": 10,
+        "side": "left"
+      },
+      {
+        "page_id": 11,
+        "side": "right"
+      },
+      {
+        "page_id": 11,
+        "side": "left"
+      },
+      {
+        "page_id": 12,
+        "side": "right"
+      },
+      {
+        "page_id": 12,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 14,
+    "issue_date": "1928-06-06",
+    "title": "د مشرتۀ خطبه",
+    "title_en": "Presidential Address",
+    "author": null,
+    "author_en": null,
+    "unsigned": true,
+    "type": "article",
+    "columns": [
+      {
+        "page_id": 12,
+        "side": "right"
+      },
+      {
+        "page_id": 13,
+        "side": "right"
+      },
+      {
+        "page_id": 13,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 15,
+    "issue_date": "1928-06-06",
+    "title": "حضرت عُمَرُّ او سيند د نيل د مصر",
+    "title_en": "Hazrat Umar and the Nile River of Egypt",
+    "author": "اخی عبدالغفور",
+    "author_en": "Akhi Abdul Ghafoor",
+    "unsigned": false,
+    "type": "article",
+    "columns": [
+      {
+        "page_id": 15,
+        "side": "left"
+      },
+      {
+        "page_id": 16,
+        "side": "right"
+      },
+      {
+        "page_id": 16,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 16,
+    "issue_date": "1928-06-06",
+    "title": "د پښتنو اصلاح",
+    "title_en": "Reform of the Pashtuns",
+    "author": "عبدالرب خانصاحب",
+    "author_en": "Abdul Rab Khan Sahib",
+    "unsigned": false,
+    "type": "article",
+    "columns": [
+      {
+        "page_id": 17,
+        "side": "right"
+      },
+      {
+        "page_id": 17,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 17,
+    "issue_date": "1928-06-06",
+    "title": "پښتون ته اواز",
+    "title_en": "Voice to Pukhtoon",
+    "author": "محمد امامین",
+    "author_en": "Muhammad Imamuddin",
+    "unsigned": false,
+    "type": "poem",
+    "columns": [
+      {
+        "page_id": 18,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 18,
+    "issue_date": "1928-06-06",
+    "title": "جديد او تهذيب",
+    "title_en": "Modernity and Civilization",
+    "author": "عبدالاکبر",
+    "author_en": "Abdul Akbar",
+    "unsigned": false,
+    "type": "article",
+    "columns": [
+      {
+        "page_id": 18,
+        "side": "right"
+      },
+      {
+        "page_id": 21,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 19,
+    "issue_date": "1928-06-06",
+    "title": "د مسافر یو ساعت",
+    "title_en": "A Traveler's Hour",
+    "author": "ميان احمد شاه",
+    "author_en": "Mian Ahmad Shah",
+    "unsigned": false,
+    "type": "poem",
+    "columns": [
+      {
+        "page_id": 21,
+        "side": "right"
+      }
+    ]
+  },
+  {
+    "id": 20,
+    "issue_date": "1928-06-06",
+    "title": "سره جينۍ",
+    "title_en": "Red Girl",
+    "author": "سيد راحت الله راحت زاخيلي",
+    "author_en": "Syed Rahatullah Rahat Zakheli",
+    "unsigned": false,
+    "type": "article",
+    "columns": [
+      {
+        "page_id": 22,
+        "side": "right"
+      },
+      {
+        "page_id": 22,
+        "side": "left"
+      },
+      {
+        "page_id": 23,
+        "side": "right"
+      },
+      {
+        "page_id": 23,
+        "side": "left"
+      },
+      {
+        "page_id": 24,
+        "side": "right"
+      },
+      {
+        "page_id": 24,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 21,
+    "issue_date": "1928-06-06",
+    "title": "اعلان",
+    "title_en": "Announcement",
+    "author": "ميان احمدشاه",
+    "author_en": "Mian Ahmad Shah",
+    "unsigned": false,
+    "type": "announcement",
+    "columns": [
+      {
+        "page_id": 25,
+        "side": "right"
+      }
+    ]
+  },
+  {
+    "id": 22,
+    "issue_date": "1928-06-06",
+    "title": "مضمون ليکونکو سره يو څو خبري",
+    "title_en": "A few words with contributors",
+    "author": null,
+    "author_en": null,
+    "unsigned": true,
+    "type": "announcement",
+    "columns": [
+      {
+        "page_id": 25,
+        "side": "right"
+      }
+    ]
+  },
+  {
+    "id": 23,
+    "issue_date": "1928-06-06",
+    "title": "اصلي او نقلي",
+    "title_en": "Original and Fake",
+    "author": null,
+    "author_en": null,
+    "unsigned": true,
+    "type": "other",
+    "columns": [
+      {
+        "page_id": 25,
+        "side": "right"
+      },
+      {
+        "page_id": 25,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 24,
+    "issue_date": "1929-01-01",
+    "title": "صادق نویندې منډهې اتمانزی",
+    "title_en": "Sadiq Nawinday Manday Utmanzai",
+    "author": null,
+    "author_en": null,
+    "unsigned": true,
+    "type": "other",
+    "columns": [
+      {
+        "page_id": 26,
+        "side": "right"
+      }
+    ]
+  },
+  {
+    "id": 25,
+    "issue_date": "1929-01-01",
+    "title": "د نه کاونې د غلام د خلاص کښې",
+    "title_en": "On the Freedom of the Slave from Servitude",
+    "author": "خادم",
+    "author_en": "Khadim",
+    "unsigned": false,
+    "type": "article",
+    "columns": [
+      {
+        "page_id": 26,
+        "side": "left"
+      },
+      {
+        "page_id": 27,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 26,
+    "issue_date": "1929-01-01",
+    "title": "فهرست د مضمونونو",
+    "title_en": "Table of Contents",
+    "author": null,
+    "author_en": null,
+    "unsigned": true,
+    "type": "other",
+    "columns": [
+      {
+        "page_id": 27,
+        "side": "right"
+      }
+    ]
+  },
+  {
+    "id": 27,
+    "issue_date": "1929-01-01",
+    "title": "شاعرانو لیک د متکبن عرض",
+    "title_en": "A Request from the Editor to the Poets",
+    "author": "پټون",
+    "author_en": "Pukhtoon",
+    "unsigned": false,
+    "type": "editorial",
+    "columns": [
+      {
+        "page_id": 27,
+        "side": "left"
+      },
+      {
+        "page_id": 28,
+        "side": "right"
+      }
+    ]
+  },
+  {
+    "id": 28,
+    "issue_date": "1929-01-01",
+    "title": "پښتون",
+    "title_en": "Pukhtoon",
+    "author": null,
+    "author_en": null,
+    "unsigned": true,
+    "type": "article",
+    "columns": [
+      {
+        "page_id": 27,
+        "side": "left"
+      },
+      {
+        "page_id": 28,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 29,
+    "issue_date": "1929-01-01",
+    "title": "الاهو",
+    "title_en": "Alaho",
+    "author": "خادم",
+    "author_en": "Khadim",
+    "unsigned": false,
+    "type": "poem",
+    "columns": [
+      {
+        "page_id": 28,
+        "side": "right"
+      }
+    ]
+  },
+  {
+    "id": 30,
+    "issue_date": "1929-01-01",
+    "title": "د شلم صد تهذیب او چاڼ ځانې",
+    "title_en": "Twentieth Century Civilization and the Jail",
+    "author": "پلونکے",
+    "author_en": "Palunkay",
+    "unsigned": false,
+    "type": "article",
+    "columns": [
+      {
+        "page_id": 28,
+        "side": "left"
+      },
+      {
+        "page_id": 29,
+        "side": "right"
+      },
+      {
+        "page_id": 29,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 31,
+    "issue_date": "1929-01-01",
+    "title": "امن",
+    "title_en": "Peace",
+    "author": "چلونکے",
+    "author_en": "Chalunkay",
+    "unsigned": false,
+    "type": "article",
+    "columns": [
+      {
+        "page_id": 30,
+        "side": "right"
+      },
+      {
+        "page_id": 30,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 32,
+    "issue_date": "1929-01-01",
+    "title": "په افغانستان کې د تعلیم ترقي دور",
+    "title_en": "The Era of Educational Progress in Afghanistan",
+    "author": null,
+    "author_en": null,
+    "unsigned": true,
+    "type": "article",
+    "columns": [
+      {
+        "page_id": 31,
+        "side": "right"
+      },
+      {
+        "page_id": 31,
+        "side": "left"
+      },
+      {
+        "page_id": 32,
+        "side": "right"
+      },
+      {
+        "page_id": 32,
+        "side": "left"
+      },
+      {
+        "page_id": 33,
+        "side": "right"
+      },
+      {
+        "page_id": 33,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 33,
+    "issue_date": "1929-01-01",
+    "title": "سائمن کمیشن",
+    "title_en": "Simon Commission",
+    "author": null,
+    "author_en": null,
+    "unsigned": true,
+    "type": "article",
+    "columns": [
+      {
+        "page_id": 31,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 34,
+    "issue_date": "1929-01-01",
+    "title": "اسلامیه کالج او بزم ادب",
+    "title_en": "Islamia College and Bazm-e-Adab",
+    "author": null,
+    "author_en": null,
+    "unsigned": true,
+    "type": "news",
+    "columns": [
+      {
+        "page_id": 31,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 35,
+    "issue_date": "1929-01-01",
+    "title": "بدیع او د قام خدمت",
+    "title_en": "Women and Service to the Nation",
+    "author": null,
+    "author_en": null,
+    "unsigned": true,
+    "type": "article",
+    "columns": [
+      {
+        "page_id": 34,
+        "side": "right"
+      },
+      {
+        "page_id": 34,
+        "side": "left"
+      },
+      {
+        "page_id": 35,
+        "side": "right"
+      },
+      {
+        "page_id": 35,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 36,
+    "issue_date": "1929-01-01",
+    "title": "خوب",
+    "title_en": "Dream",
+    "author": null,
+    "author_en": null,
+    "unsigned": true,
+    "type": "article",
+    "columns": [
+      {
+        "page_id": 36,
+        "side": "right"
+      },
+      {
+        "page_id": 36,
+        "side": "left"
+      },
+      {
+        "page_id": 37,
+        "side": "right"
+      },
+      {
+        "page_id": 37,
+        "side": "left"
+      },
+      {
+        "page_id": 38,
+        "side": "right"
+      },
+      {
+        "page_id": 38,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 37,
+    "issue_date": "1929-01-01",
+    "title": "تاريخي اجراء رساله پښتون",
+    "title_en": "Historical Publication of Pukhtoon Magazine",
+    "author": "راحت",
+    "author_en": "Rahat",
+    "unsigned": false,
+    "type": "poem",
+    "columns": [
+      {
+        "page_id": 38,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 38,
+    "issue_date": "1929-01-01",
+    "title": "د بنګو د آزادۍ نتيجه",
+    "title_en": "The Result of Freedom",
+    "author": "فضل علي جهانګيري",
+    "author_en": "Fazal Ali Jahangiri",
+    "unsigned": false,
+    "type": "article",
+    "columns": [
+      {
+        "page_id": 39,
+        "side": "right"
+      },
+      {
+        "page_id": 39,
+        "side": "left"
+      },
+      {
+        "page_id": 40,
+        "side": "right"
+      },
+      {
+        "page_id": 40,
+        "side": "left"
+      },
+      {
+        "page_id": 41,
+        "side": "right"
+      },
+      {
+        "page_id": 41,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 39,
+    "issue_date": "1929-01-01",
+    "title": "مونږ د فرنګيانو نه څه زده کوشو؟",
+    "title_en": "What Should We Learn from the British?",
+    "author": null,
+    "author_en": null,
+    "unsigned": true,
+    "type": "article",
+    "columns": [
+      {
+        "page_id": 40,
+        "side": "right"
+      },
+      {
+        "page_id": 40,
+        "side": "left"
+      },
+      {
+        "page_id": 41,
+        "side": "right"
+      },
+      {
+        "page_id": 41,
+        "side": "left"
+      },
+      {
+        "page_id": 42,
+        "side": "right"
+      },
+      {
+        "page_id": 42,
+        "side": "left"
+      },
+      {
+        "page_id": 43,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 40,
+    "issue_date": "1929-01-01",
+    "title": "د غرناطې د یو مسلمان شهزاده زړه وېل",
+    "title_en": "The Heartfelt Story of a Muslim Prince of Granada",
+    "author": null,
+    "author_en": null,
+    "unsigned": true,
+    "type": "article",
+    "columns": [
+      {
+        "page_id": 43,
+        "side": "right"
+      },
+      {
+        "page_id": 44,
+        "side": "right"
+      },
+      {
+        "page_id": 44,
+        "side": "left"
+      },
+      {
+        "page_id": 45,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 41,
+    "issue_date": "1929-01-01",
+    "title": "تقریر د خوشال خان په جلسه کې",
+    "title_en": "Speech at the Khushal Khan Session",
+    "author": null,
+    "author_en": null,
+    "unsigned": true,
+    "type": "article",
+    "columns": [
+      {
+        "page_id": 45,
+        "side": "right"
+      },
+      {
+        "page_id": 46,
+        "side": "right"
+      },
+      {
+        "page_id": 46,
+        "side": "left"
+      },
+      {
+        "page_id": 47,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 42,
+    "issue_date": "1929-01-01",
+    "title": "د شمال او د سپين ځواکونو مراد",
+    "title_en": "The North and the Intent of the White Powers",
+    "author": null,
+    "author_en": null,
+    "unsigned": true,
+    "type": "article",
+    "columns": [
+      {
+        "page_id": 47,
+        "side": "right"
+      },
+      {
+        "page_id": 47,
+        "side": "left"
+      },
+      {
+        "page_id": 48,
+        "side": "right"
+      },
+      {
+        "page_id": 48,
+        "side": "left"
+      },
+      {
+        "page_id": 49,
+        "side": "right"
+      },
+      {
+        "page_id": 49,
+        "side": "left"
+      },
+      {
+        "page_id": 50,
+        "side": "right"
+      }
+    ]
+  },
+  {
+    "id": 43,
+    "issue_date": "1929-01-01",
+    "title": "په نقل د دغې د پښتو په زمانه کې",
+    "title_en": "In the Era of Pashto",
+    "author": null,
+    "author_en": null,
+    "unsigned": true,
+    "type": "article",
+    "columns": [
+      {
+        "page_id": 50,
+        "side": "left"
+      },
+      {
+        "page_id": 51,
+        "side": "right"
+      },
+      {
+        "page_id": 51,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 44,
+    "issue_date": "1929-01-01",
+    "title": "د قندهار مسلمان ته خطاب",
+    "title_en": "Address to the Muslim of Kandahar",
+    "author": null,
+    "author_en": null,
+    "unsigned": true,
+    "type": "poem",
+    "columns": [
+      {
+        "page_id": 51,
+        "side": "right"
+      },
+      {
+        "page_id": 51,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 45,
+    "issue_date": "1929-01-01",
+    "title": "اظہار حقیقت",
+    "title_en": "Expression of Truth",
+    "author": null,
+    "author_en": null,
+    "unsigned": true,
+    "type": "poem",
+    "columns": [
+      {
+        "page_id": 52,
+        "side": "right"
+      }
+    ]
+  },
+  {
+    "id": 46,
+    "issue_date": "1930-01-01",
+    "title": "فهرست مضامین",
+    "title_en": "Table of Contents",
+    "author": null,
+    "author_en": null,
+    "unsigned": true,
+    "type": "other",
+    "columns": [
+      {
+        "page_id": 53,
+        "side": "right"
+      },
+      {
+        "page_id": 53,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 47,
+    "issue_date": "1930-01-01",
+    "title": "د غلام ازاد حیثیت",
+    "title_en": "The Status of the Free Slave",
+    "author": null,
+    "author_en": null,
+    "unsigned": true,
+    "type": "poem",
+    "columns": [
+      {
+        "page_id": 54,
+        "side": "right"
+      },
+      {
+        "page_id": 54,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 48,
+    "issue_date": "1930-01-01",
+    "title": "پښتون",
+    "title_en": "Pukhtoon (Editorial/Narrative)",
+    "author": null,
+    "author_en": null,
+    "unsigned": true,
+    "type": "article",
+    "columns": [
+      {
+        "page_id": 55,
+        "side": "right"
+      },
+      {
+        "page_id": 55,
+        "side": "left"
+      },
+      {
+        "page_id": 56,
+        "side": "right"
+      },
+      {
+        "page_id": 56,
+        "side": "left"
+      },
+      {
+        "page_id": 57,
+        "side": "right"
+      }
+    ]
+  },
+  {
+    "id": 49,
+    "issue_date": "1930-01-01",
+    "title": "دیو ملا صاحب",
+    "title_en": "Of a Mullah Sahib",
+    "author": null,
+    "author_en": null,
+    "unsigned": true,
+    "type": "poem",
+    "columns": [
+      {
+        "page_id": 58,
+        "side": "right"
+      }
+    ]
+  },
+  {
+    "id": 50,
+    "issue_date": "1930-01-01",
+    "title": "دیو خان فضل خیال",
+    "title_en": "Of a Khan Fazal Khial",
+    "author": null,
+    "author_en": null,
+    "unsigned": true,
+    "type": "poem",
+    "columns": [
+      {
+        "page_id": 58,
+        "side": "right"
+      }
+    ]
+  },
+  {
+    "id": 51,
+    "issue_date": "1930-01-01",
+    "title": "د دیو ملا صاحب",
+    "title_en": "Of a Mullah Sahib (Questions)",
+    "author": null,
+    "author_en": null,
+    "unsigned": true,
+    "type": "article",
+    "columns": [
+      {
+        "page_id": 58,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 52,
+    "issue_date": "1930-01-01",
+    "title": "د دنیا کفر او اسلام د فیر ګیا او پلاسن",
+    "title_en": "The World's Kufr and Islam...",
+    "author": null,
+    "author_en": null,
+    "unsigned": true,
+    "type": "article",
+    "columns": [
+      {
+        "page_id": 58,
+        "side": "left"
+      },
+      {
+        "page_id": 59,
+        "side": "right"
+      },
+      {
+        "page_id": 59,
+        "side": "left"
+      },
+      {
+        "page_id": 61,
+        "side": "left"
+      },
+      {
+        "page_id": 62,
+        "side": "right"
+      },
+      {
+        "page_id": 62,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 53,
+    "issue_date": "1930-01-01",
+    "title": "تدبیرات هند؛ د دنیا اسلام چا تباه کړو؟",
+    "title_en": "Strategies of India; Who destroyed the Islam of the world?",
+    "author": "عبدالغفار",
+    "author_en": "Abdul Ghaffar",
+    "unsigned": false,
+    "type": "article",
+    "columns": [
+      {
+        "page_id": 60,
+        "side": "right"
+      },
+      {
+        "page_id": 61,
+        "side": "right"
+      }
+    ]
+  },
+  {
+    "id": 54,
+    "issue_date": "1930-01-01",
+    "title": "شاکو ښار د باېسکوپ تماشه",
+    "title_en": "Cinema Show in the City",
+    "author": null,
+    "author_en": null,
+    "unsigned": true,
+    "type": "article",
+    "columns": [
+      {
+        "page_id": 60,
+        "side": "right"
+      },
+      {
+        "page_id": 61,
+        "side": "right"
+      }
+    ]
+  },
+  {
+    "id": 55,
+    "issue_date": "1930-01-01",
+    "title": "د محمود جرګے دو فاقدوره (کرزئی)",
+    "title_en": "The Federal Period of the Mahmud Jirga (Karzai)",
+    "author": null,
+    "author_en": null,
+    "unsigned": true,
+    "type": "article",
+    "columns": [
+      {
+        "page_id": 62,
+        "side": "right"
+      },
+      {
+        "page_id": 62,
+        "side": "left"
+      },
+      {
+        "page_id": 63,
+        "side": "right"
+      },
+      {
+        "page_id": 63,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 56,
+    "issue_date": "1930-01-01",
+    "title": "خط",
+    "title_en": "Letter",
+    "author": "عبدالغفار",
+    "author_en": "Abdul Ghaffar",
+    "unsigned": false,
+    "type": "letter",
+    "columns": [
+      {
+        "page_id": 64,
+        "side": "right"
+      },
+      {
+        "page_id": 64,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 57,
+    "issue_date": "1930-01-01",
+    "title": "اورته د دنیا؟",
+    "title_en": "Towards the World?",
+    "author": "عبدالغفار",
+    "author_en": "Abdul Ghaffar",
+    "unsigned": false,
+    "type": "article",
+    "columns": [
+      {
+        "page_id": 64,
+        "side": "right"
+      },
+      {
+        "page_id": 64,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 58,
+    "issue_date": "1930-01-01",
+    "title": "پښتون او پولیټکل ایجنټ",
+    "title_en": "Pukhtoon and the Political Agent",
+    "author": null,
+    "author_en": null,
+    "unsigned": true,
+    "type": "article",
+    "columns": [
+      {
+        "page_id": 64,
+        "side": "right"
+      },
+      {
+        "page_id": 64,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 59,
+    "issue_date": "1930-01-01",
+    "title": "پښتون ۲۹",
+    "title_en": "Pukhtoon 29 (Jirga Report)",
+    "author": null,
+    "author_en": null,
+    "unsigned": true,
+    "type": "article",
+    "columns": [
+      {
+        "page_id": 65,
+        "side": "right"
+      },
+      {
+        "page_id": 65,
+        "side": "left"
+      },
+      {
+        "page_id": 66,
+        "side": "right"
+      },
+      {
+        "page_id": 66,
+        "side": "left"
+      },
+      {
+        "page_id": 67,
+        "side": "right"
+      },
+      {
+        "page_id": 67,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 60,
+    "issue_date": "1930-01-01",
+    "title": "د حسن افغان د قریبین حال امریکا",
+    "title_en": "The Recent Situation of America by Hassan Afghan",
+    "author": "پیر محمد خان",
+    "author_en": "Pir Mohammad Khan",
+    "unsigned": false,
+    "type": "article",
+    "columns": [
+      {
+        "page_id": 69,
+        "side": "right"
+      },
+      {
+        "page_id": 70,
+        "side": "right"
+      },
+      {
+        "page_id": 70,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 61,
+    "issue_date": "1930-01-01",
+    "title": "خاوند ته و دانه کړې، جمونږ د یو وې حجره",
+    "title_en": "Poem for the Nation",
+    "author": null,
+    "author_en": null,
+    "unsigned": true,
+    "type": "poem",
+    "columns": [
+      {
+        "page_id": 69,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 62,
+    "issue_date": "1930-01-01",
+    "title": "افغانستان او نادر خان",
+    "title_en": "Afghanistan and Nadir Khan",
+    "author": null,
+    "author_en": null,
+    "unsigned": true,
+    "type": "poem",
+    "columns": [
+      {
+        "page_id": 71,
+        "side": "right"
+      }
+    ]
+  },
+  {
+    "id": 63,
+    "issue_date": "1930-01-01",
+    "title": "محمد نواز خان صاحب د لکناؤ څخه",
+    "title_en": "Mohammad Nawaz Khan Sahib from Lucknow",
+    "author": "میله",
+    "author_en": "Mela",
+    "unsigned": false,
+    "type": "article",
+    "columns": [
+      {
+        "page_id": 71,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 64,
+    "issue_date": "1930-01-01",
+    "title": "د ترکۍ خط",
+    "title_en": "Letter from Turkey",
+    "author": "نور افغان",
+    "author_en": "Noor Afghan",
+    "unsigned": false,
+    "type": "letter",
+    "columns": [
+      {
+        "page_id": 72,
+        "side": "right"
+      }
+    ]
+  },
+  {
+    "id": 65,
+    "issue_date": "1930-01-01",
+    "title": "د پښتون د چوت اعلان",
+    "title_en": "Pukhtoon Advertisement",
+    "author": null,
+    "author_en": null,
+    "unsigned": true,
+    "type": "announcement",
+    "columns": [
+      {
+        "page_id": 72,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 66,
+    "issue_date": "1930-01-01",
+    "title": "د خُداي يو دوست خط",
+    "title_en": "Letter from a Friend of God",
+    "author": null,
+    "author_en": null,
+    "unsigned": true,
+    "type": "letter",
+    "columns": [
+      {
+        "page_id": 73,
+        "side": "right"
+      },
+      {
+        "page_id": 73,
+        "side": "left"
+      },
+      {
+        "page_id": 74,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 67,
+    "issue_date": "1930-01-01",
+    "title": "هندوستان او آزادی",
+    "title_en": "India and Freedom",
+    "author": null,
+    "author_en": null,
+    "unsigned": true,
+    "type": "article",
+    "columns": [
+      {
+        "page_id": 74,
+        "side": "right"
+      }
+    ]
+  },
+  {
+    "id": 68,
+    "issue_date": "1930-01-01",
+    "title": "غونډ مېز جرګه",
+    "title_en": "Round Table Conference",
+    "author": null,
+    "author_en": null,
+    "unsigned": true,
+    "type": "article",
+    "columns": [
+      {
+        "page_id": 75,
+        "side": "right"
+      },
+      {
+        "page_id": 75,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 69,
+    "issue_date": "1930-02-01",
+    "title": "شپږم کال",
+    "title_en": "Sixth Year",
+    "author": null,
+    "author_en": null,
+    "unsigned": true,
+    "type": "other",
+    "columns": [
+      {
+        "page_id": 76,
+        "side": "right"
+      }
+    ]
+  },
+  {
+    "id": 70,
+    "issue_date": "1930-02-01",
+    "title": "پښتون",
+    "title_en": "Pukhtoon",
+    "author": null,
+    "author_en": null,
+    "unsigned": true,
+    "type": "other",
+    "columns": [
+      {
+        "page_id": 76,
+        "side": "left"
+      },
+      {
+        "page_id": 77,
+        "side": "right"
+      },
+      {
+        "page_id": 77,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 71,
+    "issue_date": "1930-02-01",
+    "title": "د شاه صاحب ګل نه يو لاندې ليک",
+    "title_en": "A letter from Shah Sahib Gul",
+    "author": null,
+    "author_en": null,
+    "unsigned": true,
+    "type": "letter",
+    "columns": [
+      {
+        "page_id": 77,
+        "side": "right"
+      },
+      {
+        "page_id": 77,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 72,
+    "issue_date": "1930-02-01",
+    "title": "پښتون",
+    "title_en": "Pukhtoon",
+    "author": null,
+    "author_en": null,
+    "unsigned": true,
+    "type": "article",
+    "columns": [
+      {
+        "page_id": 78,
+        "side": "right"
+      },
+      {
+        "page_id": 78,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 73,
+    "issue_date": "1930-02-01",
+    "title": "په لاهور کښې د کانګرس جلسه",
+    "title_en": "Congress Session in Lahore",
+    "author": null,
+    "author_en": null,
+    "unsigned": true,
+    "type": "article",
+    "columns": [
+      {
+        "page_id": 79,
+        "side": "right"
+      }
+    ]
+  },
+  {
+    "id": 74,
+    "issue_date": "1930-02-01",
+    "title": "پشاور حالات ته چالاں کړم",
+    "title_en": "I will move to Peshawar conditions",
+    "author": "عبد الغفار",
+    "author_en": "Abdul Ghaffar",
+    "unsigned": false,
+    "type": "article",
+    "columns": [
+      {
+        "page_id": 79,
+        "side": "right"
+      },
+      {
+        "page_id": 79,
+        "side": "left"
+      },
+      {
+        "page_id": 80,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 75,
+    "issue_date": "1930-02-01",
+    "title": "پښتو او مر‌شپه",
+    "title_en": "Pashto and Midnight",
+    "author": null,
+    "author_en": null,
+    "unsigned": true,
+    "type": "article",
+    "columns": [
+      {
+        "page_id": 80,
+        "side": "left"
+      },
+      {
+        "page_id": 81,
+        "side": "right"
+      }
+    ]
+  },
+  {
+    "id": 76,
+    "issue_date": "1930-02-01",
+    "title": "د پښتو",
+    "title_en": "Pashto",
+    "author": "عبد الغفار",
+    "author_en": "Abdul Ghaffar",
+    "unsigned": false,
+    "type": "article",
+    "columns": [
+      {
+        "page_id": 81,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 77,
+    "issue_date": "1930-02-01",
+    "title": "خدای د اوچتنه",
+    "title_en": "May God exalt him",
+    "author": "عبد الغفار",
+    "author_en": "Abdul Ghaffar",
+    "unsigned": false,
+    "type": "article",
+    "columns": [
+      {
+        "page_id": 81,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 78,
+    "issue_date": "1930-02-01",
+    "title": "درند و د لاس عبد الغفار خان برکت او همت د",
+    "title_en": "The blessing and courage of Abdul Ghaffar Khan",
+    "author": "محمد اکبر صاحب",
+    "author_en": "Muhammad Akbar Sahib",
+    "unsigned": false,
+    "type": "poem",
+    "columns": [
+      {
+        "page_id": 82,
+        "side": "right"
+      }
+    ]
+  },
+  {
+    "id": 79,
+    "issue_date": "1930-02-01",
+    "title": "په پښتو",
+    "title_en": "In Pashto",
+    "author": "ګل حسن ضيری",
+    "author_en": "Gul Hassan Zairi",
+    "unsigned": false,
+    "type": "article",
+    "columns": [
+      {
+        "page_id": 82,
+        "side": "left"
+      },
+      {
+        "page_id": 83,
+        "side": "right"
+      },
+      {
+        "page_id": 83,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 80,
+    "issue_date": "1930-02-01",
+    "title": "د حق مړونې کارونه",
+    "title_en": "Works of killing the truth",
+    "author": "میان احمد شاه بیرسټر",
+    "author_en": "Mian Ahmad Shah Barrister",
+    "unsigned": false,
+    "type": "article",
+    "columns": [
+      {
+        "page_id": 84,
+        "side": "right"
+      },
+      {
+        "page_id": 85,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 81,
+    "issue_date": "1930-02-01",
+    "title": "بهارت پاره",
+    "title_en": "Spring piece",
+    "author": "غلام محمد",
+    "author_en": "Ghulam Muhammad",
+    "unsigned": false,
+    "type": "poem",
+    "columns": [
+      {
+        "page_id": 84,
+        "side": "right"
+      },
+      {
+        "page_id": 85,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 82,
+    "issue_date": "1930-02-01",
+    "title": "د پښتون خطاب په پښتنو",
+    "title_en": "Pukhtoon's address to the Pashtuns",
+    "author": null,
+    "author_en": null,
+    "unsigned": true,
+    "type": "poem",
+    "columns": [
+      {
+        "page_id": 84,
+        "side": "left"
+      },
+      {
+        "page_id": 85,
+        "side": "right"
+      }
+    ]
+  },
+  {
+    "id": 83,
+    "issue_date": "1930-02-01",
+    "title": "پالنې مياشته",
+    "title_en": "Nurturing Month",
+    "author": "عبد الستار",
+    "author_en": "Abdul Sattar",
+    "unsigned": false,
+    "type": "article",
+    "columns": [
+      {
+        "page_id": 84,
+        "side": "left"
+      },
+      {
+        "page_id": 85,
+        "side": "left"
+      },
+      {
+        "page_id": 86,
+        "side": "right"
+      },
+      {
+        "page_id": 86,
+        "side": "left"
+      },
+      {
+        "page_id": 87,
+        "side": "right"
+      },
+      {
+        "page_id": 87,
+        "side": "left"
+      },
+      {
+        "page_id": 88,
+        "side": "right"
+      },
+      {
+        "page_id": 88,
+        "side": "left"
+      },
+      {
+        "page_id": 89,
+        "side": "right"
+      },
+      {
+        "page_id": 89,
+        "side": "left"
+      },
+      {
+        "page_id": 90,
+        "side": "right"
+      },
+      {
+        "page_id": 90,
+        "side": "left"
+      },
+      {
+        "page_id": 91,
+        "side": "right"
+      },
+      {
+        "page_id": 91,
+        "side": "left"
+      },
+      {
+        "page_id": 92,
+        "side": "right"
+      }
+    ]
+  },
+  {
+    "id": 84,
+    "issue_date": "1930-02-01",
+    "title": "البیات افغانی",
+    "title_en": "Afghan Poetry",
+    "author": "تمیم الله",
+    "author_en": "Tamimullah",
+    "unsigned": false,
+    "type": "poem",
+    "columns": [
+      {
+        "page_id": 92,
+        "side": "right"
+      }
+    ]
+  },
+  {
+    "id": 85,
+    "issue_date": "1930-02-01",
+    "title": "د ترکي خط",
+    "title_en": "Turkish Letter",
+    "author": null,
+    "author_en": null,
+    "unsigned": true,
+    "type": "article",
+    "columns": [
+      {
+        "page_id": 92,
+        "side": "left"
+      },
+      {
+        "page_id": 93,
+        "side": "left"
+      },
+      {
+        "page_id": 94,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 86,
+    "issue_date": "1930-02-01",
+    "title": "په خپله ژبه طرفداري وکړئ",
+    "title_en": "Support your own language",
+    "author": null,
+    "author_en": null,
+    "unsigned": true,
+    "type": "article",
+    "columns": [
+      {
+        "page_id": 93,
+        "side": "right"
+      },
+      {
+        "page_id": 93,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 87,
+    "issue_date": "1930-02-01",
+    "title": "د قوم نوم",
+    "title_en": "Name of the nation",
+    "author": null,
+    "author_en": null,
+    "unsigned": true,
+    "type": "article",
+    "columns": [
+      {
+        "page_id": 94,
+        "side": "right"
+      },
+      {
+        "page_id": 94,
+        "side": "left"
+      },
+      {
+        "page_id": 95,
+        "side": "right"
+      },
+      {
+        "page_id": 95,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 88,
+    "issue_date": "1930-02-01",
+    "title": "څرګندونه",
+    "title_en": "Clarification",
+    "author": null,
+    "author_en": null,
+    "unsigned": true,
+    "type": "article",
+    "columns": [
+      {
+        "page_id": 96,
+        "side": "right"
+      }
+    ]
+  },
+  {
+    "id": 89,
+    "issue_date": "1930-02-01",
+    "title": "په ده اوردو پېشنو",
+    "title_en": "In this Urdu Pashto",
+    "author": null,
+    "author_en": null,
+    "unsigned": true,
+    "type": "article",
+    "columns": [
+      {
+        "page_id": 96,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 90,
+    "issue_date": "1930-02-01",
+    "title": "فهرست مضمونونه",
+    "title_en": "Table of Contents",
+    "author": null,
+    "author_en": null,
+    "unsigned": true,
+    "type": "other",
+    "columns": [
+      {
+        "page_id": 97,
+        "side": "right"
+      },
+      {
+        "page_id": 97,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 91,
+    "issue_date": "1930-03-01",
+    "title": "پښتون ته خطاب",
+    "title_en": "Address to the Pukhtoon",
+    "author": "د قلم د صادق",
+    "author_en": "From the pen of Sadiq",
+    "unsigned": false,
+    "type": "poem",
+    "columns": [
+      {
+        "page_id": 98,
+        "side": "right"
+      }
+    ]
+  },
+  {
+    "id": 92,
+    "issue_date": "1930-03-01",
+    "title": "پښتون",
+    "title_en": "Pukhtoon (Masthead/Info)",
+    "author": null,
+    "author_en": null,
+    "unsigned": true,
+    "type": "other",
+    "columns": [
+      {
+        "page_id": 98,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 93,
+    "issue_date": "1930-03-01",
+    "title": "د شلمې صدۍ تهذیب او جیلخانې",
+    "title_en": "20th Century Civilization and Prisons",
+    "author": null,
+    "author_en": null,
+    "unsigned": true,
+    "type": "article",
+    "columns": [
+      {
+        "page_id": 98,
+        "side": "left"
+      },
+      {
+        "page_id": 99,
+        "side": "right"
+      },
+      {
+        "page_id": 99,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 94,
+    "issue_date": "1930-03-01",
+    "title": "د بادشاه بې نيتۍ او د رعيت بربادي",
+    "title_en": "The King's Bad Intentions and the Ruin of the Subjects",
+    "author": null,
+    "author_en": null,
+    "unsigned": true,
+    "type": "article",
+    "columns": [
+      {
+        "page_id": 100,
+        "side": "right"
+      },
+      {
+        "page_id": 100,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 95,
+    "issue_date": "1930-03-01",
+    "title": "د هندوستان د دواؤ پيرو لويو سرو ملاقات",
+    "title_en": "Meeting of the Two Great Leaders of India",
+    "author": null,
+    "author_en": null,
+    "unsigned": true,
+    "type": "article",
+    "columns": [
+      {
+        "page_id": 101,
+        "side": "right"
+      },
+      {
+        "page_id": 101,
+        "side": "left"
+      },
+      {
+        "page_id": 102,
+        "side": "right"
+      },
+      {
+        "page_id": 102,
+        "side": "left"
+      },
+      {
+        "page_id": 103,
+        "side": "right"
+      },
+      {
+        "page_id": 103,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 96,
+    "issue_date": "1930-03-01",
+    "title": "سارډاپل",
+    "title_en": "Sarda Act",
+    "author": "خادم محمد اکبر",
+    "author_en": "Khadim Muhammad Akbar",
+    "unsigned": false,
+    "type": "poem",
+    "columns": [
+      {
+        "page_id": 104,
+        "side": "right"
+      }
+    ]
+  },
+  {
+    "id": 97,
+    "issue_date": "1930-03-01",
+    "title": "لیکونکی",
+    "title_en": "Writer",
+    "author": "على محمد خان",
+    "author_en": "Ali Muhammad Khan",
+    "unsigned": false,
+    "type": "article",
+    "columns": [
+      {
+        "page_id": 104,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 98,
+    "issue_date": "1930-03-01",
+    "title": "د الهي قانون",
+    "title_en": "Divine Law",
+    "author": "عبدالغفار",
+    "author_en": "Abdul Ghaffar",
+    "unsigned": false,
+    "type": "article",
+    "columns": [
+      {
+        "page_id": 105,
+        "side": "right"
+      }
+    ]
+  },
+  {
+    "id": 99,
+    "issue_date": "1930-03-01",
+    "title": "د ساردا بل متعلق",
+    "title_en": "Regarding the Sarda Bill",
+    "author": null,
+    "author_en": null,
+    "unsigned": true,
+    "type": "article",
+    "columns": [
+      {
+        "page_id": 105,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 100,
+    "issue_date": "1930-03-01",
+    "title": "د خدای خدمتګاران",
+    "title_en": "Servants of God (Khudai Khidmatgar)",
+    "author": "د میان احمدشاه ناظم جرګې",
+    "author_en": "Mian Ahmad Shah, Nazim of the Jirga",
+    "unsigned": false,
+    "type": "article",
+    "columns": [
+      {
+        "page_id": 106,
+        "side": "right"
+      },
+      {
+        "page_id": 106,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 101,
+    "issue_date": "1930-03-01",
+    "title": "د شهزادګۍ ژړا",
+    "title_en": "The Princess's Weeping",
+    "author": null,
+    "author_en": null,
+    "unsigned": true,
+    "type": "article",
+    "columns": [
+      {
+        "page_id": 107,
+        "side": "right"
+      },
+      {
+        "page_id": 107,
+        "side": "left"
+      },
+      {
+        "page_id": 108,
+        "side": "right"
+      },
+      {
+        "page_id": 108,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 102,
+    "issue_date": "1930-03-01",
+    "title": "د ملک خوار و وران کرو",
+    "title_en": "The Ruin of the Country's Poor",
+    "author": "قازخان قلم",
+    "author_en": "Qaz Khan Qalam",
+    "unsigned": false,
+    "type": "article",
+    "columns": [
+      {
+        "page_id": 109,
+        "side": "right"
+      },
+      {
+        "page_id": 109,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 103,
+    "issue_date": "1930-03-01",
+    "title": "گونګوسے",
+    "title_en": "Rumors",
+    "author": null,
+    "author_en": null,
+    "unsigned": true,
+    "type": "article",
+    "columns": [
+      {
+        "page_id": 109,
+        "side": "left"
+      },
+      {
+        "page_id": 110,
+        "side": "right"
+      }
+    ]
+  },
+  {
+    "id": 104,
+    "issue_date": "1930-03-01",
+    "title": "مایع مسئله",
+    "title_en": "The Issue of Loyalty",
+    "author": "چلو کی د پښتون",
+    "author_en": "Chalo ki da Pukhtoon",
+    "unsigned": false,
+    "type": "article",
+    "columns": [
+      {
+        "page_id": 110,
+        "side": "left"
+      },
+      {
+        "page_id": 111,
+        "side": "right"
+      }
+    ]
+  },
+  {
+    "id": 105,
+    "issue_date": "1930-03-01",
+    "title": "سید جمال الدین افغاني",
+    "title_en": "Sayyid Jamaluddin Afghani",
+    "author": "نور الحق افغان",
+    "author_en": "Noorul Haq Afghan",
+    "unsigned": false,
+    "type": "article",
+    "columns": [
+      {
+        "page_id": 111,
+        "side": "right"
+      },
+      {
+        "page_id": 111,
+        "side": "left"
+      },
+      {
+        "page_id": 112,
+        "side": "right"
+      },
+      {
+        "page_id": 112,
+        "side": "left"
+      },
+      {
+        "page_id": 113,
+        "side": "right"
+      },
+      {
+        "page_id": 113,
+        "side": "left"
+      },
+      {
+        "page_id": 114,
+        "side": "right"
+      },
+      {
+        "page_id": 114,
+        "side": "left"
+      },
+      {
+        "page_id": 115,
+        "side": "right"
+      }
+    ]
+  },
+  {
+    "id": 106,
+    "issue_date": "1930-03-01",
+    "title": "په دې پیر پهلوانان خوښې لې دی",
+    "title_en": "In this era, heroes are pleased",
+    "author": "الاسیره",
+    "author_en": "Al-Asira",
+    "unsigned": false,
+    "type": "poem",
+    "columns": [
+      {
+        "page_id": 111,
+        "side": "left"
+      },
+      {
+        "page_id": 112,
+        "side": "right"
+      }
+    ]
+  },
+  {
+    "id": 107,
+    "issue_date": "1930-03-01",
+    "title": "ابیات پښتو د ګل کوهې نه",
+    "title_en": "Pashto Verses from Gul Kohi",
+    "author": null,
+    "author_en": null,
+    "unsigned": true,
+    "type": "poem",
+    "columns": [
+      {
+        "page_id": 115,
+        "side": "left"
+      },
+      {
+        "page_id": 116,
+        "side": "right"
+      }
+    ]
+  },
+  {
+    "id": 108,
+    "issue_date": "1930-03-01",
+    "title": "خوره جلونتکې د پښتون لامت",
+    "title_en": "The Great Gathering of the Pukhtoon Nation",
+    "author": null,
+    "author_en": null,
+    "unsigned": true,
+    "type": "news",
+    "columns": [
+      {
+        "page_id": 116,
+        "side": "right"
+      },
+      {
+        "page_id": 117,
+        "side": "right"
+      },
+      {
+        "page_id": 117,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 109,
+    "issue_date": "1930-03-01",
+    "title": "اوسني ياران دي خوشي",
+    "title_en": "Today's friends are fake",
+    "author": "غني",
+    "author_en": "Ghani",
+    "unsigned": false,
+    "type": "poem",
+    "columns": [
+      {
+        "page_id": 118,
+        "side": "right"
+      }
+    ]
+  },
+  {
+    "id": 110,
+    "issue_date": "1930-03-01",
+    "title": "پښتون",
+    "title_en": "Pukhtoon (Advertisement/Info)",
+    "author": null,
+    "author_en": null,
+    "unsigned": true,
+    "type": "other",
+    "columns": [
+      {
+        "page_id": 118,
+        "side": "right"
+      }
+    ]
+  },
+  {
+    "id": 111,
+    "issue_date": "1930-03-01",
+    "title": "خداې دوست خيال",
+    "title_en": "Khuda-e-Dost Khial (Letter)",
+    "author": "ګل زاده دین",
+    "author_en": "Gul Zada Din",
+    "unsigned": false,
+    "type": "letter",
+    "columns": [
+      {
+        "page_id": 118,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 112,
+    "issue_date": "1939-06-01",
+    "title": "د مضمونونو فهرست",
+    "title_en": "Table of Contents",
+    "author": null,
+    "author_en": null,
+    "unsigned": true,
+    "type": "other",
+    "columns": [
+      {
+        "page_id": 119,
+        "side": "right"
+      }
+    ]
+  },
+  {
+    "id": 113,
+    "issue_date": "1939-06-01",
+    "title": "پښتون",
+    "title_en": "Pukhtoon (Masthead)",
+    "author": null,
+    "author_en": null,
+    "unsigned": true,
+    "type": "other",
+    "columns": [
+      {
+        "page_id": 120,
+        "side": "right"
+      }
+    ]
+  },
+  {
+    "id": 114,
+    "issue_date": "1939-06-01",
+    "title": "د پاچا خان تقریر",
+    "title_en": "Bacha Khan's Speech",
+    "author": "پاچا خان",
+    "author_en": "Bacha Khan",
+    "unsigned": false,
+    "type": "article",
+    "columns": [
+      {
+        "page_id": 120,
+        "side": "right"
+      }
+    ]
+  },
+  {
+    "id": 115,
+    "issue_date": "1939-06-01",
+    "title": "پښتون ته د خدمتګاري په اړه",
+    "title_en": "Regarding Service to Pukhtoon",
+    "author": null,
+    "author_en": null,
+    "unsigned": true,
+    "type": "article",
+    "columns": [
+      {
+        "page_id": 120,
+        "side": "right"
+      },
+      {
+        "page_id": 120,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 116,
+    "issue_date": "1939-06-01",
+    "title": "خاوند د هغه میدان ده",
+    "title_en": "The Master of that Field",
+    "author": "فضل رحیم صاحب",
+    "author_en": "Fazal Rahim Sahib",
+    "unsigned": false,
+    "type": "poem",
+    "columns": [
+      {
+        "page_id": 120,
+        "side": "right"
+      },
+      {
+        "page_id": 120,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 117,
+    "issue_date": "1939-06-01",
+    "title": "خان جی شیر لوپو چوگونو",
+    "title_en": "Khan Ji Sher...",
+    "author": null,
+    "author_en": null,
+    "unsigned": true,
+    "type": "article",
+    "columns": [
+      {
+        "page_id": 121,
+        "side": "right"
+      },
+      {
+        "page_id": 121,
+        "side": "left"
+      },
+      {
+        "page_id": 122,
+        "side": "right"
+      },
+      {
+        "page_id": 122,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 118,
+    "issue_date": "1939-06-01",
+    "title": "نندې دنیا",
+    "title_en": "New World",
+    "author": null,
+    "author_en": null,
+    "unsigned": true,
+    "type": "article",
+    "columns": [
+      {
+        "page_id": 122,
+        "side": "left"
+      },
+      {
+        "page_id": 123,
+        "side": "right"
+      },
+      {
+        "page_id": 123,
+        "side": "left"
+      },
+      {
+        "page_id": 124,
+        "side": "right"
+      },
+      {
+        "page_id": 124,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 119,
+    "issue_date": "1939-06-01",
+    "title": "متحده قوميت او خرافات",
+    "title_en": "United Nationalism and Superstitions",
+    "author": "جواهر لعل نهرو",
+    "author_en": "Jawaharlal Nehru",
+    "unsigned": false,
+    "type": "article",
+    "columns": [
+      {
+        "page_id": 125,
+        "side": "right"
+      },
+      {
+        "page_id": 125,
+        "side": "left"
+      },
+      {
+        "page_id": 126,
+        "side": "right"
+      }
+    ]
+  },
+  {
+    "id": 120,
+    "issue_date": "1939-06-01",
+    "title": "ملی پرلے",
+    "title_en": "National Collection",
+    "author": null,
+    "author_en": null,
+    "unsigned": true,
+    "type": "article",
+    "columns": [
+      {
+        "page_id": 125,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 121,
+    "issue_date": "1939-06-01",
+    "title": "امانت شه",
+    "title_en": "Be Trustworthy",
+    "author": "سید صاحب ساقی",
+    "author_en": "Syed Sahib Saqi",
+    "unsigned": false,
+    "type": "poem",
+    "columns": [
+      {
+        "page_id": 126,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 122,
+    "issue_date": "1939-06-01",
+    "title": "د قتل په شانه",
+    "title_en": "On the Back of Murder",
+    "author": "میاں سید رسول صاحب",
+    "author_en": "Mian Syed Rasool Sahib",
+    "unsigned": false,
+    "type": "article",
+    "columns": [
+      {
+        "page_id": 127,
+        "side": "right"
+      },
+      {
+        "page_id": 127,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 123,
+    "issue_date": "1939-06-01",
+    "title": "تاریخ د پښتون",
+    "title_en": "History of the Pukhtoon",
+    "author": "قاضي عطاء الله خان",
+    "author_en": "Qazi Attaullah Khan",
+    "unsigned": false,
+    "type": "article",
+    "columns": [
+      {
+        "page_id": 128,
+        "side": "right"
+      },
+      {
+        "page_id": 128,
+        "side": "left"
+      },
+      {
+        "page_id": 129,
+        "side": "right"
+      },
+      {
+        "page_id": 129,
+        "side": "left"
+      },
+      {
+        "page_id": 130,
+        "side": "right"
+      },
+      {
+        "page_id": 130,
+        "side": "left"
+      },
+      {
+        "page_id": 131,
+        "side": "right"
+      },
+      {
+        "page_id": 131,
+        "side": "left"
+      },
+      {
+        "page_id": 132,
+        "side": "right"
+      },
+      {
+        "page_id": 132,
+        "side": "left"
+      },
+      {
+        "page_id": 133,
+        "side": "right"
+      }
+    ]
+  },
+  {
+    "id": 124,
+    "issue_date": "1939-06-01",
+    "title": "ز بور خیال",
+    "title_en": "Zaboor-e-Khayal",
+    "author": "میان محمد شاه صاحب خیال",
+    "author_en": "Mian Muhammad Shah Sahib Khayal",
+    "unsigned": false,
+    "type": "article",
+    "columns": [
+      {
+        "page_id": 133,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 125,
+    "issue_date": "1939-06-01",
+    "title": "خوشحال خان خټک",
+    "title_en": "Khushal Khan Khattak",
+    "author": "میاں سید رسول صاحب",
+    "author_en": "Mian Syed Rasool Sahib",
+    "unsigned": false,
+    "type": "article",
+    "columns": [
+      {
+        "page_id": 134,
+        "side": "right"
+      },
+      {
+        "page_id": 134,
+        "side": "left"
+      },
+      {
+        "page_id": 135,
+        "side": "right"
+      },
+      {
+        "page_id": 135,
+        "side": "left"
+      },
+      {
+        "page_id": 136,
+        "side": "right"
+      },
+      {
+        "page_id": 136,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 126,
+    "issue_date": "1939-06-01",
+    "title": "شابه شابه",
+    "title_en": "Bravo Bravo",
+    "author": null,
+    "author_en": null,
+    "unsigned": true,
+    "type": "poem",
+    "columns": [
+      {
+        "page_id": 137,
+        "side": "right"
+      },
+      {
+        "page_id": 137,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 127,
+    "issue_date": "1939-06-01",
+    "title": "خمونږ ګرفتاري او قيد",
+    "title_en": "Our Arrest and Imprisonment",
+    "author": "غلام جان صاحب",
+    "author_en": "Ghulam Jan Sahib",
+    "unsigned": false,
+    "type": "article",
+    "columns": [
+      {
+        "page_id": 138,
+        "side": "right"
+      },
+      {
+        "page_id": 138,
+        "side": "left"
+      },
+      {
+        "page_id": 139,
+        "side": "right"
+      },
+      {
+        "page_id": 139,
+        "side": "left"
+      },
+      {
+        "page_id": 140,
+        "side": "right"
+      }
+    ]
+  },
+  {
+    "id": 128,
+    "issue_date": "1939-06-01",
+    "title": "ضرورت دی",
+    "title_en": "It is a Necessity",
+    "author": null,
+    "author_en": null,
+    "unsigned": true,
+    "type": "announcement",
+    "columns": [
+      {
+        "page_id": 140,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 129,
+    "issue_date": "1939-06-01",
+    "title": "ولے",
+    "title_en": "Why",
+    "author": "عبد الرحمن صاحب",
+    "author_en": "Abdul Rahman Sahib",
+    "unsigned": false,
+    "type": "article",
+    "columns": [
+      {
+        "page_id": 140,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 130,
+    "issue_date": "1939-06-01",
+    "title": "بیمه ژوند",
+    "title_en": "Life Insurance",
+    "author": null,
+    "author_en": null,
+    "unsigned": true,
+    "type": "other",
+    "columns": [
+      {
+        "page_id": 141,
+        "side": "right"
+      }
+    ]
+  },
+  {
+    "id": 131,
+    "issue_date": "1939-06-01",
+    "title": "د پېښور د څانګه",
+    "title_en": "Peshawar Branch",
+    "author": null,
+    "author_en": null,
+    "unsigned": true,
+    "type": "other",
+    "columns": [
+      {
+        "page_id": 141,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 132,
+    "issue_date": "1939-06-01",
+    "title": "شهيد سکينه",
+    "title_en": "Martyr Sakina",
+    "author": "عبد الخالق صاحب",
+    "author_en": "Abdul Khaliq Sahib",
+    "unsigned": false,
+    "type": "other",
+    "columns": [
+      {
+        "page_id": 141,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 133,
+    "issue_date": "1939-06-01",
+    "title": "څه خانې شې چې په پېژند لاره",
+    "title_en": "What house is it that...",
+    "author": null,
+    "author_en": null,
+    "unsigned": true,
+    "type": "poem",
+    "columns": [
+      {
+        "page_id": 142,
+        "side": "right"
+      },
+      {
+        "page_id": 164,
+        "side": "right"
+      },
+      {
+        "page_id": 164,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 134,
+    "issue_date": "1939-06-01",
+    "title": "د مضمونونو فهرست",
+    "title_en": "Table of Contents",
+    "author": null,
+    "author_en": null,
+    "unsigned": true,
+    "type": "other",
+    "columns": [
+      {
+        "page_id": 143,
+        "side": "right"
+      }
+    ]
+  },
+  {
+    "id": 135,
+    "issue_date": "1939-06-01",
+    "title": "د فخر افغان صاحب خدمت کښې خط",
+    "title_en": "Letter to Fakhr-e-Afghan Sahib",
+    "author": null,
+    "author_en": null,
+    "unsigned": true,
+    "type": "letter",
+    "columns": [
+      {
+        "page_id": 143,
+        "side": "left"
+      },
+      {
+        "page_id": 144,
+        "side": "right"
+      },
+      {
+        "page_id": 144,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 136,
+    "issue_date": "1939-06-01",
+    "title": "د قومی جرګې د وه فیصله",
+    "title_en": "Decision of the National Jirga",
+    "author": null,
+    "author_en": null,
+    "unsigned": true,
+    "type": "article",
+    "columns": [
+      {
+        "page_id": 145,
+        "side": "left"
+      },
+      {
+        "page_id": 146,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 137,
+    "issue_date": "1939-06-01",
+    "title": "افغانستان جشنِ استقلال",
+    "title_en": "Afghanistan Independence Celebration",
+    "author": null,
+    "author_en": null,
+    "unsigned": true,
+    "type": "news",
+    "columns": [
+      {
+        "page_id": 146,
+        "side": "right"
+      }
+    ]
+  },
+  {
+    "id": 138,
+    "issue_date": "1939-06-01",
+    "title": "د قرآن آواز",
+    "title_en": "Voice of the Quran",
+    "author": "فضل رحیم صاحب ساقی",
+    "author_en": "Fazal Rahim Sahib Saqi",
+    "unsigned": false,
+    "type": "poem",
+    "columns": [
+      {
+        "page_id": 147,
+        "side": "right"
+      }
+    ]
+  },
+  {
+    "id": 139,
+    "issue_date": "1939-06-01",
+    "title": "تاريخ د پښتون",
+    "title_en": "History of the Pukhtoon",
+    "author": null,
+    "author_en": null,
+    "unsigned": true,
+    "type": "article",
+    "columns": [
+      {
+        "page_id": 147,
+        "side": "left"
+      },
+      {
+        "page_id": 148,
+        "side": "right"
+      },
+      {
+        "page_id": 148,
+        "side": "left"
+      },
+      {
+        "page_id": 149,
+        "side": "right"
+      },
+      {
+        "page_id": 149,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 140,
+    "issue_date": "1939-06-01",
+    "title": "د قتل پېښا",
+    "title_en": "Murder Incidents",
+    "author": null,
+    "author_en": null,
+    "unsigned": true,
+    "type": "article",
+    "columns": [
+      {
+        "page_id": 150,
+        "side": "right"
+      },
+      {
+        "page_id": 150,
+        "side": "left"
+      },
+      {
+        "page_id": 151,
+        "side": "right"
+      }
+    ]
+  },
+  {
+    "id": 141,
+    "issue_date": "1939-06-01",
+    "title": "یر له خپل گڼے مې پښه وه",
+    "title_en": "I stepped away from my own...",
+    "author": "امیر متل خان صاحب",
+    "author_en": "Amir Matall Khan Sahib",
+    "unsigned": false,
+    "type": "article",
+    "columns": [
+      {
+        "page_id": 152,
+        "side": "right"
+      },
+      {
+        "page_id": 152,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 142,
+    "issue_date": "1939-06-01",
+    "title": "يو نظر په البانيه",
+    "title_en": "A Look at Albania",
+    "author": null,
+    "author_en": null,
+    "unsigned": true,
+    "type": "article",
+    "columns": [
+      {
+        "page_id": 153,
+        "side": "right"
+      },
+      {
+        "page_id": 153,
+        "side": "left"
+      },
+      {
+        "page_id": 154,
+        "side": "right"
+      },
+      {
+        "page_id": 154,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 143,
+    "issue_date": "1939-06-01",
+    "title": "د ځواک غلا",
+    "title_en": "Theft of Power",
+    "author": "فضل حق صاحب",
+    "author_en": "Fazal Haq Sahib",
+    "unsigned": false,
+    "type": "poem",
+    "columns": [
+      {
+        "page_id": 155,
+        "side": "right"
+      }
+    ]
+  },
+  {
+    "id": 144,
+    "issue_date": "1939-06-01",
+    "title": "خوشحال خان خټک",
+    "title_en": "Khushal Khan Khattak",
+    "author": null,
+    "author_en": null,
+    "unsigned": true,
+    "type": "article",
+    "columns": [
+      {
+        "page_id": 155,
+        "side": "left"
+      },
+      {
+        "page_id": 156,
+        "side": "right"
+      },
+      {
+        "page_id": 156,
+        "side": "left"
+      },
+      {
+        "page_id": 157,
+        "side": "right"
+      },
+      {
+        "page_id": 157,
+        "side": "left"
+      },
+      {
+        "page_id": 158,
+        "side": "right"
+      },
+      {
+        "page_id": 158,
+        "side": "left"
+      },
+      {
+        "page_id": 159,
+        "side": "right"
+      },
+      {
+        "page_id": 159,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 145,
+    "issue_date": "1939-06-01",
+    "title": "د بالغانوتعليم سلسله",
+    "title_en": "Adult Education Series",
+    "author": "ماسټر مقيم خان صاحب",
+    "author_en": "Master Muqeem Khan Sahib",
+    "unsigned": false,
+    "type": "article",
+    "columns": [
+      {
+        "page_id": 160,
+        "side": "right"
+      },
+      {
+        "page_id": 160,
+        "side": "left"
+      },
+      {
+        "page_id": 174,
+        "side": "right"
+      },
+      {
+        "page_id": 174,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 146,
+    "issue_date": "1939-06-01",
+    "title": "دوه واخته ښوول",
+    "title_en": "Teaching Two Times",
+    "author": null,
+    "author_en": null,
+    "unsigned": true,
+    "type": "other",
+    "columns": [
+      {
+        "page_id": 160,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 147,
+    "issue_date": "1939-06-01",
+    "title": "د دنيا ابادي",
+    "title_en": "World Population",
+    "author": "محمد نواب خان صاحب",
+    "author_en": "Muhammad Nawab Khan Sahib",
+    "unsigned": false,
+    "type": "article",
+    "columns": [
+      {
+        "page_id": 160,
+        "side": "left"
+      },
+      {
+        "page_id": 161,
+        "side": "right"
+      },
+      {
+        "page_id": 161,
+        "side": "left"
+      },
+      {
+        "page_id": 162,
+        "side": "right"
+      }
+    ]
+  },
+  {
+    "id": 148,
+    "issue_date": "1939-06-01",
+    "title": "بابا! کله تانه زه پيداييم؟",
+    "title_en": "Father! When was I born?",
+    "author": "ساقی",
+    "author_en": "Saqi",
+    "unsigned": false,
+    "type": "poem",
+    "columns": [
+      {
+        "page_id": 161,
+        "side": "right"
+      },
+      {
+        "page_id": 161,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 149,
+    "issue_date": "1939-06-01",
+    "title": "گناه سره ورک",
+    "title_en": "Lost with Sin",
+    "author": "برے فلکی",
+    "author_en": "Baray Falaki",
+    "unsigned": false,
+    "type": "poem",
+    "columns": [
+      {
+        "page_id": 162,
+        "side": "right"
+      },
+      {
+        "page_id": 162,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 150,
+    "issue_date": "1939-06-01",
+    "title": "په سود اسقاط",
+    "title_en": "On Interest and Expiation",
+    "author": "فضل دیم صاحب ساتی",
+    "author_en": "Fazal Deem Sahib Saqi",
+    "unsigned": false,
+    "type": "poem",
+    "columns": [
+      {
+        "page_id": 162,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 151,
+    "issue_date": "1939-06-01",
+    "title": "په دغه شمېره کې",
+    "title_en": "In this Issue",
+    "author": null,
+    "author_en": null,
+    "unsigned": true,
+    "type": "other",
+    "columns": [
+      {
+        "page_id": 163,
+        "side": "right"
+      }
+    ]
+  },
+  {
+    "id": 152,
+    "issue_date": "1939-06-01",
+    "title": "د پندون څانګه",
+    "title_en": "Pandon Branch",
+    "author": null,
+    "author_en": null,
+    "unsigned": true,
+    "type": "other",
+    "columns": [
+      {
+        "page_id": 163,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 153,
+    "issue_date": "1939-06-01",
+    "title": "د پښتون د غمرازۍ پيغام",
+    "title_en": "Pukhtoon's Message of Condolence",
+    "author": null,
+    "author_en": null,
+    "unsigned": true,
+    "type": "article",
+    "columns": [
+      {
+        "page_id": 165,
+        "side": "left"
+      },
+      {
+        "page_id": 166,
+        "side": "right"
+      },
+      {
+        "page_id": 166,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 154,
+    "issue_date": "1939-06-01",
+    "title": "د مطلب آشنائی",
+    "title_en": "Acquaintance of Purpose",
+    "author": "عبدالله",
+    "author_en": "Abdullah",
+    "unsigned": false,
+    "type": "article",
+    "columns": [
+      {
+        "page_id": 167,
+        "side": "right"
+      },
+      {
+        "page_id": 167,
+        "side": "left"
+      },
+      {
+        "page_id": 168,
+        "side": "right"
+      },
+      {
+        "page_id": 168,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 155,
+    "issue_date": "1939-06-01",
+    "title": "پښتون په وقت د ضرورت",
+    "title_en": "Pukhtoon in Time of Need",
+    "author": "امیر مټا خان صاحب",
+    "author_en": "Amir Matall Khan Sahib",
+    "unsigned": false,
+    "type": "article",
+    "columns": [
+      {
+        "page_id": 169,
+        "side": "right"
+      },
+      {
+        "page_id": 169,
+        "side": "left"
+      },
+      {
+        "page_id": 170,
+        "side": "right"
+      },
+      {
+        "page_id": 170,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 156,
+    "issue_date": "1939-06-01",
+    "title": "ګلې وږې",
+    "title_en": "Flower Buds",
+    "author": null,
+    "author_en": null,
+    "unsigned": true,
+    "type": "other",
+    "columns": [
+      {
+        "page_id": 171,
+        "side": "right"
+      },
+      {
+        "page_id": 171,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 157,
+    "issue_date": "1939-06-01",
+    "title": "قید ی غلام وطنه",
+    "title_en": "Imprisoned Slave of the Homeland",
+    "author": "کرامت شاه صاحب فولاد",
+    "author_en": "Karamat Shah Sahib Foulad",
+    "unsigned": false,
+    "type": "poem",
+    "columns": [
+      {
+        "page_id": 172,
+        "side": "right"
+      },
+      {
+        "page_id": 172,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 158,
+    "issue_date": "1939-06-01",
+    "title": "نوش کړې په منور شريعت د اسلام",
+    "title_en": "Drink from the Enlightened Sharia of Islam",
+    "author": null,
+    "author_en": null,
+    "unsigned": true,
+    "type": "poem",
+    "columns": [
+      {
+        "page_id": 173,
+        "side": "right"
+      },
+      {
+        "page_id": 173,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 159,
+    "issue_date": "1939-06-01",
+    "title": "هند و تركي د خلکو ناراضه",
+    "title_en": "Dissatisfied People of India and Turkey",
+    "author": null,
+    "author_en": null,
+    "unsigned": true,
+    "type": "article",
+    "columns": [
+      {
+        "page_id": 173,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 160,
+    "issue_date": "1939-07-01",
+    "title": "د افغان صاحب په عراق کښې",
+    "title_en": "Afghan Sahib in Iraq",
+    "author": null,
+    "author_en": null,
+    "unsigned": true,
+    "type": "article",
+    "columns": [
+      {
+        "page_id": 175,
+        "side": "right"
+      }
+    ]
+  },
+  {
+    "id": 161,
+    "issue_date": "1939-07-01",
+    "title": "د خپل هیواد د ابادۍ پاره د طراح عمل",
+    "title_en": "A Design for the Prosperity of One's Country",
+    "author": null,
+    "author_en": null,
+    "unsigned": true,
+    "type": "article",
+    "columns": [
+      {
+        "page_id": 175,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 162,
+    "issue_date": "1939-07-01",
+    "title": "د مضمونونو فهرست",
+    "title_en": "Table of Contents",
+    "author": null,
+    "author_en": null,
+    "unsigned": true,
+    "type": "other",
+    "columns": [
+      {
+        "page_id": 176,
+        "side": "right"
+      },
+      {
+        "page_id": 176,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 163,
+    "issue_date": "1939-07-01",
+    "title": "پښتون اتمانزی",
+    "title_en": "Pukhtoon Utmanzai (News/Report)",
+    "author": "نامه نگار د صوات نه",
+    "author_en": "Correspondent from Swat",
+    "unsigned": false,
+    "type": "news",
+    "columns": [
+      {
+        "page_id": 177,
+        "side": "right"
+      },
+      {
+        "page_id": 177,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 164,
+    "issue_date": "1939-07-01",
+    "title": "پښتون املا",
+    "title_en": "Pukhto Spelling/Orthography",
+    "author": null,
+    "author_en": null,
+    "unsigned": true,
+    "type": "article",
+    "columns": [
+      {
+        "page_id": 177,
+        "side": "left"
+      },
+      {
+        "page_id": 178,
+        "side": "right"
+      }
+    ]
+  },
+  {
+    "id": 165,
+    "issue_date": "1939-07-01",
+    "title": "د پښتون ميئن پښتانه",
+    "title_en": "Pukhtoon-loving Pukhtuns",
+    "author": null,
+    "author_en": null,
+    "unsigned": true,
+    "type": "article",
+    "columns": [
+      {
+        "page_id": 178,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 166,
+    "issue_date": "1939-07-01",
+    "title": "بنیون امانزی",
+    "title_en": "Bannu Utmanzai (Report)",
+    "author": null,
+    "author_en": null,
+    "unsigned": true,
+    "type": "news",
+    "columns": [
+      {
+        "page_id": 179,
+        "side": "right"
+      }
+    ]
+  },
+  {
+    "id": 167,
+    "issue_date": "1939-07-01",
+    "title": "د بنر ملګونو مختصر خبرونه",
+    "title_en": "Brief News from Foreign Countries",
+    "author": null,
+    "author_en": null,
+    "unsigned": true,
+    "type": "news",
+    "columns": [
+      {
+        "page_id": 179,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 168,
+    "issue_date": "1939-07-01",
+    "title": "پہ بلغاریہ کښې سیلاب تباهی",
+    "title_en": "Flood Devastation in Bulgaria",
+    "author": null,
+    "author_en": null,
+    "unsigned": true,
+    "type": "news",
+    "columns": [
+      {
+        "page_id": 180,
+        "side": "right"
+      }
+    ]
+  },
+  {
+    "id": 169,
+    "issue_date": "1939-07-01",
+    "title": "دروس او فرنګ او معاد",
+    "title_en": "Russia and Britain Treaty",
+    "author": null,
+    "author_en": null,
+    "unsigned": true,
+    "type": "news",
+    "columns": [
+      {
+        "page_id": 180,
+        "side": "right"
+      }
+    ]
+  },
+  {
+    "id": 170,
+    "issue_date": "1939-07-01",
+    "title": "جرمنی به د انګلستان د قبضې لاندې",
+    "title_en": "Germany under British Occupation",
+    "author": null,
+    "author_en": null,
+    "unsigned": true,
+    "type": "news",
+    "columns": [
+      {
+        "page_id": 180,
+        "side": "right"
+      }
+    ]
+  },
+  {
+    "id": 171,
+    "issue_date": "1939-07-01",
+    "title": "بېلټن امانتني",
+    "title_en": "Bannu Utmanzai (News)",
+    "author": null,
+    "author_en": null,
+    "unsigned": true,
+    "type": "news",
+    "columns": [
+      {
+        "page_id": 180,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 172,
+    "issue_date": "1939-07-01",
+    "title": "دفتر کینو په تجویزونو عمل",
+    "title_en": "Implementation of Office Proposals",
+    "author": null,
+    "author_en": null,
+    "unsigned": true,
+    "type": "news",
+    "columns": [
+      {
+        "page_id": 180,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 173,
+    "issue_date": "1939-07-01",
+    "title": "عربو خپلو ځاسوسانو ته تعلیم ورکړ",
+    "title_en": "Arabs Trained Their Spies",
+    "author": null,
+    "author_en": null,
+    "unsigned": true,
+    "type": "news",
+    "columns": [
+      {
+        "page_id": 180,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 174,
+    "issue_date": "1939-07-01",
+    "title": "هندوستان د خبرونه",
+    "title_en": "News from India",
+    "author": null,
+    "author_en": null,
+    "unsigned": true,
+    "type": "news",
+    "columns": [
+      {
+        "page_id": 180,
+        "side": "left"
+      },
+      {
+        "page_id": 181,
+        "side": "right"
+      }
+    ]
+  },
+  {
+    "id": 175,
+    "issue_date": "1939-07-01",
+    "title": "د سرحد خبرونه",
+    "title_en": "News from the Frontier",
+    "author": null,
+    "author_en": null,
+    "unsigned": true,
+    "type": "news",
+    "columns": [
+      {
+        "page_id": 180,
+        "side": "left"
+      },
+      {
+        "page_id": 181,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 176,
+    "issue_date": "1939-07-01",
+    "title": "پنځم امانتري",
+    "title_en": "Fifth Utmanzai (Report)",
+    "author": null,
+    "author_en": null,
+    "unsigned": true,
+    "type": "news",
+    "columns": [
+      {
+        "page_id": 181,
+        "side": "left"
+      },
+      {
+        "page_id": 182,
+        "side": "right"
+      }
+    ]
+  },
+  {
+    "id": 177,
+    "issue_date": "1939-07-01",
+    "title": "متحد قومیت اور اوان",
+    "title_en": "United Nationalism and the People",
+    "author": null,
+    "author_en": null,
+    "unsigned": true,
+    "type": "article",
+    "columns": [
+      {
+        "page_id": 182,
+        "side": "left"
+      },
+      {
+        "page_id": 183,
+        "side": "right"
+      }
+    ]
+  },
+  {
+    "id": 178,
+    "issue_date": "1939-07-01",
+    "title": "یادونه",
+    "title_en": "Note",
+    "author": null,
+    "author_en": null,
+    "unsigned": true,
+    "type": "article",
+    "columns": [
+      {
+        "page_id": 184,
+        "side": "right"
+      },
+      {
+        "page_id": 184,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 179,
+    "issue_date": "1939-07-01",
+    "title": "شه قوم خادم",
+    "title_en": "Be a Servant of the Nation",
+    "author": "العبد غلام حیدر صاحب",
+    "author_en": "Al-Abd Ghulam Haider Sahib",
+    "unsigned": false,
+    "type": "poem",
+    "columns": [
+      {
+        "page_id": 184,
+        "side": "left"
+      },
+      {
+        "page_id": 185,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 180,
+    "issue_date": "1939-07-01",
+    "title": "مطلب آشنائی",
+    "title_en": "Acquaintance with Purpose",
+    "author": null,
+    "author_en": null,
+    "unsigned": true,
+    "type": "article",
+    "columns": [
+      {
+        "page_id": 185,
+        "side": "right"
+      },
+      {
+        "page_id": 185,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 181,
+    "issue_date": "1939-07-01",
+    "title": "هند و سرحدي څموڼې",
+    "title_en": "Indian and Frontier Reforms",
+    "author": null,
+    "author_en": null,
+    "unsigned": true,
+    "type": "article",
+    "columns": [
+      {
+        "page_id": 185,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 182,
+    "issue_date": "1939-07-01",
+    "title": "ايثار",
+    "title_en": "Sacrifice",
+    "author": "فضل الرحیم خان صاحب",
+    "author_en": "Fazal Rahim Khan Sahib",
+    "unsigned": false,
+    "type": "poem",
+    "columns": [
+      {
+        "page_id": 185,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 183,
+    "issue_date": "1939-07-01",
+    "title": "لا سونه مروړي",
+    "title_en": "Wringing Hands",
+    "author": "جناب فضل الرحیم خان صاحب",
+    "author_en": "Fazal Rahim Khan Sahib",
+    "unsigned": false,
+    "type": "poem",
+    "columns": [
+      {
+        "page_id": 187,
+        "side": "right"
+      },
+      {
+        "page_id": 187,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 184,
+    "issue_date": "1939-07-01",
+    "title": "تاریخ د پښتون",
+    "title_en": "History of the Pukhtun",
+    "author": "قاضي عطاء الله خان صاحب",
+    "author_en": "Qazi Attaullah Khan Sahib",
+    "unsigned": false,
+    "type": "article",
+    "columns": [
+      {
+        "page_id": 188,
+        "side": "right"
+      },
+      {
+        "page_id": 188,
+        "side": "left"
+      },
+      {
+        "page_id": 189,
+        "side": "left"
+      },
+      {
+        "page_id": 190,
+        "side": "right"
+      }
+    ]
+  },
+  {
+    "id": 185,
+    "issue_date": "1939-07-01",
+    "title": "بندګي شرمندګي",
+    "title_en": "Servitude is Shame",
+    "author": null,
+    "author_en": null,
+    "unsigned": true,
+    "type": "article",
+    "columns": [
+      {
+        "page_id": 188,
+        "side": "left"
+      },
+      {
+        "page_id": 189,
+        "side": "right"
+      }
+    ]
+  },
+  {
+    "id": 186,
+    "issue_date": "1939-07-01",
+    "title": "د پښتو ژبه",
+    "title_en": "The Pukhto Language",
+    "author": "عبدالحمید خان صاحب فاروقی",
+    "author_en": "Abdul Hamid Khan Sahib Farooqi",
+    "unsigned": false,
+    "type": "article",
+    "columns": [
+      {
+        "page_id": 190,
+        "side": "right"
+      },
+      {
+        "page_id": 190,
+        "side": "left"
+      },
+      {
+        "page_id": 191,
+        "side": "right"
+      }
+    ]
+  },
+  {
+    "id": 187,
+    "issue_date": "1939-07-01",
+    "title": "د مسلمان ترانه",
+    "title_en": "Anthem of the Muslim",
+    "author": "پروان مامی",
+    "author_en": "Parwan Mami",
+    "unsigned": false,
+    "type": "poem",
+    "columns": [
+      {
+        "page_id": 190,
+        "side": "right"
+      },
+      {
+        "page_id": 191,
+        "side": "right"
+      }
+    ]
+  },
+  {
+    "id": 188,
+    "issue_date": "1939-07-01",
+    "title": "څومره حجرې",
+    "title_en": "How Many Hujras (Guest Houses)",
+    "author": null,
+    "author_en": null,
+    "unsigned": true,
+    "type": "article",
+    "columns": [
+      {
+        "page_id": 191,
+        "side": "left"
+      },
+      {
+        "page_id": 192,
+        "side": "right"
+      },
+      {
+        "page_id": 192,
+        "side": "left"
+      },
+      {
+        "page_id": 193,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 189,
+    "issue_date": "1939-07-01",
+    "title": "وطن ته خطاب",
+    "title_en": "Address to the Homeland",
+    "author": "عبد الله صاحب شریفی",
+    "author_en": "Abdullah Sahib Sharifi",
+    "unsigned": false,
+    "type": "poem",
+    "columns": [
+      {
+        "page_id": 194,
+        "side": "right"
+      },
+      {
+        "page_id": 195,
+        "side": "right"
+      }
+    ]
+  },
+  {
+    "id": 190,
+    "issue_date": "1939-07-01",
+    "title": "د سه مایه دار او جرګه",
+    "title_en": "The Capitalist and the Jirga",
+    "author": null,
+    "author_en": null,
+    "unsigned": true,
+    "type": "article",
+    "columns": [
+      {
+        "page_id": 195,
+        "side": "left"
+      },
+      {
+        "page_id": 196,
+        "side": "left"
+      },
+      {
+        "page_id": 197,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 191,
+    "issue_date": "1939-07-01",
+    "title": "د فخر افغان صاحب تقریر",
+    "title_en": "Speech of Fakhr-e-Afghan Sahib",
+    "author": "فخر افغان صاحب",
+    "author_en": "Fakhr-e-Afghan Sahib",
+    "unsigned": false,
+    "type": "article",
+    "columns": [
+      {
+        "page_id": 198,
+        "side": "right"
+      },
+      {
+        "page_id": 199,
+        "side": "right"
+      },
+      {
+        "page_id": 199,
+        "side": "left"
+      },
+      {
+        "page_id": 200,
+        "side": "right"
+      },
+      {
+        "page_id": 201,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 192,
+    "issue_date": "1939-07-01",
+    "title": "لاخوږه خلم پمه",
+    "title_en": "I am Still Sweet",
+    "author": "میان صدیق رسول عابدی",
+    "author_en": "Mian Siddiq Rasul Abidi",
+    "unsigned": false,
+    "type": "poem",
+    "columns": [
+      {
+        "page_id": 198,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 193,
+    "issue_date": "1939-07-01",
+    "title": "په فرانس کښې د نازيانو شرارت",
+    "title_en": "Nazi Mischief in France",
+    "author": null,
+    "author_en": null,
+    "unsigned": true,
+    "type": "news",
+    "columns": [
+      {
+        "page_id": 201,
+        "side": "right"
+      }
+    ]
+  },
+  {
+    "id": 194,
+    "issue_date": "1939-07-01",
+    "title": "د جرمن اتلې او جاپان دوستي",
+    "title_en": "Friendship of Germany, Italy, and Japan",
+    "author": null,
+    "author_en": null,
+    "unsigned": true,
+    "type": "news",
+    "columns": [
+      {
+        "page_id": 201,
+        "side": "right"
+      }
+    ]
+  },
+  {
+    "id": 195,
+    "issue_date": "1939-07-01",
+    "title": "پندت جواهر لال چين ته ځي",
+    "title_en": "Pandit Jawaharlal Goes to China",
+    "author": null,
+    "author_en": null,
+    "unsigned": true,
+    "type": "news",
+    "columns": [
+      {
+        "page_id": 201,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 196,
+    "issue_date": "1939-07-01",
+    "title": "دبجلۍ د پيښې کسه مړه شو",
+    "title_en": "The Electricity Accident Victim Died",
+    "author": null,
+    "author_en": null,
+    "unsigned": true,
+    "type": "news",
+    "columns": [
+      {
+        "page_id": 201,
+        "side": "left"
+      },
+      {
+        "page_id": 202,
+        "side": "right"
+      }
+    ]
+  },
+  {
+    "id": 197,
+    "issue_date": "1939-07-01",
+    "title": "د سرحد خبرونه",
+    "title_en": "News from the Frontier",
+    "author": null,
+    "author_en": null,
+    "unsigned": true,
+    "type": "news",
+    "columns": [
+      {
+        "page_id": 203,
+        "side": "right"
+      },
+      {
+        "page_id": 203,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 198,
+    "issue_date": "1939-07-01",
+    "title": "یو خو مصرع",
+    "title_en": "A Few Verses",
+    "author": "توسم خان صاحب",
+    "author_en": "Tawasam Khan Sahib",
+    "unsigned": false,
+    "type": "poem",
+    "columns": [
+      {
+        "page_id": 204,
+        "side": "right"
+      },
+      {
+        "page_id": 204,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 199,
+    "issue_date": "1939-07-01",
+    "title": "د برطانیې پالیسي",
+    "title_en": "British Policy",
+    "author": "امیر ممتاز خان صاحب",
+    "author_en": "Amir Mumtaz Khan Sahib",
+    "unsigned": false,
+    "type": "article",
+    "columns": [
+      {
+        "page_id": 207,
+        "side": "right"
+      }
+    ]
+  },
+  {
+    "id": 200,
+    "issue_date": "1939-07-01",
+    "title": "د واده په وقت د جاپانۍ مېندو خپلولون پروت د دولس نصیحتونه",
+    "title_en": "Twelve Pieces of Advice from Japanese Mothers at the Time of Marriage",
+    "author": "افغان د سينرۍ پښاور",
+    "author_en": "Afghan of Peshawar",
+    "unsigned": false,
+    "type": "article",
+    "columns": [
+      {
+        "page_id": 209,
+        "side": "left"
+      },
+      {
+        "page_id": 210,
+        "side": "right"
+      }
+    ]
+  },
+  {
+    "id": 201,
+    "issue_date": "1939-07-01",
+    "title": "پښتون څه شو؟",
+    "title_en": "What Happened to the Pukhtun?",
+    "author": "فضل رحيم صاحب ساقي",
+    "author_en": "Fazal Rahim Sahib Saqi",
+    "unsigned": false,
+    "type": "poem",
+    "columns": [
+      {
+        "page_id": 210,
+        "side": "right"
+      }
+    ]
+  },
+  {
+    "id": 202,
+    "issue_date": "1939-07-01",
+    "title": "سواتي چل",
+    "title_en": "Swati Trick",
+    "author": "امیر ممتاز خان صاحب",
+    "author_en": "Amir Mumtaz Khan Sahib",
+    "unsigned": false,
+    "type": "article",
+    "columns": [
+      {
+        "page_id": 210,
+        "side": "left"
+      },
+      {
+        "page_id": 211,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 203,
+    "issue_date": "1939-07-01",
+    "title": "پښتون امتانزي ولې دی؟",
+    "title_en": "Why is the Pukhtun Utmanzai?",
+    "author": null,
+    "author_en": null,
+    "unsigned": true,
+    "type": "article",
+    "columns": [
+      {
+        "page_id": 211,
+        "side": "right"
+      }
+    ]
+  },
+  {
+    "id": 204,
+    "issue_date": "1939-07-01",
+    "title": "طالب علم ته نصیحت",
+    "title_en": "Advice to the Student",
+    "author": "پښتو ماسټر منان",
+    "author_en": "Pukhto Master Manan",
+    "unsigned": false,
+    "type": "article",
+    "columns": [
+      {
+        "page_id": 211,
+        "side": "left"
+      },
+      {
+        "page_id": 212,
+        "side": "right"
+      }
+    ]
+  },
+  {
+    "id": 205,
+    "issue_date": "1939-07-01",
+    "title": "وارد هاسکم",
+    "title_en": "Ward Hascom (Education Initiative)",
+    "author": "ستاسو خور نګینه",
+    "author_en": "Your Sister Nagina",
+    "unsigned": false,
+    "type": "article",
+    "columns": [
+      {
+        "page_id": 212,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 206,
+    "issue_date": "1939-07-01",
+    "title": "ادب لطیف",
+    "title_en": "Fine Literature",
+    "author": "شیخ عبدالرازق",
+    "author_en": "Sheikh Abdul Razzaq",
+    "unsigned": false,
+    "type": "poem",
+    "columns": [
+      {
+        "page_id": 212,
+        "side": "left"
+      },
+      {
+        "page_id": 213,
+        "side": "right"
+      },
+      {
+        "page_id": 213,
+        "side": "left"
+      },
+      {
+        "page_id": 214,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 207,
+    "issue_date": "1939-07-01",
+    "title": "د اسلام د دشمنانو سره د مسلمانانو رويې",
+    "title_en": "Muslims' Attitude Towards Enemies of Islam",
+    "author": null,
+    "author_en": null,
+    "unsigned": true,
+    "type": "article",
+    "columns": [
+      {
+        "page_id": 214,
+        "side": "right"
+      },
+      {
+        "page_id": 214,
+        "side": "left"
+      },
+      {
+        "page_id": 215,
+        "side": "right"
+      },
+      {
+        "page_id": 215,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 208,
+    "issue_date": "1939-08-01",
+    "title": "پښتون",
+    "title_en": "Pukhtoon",
+    "author": null,
+    "author_en": null,
+    "unsigned": true,
+    "type": "other",
+    "columns": [
+      {
+        "page_id": 217,
+        "side": "right"
+      }
+    ]
+  },
+  {
+    "id": 209,
+    "issue_date": "1939-08-01",
+    "title": "دمضمونو فهرست",
+    "title_en": "Table of Contents",
+    "author": null,
+    "author_en": null,
+    "unsigned": true,
+    "type": "other",
+    "columns": [
+      {
+        "page_id": 218,
+        "side": "right"
+      },
+      {
+        "page_id": 218,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 210,
+    "issue_date": "1939-08-01",
+    "title": "افغان به څه کوي؟ (نظم)",
+    "title_en": "What will the Afghan do? (Poem)",
+    "author": "عزیز الرحمن عزیزی",
+    "author_en": "Aziz-ur-Rahman Azizi",
+    "unsigned": false,
+    "type": "poem",
+    "columns": [
+      {
+        "page_id": 218,
+        "side": "left"
+      },
+      {
+        "page_id": 219,
+        "side": "right"
+      }
+    ]
+  },
+  {
+    "id": 211,
+    "issue_date": "1939-08-01",
+    "title": "د مغربي پوليټیکل کانفرنس کښې؛ د فخر افغان صاحب تقریر",
+    "title_en": "Speech of Fakhr-e-Afghan at the Western Political Conference",
+    "author": "فخر افغان",
+    "author_en": "Fakhr-e-Afghan",
+    "unsigned": false,
+    "type": "article",
+    "columns": [
+      {
+        "page_id": 219,
+        "side": "right"
+      },
+      {
+        "page_id": 219,
+        "side": "left"
+      },
+      {
+        "page_id": 220,
+        "side": "right"
+      },
+      {
+        "page_id": 220,
+        "side": "left"
+      },
+      {
+        "page_id": 221,
+        "side": "right"
+      },
+      {
+        "page_id": 221,
+        "side": "left"
+      },
+      {
+        "page_id": 222,
+        "side": "right"
+      },
+      {
+        "page_id": 222,
+        "side": "left"
+      },
+      {
+        "page_id": 223,
+        "side": "right"
+      }
+    ]
+  },
+  {
+    "id": 212,
+    "issue_date": "1939-08-01",
+    "title": "ایبٹ آباد د جرګې جلسې",
+    "title_en": "Abbottabad Jirga Sessions",
+    "author": null,
+    "author_en": null,
+    "unsigned": true,
+    "type": "article",
+    "columns": [
+      {
+        "page_id": 223,
+        "side": "left"
+      },
+      {
+        "page_id": 224,
+        "side": "right"
+      },
+      {
+        "page_id": 224,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 213,
+    "issue_date": "1939-08-01",
+    "title": "د لويه جرګې د ريم اجلاس",
+    "title_en": "Third Session of the Loya Jirga",
+    "author": null,
+    "author_en": null,
+    "unsigned": true,
+    "type": "article",
+    "columns": [
+      {
+        "page_id": 225,
+        "side": "right"
+      },
+      {
+        "page_id": 225,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 214,
+    "issue_date": "1939-08-01",
+    "title": "د بهر ملکونو حالات",
+    "title_en": "Conditions of Foreign Countries",
+    "author": null,
+    "author_en": null,
+    "unsigned": true,
+    "type": "article",
+    "columns": [
+      {
+        "page_id": 226,
+        "side": "right"
+      },
+      {
+        "page_id": 226,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 215,
+    "issue_date": "1939-08-01",
+    "title": "د سرحدي خبرونو",
+    "title_en": "Frontier News",
+    "author": null,
+    "author_en": null,
+    "unsigned": true,
+    "type": "news",
+    "columns": [
+      {
+        "page_id": 227,
+        "side": "right"
+      }
+    ]
+  },
+  {
+    "id": 216,
+    "issue_date": "1939-08-01",
+    "title": "نۍ دنیا",
+    "title_en": "New World",
+    "author": "عبدالکریم خان",
+    "author_en": "Abdul Karim Khan",
+    "unsigned": false,
+    "type": "article",
+    "columns": [
+      {
+        "page_id": 227,
+        "side": "left"
+      },
+      {
+        "page_id": 228,
+        "side": "right"
+      },
+      {
+        "page_id": 228,
+        "side": "left"
+      },
+      {
+        "page_id": 229,
+        "side": "right"
+      },
+      {
+        "page_id": 229,
+        "side": "left"
+      },
+      {
+        "page_id": 230,
+        "side": "right"
+      },
+      {
+        "page_id": 230,
+        "side": "left"
+      },
+      {
+        "page_id": 231,
+        "side": "right"
+      },
+      {
+        "page_id": 231,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 217,
+    "issue_date": "1939-08-01",
+    "title": "تاريخ د پښتنو",
+    "title_en": "History of the Pashtuns",
+    "author": "قاضي عطاء الله خان",
+    "author_en": "Qazi Attaullah Khan",
+    "unsigned": false,
+    "type": "article",
+    "columns": [
+      {
+        "page_id": 232,
+        "side": "left"
+      },
+      {
+        "page_id": 233,
+        "side": "right"
+      },
+      {
+        "page_id": 233,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 218,
+    "issue_date": "1939-08-01",
+    "title": "دکلی مدرسه",
+    "title_en": "Village School",
+    "author": null,
+    "author_en": null,
+    "unsigned": true,
+    "type": "article",
+    "columns": [
+      {
+        "page_id": 233,
+        "side": "left"
+      },
+      {
+        "page_id": 234,
+        "side": "right"
+      },
+      {
+        "page_id": 234,
+        "side": "left"
+      },
+      {
+        "page_id": 235,
+        "side": "right"
+      },
+      {
+        "page_id": 235,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 219,
+    "issue_date": "1939-08-01",
+    "title": "پښتون کله اوزګار دی- چه واخلی آزادی",
+    "title_en": "When will the Pashtun be free to take freedom?",
+    "author": "مولانا عبد المنان",
+    "author_en": "Maulana Abdul Mannan",
+    "unsigned": false,
+    "type": "poem",
+    "columns": [
+      {
+        "page_id": 236,
+        "side": "right"
+      },
+      {
+        "page_id": 236,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 220,
+    "issue_date": "1939-08-01",
+    "title": "متحده قوميت او فخرافغان",
+    "title_en": "United Nationalism and Fakhr-e-Afghan",
+    "author": "خالد ایب خان",
+    "author_en": "Khalid Aib Khan",
+    "unsigned": false,
+    "type": "article",
+    "columns": [
+      {
+        "page_id": 237,
+        "side": "right"
+      },
+      {
+        "page_id": 237,
+        "side": "left"
+      },
+      {
+        "page_id": 238,
+        "side": "right"
+      },
+      {
+        "page_id": 238,
+        "side": "left"
+      }
+    ]
+  },
+  {
+    "id": 221,
+    "issue_date": "1939-08-01",
+    "title": "بيمه ژوند",
+    "title_en": "Life Insurance",
+    "author": null,
+    "author_en": null,
+    "unsigned": true,
+    "type": "other",
+    "columns": [
+      {
+        "page_id": 239,
+        "side": "right"
+      }
+    ]
+  },
+  {
+    "id": 222,
+    "issue_date": "1939-08-01",
+    "title": "د پښتون چنده",
+    "title_en": "Pukhtoon Subscription",
+    "author": null,
+    "author_en": null,
+    "unsigned": true,
+    "type": "other",
+    "columns": [
+      {
+        "page_id": 239,
+        "side": "left"
+      }
+    ]
+  }
+]
