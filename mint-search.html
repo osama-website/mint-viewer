@@ -606,7 +606,7 @@ function setSearchMode(mode,el){
       break;
     }
     case 'map':   { const t=document.getElementById('place-title').textContent; if(t){ const name=t.split(' · ')[0]; if(name)showPlace(name); } break; }
-    case 'timeline':{ if(tlWord&&semData){ const wd=semData.words[tlWord]; if(wd&&tlSlider>=0){ const dates=semData.issue_dates.filter(dt=>(wd.neighbors[dt]||[]).length>0); showTlSnippets(tlWord,dates[tlSlider]); } } break; }
+    case 'timeline':{ if(tlWord&&semData){ const wd=semData.words[tlWord]; if(wd){ const dates=semData.issue_dates.filter(dt=>(wd.neighbors[dt]||[]).length>0); showTlSnippets(tlWord,tlSlider>=0?dates[tlSlider]:null); } } break; }
   }
 }
 
@@ -1660,10 +1660,16 @@ function filterMapResults(){
   const q=document.getElementById('map-subset-search').value.trim().toLowerCase();
   const list=document.getElementById('place-list');list.innerHTML='';
   const ids=currentPlacePageIds;
+  // Recover the current place name from the title element
+  const placeName=(document.getElementById('place-title').textContent||'').split(' · ')[0];
   if(searchMode==='articles'){
     ensureArticles().then(()=>{
-      let arts=buildArticlesForPageIds(ids);
-      if(q)arts=arts.filter(a=>(a.title+a.title_en+a.author+a.author_en).toLowerCase().includes(q));
+      let arts=buildArticlesForPageIds(ids).filter(a=>(a.columns||[]).some(col=>{
+        const pg=pageMap[col.page_id];if(!pg)return false;
+        const txt=col.side==='right'?(pg.right_page||''):(pg.left_page||'');
+        return txt.includes(placeName);
+      }));
+      if(q)arts=arts.filter(a=>((a.title||'')+(a.title_en||'')+(a.author||'')+(a.author_en||'')).toLowerCase().includes(q)||getArticleText(a).toLowerCase().includes(q));
       renderArtList(arts,list);
     });
   } else {
@@ -1680,7 +1686,12 @@ function showPlace(name){
   const list=document.getElementById('place-list');list.innerHTML='';
   if(searchMode==='articles'){
     ensureArticles().then(()=>{
-      const arts=buildArticlesForPageIds(pageIds);
+      // Only include articles where at least one of their columns mentions the place name
+      const arts=buildArticlesForPageIds(pageIds).filter(a=>(a.columns||[]).some(col=>{
+        const pg=pageMap[col.page_id];if(!pg)return false;
+        const txt=col.side==='right'?(pg.right_page||''):(pg.left_page||'');
+        return txt.includes(name);
+      }));
       document.getElementById('place-title').textContent=`${name} · ${d.en||''} (${arts.length} articles)`;
       renderArtList(arts,list);
     });
