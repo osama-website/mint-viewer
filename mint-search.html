@@ -1229,7 +1229,13 @@ function showPlace(name){
   document.getElementById('place-title').textContent=`${name} · ${d.en||''} (${d.page_count} pages)`;
   const list=document.getElementById('place-list');list.innerHTML='';
   const normName=normalizePashto(name);
-  (d.page_ids||[]).map(id=>pageMap[id]).filter(Boolean).forEach(p=>buildCards(p,normName).forEach(c=>list.appendChild(c)));
+  (d.page_ids||[]).map(id=>pageMap[id]).filter(Boolean).forEach(p=>{
+    const hasR=p.right_page&&p.right_page.includes(name);
+    const hasL=p.left_page&&p.left_page.includes(name);
+    if(hasR)list.appendChild(buildCard(p,normName,'right'));
+    if(hasL)list.appendChild(buildCard(p,normName,'left'));
+    if(!hasR&&!hasL)buildCards(p,normName).forEach(c=>list.appendChild(c));
+  });
   document.getElementById('map-main').style.display='none';document.getElementById('map-results').style.display='block';
 }
 function backToMap(){document.getElementById('map-main').style.display='block';document.getElementById('map-results').style.display='none';if(leafMap)leafMap.invalidateSize();}
