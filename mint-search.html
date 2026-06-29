@@ -114,7 +114,11 @@ body{background:var(--bg);color:var(--ink);font-family:var(--font-ui);min-height
 .tl-search{display:flex;gap:.5rem;margin-bottom:.5rem}
 .tl-search input{flex:1;padding:.5rem .8rem;border:1.5px solid var(--border);border-radius:var(--radius);font-size:.93rem}
 .tl-search input:focus{outline:none;border-color:var(--accent)}
-.tl-hint{font-size:.73rem;color:var(--muted);margin-bottom:.7rem}
+.tl-hint{font-size:.73rem;color:var(--muted);margin-bottom:.4rem}
+#tl-suggestions{display:none;margin-bottom:.7rem;display:flex;flex-wrap:wrap;gap:.4rem}
+.tl-sugg-btn{border:1px solid #3a3028;border-radius:3px;background:#1a1612;color:#c8b89a;padding:.2rem .55rem;font-size:.72rem;cursor:pointer;line-height:1.5;direction:rtl;font-family:'Noto Nastaliq Urdu',serif}
+.tl-sugg-btn:hover{background:#2a2018;border-color:#e8833a;color:#e8dfd0}
+.tl-sugg-en{font-family:system-ui;font-size:.65rem;color:#888;direction:ltr;font-style:italic;margin-right:.25rem}
 .tl-layout{display:grid;grid-template-columns:1fr 200px;gap:1rem}
 .tl-main{}
 .tl-svg-wrap{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:.9rem;overflow:hidden}
@@ -289,6 +293,7 @@ body{background:var(--bg);color:var(--ink);font-family:var(--font-ui);min-height
     <button class="btn btn-primary" onclick="doTimeline()">Show</button>
   </div>
   <div class="tl-hint" id="tl-hint">Semantic trajectory across issues. Click a word on the right to explore its drift.</div>
+  <div id="tl-suggestions"></div>
   <div class="tl-layout">
     <div class="tl-main">
       <div class="tl-svg-wrap">
@@ -999,18 +1004,68 @@ function doTimeline(){
   loadTlWord(w);
 }
 
+function tlSuggest(raw){
+  if(!semData)return[];
+  const isPashto=/[؀-ۿ]/.test(raw);
+  const results=[];
+  if(!isPashto){
+    const q=raw.toLowerCase().trim();
+    Object.entries(psEnMap).forEach(([ps,en])=>{
+      if(!semData.words[ps])return;
+      const enL=en.toLowerCase();
+      let score=0;
+      if(enL===q)score=4;
+      else if(enL.startsWith(q)||q.startsWith(enL))score=3;
+      else if(enL.split(/\s+/).some(w=>w.startsWith(q)||q.startsWith(w)))score=2;
+      else if(enL.includes(q)||q.split(/\s+/).some(qw=>enL.includes(qw)&&qw.length>2))score=1;
+      if(score>0)results.push({ps,en,score});
+    });
+  }else{
+    const q=normalizePashto(raw);
+    Object.keys(semData.words).forEach(ps=>{
+      if(ps===q)return;
+      const en=psEnMap[ps]||'';
+      let score=0;
+      if(ps.startsWith(q)||q.startsWith(ps))score=3;
+      else if(ps.includes(q.slice(0,2)))score=1;
+      if(score>0)results.push({ps,en,score});
+    });
+  }
+  results.sort((a,b)=>{
+    if(b.score!==a.score)return b.score-a.score;
+    return(semData.words[b.ps]?.drift_score||0)-(semData.words[a.ps]?.drift_score||0);
+  });
+  return results.slice(0,8);
+}
+
+function showTlSuggestions(query){
+  const box=document.getElementById('tl-suggestions');
+  const suggs=tlSuggest(query);
+  if(!suggs.length){box.style.display='none';box.innerHTML='';return;}
+  box.innerHTML='<span style="font-size:.68rem;color:#666;font-family:system-ui;align-self:center;flex-shrink:0">Did you mean:</span> ';
+  suggs.forEach(({ps,en})=>{
+    const b=document.createElement('button');b.className='tl-sugg-btn';
+    b.innerHTML=`${esc(ps)}${en?`<span class="tl-sugg-en">${esc(en)}</span>`:''}`;
+    b.onclick=()=>{document.getElementById('tl-input').value=ps;loadTlWord(ps);};
+    box.appendChild(b);
+  });
+  box.style.display='flex';
+}
+
 function loadTlWord(word,keepHistory){
   tlWord=word;
   if(!keepHistory){tlHistory=[];document.getElementById('tl-back').style.display='none';}
   const wd=semData.words[word];
   const svg=document.getElementById('tl-svg');svg.innerHTML='';
   if(!wd){
-    const top=(semData.top_drift||[]).slice(0,3).join('، ');
-    svg.innerHTML=`<text x="320" y="200" text-anchor="middle" fill="#aaa" font-family="system-ui" font-size="13">Word not found — try: ${esc(top)}</text>`;
+    svg.innerHTML=`<text x="320" y="200" text-anchor="middle" fill="#666" font-family="system-ui" font-size="13">"${esc(word)}" not found in vocabulary</text>`;
     document.getElementById('tl-controls').style.display='none';
-    document.getElementById('tl-hint').textContent=`"${word}" not found. Try: ${top}`;
-    document.getElementById('tl-pages-wrap').innerHTML='';return;
+    document.getElementById('tl-hint').textContent='';
+    document.getElementById('tl-pages-wrap').innerHTML='';
+    showTlSuggestions(document.getElementById('tl-input').value.trim());
+    return;
   }
+  document.getElementById('tl-suggestions').style.display='none';
   // Only include issues where the word has actual neighbor context — not just a coord projection
   const dates=semData.issue_dates.filter(dt=>(wd.neighbors[dt]||[]).length>0);
   if(dates.length===0){
