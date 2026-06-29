@@ -723,7 +723,6 @@ function expandArtCard(card,a){
     <div class="card-expand-bar">
       <span class="card-pg-label">${(a.columns||[]).length} column${(a.columns||[]).length!==1?'s':''} · ${[...new Set((a.columns||[]).map(c=>c.page_id))].length} page${[...new Set((a.columns||[]).map(c=>c.page_id))].length!==1?'s':''}</span>
       <button class="act-btn" onclick="event.stopPropagation();showArtScan(${a.id})">📷 Scan</button>
-      ${firstPg?`<button class="act-btn" onclick="event.stopPropagation();browseToArticle(${a.id})">⛶ Read in Browse</button>`:''}
     </div>
     <div class="card-full-text">${esc(fullText)}</div>`;
 }
