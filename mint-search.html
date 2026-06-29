@@ -405,6 +405,7 @@ body{background:var(--bg);color:var(--ink);font-family:var(--font-ui);min-height
     </div>
     <div id="auth-sel-info" style="margin-left:auto;font-size:.78rem;color:var(--muted)"></div>
     <button class="act-btn" id="auth-clear-btn" onclick="clearAuthSelection()" style="display:none">✕ Clear</button>
+    <button class="act-btn" id="auth-collapse-btn" onclick="toggleAuthViewer()">⌃ Collapse</button>
   </div>
   <div id="auth-network-wrap">
     <canvas id="auth-canvas"></canvas>
@@ -1941,12 +1942,20 @@ async function initAuthors(){
   setAuthView(authView,true);
 }
 
+let authViewerCollapsed=false;
+function toggleAuthViewer(){
+  authViewerCollapsed=!authViewerCollapsed;
+  const wrap=authView==='network'?document.getElementById('auth-network-wrap'):document.getElementById('auth-list-wrap');
+  wrap.style.display=authViewerCollapsed?'none':(authView==='network'?'block':'block');
+  const btn=document.getElementById('auth-collapse-btn');
+  btn.textContent=authViewerCollapsed?'⌄ Expand':'⌃ Collapse';
+}
 function setAuthView(v,force){
   authView=v;
   document.getElementById('auth-net-btn').classList.toggle('active',v==='network');
   document.getElementById('auth-list-btn').classList.toggle('active',v==='list');
-  document.getElementById('auth-network-wrap').style.display=v==='network'?'block':'none';
-  document.getElementById('auth-list-wrap').style.display=v==='list'?'block':'none';
+  document.getElementById('auth-network-wrap').style.display=(v==='network'&&!authViewerCollapsed)?'block':'none';
+  document.getElementById('auth-list-wrap').style.display=(v==='list'&&!authViewerCollapsed)?'block':'none';
   if(v==='network')renderAuthNetwork();
   else renderAuthList();
 }
