@@ -193,8 +193,11 @@ body{background:var(--bg);color:var(--ink);font-family:var(--font-ui);min-height
 .rd-text{direction:rtl;font-family:var(--font-ps);font-size:1.02rem;line-height:2.15;color:#ddd5c5;flex:1;white-space:pre-wrap;word-break:break-word;text-align:center}
 .rd-text .hl{background:#c8a500;color:#000;border-radius:2px;padding:0 2px}
 .rd-scan-strip{background:#0d0d0d;border-top:1px solid #202020;padding:.4rem .8rem;display:flex;align-items:center;gap:.65rem;flex-shrink:0}
-.rd-scan-thumb{height:50px;width:auto;border-radius:2px;border:1px solid #2a2a2a;cursor:zoom-in;opacity:.65;transition:opacity .15s}
+.rd-scan-thumb{height:50px;width:auto;border-radius:2px;border:1px solid #2a2a2a;cursor:pointer;opacity:.65;transition:opacity .15s}
 .rd-scan-thumb:hover{opacity:1}
+#rd-scan-panel{overflow-y:auto;background:#0a0a0a;border-right:1px solid #222;padding:.4rem}
+#rd-scan-panel img{width:100%;height:auto;display:block;border-radius:2px}
+.rd-en{border-top:1px solid #2a2a2a;margin-top:.85rem;padding-top:.65rem;direction:ltr;font-family:system-ui;font-size:.82rem;color:#888;line-height:1.7;font-style:italic;text-align:center}
 .ta-btn{background:#252525;color:#bbb;border:1px solid #3a3a3a;border-radius:3px;padding:.22rem .55rem;cursor:pointer;font-size:.7rem;font-family:system-ui;text-decoration:none;display:inline-block}
 .ta-btn:hover{background:#333;color:#eee}
 .rd-footer{background:#161616;color:#555;padding:.38rem .9rem;display:flex;justify-content:space-between;align-items:center;font-size:.72rem;border-top:1px solid #222;flex-shrink:0;font-family:system-ui}
@@ -387,26 +390,29 @@ body{background:var(--bg);color:var(--ink);font-family:var(--font-ui);min-height
       <button class="rd-nav-btn" id="rd-next" onclick="readerNav(1)">Next ▶</button>
     </div>
   </div>
-  <div class="rd-body">
+  <div class="rd-body" id="rd-body">
+    <div id="rd-scan-panel" style="display:none"><img id="rd-scan-panel-img" src="" alt="Page scan"></div>
     <div class="rd-col" id="rd-col-right">
       <div class="rd-page-label">Right Page</div>
       <div class="rd-page-num" id="rd-num-right"></div>
       <div class="rd-text" id="rd-right"></div>
+      <div class="rd-en" id="rd-en-right" style="display:none"></div>
     </div>
     <div class="rd-divider"></div>
     <div class="rd-col" id="rd-col-left">
       <div class="rd-page-label">Left Page</div>
       <div class="rd-page-num" id="rd-num-left"></div>
       <div class="rd-text" id="rd-left"></div>
+      <div class="rd-en" id="rd-en-left" style="display:none"></div>
     </div>
   </div>
   <div class="rd-scan-strip">
-    <span style="font-size:.63rem;color:#3a3a3a;font-family:system-ui;flex-shrink:0">Scan:</span>
-    <img class="rd-scan-thumb" id="rd-scan-thumb" src="" alt="Page scan" onclick="openScanFull()">
+    <img class="rd-scan-thumb" id="rd-scan-thumb" src="" alt="Page scan" onclick="toggleScanView()" title="Toggle scan view">
     <div style="display:flex;gap:.38rem;margin-left:auto;align-items:center">
-      <button class="ta-btn" onclick="copyText()">📋 Copy text</button>
+      <button class="ta-btn" onclick="copyText()">📋 Copy</button>
       <button class="ta-btn" id="rd-translate-btn" onclick="translateText()">🌐 Translate</button>
-      <a class="ta-btn" id="rd-dl" download>⬇ Scan</a>
+      <button class="ta-btn" id="rd-scan-btn" onclick="toggleScanView()">📷 Scan</button>
+      <a class="ta-btn" id="rd-dl" download title="Download scan">⬇</a>
     </div>
   </div>
   <div class="rd-footer">
@@ -829,7 +835,7 @@ function showIssuePgs(dt){
 }
 
 // ── READER ────────────────────────────────────────────────────────────────────
-let rPgs=[],rIdx=0,rdHlW=null,rdSide=null,pageTrans=null,rdTransMode=false;
+let rPgs=[],rIdx=0,rdHlW=null,rdSide=null,pageTrans=null,rdTransMode=false,rdScanView=false;
 
 function openReader(pid, hlW, side) {
   const p = pageMap[pid]; if(!p) return;
@@ -841,9 +847,37 @@ function openReader(pid, hlW, side) {
   document.getElementById('reader').classList.add('open');
   document.body.style.overflow = 'hidden';
 }
-function closeReader() { document.getElementById('reader').classList.remove('open'); document.body.style.overflow = ''; }
+function closeReader() {
+  document.getElementById('reader').classList.remove('open');
+  document.body.style.overflow = '';
+  if(rdScanView){rdScanView=false;document.getElementById('rd-scan-panel').style.display='none';document.getElementById('rd-scan-btn').textContent='📷 Scan';}
+}
 function openScanFull() { const p=rPgs[rIdx]; if(!p) return; document.getElementById('rd-scan-full-img').src=p.img_url; document.getElementById('rd-scan-full').classList.add('open'); }
 function closeScanFull() { document.getElementById('rd-scan-full').classList.remove('open'); }
+
+function setRdBodyGrid(){
+  const body=document.getElementById('rd-body');
+  const colR=document.getElementById('rd-col-right'),colL=document.getElementById('rd-col-left'),div=document.querySelector('.rd-divider');
+  if(rdSide==='right'){colR.style.display='flex';colL.style.display='none';div.style.display='none';body.style.gridTemplateColumns=rdScanView?'2fr 1fr':'1fr';}
+  else if(rdSide==='left'){colR.style.display='none';colL.style.display='flex';div.style.display='none';body.style.gridTemplateColumns=rdScanView?'2fr 1fr':'1fr';}
+  else{colR.style.display='flex';colL.style.display='flex';div.style.display='block';body.style.gridTemplateColumns=rdScanView?'2fr 1fr 1px 1fr':'';}
+}
+
+function toggleScanView(){
+  rdScanView=!rdScanView;
+  const panel=document.getElementById('rd-scan-panel');
+  const btn=document.getElementById('rd-scan-btn');
+  if(rdScanView){
+    const p=rPgs[rIdx];
+    document.getElementById('rd-scan-panel-img').src=p?p.img_url:'';
+    panel.style.display='block';
+    btn.textContent='📷 Hide';
+  } else {
+    panel.style.display='none';
+    btn.textContent='📷 Scan';
+  }
+  setRdBodyGrid();
+}
 
 function renderRd() {
   const p = rPgs[rIdx]; if(!p) return;
@@ -863,49 +897,41 @@ function renderRd() {
   };
   document.getElementById('rd-right').innerHTML = hlFn(p.right_page);
   document.getElementById('rd-left').innerHTML = hlFn(p.left_page);
-  // Show only the relevant column when opened from a side card
-  const colR=document.getElementById('rd-col-right'),colL=document.getElementById('rd-col-left'),div=document.querySelector('.rd-divider');
-  if(rdSide==='right'){colR.style.display='flex';colL.style.display='none';div.style.display='none';document.querySelector('.rd-body').style.gridTemplateColumns='1fr';}
-  else if(rdSide==='left'){colR.style.display='none';colL.style.display='flex';div.style.display='none';document.querySelector('.rd-body').style.gridTemplateColumns='1fr';}
-  else{colR.style.display='flex';colL.style.display='flex';div.style.display='block';document.querySelector('.rd-body').style.gridTemplateColumns='';}
+  // Clear translation panels on page change
+  ['rd-en-right','rd-en-left'].forEach(id=>{const d=document.getElementById(id);d.style.display='none';d.innerHTML='';});
+  document.getElementById('rd-translate-btn').textContent='🌐 Translate';
+  rdTransMode=false;
+  // Update scan panel image if open
+  if(rdScanView)document.getElementById('rd-scan-panel-img').src=p.img_url;
+  setRdBodyGrid();
   if(rdHlW) setTimeout(() => { const h = document.querySelector('#reader .hl'); if(h) h.scrollIntoView({block:'center',behavior:'smooth'}); }, 120);
 }
-function readerNav(d) { const n = rIdx+d; if(n<0||n>=rPgs.length) return; rIdx = n; rdTransMode=false;document.getElementById('rd-translate-btn').textContent='🌐 Translate';renderRd(); }
+function readerNav(d) { const n = rIdx+d; if(n<0||n>=rPgs.length) return; rIdx = n; renderRd(); }
 function copyText() { const p=rPgs[rIdx]; if(p) navigator.clipboard.writeText((p.right_page||'')+'\n\n'+(p.left_page||'')); }
+
+function enBlock(enText){
+  const lines=(enText||'').split('\n');
+  if(!lines.some(l=>l.trim()))return'<span style="color:#555;font-size:.78rem">(no translation)</span>';
+  return lines.map(l=>l.trim()?`<div style="padding:.1rem 0;border-bottom:1px solid #1e1e1e">${esc(l)}</div>`:`<div style="height:.35rem"></div>`).join('');
+}
 
 async function translateText(){
   const p=rPgs[rIdx]; if(!p) return;
-  // If already in translation mode, toggle back to Pashto
-  if(rdTransMode){rdTransMode=false;document.getElementById('rd-translate-btn').textContent='🌐 Translate';renderRd();return;}
-  // Try cached translations first
+  if(rdTransMode){
+    rdTransMode=false;
+    document.getElementById('rd-translate-btn').textContent='🌐 Translate';
+    ['rd-en-right','rd-en-left'].forEach(id=>{const d=document.getElementById(id);d.style.display='none';d.innerHTML='';});
+    return;
+  }
   if(!pageTrans) pageTrans=await loadJSON('mint_page_translations').catch(()=>null);
   const pid=String(p.id);
   if(pageTrans&&pageTrans[pid]){
     rdTransMode=true;
     document.getElementById('rd-translate-btn').textContent='📖 Pashto';
     const t=pageTrans[pid];
-    const showRight=!rdSide||rdSide==='right';
-    const showLeft=!rdSide||rdSide==='left';
-    function rdInterleaved(psText,enText){
-      const psLines=(psText||'').split('\n');
-      const enLines=(enText||'').split('\n');
-      const max=Math.max(psLines.length,enLines.length);
-      const rows=[];
-      for(let i=0;i<max;i++){
-        const ps=psLines[i]||'';const en=enLines[i]||'';
-        if(ps.trim()||en.trim()){
-          rows.push(`<div style="direction:rtl;font-family:var(--font-ps);font-size:1.02rem;line-height:2.15;color:#ddd5c5;text-align:center">${ps.trim()?esc(ps):'<span style="opacity:.2">—</span>'}</div>`);
-          rows.push(`<div style="direction:ltr;font-family:system-ui;font-size:.82rem;line-height:1.55;color:#999;text-align:center;font-style:italic;border-bottom:1px solid #252525;padding-bottom:.25rem;margin-bottom:.2rem">${en.trim()?esc(en):'<span style="opacity:.2">—</span>'}</div>`);
-        } else {
-          rows.push(`<div style="height:.6rem"></div>`);
-        }
-      }
-      return rows.join('')||'<div style="color:#888;text-align:center">(no translation available)</div>';
-    }
-    if(showRight)document.getElementById('rd-right').innerHTML=rdInterleaved(p.right_page,t.right);
-    if(showLeft)document.getElementById('rd-left').innerHTML=rdInterleaved(p.left_page,t.left);
+    if(!rdSide||rdSide==='right'){const d=document.getElementById('rd-en-right');d.innerHTML=enBlock(t.right);d.style.display='block';}
+    if(!rdSide||rdSide==='left'){const d=document.getElementById('rd-en-left');d.innerHTML=enBlock(t.left);d.style.display='block';}
   } else {
-    // Fall back to Google Translate
     window.open('https://translate.google.com/?sl=ps&tl=en&text='+encodeURIComponent(((p.right_page||'')+(p.left_page||'')).slice(0,1000)),'_blank');
   }
 }
