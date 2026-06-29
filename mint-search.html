@@ -963,10 +963,15 @@ async function initTimeline(){
 
 function buildDriftChips(){
   const w=document.getElementById('drift-chips');w.innerHTML='';
-  (semData.top_drift||[]).slice(0,20).forEach(word=>{
+  // All words sorted by drift score descending
+  const allDrift=Object.entries(semData.words||{})
+    .filter(([,wd])=>wd.drift_score!=null)
+    .sort(([,a],[,b])=>b.drift_score-a.drift_score);
+  allDrift.forEach(([word,wd])=>{
     const en=psEnMap[normalizePashto(word)]||'';
+    const score=(wd.drift_score||0).toFixed(3);
     const b=document.createElement('button');b.className='drift-btn';
-    b.innerHTML=`<span style="font-family:var(--font-ps);font-size:.83rem">${esc(word)}</span>${en?`<span style="font-family:system-ui;font-size:.63rem;color:var(--muted);display:block;direction:ltr"> ${esc(en)}</span>`:''}`;
+    b.innerHTML=`<span style="font-family:var(--font-ps);font-size:.83rem">${esc(word)}</span><span style="font-family:system-ui;font-size:.6rem;color:var(--muted);float:left;direction:ltr;opacity:.6">${score}</span>${en?`<span style="font-family:system-ui;font-size:.63rem;color:var(--muted);display:block;direction:ltr;clear:both"> ${esc(en)}</span>`:''}`;
     b.onclick=()=>{document.querySelectorAll('.drift-btn').forEach(x=>x.classList.remove('active'));b.classList.add('active');document.getElementById('tl-input').value=word;loadTlWord(word);};
     w.appendChild(b);
   });
