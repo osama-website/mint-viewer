@@ -366,6 +366,7 @@ body{background:var(--bg);color:var(--ink);font-family:var(--font-ui);min-height
       <div class="place-title" id="place-title"></div>
       <button class="back-link" onclick="backToMap()">← Back to map</button>
     </div>
+    <input type="search" id="map-subset-search" class="subset-search-input" placeholder="Search within this place…" autocomplete="off" oninput="filterMapResults()" style="width:100%;margin-bottom:.6rem">
     <div id="place-list"></div>
   </div>
 </div>
@@ -595,7 +596,7 @@ function setSearchMode(mode,el){
   switch(activeTab){
     case 'search':{ const raw=document.getElementById('search-input').value.trim(); if(raw)doSearch(); else clearSearch(); break; }
     case 'tags':  { const label=document.getElementById('tag-res-title').textContent.split(' — ')[0]; if(label&&tagMap[label])showTagResults(label); break; }
-    case 'topics':{ if(currentTopicPageIds.length)renderTopicList(currentTopicPageIds); break; }
+    case 'topics':{ if(currentTopicPageIds.length){const t=document.getElementById('topic-res-title').textContent;const label=t.split(' — ')[0];renderTopicList(currentTopicPageIds,label);} break; }
     case 'map':   { const t=document.getElementById('place-title').textContent; if(t){ const name=t.split(' · ')[0]; if(name)showPlace(name); } break; }
     case 'timeline':{ if(tlWord&&semData){ const wd=semData.words[tlWord]; if(wd&&tlSlider>=0){ const dates=semData.issue_dates.filter(dt=>(wd.neighbors[dt]||[]).length>0); showTlSnippets(tlWord,dates[tlSlider]); } } break; }
   }
@@ -1643,15 +1644,37 @@ async function initMap(){
   leg.addTo(leafMap);
 }
 
+let currentPlacePageIds=[];
+function filterMapResults(){
+  const q=document.getElementById('map-subset-search').value.trim().toLowerCase();
+  const list=document.getElementById('place-list');list.innerHTML='';
+  const ids=currentPlacePageIds;
+  if(searchMode==='articles'){
+    ensureArticles().then(()=>{
+      let arts=buildArticlesForPageIds(ids);
+      if(q)arts=arts.filter(a=>(a.title+a.title_en+a.author+a.author_en).toLowerCase().includes(q));
+      renderArtList(arts,list);
+    });
+  } else {
+    const filtered=q?ids.filter(id=>{const p=pageMap[id];return p&&((p.right_page||'')+(p.left_page||'')).toLowerCase().includes(q);}):ids;
+    filtered.map(id=>pageMap[id]).filter(Boolean).forEach(p=>buildCards(p).forEach(c=>list.appendChild(c)));
+  }
+}
 function showPlace(name){
   if(!pages.length||!geoData)return;
   const d=geoData[name];if(!d)return;
   const pageIds=d.page_ids||[];
-  document.getElementById('place-title').textContent=`${name} · ${d.en||''} (${pageIds.length} pages)`;
+  currentPlacePageIds=pageIds.slice();
+  document.getElementById('map-subset-search').value='';
   const list=document.getElementById('place-list');list.innerHTML='';
   if(searchMode==='articles'){
-    ensureArticles().then(()=>renderArtList(buildArticlesForPageIds(pageIds),list));
+    ensureArticles().then(()=>{
+      const arts=buildArticlesForPageIds(pageIds);
+      document.getElementById('place-title').textContent=`${name} · ${d.en||''} (${arts.length} articles)`;
+      renderArtList(arts,list);
+    });
   } else {
+    document.getElementById('place-title').textContent=`${name} · ${d.en||''} (${pageIds.length} pages)`;
     const normName=normalizePashto(name);
     pageIds.map(id=>pageMap[id]).filter(Boolean).forEach(p=>{
       const hasR=p.right_page&&p.right_page.includes(name);
@@ -1704,7 +1727,6 @@ function renderTagCols(){
 let currentTagPageIds=[];
 function showTagResults(label){
   const t=tagMap[label];if(!t)return;
-  document.getElementById('tag-res-title').textContent=`${label} — ${t.ids.length} pages`;
   document.getElementById('tag-subset-search').value='';
   currentTagPageIds=t.ids.slice();
   renderTagList(currentTagPageIds,label);
@@ -1713,8 +1735,13 @@ function showTagResults(label){
 function renderTagList(ids,label){
   const list=document.getElementById('tag-res-list');list.innerHTML='';
   if(searchMode==='articles'){
-    ensureArticles().then(()=>renderArtList(buildArticlesForPageIds(ids),list));
+    ensureArticles().then(()=>{
+      const arts=buildArticlesForPageIds(ids);
+      document.getElementById('tag-res-title').textContent=`${label} — ${arts.length} articles`;
+      renderArtList(arts,list);
+    });
   } else {
+    document.getElementById('tag-res-title').textContent=`${label} — ${ids.length} pages`;
     ids.map(id=>pageMap[id]).filter(Boolean).forEach(p=>buildCards(p,label).forEach(c=>list.appendChild(c)));
     if(!ids.length){const e=document.createElement('div');e.className='empty';e.innerHTML='<h3>No pages found</h3>';list.appendChild(e);}
   }
@@ -1743,34 +1770,51 @@ async function initTopics(){
 
 function renderClusters(){
   const g=document.getElementById('cluster-grid');g.innerHTML='';
-  clustersData.forEach(c=>{
-    const card=document.createElement('div');card.className='cluster-card';
-    card.innerHTML=`<span class="cluster-badge">${c.page_count}</span>
-      <div class="cluster-header"><div class="cluster-dot" style="background:${cc(c.id)}"></div><div class="cluster-label">${esc(c.label)}</div></div>
-      <div class="cluster-words">${(c.top_words||[]).slice(0,5).map(w=>`<span class="cw">${esc(w)}</span>`).join('')}</div>`;
-    card.onclick=()=>showTopicResults(c);g.appendChild(card);
-  });
+  if(searchMode==='articles'){
+    ensureArticles().then(()=>{
+      clustersData.forEach(c=>{
+        const artCount=buildArticlesForPageIds(c.page_ids||[]).length;
+        const card=document.createElement('div');card.className='cluster-card';
+        card.innerHTML=`<span class="cluster-badge">${artCount} art</span>
+          <div class="cluster-header"><div class="cluster-dot" style="background:${cc(c.id)}"></div><div class="cluster-label">${esc(c.label)}</div></div>
+          <div class="cluster-words">${(c.top_words||[]).slice(0,5).map(w=>`<span class="cw">${esc(w)}</span>`).join('')}</div>`;
+        card.onclick=()=>showTopicResults(c);g.appendChild(card);
+      });
+    });
+  } else {
+    clustersData.forEach(c=>{
+      const card=document.createElement('div');card.className='cluster-card';
+      card.innerHTML=`<span class="cluster-badge">${c.page_count}</span>
+        <div class="cluster-header"><div class="cluster-dot" style="background:${cc(c.id)}"></div><div class="cluster-label">${esc(c.label)}</div></div>
+        <div class="cluster-words">${(c.top_words||[]).slice(0,5).map(w=>`<span class="cw">${esc(w)}</span>`).join('')}</div>`;
+      card.onclick=()=>showTopicResults(c);g.appendChild(card);
+    });
+  }
 }
 
 function showTopicResults(c){
-  document.getElementById('topic-res-title').textContent=`${c.label} — ${c.page_count} pages`;
   document.getElementById('topic-subset-search').value='';
   currentTopicPageIds=(c.page_ids||[]).slice();
-  renderTopicList(currentTopicPageIds);
+  renderTopicList(currentTopicPageIds,c.label,c.page_count);
   document.getElementById('cluster-grid').style.display='none';document.getElementById('topic-results').style.display='block';
 }
-function renderTopicList(ids){
+function renderTopicList(ids,label,pageCount){
   const list=document.getElementById('topic-res-list');list.innerHTML='';
   if(searchMode==='articles'){
-    ensureArticles().then(()=>renderArtList(buildArticlesForPageIds(ids),list));
+    ensureArticles().then(()=>{
+      const arts=buildArticlesForPageIds(ids);
+      document.getElementById('topic-res-title').textContent=`${label||''} — ${arts.length} articles`;
+      renderArtList(arts,list);
+    });
   } else {
+    document.getElementById('topic-res-title').textContent=`${label||''} — ${pageCount||ids.length} pages`;
     ids.map(id=>pageMap[id]).filter(Boolean).forEach(p=>buildCards(p).forEach(c=>list.appendChild(c)));
     if(!ids.length){const e=document.createElement('div');e.className='empty';e.innerHTML='<h3>No pages found</h3>';list.appendChild(e);}
   }
 }
 function filterTopicResults(){
   const q=document.getElementById('topic-subset-search').value.trim().toLowerCase();
-  if(!q){renderTopicList(currentTopicPageIds);return;}
+  if(!q){const t=document.getElementById('topic-res-title').textContent;renderTopicList(currentTopicPageIds,t.split(' — ')[0]);return;}
   const filtered=currentTopicPageIds.filter(id=>{
     const p=pageMap[id];if(!p)return false;
     return ((p.right_page||'')+(p.left_page||'')).toLowerCase().includes(q);
