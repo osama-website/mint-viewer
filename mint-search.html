@@ -685,28 +685,60 @@ function buildArtCard(a){
   const pageRange=pageNums.length===1?`Page ${pageNums[0]}`:`Pages ${pageNums[0]}–${pageNums[pageNums.length-1]}`;
   const scanLabel=pageNums.length>1?`📷 Scan (${pageNums.length}p)`:'📷 Scan';
   div.innerHTML=`
+    <div class="card-meta">
+      <span class="card-date">${fmtDate(a.issue_date)} <span class="art-type-badge">${esc(a.type||'article')}</span></span>
+      <button class="act-btn" style="display:none" onclick="event.stopPropagation();collapseArtCard(this.closest('.art-card'))">✕ Collapse</button>
+    </div>
     <div class="art-card-title">${esc(a.title||'')}</div>
     ${a.title_en?`<div class="art-card-title-en">${esc(a.title_en)}</div>`:''}
     <div class="art-card-meta">
-      <span class="art-type-badge">${esc(a.type||'article')}</span>
       ${a.author
         ?`<button class="art-author-btn" onclick="event.stopPropagation();filterByAuthor(${JSON.stringify(a.author)})">${esc(a.author_en||a.author)}</button>`
         :`<span class="art-unsigned">Unsigned</span>`}
-      <span class="art-date">${fmtDate(a.issue_date)}</span>
       <span class="art-pages">${pageRange}</span>
       <button class="art-card-scan-btn" onclick="event.stopPropagation();showArtScan(${a.id})">${scanLabel}</button>
     </div>
-    ${snippet?`<div class="art-snippet">${esc(snippet.slice(0,300))}</div>`:''}`;
-  div.onclick=()=>openArticle(a);
+    <div class="art-snippet">${esc(snippet.slice(0,300))}</div>`;
+  div.onclick=()=>expandArtCard(div,a);
   return div;
 }
 
-function openArticle(a){
-  const firstCol=a.columns&&a.columns[0];
-  if(!firstCol) return;
-  const pg=pageMap[firstCol.page_id];
-  if(!pg) return;
-  // Open browse reader at the first page of this article
+function expandArtCard(card,a){
+  if(card.classList.contains('expanded')) return;
+  // Collapse any other open article card
+  document.querySelectorAll('.art-card.expanded').forEach(c=>collapseArtCard(c));
+  card.classList.add('expanded');card.style.cursor='default';
+  card.querySelector('.act-btn').style.display='inline-block';
+  card.querySelector('.art-snippet').style.display='none';
+  // Build full text from all columns
+  const fullText=(a.columns||[]).map((col,i)=>{
+    const pg=pageMap[col.page_id];
+    const text=pg?(col.side==='right'?pg.right_page:pg.left_page)||'':'';
+    return text.trim();
+  }).filter(Boolean).join('\n\n— — —\n\n');
+  let exp=card.querySelector('.card-expand');
+  if(!exp){exp=document.createElement('div');exp.className='card-expand';card.appendChild(exp);}
+  const firstPg=a.columns&&a.columns[0]?pageMap[a.columns[0].page_id]:null;
+  exp.innerHTML=`
+    <div class="card-expand-bar">
+      <span class="card-pg-label">${(a.columns||[]).length} column${(a.columns||[]).length!==1?'s':''} · ${[...new Set((a.columns||[]).map(c=>c.page_id))].length} page${[...new Set((a.columns||[]).map(c=>c.page_id))].length!==1?'s':''}</span>
+      <button class="act-btn" onclick="event.stopPropagation();showArtScan(${a.id})">📷 Scan</button>
+      ${firstPg?`<button class="act-btn" onclick="event.stopPropagation();browseToArticle(${a.id})">⛶ Read in Browse</button>`:''}
+    </div>
+    <div class="card-full-text">${esc(fullText)}</div>`;
+}
+
+function collapseArtCard(card){
+  const exp=card.querySelector('.card-expand');if(exp)exp.remove();
+  card.classList.remove('expanded');card.style.cursor='pointer';
+  const b=card.querySelector('.act-btn');if(b)b.style.display='none';
+  const s=card.querySelector('.art-snippet');if(s)s.style.display='';
+}
+
+function browseToArticle(artId){
+  const a=articleMap[artId];if(!a)return;
+  const firstCol=a.columns&&a.columns[0];if(!firstCol)return;
+  const pg=pageMap[firstCol.page_id];if(!pg)return;
   switchTab('browse');
   setTimeout(()=>openPage(pg),50);
 }
