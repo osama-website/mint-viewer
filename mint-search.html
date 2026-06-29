@@ -1080,43 +1080,58 @@ function tlNav(dir){
 function drawTl(word,wd,dates,hlIdx,noAnim){
   const svg=document.getElementById('tl-svg');svg.innerHTML='';
   const W=640,H=400,PAD=56;
+  // Scale locked to ALL positions across ALL dates so path stays stable while navigating
   const allPts=[];
-  dates.forEach(dt=>{if(wd.coords[dt])allPts.push(wd.coords[dt]);});
-  if(hlIdx>=0){
-    const dt=dates[hlIdx];
+  dates.forEach(dt=>{
+    if(wd.coords[dt])allPts.push(wd.coords[dt]);
     (wd.neighbors[dt]||[]).slice(0,18).forEach(nb=>{const nc=semData.words[nb]?.coords[dt];if(nc)allPts.push(nc);});
-  }
+  });
   if(allPts.length<1){svg.innerHTML=`<text x="320" y="200" text-anchor="middle" fill="#aaa" font-size="13">Not enough data</text>`;return;}
   let mnX=Infinity,mxX=-Infinity,mnY=Infinity,mxY=-Infinity;
   allPts.forEach(([x,y])=>{if(x<mnX)mnX=x;if(x>mxX)mxX=x;if(y<mnY)mnY=y;if(y>mxY)mxY=y;});
-  const rX=(mxX-mnX)||1,rY=(mxY-mnY)||1,pd=.13;
+  const rX=(mxX-mnX)||1,rY=(mxY-mnY)||1,pd=.12;
   const toS=([x,y])=>[PAD+((x-mnX)/rX*(1-2*pd)+pd)*(W-2*PAD),H-PAD-((y-mnY)/rY*(1-2*pd)+pd)*(H-2*PAD)];
   const coords=dates.map(dt=>wd.coords[dt]?toS(wd.coords[dt]):null);
   const n=dates.length;
   const isPan=hlIdx>=0;
   function svgEl(tag,attrs){const e=document.createElementNS('http://www.w3.org/2000/svg',tag);Object.entries(attrs).forEach(([k,v])=>e.setAttribute(k,v));return e;}
+
+  // Arrow marker definition
+  const defs=svgEl('defs',{});
+  const mkr=svgEl('marker',{id:'arr',markerWidth:'8',markerHeight:'8',refX:'6',refY:'3',orient:'auto'});
+  const poly=svgEl('polygon',{points:'0 0, 8 3, 0 6',fill:'#8b1a00'});
+  mkr.appendChild(poly);defs.appendChild(mkr);svg.appendChild(defs);
+  const mkrF=svgEl('marker',{id:'arrF',markerWidth:'6',markerHeight:'6',refX:'5',refY:'2.5',orient:'auto'});
+  const polyF=svgEl('polygon',{points:'0 0, 6 2.5, 0 5',fill:'#bbb0a0'});
+  mkrF.appendChild(polyF);defs.appendChild(mkrF);
+
+  function pathStr(pts){return pts.map(([cx,cy],i)=>(i===0?'M':'L')+cx.toFixed(1)+' '+cy.toFixed(1)).join(' ');}
+
   const validC=coords.filter(Boolean);
-  const pathD=validC.map(([cx,cy],i)=>(i===0?'M':'L')+cx.toFixed(1)+' '+cy.toFixed(1)).join(' ');
   if(validC.length>=2){
     if(!isPan){
-      svg.appendChild(svgEl('path',{d:pathD,fill:'none',stroke:'#e8dfd0','stroke-width':'1.5','stroke-dasharray':'5 3'}));
-      const ap=svgEl('path',{d:pathD,fill:'none',stroke:'#8b1a00','stroke-width':'2.5'});
-      if(!noAnim){const tL=500;ap.setAttribute('stroke-dasharray',tL);ap.setAttribute('stroke-dashoffset',tL);ap.appendChild(svgEl('animate',{attributeName:'stroke-dashoffset',from:tL,to:'0',dur:'1.2s',fill:'freeze'}));}
+      // Overview: shadow + animated path + arrows
+      svg.appendChild(svgEl('path',{d:pathStr(validC),fill:'none',stroke:'#e8dfd0','stroke-width':'2','stroke-dasharray':'5 3'}));
+      const ap=svgEl('path',{d:pathStr(validC),fill:'none',stroke:'#8b1a00','stroke-width':'2.5','marker-mid':'url(#arr)','marker-end':'url(#arr)'});
+      if(!noAnim){const tL=800;ap.setAttribute('stroke-dasharray',tL);ap.setAttribute('stroke-dashoffset',tL);ap.appendChild(svgEl('animate',{attributeName:'stroke-dashoffset',from:tL,to:'0',dur:'1.2s',fill:'freeze'}));}
       svg.appendChild(ap);
     }else{
-      const[mx,my]=coords[hlIdx]||[0,0];
+      // Pan mode: neighbour spokes at current date
+      const[mx,my]=coords[hlIdx]||[W/2,H/2];
       const dt=dates[hlIdx];
       (wd.neighbors[dt]||[]).slice(0,18).forEach(nb=>{
         const nc=semData.words[nb]?.coords[dt];if(!nc)return;
         const[nx,ny]=toS(nc);
-        svg.appendChild(svgEl('line',{x1:mx.toFixed(1),y1:my.toFixed(1),x2:nx.toFixed(1),y2:ny.toFixed(1),stroke:'#e8833a','stroke-width':'1','stroke-dasharray':'3 2',opacity:'.3'}));
+        svg.appendChild(svgEl('line',{x1:mx.toFixed(1),y1:my.toFixed(1),x2:nx.toFixed(1),y2:ny.toFixed(1),stroke:'#e8833a','stroke-width':'1','stroke-dasharray':'3 2',opacity:'.35'}));
       });
-      // Revealed path up to current issue
+      // Full ghost path (always visible, faint)
+      if(validC.length>=2)svg.appendChild(svgEl('path',{d:pathStr(validC),fill:'none',stroke:'#d5ccc0','stroke-width':'1.5','stroke-dasharray':'4 4',opacity:'.5'}));
+      // Revealed path — solid, prominent
       const revPts=coords.slice(0,hlIdx+1).filter(Boolean);
-      if(revPts.length>=2){const revD=revPts.map(([cx,cy],i)=>(i===0?'M':'L')+cx.toFixed(1)+' '+cy.toFixed(1)).join(' ');svg.appendChild(svgEl('path',{d:revD,fill:'none',stroke:'#8b1a00','stroke-width':'2','stroke-dasharray':'6 3'}));}
-      // Future path (faint)
+      if(revPts.length>=2)svg.appendChild(svgEl('path',{d:pathStr(revPts),fill:'none',stroke:'#8b1a00','stroke-width':'3','marker-mid':'url(#arr)','marker-end':'url(#arr)'}));
+      // Future path — thinner, dashed
       const futPts=coords.slice(hlIdx).filter(Boolean);
-      if(futPts.length>=2){const futD=futPts.map(([cx,cy],i)=>(i===0?'M':'L')+cx.toFixed(1)+' '+cy.toFixed(1)).join(' ');svg.appendChild(svgEl('path',{d:futD,fill:'none',stroke:'#e0d8d0','stroke-width':'1','stroke-dasharray':'3 4'}));}
+      if(futPts.length>=2)svg.appendChild(svgEl('path',{d:pathStr(futPts),fill:'none',stroke:'#bbb0a0','stroke-width':'1.5','stroke-dasharray':'5 4','marker-end':'url(#arrF)'}));
     }
   }
   // Dots
