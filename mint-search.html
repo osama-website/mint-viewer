@@ -479,13 +479,14 @@ body{background:var(--bg);color:var(--ink);font-family:var(--font-ui);min-height
 <script>
 const BASE='https://raw.githubusercontent.com/osama-website/mint-viewer/master';
 const JBASE=BASE+'/json';
+const DATA_VER='3';
 const CACHE={};
 const LANG={cur:'en'};
 
 async function loadJSON(name){
   if(CACHE[name])return CACHE[name];
   try{
-    const r=await fetch(`${JBASE}/${name}.json`);
+    const r=await fetch(`${JBASE}/${name}.json?v=${DATA_VER}`);
     if(!r.ok)throw new Error(r.status);
     CACHE[name]=await r.json();
     return CACHE[name];
