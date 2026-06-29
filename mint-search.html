@@ -1790,7 +1790,7 @@ async function initTopics(){
   if(needArt){
     if(!artClustersData){
       await ensureArticles();
-      artClustersData=await loadJSON('mint_article_clusters');
+      artClustersData=await loadJSON('mint_art_topics');
     }
     if(artClustersData)renderClusters();
   } else {
