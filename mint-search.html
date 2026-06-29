@@ -951,10 +951,13 @@ let semData=null,tlWord=null,tlSlider=-1,psEnMap={},tlHistory=[];
 
 async function initTimeline(){
   if(semData)return buildDriftChips();
-  const[d,t]=await Promise.all([loadJSON('mint_semantic'),loadJSON('mint_translations')]);
+  const[d,t,wt]=await Promise.all([loadJSON('mint_semantic'),loadJSON('mint_translations'),loadJSON('mint_word_trans').catch(()=>null)]);
   if(!d)return;
   semData=d;
-  if(t){if(!Object.keys(trans).length)trans=t;psEnMap={};Object.entries(t).forEach(([en,ps])=>{psEnMap[normalizePashto(ps)]=en;});}
+  // Build psEnMap: start with sparse hand-curated map, overlay full vocab translations
+  psEnMap={};
+  if(t){if(!Object.keys(trans).length)trans=t;Object.entries(t).forEach(([en,ps])=>{psEnMap[normalizePashto(ps)]=en;});}
+  if(wt){Object.entries(wt).forEach(([ps,en])=>{if(!psEnMap[ps])psEnMap[ps]=en;});}
   buildDriftChips();
 }
 
