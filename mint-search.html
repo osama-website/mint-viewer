@@ -596,7 +596,15 @@ function setSearchMode(mode,el){
   switch(activeTab){
     case 'search':{ const raw=document.getElementById('search-input').value.trim(); if(raw)doSearch(); else clearSearch(); break; }
     case 'tags':  { const label=document.getElementById('tag-res-title').textContent.split(' — ')[0]; if(label&&tagMap[label])showTagResults(label); break; }
-    case 'topics':{ if(currentTopicPageIds.length){const t=document.getElementById('topic-res-title').textContent;const label=t.split(' — ')[0];renderTopicList(currentTopicPageIds,label);} break; }
+    case 'topics':{
+      const onGrid=document.getElementById('cluster-grid').style.display!=='none';
+      if(onGrid){ initTopics(); }
+      else {
+        const label=document.getElementById('topic-res-title').textContent.split(' — ')[0];
+        renderTopicList(label);
+      }
+      break;
+    }
     case 'map':   { const t=document.getElementById('place-title').textContent; if(t){ const name=t.split(' · ')[0]; if(name)showPlace(name); } break; }
     case 'timeline':{ if(tlWord&&semData){ const wd=semData.words[tlWord]; if(wd&&tlSlider>=0){ const dates=semData.issue_dates.filter(dt=>(wd.neighbors[dt]||[]).length>0); showTlSnippets(tlWord,dates[tlSlider]); } } break; }
   }
@@ -1762,29 +1770,37 @@ function filterTagResults(){
 function backToTags(){document.getElementById('tags-browser').style.display='block';document.getElementById('tags-results').style.display='none';}
 
 // ── TOPICS ────────────────────────────────────────────────────────────────────
-let clustersData=null,currentTopicPageIds=[];
+let clustersData=null,artClustersData=null,currentTopicPageIds=[],currentTopicArticleIds=[];
 
 async function initTopics(){
   backToTopics();
-  if(clustersData)return renderClusters();
-  clustersData=await loadJSON('mint_clusters');if(!clustersData)return;
-  if(!pages.length)await initSearch();renderClusters();
+  const needArt=searchMode==='articles';
+  if(needArt){
+    if(!artClustersData){
+      await ensureArticles();
+      artClustersData=await loadJSON('mint_article_clusters');
+    }
+    if(artClustersData)renderClusters();
+  } else {
+    if(!clustersData){
+      clustersData=await loadJSON('mint_clusters');
+      if(!pages.length)await initSearch();
+    }
+    if(clustersData)renderClusters();
+  }
 }
 
 function renderClusters(){
   const g=document.getElementById('cluster-grid');g.innerHTML='';
-  if(searchMode==='articles'){
-    ensureArticles().then(()=>{
-      clustersData.forEach(c=>{
-        const artCount=buildArticlesForPageIds(c.page_ids||[]).length;
-        const card=document.createElement('div');card.className='cluster-card';
-        card.innerHTML=`<span class="cluster-badge">${artCount} art</span>
-          <div class="cluster-header"><div class="cluster-dot" style="background:${cc(c.id)}"></div><div class="cluster-label">${esc(c.label)}</div></div>
-          <div class="cluster-words">${(c.top_words||[]).slice(0,5).map(w=>`<span class="cw">${esc(w)}</span>`).join('')}</div>`;
-        card.onclick=()=>showTopicResults(c);g.appendChild(card);
-      });
+  if(searchMode==='articles'&&artClustersData){
+    artClustersData.forEach(c=>{
+      const card=document.createElement('div');card.className='cluster-card';
+      card.innerHTML=`<span class="cluster-badge">${c.article_count} art</span>
+        <div class="cluster-header"><div class="cluster-dot" style="background:${cc(c.id)}"></div><div class="cluster-label">${esc(c.label)}</div></div>
+        <div class="cluster-words">${(c.top_words||[]).slice(0,5).map(w=>`<span class="cw">${esc(w)}</span>`).join('')}</div>`;
+      card.onclick=()=>showTopicResults(c);g.appendChild(card);
     });
-  } else {
+  } else if(clustersData){
     clustersData.forEach(c=>{
       const card=document.createElement('div');card.className='cluster-card';
       card.innerHTML=`<span class="cluster-badge">${c.page_count}</span>
@@ -1798,18 +1814,28 @@ function renderClusters(){
 function showTopicResults(c){
   document.getElementById('topic-subset-search').value='';
   currentTopicPageIds=(c.page_ids||[]).slice();
-  renderTopicList(currentTopicPageIds,c.label,c.page_count);
+  currentTopicArticleIds=(c.article_ids||[]).slice();
+  renderTopicList(c.label,c.page_count);
   document.getElementById('cluster-grid').style.display='none';document.getElementById('topic-results').style.display='block';
 }
-function renderTopicList(ids,label,pageCount){
+function renderTopicList(label,pageCount){
   const list=document.getElementById('topic-res-list');list.innerHTML='';
   if(searchMode==='articles'){
-    ensureArticles().then(()=>{
-      const arts=buildArticlesForPageIds(ids);
+    if(currentTopicArticleIds.length){
+      // Article-level clusters: show directly by article ID
+      const arts=currentTopicArticleIds.map(id=>articleMap[id]).filter(Boolean);
       document.getElementById('topic-res-title').textContent=`${label||''} — ${arts.length} articles`;
       renderArtList(arts,list);
-    });
+    } else {
+      // Page clusters: derive articles from page IDs
+      ensureArticles().then(()=>{
+        const arts=buildArticlesForPageIds(currentTopicPageIds);
+        document.getElementById('topic-res-title').textContent=`${label||''} — ${arts.length} articles`;
+        renderArtList(arts,list);
+      });
+    }
   } else {
+    const ids=currentTopicPageIds;
     document.getElementById('topic-res-title').textContent=`${label||''} — ${pageCount||ids.length} pages`;
     ids.map(id=>pageMap[id]).filter(Boolean).forEach(p=>buildCards(p).forEach(c=>list.appendChild(c)));
     if(!ids.length){const e=document.createElement('div');e.className='empty';e.innerHTML='<h3>No pages found</h3>';list.appendChild(e);}
@@ -1817,12 +1843,30 @@ function renderTopicList(ids,label,pageCount){
 }
 function filterTopicResults(){
   const q=document.getElementById('topic-subset-search').value.trim().toLowerCase();
-  if(!q){const t=document.getElementById('topic-res-title').textContent;renderTopicList(currentTopicPageIds,t.split(' — ')[0]);return;}
-  const filtered=currentTopicPageIds.filter(id=>{
-    const p=pageMap[id];if(!p)return false;
-    return ((p.right_page||'')+(p.left_page||'')).toLowerCase().includes(q);
-  });
-  renderTopicList(filtered);
+  const label=document.getElementById('topic-res-title').textContent.split(' — ')[0];
+  if(!q){renderTopicList(label);return;}
+  if(searchMode==='articles'){
+    const srcIds=currentTopicArticleIds.length?currentTopicArticleIds:
+      buildArticlesForPageIds(currentTopicPageIds).map(a=>a.id);
+    const filtered=srcIds.filter(id=>{
+      const a=articleMap[id];if(!a)return false;
+      return getArticleText(a).toLowerCase().includes(q)||
+             (a.title||'').toLowerCase().includes(q)||
+             (a.title_en||'').toLowerCase().includes(q);
+    });
+    const list=document.getElementById('topic-res-list');list.innerHTML='';
+    const arts=filtered.map(id=>articleMap[id]).filter(Boolean);
+    document.getElementById('topic-res-title').textContent=`${label} — ${arts.length} articles`;
+    renderArtList(arts,list);
+  } else {
+    const filtered=currentTopicPageIds.filter(id=>{
+      const p=pageMap[id];if(!p)return false;
+      return ((p.right_page||'')+(p.left_page||'')).toLowerCase().includes(q);
+    });
+    const list=document.getElementById('topic-res-list');list.innerHTML='';
+    document.getElementById('topic-res-title').textContent=`${label} — ${filtered.length} pages`;
+    filtered.map(id=>pageMap[id]).filter(Boolean).forEach(p=>buildCards(p).forEach(c=>list.appendChild(c)));
+  }
 }
 function backToTopics(){document.getElementById('cluster-grid').style.display='grid';document.getElementById('topic-results').style.display='none';}
 
