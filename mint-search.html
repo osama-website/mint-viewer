@@ -211,6 +211,7 @@ body{background:var(--bg);color:var(--ink);font-family:var(--font-ui);min-height
 .cluster-words{display:flex;flex-wrap:wrap;gap:.22rem}
 .cw{font-size:.7rem;padding:.1rem .32rem;background:var(--sand);border-radius:3px;font-family:var(--font-ps);color:var(--muted)}
 
+.tab-desc{font-size:.78rem;color:var(--muted);margin-bottom:.9rem;line-height:1.55;font-family:var(--font-en);direction:ltr}
 /* About */
 #view-about{direction:ltr;font-family:var(--font-en)}
 #view-about h2{font-size:1.25rem;color:var(--accent);margin-bottom:.65rem}
@@ -340,12 +341,14 @@ body{background:var(--bg);color:var(--ink);font-family:var(--font-ui);min-height
 
 <!-- Browse -->
 <div class="view" id="view-browse">
+  <p class="tab-desc">Browse all 17 issues of Pukhtoon in chronological order. Click an issue to read its pages, or open any spread in the full-screen reader.</p>
   <button class="back-btn" id="browse-back" onclick="showIssueGrid()">← Back to issues</button>
   <div id="browse-body"></div>
 </div>
 
 <!-- Timeline -->
 <div class="view" id="view-timeline">
+  <p class="tab-desc">Words don't always mean the same thing over time — the company a word keeps in a text reveals how its usage is shifting. Search any word to see which other words it appeared alongside in each issue, and how that changed from 1928 to 1939. Use the slider (or arrows) to step through individual issues; click a neighbour word to explore it in turn.</p>
   <div class="tl-search">
     <button class="tl-back-btn" id="tl-back" onclick="tlBack()" style="display:none">&#8592; Back</button>
     <input type="text" id="tl-input" placeholder="Search in English or Pashto" onkeydown="if(event.key==='Enter')doTimeline()">
@@ -384,6 +387,7 @@ body{background:var(--bg);color:var(--ink);font-family:var(--font-ui);min-height
 
 <!-- Map -->
 <div class="view" id="view-map">
+  <p class="tab-desc">See every place mentioned in the magazine plotted on a map. Click a marker to read the passages where that place appears.</p>
   <div id="map-main">
     <div id="leaflet-map"></div>
   </div>
@@ -399,6 +403,7 @@ body{background:var(--bg);color:var(--ink);font-family:var(--font-ui);min-height
 
 <!-- Tags -->
 <div class="view" id="view-authors">
+  <p class="tab-desc">Explore who wrote for Pukhtoon and how authors were connected. Lines between authors mean they published in the same issue; green lines indicate writers whose articles share similar themes.</p>
   <div class="auth-toolbar">
     <div class="auth-view-btns">
       <button class="act-btn active" id="auth-net-btn" onclick="setAuthView('network')">Network</button>
@@ -431,6 +436,7 @@ body{background:var(--bg);color:var(--ink);font-family:var(--font-ui);min-height
   <div id="auth-works" style="margin-top:1rem"></div>
 </div>
 <div class="view" id="view-tags">
+  <p class="tab-desc">Browse keywords, people, and places extracted from the text. Click any tag to see all the pages where it appears.</p>
   <div id="tags-browser">
     <div class="tags-toolbar">
       <input type="text" class="tag-search-input" id="tag-filter" placeholder="Filter tags…" oninput="filterTags(this.value)">
@@ -455,6 +461,7 @@ body{background:var(--bg);color:var(--ink);font-family:var(--font-ui);min-height
 
 <!-- Topics -->
 <div class="view" id="view-topics">
+  <p class="tab-desc">Articles and pages grouped by theme — such as poetry, politics, religion, or world news. Click a topic to read the pieces that belong to it.</p>
   <div class="cluster-grid" id="cluster-grid"></div>
   <div id="topic-results" style="display:none">
     <div class="place-header">
