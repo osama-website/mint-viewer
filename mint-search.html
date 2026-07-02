@@ -341,7 +341,7 @@ body{background:var(--bg);color:var(--ink);font-family:var(--font-ui);min-height
 
 <!-- Browse -->
 <div class="view" id="view-browse">
-  <p class="tab-desc">Shows all 17 issues of Pukhtoon in chronological order. Selecting an issue opens its pages; each spread is available in a full-screen reader.</p>
+  <p class="tab-desc">Shows all 17 issues of Pukhtoon in chronological order. Selecting an issue opens its pages; each spread is available in a full-screen reader. For example, the earliest 1928 issues are mostly literary and cultural, while by 1937–1939 the pages increasingly carry political commentary and world news — a shift visible just from browsing the covers.</p>
   <button class="back-btn" id="browse-back" onclick="showIssueGrid()">← Back to issues</button>
   <div id="browse-body"></div>
 </div>
@@ -387,7 +387,7 @@ body{background:var(--bg);color:var(--ink);font-family:var(--font-ui);min-height
 
 <!-- Map -->
 <div class="view" id="view-map">
-  <p class="tab-desc">Shows every place mentioned in the magazine plotted on a map. Selecting a marker brings up the passages where that place appears.</p>
+  <p class="tab-desc">Shows every place mentioned in the magazine plotted on a map. Selecting a marker brings up the passages where that place appears. For example, Peshawar and Kabul appear throughout nearly every issue as centres of Pashtun life, while cities like Berlin, Tokyo, and Moscow appear only in the later 1930s as the magazine began covering the approach of the Second World War.</p>
   <div id="map-main">
     <div id="leaflet-map"></div>
   </div>
@@ -403,7 +403,7 @@ body{background:var(--bg);color:var(--ink);font-family:var(--font-ui);min-height
 
 <!-- Tags -->
 <div class="view" id="view-authors">
-  <p class="tab-desc">Shows who wrote for Pukhtoon and how authors were connected. Lines between authors indicate they published in the same issue; green lines highlight writers whose articles share similar themes. Network view maps the connections spatially; List view shows each author's articles.</p>
+  <p class="tab-desc">Shows who wrote for Pukhtoon and how authors were connected. Lines between authors indicate they published in the same issue; green lines highlight writers whose articles share similar themes. For example, two poets whose work consistently appears in the same issues and covers overlapping themes — homeland, resistance, identity — will be linked in green, suggesting they were part of the same literary circle. Network view maps the connections spatially; List view shows each author's articles.</p>
   <div class="auth-toolbar">
     <div class="auth-view-btns">
       <button class="act-btn active" id="auth-net-btn" onclick="setAuthView('network')">Network</button>
@@ -436,7 +436,7 @@ body{background:var(--bg);color:var(--ink);font-family:var(--font-ui);min-height
   <div id="auth-works" style="margin-top:1rem"></div>
 </div>
 <div class="view" id="view-tags">
-  <p class="tab-desc">Lists keywords, people, and places extracted from the text. Selecting a tag shows all pages where it appears.</p>
+  <p class="tab-desc">Lists keywords, people, and places extracted from the text. Selecting a tag shows all pages where it appears. For example, selecting the tag <em>کانګرس</em> (Congress) brings up every page that mentions the Indian National Congress, making it easy to trace how coverage of the independence movement evolved across issues.</p>
   <div id="tags-browser">
     <div class="tags-toolbar">
       <input type="text" class="tag-search-input" id="tag-filter" placeholder="Filter tags…" oninput="filterTags(this.value)">
@@ -461,7 +461,7 @@ body{background:var(--bg);color:var(--ink);font-family:var(--font-ui);min-height
 
 <!-- Topics -->
 <div class="view" id="view-topics">
-  <p class="tab-desc">Groups articles and pages into thematic clusters — such as poetry, politics, religion, or world news. Selecting a topic shows the pieces that belong to it.</p>
+  <p class="tab-desc">Groups articles and pages into thematic clusters — such as poetry, politics, religion, or world news. Selecting a topic shows the pieces that belong to it. For example, the <em>Khushal Khan: Resistance</em> cluster brings together all content referencing the 17th-century Pashtun warrior-poet Khushal Khan Khattak, revealing how frequently the magazine invoked him as a symbol of resistance and identity.</p>
   <div class="cluster-grid" id="cluster-grid"></div>
   <div id="topic-results" style="display:none">
     <div class="place-header">
