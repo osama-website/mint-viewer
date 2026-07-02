@@ -459,7 +459,7 @@
   },
   {
     "id": 6,
-    "label": "Pashtun Nationalism II",
+    "label": "Advertisements & Announcements",
     "article_count": 28,
     "article_ids": [
       30,
@@ -504,7 +504,7 @@
   },
   {
     "id": 7,
-    "label": "Pashtun Nationalism III",
+    "label": "Subscription & Pricing",
     "article_count": 15,
     "article_ids": [
       75,
@@ -536,7 +536,7 @@
   },
   {
     "id": 8,
-    "label": "General Articles II",
+    "label": "Short Stories & Prose",
     "article_count": 11,
     "article_ids": [
       11,
@@ -564,7 +564,7 @@
   },
   {
     "id": 9,
-    "label": "General Articles III",
+    "label": "Agriculture & Taxation",
     "article_count": 10,
     "article_ids": [
       37,
@@ -617,7 +617,7 @@
   },
   {
     "id": 11,
-    "label": "Editorial & Contents II",
+    "label": "Humour & Classified Ads",
     "article_count": 8,
     "article_ids": [
       21,
@@ -667,7 +667,7 @@
   },
   {
     "id": 13,
-    "label": "Mixed Content II",
+    "label": "Classical Poetry & Ghazals",
     "article_count": 7,
     "article_ids": [
       34,
