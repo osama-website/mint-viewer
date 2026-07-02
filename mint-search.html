@@ -295,14 +295,14 @@ body{background:var(--bg);color:var(--ink);font-family:var(--font-ui);min-height
 </header>
 
 <nav class="tab-bar">
-  <button class="tab-btn active" onclick="switchTab('search')"   id="tab-search"   data-en="Search"   data-ps="لټون">Search</button>
+  <button class="tab-btn active" onclick="switchTab('about')"    id="tab-about"    data-en="About"    data-ps="د پښتون کیسه">About</button>
+  <button class="tab-btn"        onclick="switchTab('search')"   id="tab-search"   data-en="Search"   data-ps="لټون">Search</button>
   <button class="tab-btn"        onclick="switchTab('browse')"   id="tab-browse"   data-en="Browse"   data-ps="پراته">Browse</button>
   <button class="tab-btn"        onclick="switchTab('timeline')" id="tab-timeline" data-en="Timeline" data-ps="تاریخي لړۍ">Timeline</button>
   <button class="tab-btn"        onclick="switchTab('map')"      id="tab-map"      data-en="Map"      data-ps="نقشه">Map</button>
   <button class="tab-btn"        onclick="switchTab('authors')"  id="tab-authors"  data-en="Authors"  data-ps="لیکوالان">Authors</button>
   <button class="tab-btn"        onclick="switchTab('tags')"     id="tab-tags"     data-en="Tags"     data-ps="نښانې">Tags</button>
   <button class="tab-btn"        onclick="switchTab('topics')"   id="tab-topics"   data-en="Topics"   data-ps="موضوعات">Topics</button>
-  <button class="tab-btn"        onclick="switchTab('about')"    id="tab-about"    data-en="About"    data-ps="د پښتون کیسه">About</button>
   <div class="tab-mode-wrap">
     <button class="tab-mode-btn"        id="gmode-pages"    onclick="setSearchMode('pages',this)">Pages</button>
     <button class="tab-mode-btn active" id="gmode-articles" onclick="setSearchMode('articles',this)">Articles</button>
@@ -310,7 +310,7 @@ body{background:var(--bg);color:var(--ink);font-family:var(--font-ui);min-height
 </nav>
 
 <!-- Search -->
-<div class="view active" id="view-search">
+<div class="view" id="view-search">
   <div class="about-banner" id="intro-banner">
     <h3>پښتون — Pukhtoon Magazine, 1928–1939</h3>
     <p>A searchable digital archive of <em>Pukhtoon</em> (پښتون), a Pashto-language magazine published in Peshawar under British colonial rule. Search in English or Pashto, browse issues, explore the archive.</p>
@@ -469,14 +469,12 @@ body{background:var(--bg);color:var(--ink);font-family:var(--font-ui);min-height
 </div>
 
 <!-- About -->
-<div class="view" id="view-about">
+<div class="view active" id="view-about">
   <h2>پښتون — Pukhtoon Magazine (1928–1939)</h2>
   <p><em>Pukhtoon</em> (پښتون) was a Pashto-language magazine published in Peshawar under British colonial rule. This digital archive makes the full text of all preserved spreads searchable for the first time.</p>
   <div class="stat-grid" id="about-stats"></div>
   <h3>About the Magazine</h3>
   <p>Pukhtoon covered politics, literature, religion, education, and daily life in the North-West Frontier Province. It was a significant voice for Pashto literacy and cultural identity, featuring poetry, news, and commentary.</p>
-  <h3>Methodology</h3>
-  <p>Each spread was photographed, reduced to JPEG, and transcribed using Google Gemini's multimodal OCR. Analysis uses TF-IDF for search indexing, K-Means + UMAP for topic clustering, and PPMI co-occurrence matrices with UMAP projection to measure semantic drift across issues.</p>
   <h3>Attribution</h3>
   <p style="color:var(--muted);font-size:.85rem">Magazine: <em>Pukhtoon</em> (پښتون), 1928–1939, Peshawar, NWFP, British India. OCR and archive viewer built with Claude Code.</p>
 </div>
@@ -2202,7 +2200,7 @@ function buildAbout(){
 }
 
 // ── INIT ──────────────────────────────────────────────────────────────────────
-initSearch();
+initSearch().then(()=>buildAbout());
 </script>
 </body>
 </html>
