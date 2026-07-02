@@ -304,8 +304,8 @@ body{background:var(--bg);color:var(--ink);font-family:var(--font-ui);min-height
   <button class="tab-btn"        onclick="switchTab('topics')"   id="tab-topics"   data-en="Topics"   data-ps="موضوعات">Topics</button>
   <button class="tab-btn"        onclick="switchTab('about')"    id="tab-about"    data-en="About"    data-ps="د پښتون کیسه">About</button>
   <div class="tab-mode-wrap">
-    <button class="tab-mode-btn active" id="gmode-pages"    onclick="setSearchMode('pages',this)">Pages</button>
-    <button class="tab-mode-btn"        id="gmode-articles" onclick="setSearchMode('articles',this)">Articles</button>
+    <button class="tab-mode-btn"        id="gmode-pages"    onclick="setSearchMode('pages',this)">Pages</button>
+    <button class="tab-mode-btn active" id="gmode-articles" onclick="setSearchMode('articles',this)">Articles</button>
   </div>
 </nav>
 
@@ -360,11 +360,12 @@ body{background:var(--bg);color:var(--ink);font-family:var(--font-ui);min-height
         <svg id="tl-svg" width="100%" height="400" viewBox="0 0 640 400" style="display:block"></svg>
         <div class="tl-controls" id="tl-controls" style="display:none">
           <div class="tl-nav-row">
-            <button class="tl-nav-btn" id="tl-prev" onclick="tlNav(-1)" disabled>&#8592;</button>
             <span class="tl-active-year" id="tl-active-year">Overview</span>
-            <button class="tl-nav-btn" id="tl-next" onclick="tlNav(1)">&#8594;</button>
-            <button class="tl-nav-btn" id="tl-nb-btn" onclick="toggleTlNeighbors()" style="margin-left:.6rem;font-size:.68rem;opacity:.75">Neighbors ✓</button>
+            <button class="tl-nav-btn" id="tl-nb-btn" onclick="toggleTlNeighbors()" style="font-size:.68rem;opacity:.75">Neighbors ✓</button>
           </div>
+          <input type="range" id="tl-date-slider" min="0" max="1" value="0" step="1"
+            style="width:100%;margin:.5rem 0 .2rem;accent-color:var(--accent)"
+            oninput="tlSliderInput(this.value)">
           <div class="tl-tick-row" id="tl-tick-row"></div>
         </div>
       </div>
@@ -410,6 +411,14 @@ body{background:var(--bg);color:var(--ink);font-family:var(--font-ui);min-height
   <div id="auth-network-wrap">
     <canvas id="auth-canvas"></canvas>
     <div id="auth-node-tooltip" style="display:none;position:absolute;background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.4rem .6rem;font-size:.75rem;pointer-events:none;z-index:10;max-width:200px"></div>
+    <div id="auth-edge-ctrl" style="position:absolute;right:12px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;align-items:center;gap:6px;background:rgba(255,250,245,0.88);border:1px solid var(--border);border-radius:8px;padding:8px 6px;z-index:5;user-select:none">
+      <span style="font-size:.65rem;color:var(--muted);writing-mode:horizontal-tb;white-space:nowrap">Edge filter</span>
+      <input type="range" id="auth-sim-slider" min="0" max="100" value="0" step="1"
+        style="writing-mode:vertical-lr;direction:rtl;height:120px;width:20px;cursor:pointer;accent-color:var(--accent)"
+        oninput="authEdgeMinSim=this.value/100;document.getElementById('auth-sim-val').textContent=(this.value==0?'all':((this.value/100).toFixed(2)));renderAuthNetwork()">
+      <span id="auth-sim-val" style="font-size:.68rem;color:var(--muted);font-weight:600">all</span>
+      <span id="auth-edge-count" style="font-size:.62rem;color:var(--muted);text-align:center;white-space:nowrap"></span>
+    </div>
   </div>
   <div id="auth-list-wrap" style="display:none">
     <input type="search" id="auth-search" class="subset-search-input" placeholder="Filter authors…" oninput="renderAuthList()" style="width:100%;margin-bottom:.6rem">
@@ -585,7 +594,7 @@ let activeIssue=null,sortMode='rel',results=[],searchPg=0;
 const PG=20;
 let debT=null;
 // Article mode
-let searchMode='pages'; // 'pages' | 'articles'
+let searchMode='articles'; // 'pages' | 'articles'
 let articles=[],articleMap={},articleIndex={};
 let artResults=[],artSearchPg=0,activeAuthor=null;
 
@@ -1000,7 +1009,7 @@ function buildCard(p, hlWord, side) {
   const snippet = getSnippet(pageText, hlWord, 240);
   const safeHL = hlWord ? esc(hlWord).replace(/[.*+?^${}()|[\]\\]/g,'\\$&') : null;
   const displaySnippet = safeHL ? esc(snippet).replace(new RegExp(safeHL,'g'),m=>`<mark>${m}</mark>`) : esc(snippet);
-  const tags = (p.tags||[]).slice(0,5).map(t=>`<span class="tag ${esc(t.type)}" onclick="event.stopPropagation();jumpToTag('${esc(t.label)}')">${esc(t.label)}</span>`).join('');
+  const tags = (p.tags||[]).slice(0,5).map(t=>`<span class="tag ${esc(t.type)}" onclick="event.stopPropagation();jumpToTag('${esc(t.label)}')" title="${esc(t.label_en||t.label)}">${esc(t.label)}${t.label_en?`<span style="font-size:.65rem;opacity:.7;margin-left:.25rem">${esc(t.label_en)}</span>`:''}</span>`).join('');
   const pt=pageTrans?.[String(p.id)];
   const enSnip=(pt?(side==='right'?pt.right:side==='left'?pt.left:(pt.right||pt.left)):'')||'';
   const sideLabel=side==='right'?'<span class="side-tag">R</span>':side==='left'?'<span class="side-tag">L</span>':'';
@@ -1126,7 +1135,7 @@ function toggleCardScan(btn,imgUrl){
   const wrap=btn.closest('.card-expand').querySelector('.card-scan-inline');
   const show=wrap.style.display==='none';
   wrap.style.display=show?'block':'none';
-  if(show&&!wrap.querySelector('img').src.includes('http'))wrap.querySelector('img').src=imgUrl;
+  if(show){const img=wrap.querySelector('img');if(img&&img.src!==imgUrl)img.src=imgUrl;}
   btn.textContent=show?'📷 Hide':'📷 Scan';
 }
 
@@ -1433,12 +1442,14 @@ function loadTlWord(word,keepHistory){
   }
   const en=psEnMap[normalizePashto(word)]?` (${psEnMap[normalizePashto(word)]})`:'';
   document.getElementById('tl-svg-title').textContent=`${word}${en} · drift: ${(wd.drift_score||0).toFixed(3)} · ${dates.length} issue${dates.length!==1?'s':''}`;
-  document.getElementById('tl-hint').textContent='Use the arrows to step through issues and see how the word\'s context changes. Click any neighbor to see snippets.';
+  document.getElementById('tl-hint').textContent='Drag the slider to step through issues and see how the word\'s context changes. Click any neighbor to see snippets.';
   document.getElementById('tl-controls').style.display='block';
-  document.getElementById('tl-prev').disabled=true;
-  document.getElementById('tl-next').disabled=dates.length===0;
+  // Set slider range: 0=overview, 1..N=dates
+  const sl=document.getElementById('tl-date-slider');
+  sl.min=0;sl.max=dates.length;sl.value=0;
   // Build tick labels
   const ticks=document.getElementById('tl-tick-row');ticks.innerHTML='';
+  const ovSpan=document.createElement('span');ovSpan.className='tl-tick';ovSpan.textContent='All';ticks.appendChild(ovSpan);
   dates.forEach(dt=>{const s=document.createElement('span');s.className='tl-tick';s.textContent=dt.slice(0,7);ticks.appendChild(s);});
   document.getElementById('tl-active-year').textContent='Overview';
   tlSlider=-1;
@@ -1467,8 +1478,7 @@ function selectYear(i){
   const wd=semData.words[tlWord];if(!wd)return;
   const dates=semData.issue_dates.filter(dt=>(wd.neighbors[dt]||[]).length>0);
   document.getElementById('tl-active-year').textContent=dates[i]?fmtDate(dates[i]):'';
-  document.getElementById('tl-prev').disabled=false;
-  document.getElementById('tl-next').disabled=i>=dates.length-1;
+  const sl=document.getElementById('tl-date-slider');if(sl)sl.value=i+1;
   drawTl(tlWord,wd,dates,i,true);
   showTlSnippets(tlWord,dates[i]);
 }
@@ -1478,17 +1488,15 @@ function selectOverview(){
   const wd=semData.words[tlWord];if(!wd)return;
   const dates=semData.issue_dates.filter(dt=>(wd.neighbors[dt]||[]).length>0);
   document.getElementById('tl-active-year').textContent='Overview';
-  document.getElementById('tl-prev').disabled=true;
-  document.getElementById('tl-next').disabled=dates.length===0;
+  const sl=document.getElementById('tl-date-slider');if(sl)sl.value=0;
   drawTl(tlWord,wd,dates,-1,false);
   showTlSnippets(tlWord,null);
 }
 
-function tlNav(dir){
-  const wd=semData.words[tlWord];if(!wd)return;
-  const dates=semData.issue_dates.filter(dt=>(wd.neighbors[dt]||[]).length>0);
-  if(dir>0){if(tlSlider<dates.length-1)selectYear(tlSlider+1);}
-  else{if(tlSlider===0)selectOverview();else if(tlSlider>0)selectYear(tlSlider-1);}
+function tlSliderInput(val){
+  const v=parseInt(val);
+  if(v===0)selectOverview();
+  else selectYear(v-1);
 }
 
 function toggleTlNeighbors(){
@@ -1766,7 +1774,7 @@ async function initTags(){
   if(allTags.length)return renderTagCols();
   if(!pages.length)await initSearch();
   const m={};
-  pages.forEach(p=>(p.tags||[]).forEach(t=>{if(!m[t.label])m[t.label]={label:t.label,type:t.type,ids:[]};m[t.label].ids.push(p.id);}));
+  pages.forEach(p=>(p.tags||[]).forEach(t=>{if(!m[t.label])m[t.label]={label:t.label,label_en:t.label_en||'',type:t.type,ids:[]};m[t.label].ids.push(p.id);if(t.label_en&&!m[t.label].label_en)m[t.label].label_en=t.label_en;}));
   allTags=Object.values(m).sort((a,b)=>b.ids.length-a.ids.length);tagMap=m;
   renderTagCols();
 }
@@ -1778,7 +1786,7 @@ function renderTagCols(){
   const q=(document.getElementById('tag-filter')?.value||'').toLowerCase();
   let tags=allTags;
   if(tagType!=='all')tags=tags.filter(t=>t.type===tagType);
-  if(q)tags=tags.filter(t=>t.label.includes(q)||t.label.toLowerCase().includes(q));
+  if(q)tags=tags.filter(t=>t.label.includes(q)||(t.label_en||'').toLowerCase().includes(q));
   const cols={location:[],person:[],keyword:[]};
   tags.forEach(t=>(cols[t.type]||(cols.keyword)).push(t));
   const w=document.getElementById('tag-cols');w.innerHTML='';
@@ -1788,7 +1796,7 @@ function renderTagCols(){
     const list=col.querySelector('.tag-list');
     items.slice(0,60).forEach(t=>{
       const row=document.createElement('div');row.className='tag-row';
-      row.innerHTML=`<span>${esc(t.label)}</span><span class="tag-count">${t.ids.length}</span>`;
+      row.innerHTML=`<span dir="rtl">${esc(t.label)}</span>${t.label_en?`<span class="tag-en" style="font-size:.7rem;color:var(--muted);font-family:var(--font-ui);margin-left:.3rem">${esc(t.label_en)}</span>`:''}<span class="tag-count">${t.ids.length}</span>`;
       row.onclick=()=>showTagResults(t.label);list.appendChild(row);
     });
   });
@@ -1932,6 +1940,7 @@ function backToTopics(){document.getElementById('cluster-grid').style.display='g
 // ── AUTHORS ───────────────────────────────────────────────────────────────────
 let authData=null,authView='network',authSelected=new Set();
 let authPan={x:0,y:0,scale:1},authDrag=null,authHover=null;
+let authEdgeMinSim=0;
 
 async function initAuthors(){
   if(!authData){
@@ -1975,9 +1984,26 @@ function renderAuthNetwork(){
   ];
   function draw(){
     ctx.clearRect(0,0,W,H);
-    // Edges
+    // Compute which nodes are connected to any selected node
+    const hasSel=authSelected.size>0;
+    const connectedIds=new Set();
+    if(hasSel){
+      edges.forEach(e=>{
+        if(authSelected.has(e.s)||authSelected.has(e.t)){connectedIds.add(e.s);connectedIds.add(e.t);}
+      });
+    }
+    // Edges: filter by sim threshold; when selection active only draw incident edges
+    let visibleEdgeCount=0;
+    const connectedByFilter=new Set();
+    edges.forEach(e=>{
+      if((e.sim||0)<authEdgeMinSim)return;
+      connectedByFilter.add(e.s);connectedByFilter.add(e.t);
+    });
     edges.forEach(e=>{
       const sn=nodes[e.s],tn=nodes[e.t];if(!sn||!tn)return;
+      if((e.sim||0)<authEdgeMinSim)return;
+      if(hasSel&&!authSelected.has(e.s)&&!authSelected.has(e.t))return;
+      visibleEdgeCount++;
       const [sx,sy]=toC(sn),[tx,ty]=toC(tn);
       const w=Math.min(e.shared_issues?.length||1,3);
       const sim=e.sim||0;
@@ -1985,22 +2011,72 @@ function renderAuthNetwork(){
       ctx.strokeStyle=sim>0.5?`rgba(42,122,42,${0.15+sim*0.25})`:`rgba(139,26,0,${0.08+w*0.05})`;
       ctx.lineWidth=w*0.6;ctx.stroke();
     });
-    // Nodes
+    const ec=document.getElementById('auth-edge-count');
+    if(ec)ec.innerHTML=visibleEdgeCount+'<br>edges';
+    // Nodes (circles only) — hide isolated nodes when a filter is active
+    const filterActive=authEdgeMinSim>0;
     nodes.forEach(n=>{
+      if(filterActive&&!connectedByFilter.has(n.id)&&!authSelected.has(n.id))return;
       const[cx,cy]=toC(n);
       const r=Math.max(4,Math.min(12,3+n.article_count*1.8))*authPan.scale;
       const sel=authSelected.has(n.id);
+      const dimmed=hasSel&&!connectedIds.has(n.id);
       ctx.beginPath();ctx.arc(cx,cy,r,0,Math.PI*2);
-      ctx.fillStyle=sel?'#8b1a00':authHover===n.id?'#c04020':'#b07050';
+      ctx.fillStyle=sel?'#8b1a00':authHover===n.id?'#c04020':dimmed?'rgba(176,112,80,0.22)':'#b07050';
       ctx.fill();
       if(sel){ctx.strokeStyle='#8b1a00';ctx.lineWidth=2;ctx.stroke();}
-      const label=n.name_en||n.name;
-      const fontSize=Math.max(9,Math.min(12,9+n.article_count*0.4))*Math.max(0.7,authPan.scale);
-      ctx.fillStyle=sel?'#8b1a00':'#2c1a0e';
-      ctx.font=`${fontSize}px system-ui`;
-      ctx.textAlign='center';
-      ctx.fillText(label,cx,cy-r-2);
     });
+    // Labels
+    if(hasSel){
+      // Always show labels for nodes connected to the selection; hover-only for the rest
+      nodes.forEach(n=>{
+        if(filterActive&&!connectedByFilter.has(n.id)&&!authSelected.has(n.id))return;
+        const isConn=connectedIds.has(n.id);
+        if(!isConn&&authHover!==n.id)return;
+        const[cx,cy]=toC(n);
+        const r=Math.max(4,Math.min(12,3+n.article_count*1.8))*authPan.scale;
+        const label=n.name_en||n.name;
+        const fs=Math.max(9,Math.min(12,9+n.article_count*0.4))*Math.max(0.7,authPan.scale);
+        const sel=authSelected.has(n.id);
+        ctx.font=`${fs}px system-ui`;
+        ctx.fillStyle=sel?'#8b1a00':'#2c1a0e';
+        ctx.textAlign='center';
+        ctx.fillText(label,cx,cy-r-2);
+      });
+    } else {
+      // No selection: greedy placement to avoid overlaps, prioritise by article_count
+      const placed=[];
+      const PAD=2;
+      nodes.slice().sort((a,b)=>b.article_count-a.article_count).forEach(n=>{
+        if(filterActive&&!connectedByFilter.has(n.id))return;
+        const[cx,cy]=toC(n);
+        const r=Math.max(4,Math.min(12,3+n.article_count*1.8))*authPan.scale;
+        const label=n.name_en||n.name;
+        const fs=Math.max(9,Math.min(12,9+n.article_count*0.4))*Math.max(0.7,authPan.scale);
+        ctx.font=`${fs}px system-ui`;
+        const tw=ctx.measureText(label).width;
+        const th=fs;
+        const cands=[
+          {ax:cx,   ay:cy-r-PAD},
+          {ax:cx,   ay:cy+r+th+PAD},
+          {ax:cx+r+tw/2+PAD, ay:cy+th/3},
+          {ax:cx-r-tw/2-PAD, ay:cy+th/3},
+          {ax:cx,   ay:cy-r-th-PAD*3},
+          {ax:cx,   ay:cy+r+th*2+PAD*2},
+        ];
+        for(const c of cands){
+          const b={x:c.ax-tw/2-PAD,y:c.ay-th-PAD,w:tw+PAD*2,h:th+PAD*2};
+          if(placed.every(p=>b.x>p.x+p.w||b.x+b.w<p.x||b.y>p.y+p.h||b.y+b.h<p.y)){
+            placed.push(b);
+            const sel=authSelected.has(n.id);
+            ctx.fillStyle=sel?'#8b1a00':'#2c1a0e';
+            ctx.textAlign='center';
+            ctx.fillText(label,c.ax,c.ay);
+            break;
+          }
+        }
+      });
+    }
   }
   draw();
   // Pan / zoom
