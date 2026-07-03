@@ -777,6 +777,7 @@ function buildArtCard(a, hlWord){
       <span class="art-pages">${pageRange}</span>
       <button class="art-card-scan-btn" onclick="event.stopPropagation();showArtScan(${a.id})">${scanLabel}</button>
     </div>
+    ${(a.tags||[]).length?`<div class="tags-row">${(a.tags||[]).slice(0,5).map(t=>`<span class="tag ${esc(t.type)}" onclick="event.stopPropagation();jumpToTag('${esc(t.label)}')" title="${esc(t.label_en||t.label)}">${esc(t.label)}${t.label_en?`<span style="font-size:.65rem;opacity:.7;margin-left:.25rem">${esc(t.label_en)}</span>`:''}</span>`).join('')}</div>`:''}
     ${rawSnip?`<div class="art-snippet">${snippetHtml}</div>`:''}`;
   div.onclick=()=>expandArtCard(div,a);
   return div;
@@ -1796,8 +1797,11 @@ async function initTags(){
   backToTags();
   if(allTags.length)return renderTagCols();
   if(!pages.length)await initSearch();
+  await ensureArticles();
   const m={};
-  pages.forEach(p=>(p.tags||[]).forEach(t=>{if(!m[t.label])m[t.label]={label:t.label,label_en:t.label_en||'',type:t.type,ids:[]};m[t.label].ids.push(p.id);if(t.label_en&&!m[t.label].label_en)m[t.label].label_en=t.label_en;}));
+  // Build from pages (for page IDs) and from articles (for article IDs)
+  pages.forEach(p=>(p.tags||[]).forEach(t=>{if(!m[t.label])m[t.label]={label:t.label,label_en:t.label_en||'',type:t.type,ids:[],art_ids:[]};m[t.label].ids.push(p.id);if(t.label_en&&!m[t.label].label_en)m[t.label].label_en=t.label_en;}));
+  articles.forEach(a=>(a.tags||[]).forEach(t=>{if(!m[t.label])m[t.label]={label:t.label,label_en:t.label_en||'',type:t.type,ids:[],art_ids:[]};if(!m[t.label].art_ids)m[t.label].art_ids=[];if(!m[t.label].art_ids.includes(a.id))m[t.label].art_ids.push(a.id);}));
   allTags=Object.values(m).sort((a,b)=>b.ids.length-a.ids.length);tagMap=m;
   renderTagCols();
 }
@@ -1835,9 +1839,11 @@ function showTagResults(label){
 }
 function renderTagList(ids,label){
   const list=document.getElementById('tag-res-list');list.innerHTML='';
+  const t=tagMap[label];
   if(searchMode==='articles'){
     ensureArticles().then(()=>{
-      const arts=buildArticlesForPageIds(ids);
+      const artIds=(t&&t.art_ids)||[];
+      const arts=artIds.length?artIds.map(id=>articleMap[id]).filter(Boolean):buildArticlesForPageIds(ids);
       document.getElementById('tag-res-title').textContent=`${label} — ${arts.length} articles`;
       renderArtList(arts,list);
     });
