@@ -1,7 +1,7 @@
 [
   {
     "id": 0,
-    "label": "General Articles",
+    "label": "Government & National Affairs",
     "article_count": 160,
     "article_ids": [
       7,
@@ -178,7 +178,7 @@
   },
   {
     "id": 1,
-    "label": "General Articles II",
+    "label": "Social Progress & Public Life",
     "article_count": 63,
     "article_ids": [
       149,
@@ -258,7 +258,7 @@
   },
   {
     "id": 2,
-    "label": "General Articles III",
+    "label": "Freedom, Family & Social Narrative",
     "article_count": 54,
     "article_ids": [
       17,
@@ -329,7 +329,7 @@
   },
   {
     "id": 3,
-    "label": "General Articles IV",
+    "label": "Islamic Discourse & Correspondence",
     "article_count": 52,
     "article_ids": [
       9,
@@ -398,7 +398,7 @@
   },
   {
     "id": 4,
-    "label": "General Articles V",
+    "label": "Stories & Publication Notes",
     "article_count": 39,
     "article_ids": [
       48,
@@ -454,7 +454,7 @@
   },
   {
     "id": 5,
-    "label": "Mixed Content",
+    "label": "Pashto Language & Editorial",
     "article_count": 30,
     "article_ids": [
       26,
@@ -501,7 +501,7 @@
   },
   {
     "id": 6,
-    "label": "General Articles VI",
+    "label": "Regional Affairs & Current Events",
     "article_count": 21,
     "article_ids": [
       114,
@@ -539,7 +539,7 @@
   },
   {
     "id": 7,
-    "label": "Mixed Content II",
+    "label": "Subscriptions, Prices & Commerce",
     "article_count": 19,
     "article_ids": [
       8,
@@ -575,7 +575,7 @@
   },
   {
     "id": 8,
-    "label": "Pashtun Nationalism",
+    "label": "Notices & Commercial Advertisements",
     "article_count": 19,
     "article_ids": [
       30,
@@ -611,7 +611,7 @@
   },
   {
     "id": 9,
-    "label": "General Articles VII",
+    "label": "Land, Taxation & Rural Affairs",
     "article_count": 14,
     "article_ids": [
       37,
@@ -642,7 +642,7 @@
   },
   {
     "id": 10,
-    "label": "General Articles VIII",
+    "label": "Letters, Greetings & Verse",
     "article_count": 10,
     "article_ids": [
       84,
@@ -669,7 +669,7 @@
   },
   {
     "id": 11,
-    "label": "Quran & Scripture",
+    "label": "Islamic Preaching & Scripture",
     "article_count": 10,
     "article_ids": [
       41,
@@ -696,7 +696,7 @@
   },
   {
     "id": 12,
-    "label": "Mixed Content III",
+    "label": "Cultural Critique & Satire",
     "article_count": 9,
     "article_ids": [
       1,
@@ -722,7 +722,7 @@
   },
   {
     "id": 13,
-    "label": "Mixed Content IV",
+    "label": "Lyric & Romantic Poetry",
     "article_count": 7,
     "article_ids": [
       34,
@@ -746,7 +746,7 @@
   },
   {
     "id": 14,
-    "label": "Mixed Content V",
+    "label": "Martial & Freedom Poetry",
     "article_count": 7,
     "article_ids": [
       137,
