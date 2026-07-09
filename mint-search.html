@@ -342,7 +342,7 @@ body{background:var(--bg);color:var(--ink);font-family:var(--font-ui);min-height
 
 <!-- Browse -->
 <div class="view" id="view-browse">
-  <p class="tab-desc">Shows all 17 issues of Pukhtoon in chronological order. Selecting an issue opens its pages; each spread is available in a full-screen reader.</p>
+  <p class="tab-desc">Shows all 30 issues of Pukhtoon in chronological order. Selecting an issue opens its pages; each spread is available in a full-screen reader.</p>
   <button class="back-btn" id="browse-back" onclick="showIssueGrid()">← Back to issues</button>
   <div id="browse-body"></div>
 </div>
@@ -2208,7 +2208,7 @@ function showAuthWorks(){
 // ── ABOUT ─────────────────────────────────────────────────────────────────────
 function buildAbout(){
   const g=document.getElementById('about-stats');if(g.children.length)return;
-  [[pages.length||282,'Total Pages'],[8,'Issues'],[8,'Topic Clusters'],[43,'Places Mapped']].forEach(([n,l])=>{
+  [[pages.length||993,'Total Pages'],[new Set(pages.map(p=>p.issue_date)).size||30,'Issues'],[15,'Topic Clusters'],[52,'Places Mapped']].forEach(([n,l])=>{
     const c=document.createElement('div');c.className='stat-card';c.innerHTML=`<div class="stat-num">${n}</div><div class="stat-label">${l}</div>`;g.appendChild(c);
   });
 }

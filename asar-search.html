@@ -1249,7 +1249,7 @@ function backToTopics(){document.getElementById('cluster-grid').style.display='g
 // ── ABOUT ─────────────────────────────────────────────────────────────────────
 function buildAbout(){
   const g=document.getElementById('about-stats');if(g.children.length)return;
-  [[pages.length||282,'Total Pages'],[8,'Issues'],[8,'Topic Clusters'],[43,'Places Mapped']].forEach(([n,l])=>{
+  [[pages.length||993,'Total Pages'],[new Set(pages.map(p=>p.issue_date)).size||30,'Issues'],[15,'Topic Clusters'],[52,'Places Mapped']].forEach(([n,l])=>{
     const c=document.createElement('div');c.className='stat-card';c.innerHTML=`<div class="stat-num">${n}</div><div class="stat-label">${l}</div>`;g.appendChild(c);
   });
 }
