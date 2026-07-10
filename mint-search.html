@@ -733,21 +733,45 @@ function renderArtList(arts, container){
   arts.forEach(a=>container.appendChild(buildArtCard(a)));
 }
 
-const HEADER_WORDS=new Set(['پښتون','میاشتنۍ رساله','پېښور','رساله']);
-const MONTH_YEAR_RE=/^(جنوري|فبروري|مارچ|اپریل|می|مئی|مي|جون|جولاي|اگست|ستمبر|اکتوبر|نومبر|دسمبر)\s*[0-9٠-٩۰-۹]{4}$/;
+// Exact-match masthead words only -- deliberately narrow. Words like "فهرست" (index) or
+// "اعلان" (notice) are NOT included even though they're common short lines, because those
+// are legitimate titles of TOC/notice-type articles (extract_articles.py extracts them as
+// their own articles), not page furniture.
+const HEADER_WORDS_NORM=new Set(['پښتون','میاشتنۍ رساله','پیښور','رساله'].map(normalizePashto));
+const MONTHS_NORM=['جنوري','فبروري','مارچ','اپریل','می','مئی','مي','جون','جولاي','جولائی','اګست','اگست','اکست','ستمبر','اکتوبر','نومبر','دسمبر'].map(normalizePashto);
+// Optional leading day number, month name, year, optional trailing Arabic letter (ء)
+const MONTH_YEAR_RE=new RegExp('^([0-9٠-٩۰-۹]{1,2}\\s+)?('+[...new Set(MONTHS_NORM)].join('|')+')\\s*[0-9٠-٩۰-۹]{2,4}(ء)?$');
 function headerLineCount(text){
-  // Counts leading OCR'd magazine masthead lines (name/page-number/month+year) so
-  // article text doesn't show page furniture mid-paragraph when columns are joined.
+  // Counts leading OCR'd magazine masthead lines (name/page-number/date lines, and
+  // OCR-garbled combinations of these on one line e.g. "پښتون اتمانزی ۱۲ الارجون ۳۹")
+  // so article text doesn't show page furniture mid-paragraph when columns are joined.
   // Only looks at the very start of a column's text, so real content (which may
   // legitimately contain "پښتون" mid-sentence) is never touched.
+  //
+  // A bare digit-only line is NOT enough on its own to count as a page number --
+  // some pages are OCR garbage/tables that are just long runs of unrelated digit
+  // lines (e.g. a mis-scanned price table), and blindly stripping those would cut
+  // into real (if garbled) content. Digit-only lines only count if the scanned
+  // block also contains an actual anchor -- the magazine name or a date -- somewhere
+  // in it, which is what makes it recognizable as a real masthead rather than a
+  // coincidental run of numbers.
   const lines=(text||'').split('\n');
-  let i=0;
-  while(i<lines.length && i<6){
+  let i=0, hasAnchor=false;
+  while(i<lines.length && i<8){
     const l=lines[i].trim();
     if(!l){i++;continue;}
-    if(HEADER_WORDS.has(l)||/^[0-9٠-٩۰-۹]+$/.test(l)||MONTH_YEAR_RE.test(l)){i++;continue;}
+    const norm=normalizePashto(l);
+    const isAnchor=HEADER_WORDS_NORM.has(norm)||MONTH_YEAR_RE.test(norm)||
+      // Magazine name combined with garbled OCR suffix/date/page-number on the same line
+      // (common in 1939 issues, e.g. "پښتون امانزي", "پښتون - مئی ۱۹۲۸", "پښتون ۲۹").
+      // Guarded by length + absence of sentence punctuation to avoid matching real prose
+      // that happens to start with the word "پښتون".
+      (norm.startsWith('پښتون')&&l.length<40&&!/[.،؟!:؛»«]/.test(l));
+    if(isAnchor){hasAnchor=true;i++;continue;}
+    if(/^[0-9٠-٩۰-۹]+$/.test(l)){i++;continue;}
     break;
   }
+  if(!hasAnchor) return 0;
   return i;
 }
 function stripPageHeader(text){
