@@ -1131,13 +1131,21 @@ function showTlSnippets(word,filterDate){
   // Use TF-IDF index if available (same tokeniser as build pipeline), else substring fallback
   let m;
   const toks=tokPs(word);
-  if(toks.length&&Object.keys(si).length){
+  if(filterDate){
+    // si (mint_search.json) caps entries at the top 50 pages per word by TF-IDF score
+    // *globally*, which silently drops real occurrences of common words within any one
+    // issue. Scan that issue's pages directly instead — cheap, since one issue is only
+    // ~20-65 pages, and precise regardless of the word's overall frequency.
+    const issuePages=pages.filter(p=>p.issue_date===filterDate);
+    m=toks.length
+      ? issuePages.filter(p=>{const ptoks=new Set(tokPs((p.right_page||'')+' '+(p.left_page||'')));return toks.some(t=>ptoks.has(t));})
+      : issuePages.filter(p=>((p.right_page||'')+' '+(p.left_page||'')).includes(word));
+  }else if(toks.length&&Object.keys(si).length){
     const ids=new Set();toks.forEach(tok=>(si[tok]||[]).forEach(([pid])=>ids.add(pid)));
     m=[...ids].map(id=>pageMap[id]).filter(Boolean);
   }else{
     m=pages.filter(p=>((p.right_page||'')+' '+(p.left_page||'')).includes(word));
   }
-  if(filterDate)m=m.filter(p=>p.issue_date===filterDate);
   if(!m.length){w.innerHTML=`<div class="tl-pages-title">No pages found for "${esc(word)}"${filterDate?' in '+fmtDate(filterDate):''}</div>`;return;}
   const en=psEnMap[word]||'';
   w.innerHTML=`<div class="tl-pages-title">"${esc(word)}"${en?' ('+esc(en)+')':''} — ${m.length} page${m.length!==1?'s':''} ${filterDate?'in '+fmtDate(filterDate):'across all issues'}</div>`;
