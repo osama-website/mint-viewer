@@ -733,10 +733,33 @@ function renderArtList(arts, container){
   arts.forEach(a=>container.appendChild(buildArtCard(a)));
 }
 
+const HEADER_WORDS=new Set(['پښتون','میاشتنۍ رساله','پېښور','رساله']);
+const MONTH_YEAR_RE=/^(جنوري|فبروري|مارچ|اپریل|می|مئی|مي|جون|جولاي|اگست|ستمبر|اکتوبر|نومبر|دسمبر)\s*[0-9٠-٩۰-۹]{4}$/;
+function headerLineCount(text){
+  // Counts leading OCR'd magazine masthead lines (name/page-number/month+year) so
+  // article text doesn't show page furniture mid-paragraph when columns are joined.
+  // Only looks at the very start of a column's text, so real content (which may
+  // legitimately contain "پښتون" mid-sentence) is never touched.
+  const lines=(text||'').split('\n');
+  let i=0;
+  while(i<lines.length && i<6){
+    const l=lines[i].trim();
+    if(!l){i++;continue;}
+    if(HEADER_WORDS.has(l)||/^[0-9٠-٩۰-۹]+$/.test(l)||MONTH_YEAR_RE.test(l)){i++;continue;}
+    break;
+  }
+  return i;
+}
+function stripPageHeader(text){
+  const lines=(text||'').split('\n');
+  return lines.slice(headerLineCount(text)).join('\n').trim();
+}
+
 function getArticleText(a){
   return (a.columns||[]).map(col=>{
     const pg=pageMap[col.page_id];
-    return pg?(col.side==='right'?pg.right_page:pg.left_page)||'':'';
+    const raw=pg?(col.side==='right'?pg.right_page:pg.left_page)||'':'';
+    return stripPageHeader(raw);
   }).join(' ');
 }
 
@@ -790,13 +813,19 @@ function expandArtCard(card,a){
   card.classList.add('expanded');card.style.cursor='default';
   card.querySelector('.act-btn').style.display='inline-block';
   card.querySelector('.art-snippet').style.display='none';
-  // Build full Pashto text and concatenated English translation from all columns
+  // Build full Pashto text and concatenated English translation from all columns.
+  // Strip leading OCR'd masthead lines (magazine name/page number/date) from each
+  // column so they don't show up as page furniture mid-paragraph; drop the same
+  // number of leading lines from the translation to keep the two sides in sync.
   const colParts=(a.columns||[]).map(col=>{
     const pg=pageMap[col.page_id];
-    const ps=pg?(col.side==='right'?pg.right_page:pg.left_page)||'':'';
+    const psRaw=pg?(col.side==='right'?pg.right_page:pg.left_page)||'':'';
     const pt=pageTrans?.[String(col.page_id)];
-    const en=pt?(col.side==='right'?pt.right:pt.left)||'':'';
-    return{ps:ps.trim(),en:en.trim()};
+    const enRaw=pt?(col.side==='right'?pt.right:pt.left)||'':'';
+    const n=headerLineCount(psRaw);
+    const ps=psRaw.split('\n').slice(n).join('\n').trim();
+    const en=enRaw.split('\n').slice(n).join('\n').trim();
+    return{ps,en};
   }).filter(c=>c.ps);
   const fullText=colParts.map(c=>c.ps).join('\n\n— — —\n\n');
   const fullEn=colParts.map(c=>c.en).join('\n\n— — —\n\n');
