@@ -720,7 +720,12 @@ function setSearchMode(mode,el){
       }
       break;
     }
-    case 'map':   { const t=document.getElementById('place-title').textContent; if(t){ const name=t.split(' · ')[0]; if(name)showPlace(name); } break; }
+    case 'map':   {
+      const onMain=document.getElementById('map-main').style.display!=='none';
+      if(onMain){ renderMapMarkers(); }
+      else { const t=document.getElementById('place-title').textContent; if(t){ const name=t.split(' · ')[0]; if(name)showPlace(name); } }
+      break;
+    }
     case 'authors':{ if(authSelected.size)showAuthWorks(); break; }
     case 'timeline':{ if(tlWord&&semData){ const wd=semData.words[tlWord]; if(wd){ const dates=semData.issue_dates.filter(dt=>(wd.neighbors[dt]||[]).length>0); showTlSnippets(tlWord,tlSlider>=0?dates[tlSlider]:null); } } break; }
   }
@@ -1852,22 +1857,49 @@ function showTlSnippets(word,filterDate){
 }
 
 // ── MAP ───────────────────────────────────────────────────────────────────────
-let leafMap=null,geoData=null;
+let leafMap=null,geoData=null,mapMarkersLayer=null,geoArticleCounts=null;
+
+// Article count per place mirrors showPlace()'s own matching logic: an article
+// "is at" a place if at least one of its columns' page text contains the place name.
+async function computeArticleGeoCounts(){
+  if(geoArticleCounts)return geoArticleCounts;
+  await ensureArticles();
+  geoArticleCounts={};
+  Object.entries(geoData).forEach(([name,d])=>{
+    const arts=buildArticlesForPageIds(d.page_ids||[]).filter(a=>(a.columns||[]).some(col=>{
+      const pg=pageMap[col.page_id];if(!pg)return false;
+      const txt=col.side==='right'?(pg.right_page||''):(pg.left_page||'');
+      return txt.includes(name);
+    }));
+    geoArticleCounts[name]=arts.length;
+  });
+  return geoArticleCounts;
+}
 
 async function initMap(){
-  if(leafMap){leafMap.invalidateSize();return;}
+  if(leafMap){leafMap.invalidateSize();renderMapMarkers();return;}
   geoData=await loadJSON('mint_geo');if(!geoData)return;
   leafMap=L.map('leaflet-map').setView([33.5,67],5);
   L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',{attribution:'© OpenStreetMap © CARTO',subdomains:'abcd',maxZoom:18}).addTo(leafMap);
-  const rc=name=>{const e=(geoData[name]?.en||'').toLowerCase();if(/pesh|kohat|swat|mardan|chars|bannu|swabi|chitral|dir|khyber|qissa/.test(e))return'#8b1a00';if(/kabul|kandahar|herat|afghanistan|balkh|mazar|nangarhar|jalalabad/.test(e))return'#1a5c8b';if(/lahore|delhi|karachi|bombay|calcutta|india|amritsar|dera/.test(e))return'#2a7a2a';if(/palestine|jerusalem|cairo|egypt|iraq|baghdad|syria|damascus|arabia|mecca|medina|yemen|lebanon|jordan/.test(e))return'#7a5c1a';if(/turkey|istanbul|ankara|ottoman|constanti|tehran|iran/.test(e))return'#5c1a7a';return'#1a7a6a';};
-  Object.entries(geoData).forEach(([name,d])=>{
-    const r=Math.max(8,Math.min(24,Math.log2((d.page_count||0)+1)*4));
-    const m=L.circleMarker([d.lat,d.lon],{radius:r,fillColor:rc(name),color:'#fff',weight:1.5,fillOpacity:.75}).addTo(leafMap);
-    m.bindPopup(`<strong>${name}</strong><br>${d.en||''}<br>${d.page_count} pages<br><button onclick="showPlace('${name.replace(/'/g,"\\'")}')" style="margin-top:4px;padding:2px 6px;background:#6b1200;color:#fff;border:none;border-radius:3px;cursor:pointer;font-size:.75rem">View pages →</button>`,{maxWidth:190});
-  });
+  mapMarkersLayer=L.layerGroup().addTo(leafMap);
+  await renderMapMarkers();
   const leg=L.control({position:'bottomright'});
   leg.onAdd=()=>{const d=L.DomUtil.create('div');d.style.cssText='background:#fff;padding:.45rem .6rem;border-radius:4px;border:1px solid #ccc;font-family:system-ui;font-size:.68rem;line-height:1.9';d.innerHTML=[['#8b1a00','NWFP'],['#1a5c8b','Afghanistan'],['#2a7a2a','British India'],['#7a5c1a','Middle East'],['#5c1a7a','Iran/Turkey'],['#1a7a6a','Other']].map(([c,l])=>`<span style="display:inline-block;width:9px;height:9px;border-radius:50%;background:${c};margin-right:4px;vertical-align:middle"></span>${l}`).join('<br>');return d;};
   leg.addTo(leafMap);
+}
+
+async function renderMapMarkers(){
+  if(!geoData||!mapMarkersLayer)return;
+  mapMarkersLayer.clearLayers();
+  const artCounts=searchMode==='articles'?await computeArticleGeoCounts():null;
+  const unit=searchMode==='articles'?'articles':'pages';
+  const rc=name=>{const e=(geoData[name]?.en||'').toLowerCase();if(/pesh|kohat|swat|mardan|chars|bannu|swabi|chitral|dir|khyber|qissa/.test(e))return'#8b1a00';if(/kabul|kandahar|herat|afghanistan|balkh|mazar|nangarhar|jalalabad/.test(e))return'#1a5c8b';if(/lahore|delhi|karachi|bombay|calcutta|india|amritsar|dera/.test(e))return'#2a7a2a';if(/palestine|jerusalem|cairo|egypt|iraq|baghdad|syria|damascus|arabia|mecca|medina|yemen|lebanon|jordan/.test(e))return'#7a5c1a';if(/turkey|istanbul|ankara|ottoman|constanti|tehran|iran/.test(e))return'#5c1a7a';return'#1a7a6a';};
+  Object.entries(geoData).forEach(([name,d])=>{
+    const cnt=searchMode==='articles'?(artCounts[name]||0):(d.page_count||0);
+    const r=Math.max(8,Math.min(24,Math.log2(cnt+1)*4));
+    const m=L.circleMarker([d.lat,d.lon],{radius:r,fillColor:rc(name),color:'#fff',weight:1.5,fillOpacity:.75}).addTo(mapMarkersLayer);
+    m.bindPopup(`<strong>${name}</strong><br>${d.en||''}<br>${cnt} ${unit}<br><button onclick="showPlace('${name.replace(/'/g,"\\'")}')" style="margin-top:4px;padding:2px 6px;background:#6b1200;color:#fff;border:none;border-radius:3px;cursor:pointer;font-size:.75rem">View ${unit} →</button>`,{maxWidth:190});
+  });
 }
 
 let currentPlacePageIds=[];
