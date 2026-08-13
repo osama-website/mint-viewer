@@ -39,7 +39,9 @@ body{background:var(--bg);color:var(--ink);font-family:var(--font-ui);min-height
 .search-bar input{flex:1;padding:.55rem .9rem;border:1.5px solid var(--border);border-radius:var(--radius);font-size:.95rem;background:var(--surface)}
 .search-bar input:focus{outline:none;border-color:var(--accent)}
 .search-hint{font-size:.78rem;color:var(--accent);margin-bottom:.5rem;min-height:1.1em}
-.filter-row{display:flex;flex-wrap:wrap;gap:.35rem;margin-bottom:.6rem;align-items:center}
+.filter-row{display:flex;flex-wrap:nowrap;gap:.35rem;margin-bottom:.6rem;align-items:center}
+#year-chips{display:flex;gap:.35rem;overflow-x:auto;flex:1;min-width:0;padding-bottom:3px;scrollbar-width:thin}
+#year-chips .chip{flex:0 0 auto}
 .filter-label{font-size:.72rem;color:var(--muted)}
 .chip{font-size:.7rem;padding:.18rem .5rem;border-radius:12px;cursor:pointer;border:1.5px solid var(--border);background:var(--surface);transition:all .15s}
 .chip.active{background:var(--accent);color:#fff;border-color:var(--accent)}
@@ -47,7 +49,8 @@ body{background:var(--bg);color:var(--ink);font-family:var(--font-ui);min-height
 .chip-year{font-weight:600}
 .chip-year.expanded{background:var(--sand);border-color:var(--accent);color:var(--ink)}
 .chip-year.expanded::after{content:'';display:inline-block;margin-left:.3rem;border:3px solid transparent;border-top-color:var(--accent);vertical-align:middle}
-.issue-subrow{display:none;flex-wrap:wrap;gap:.3rem;margin:0 0 .6rem 1.1rem;padding:.5rem .6rem;background:var(--surface);border-left:2px solid var(--accent);border-radius:0 8px 8px 0}
+.issue-subrow{display:none;flex-wrap:nowrap;gap:.3rem;overflow-x:auto;margin:0 0 .6rem 1.1rem;padding:.5rem .6rem;background:var(--surface);border-left:2px solid var(--accent);border-radius:0 8px 8px 0;scrollbar-width:thin}
+.issue-subrow .chip{flex:0 0 auto}
 .issue-subrow.open{display:flex}
 .sort-row{display:flex;gap:.4rem;align-items:center;margin-bottom:.6rem;flex-wrap:wrap}
 .sort-label{font-size:.72rem;color:var(--muted)}
