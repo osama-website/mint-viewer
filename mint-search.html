@@ -1582,7 +1582,7 @@ function loadTlWord(word,keepHistory){
     const showLabel=!seenYears.has(yr);
     if(showLabel)seenYears.add(yr);
     const s=document.createElement('span');s.className='tl-tick'+(showLabel?'':' tl-tick-bare');
-    s.textContent=showLabel?yr:'';
+    s.textContent=showLabel?("'"+yr.slice(2)):'';
     ticks.appendChild(s);
   });
   document.getElementById('tl-active-year').textContent='Overview';
