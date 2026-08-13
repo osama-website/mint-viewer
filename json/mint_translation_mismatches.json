@@ -1,0 +1,5150 @@
+[
+  {
+    "page_id": 5,
+    "issue_date": "1928-05-01",
+    "verdict": "mismatch",
+    "reason": "Content describes completely different conversation"
+  },
+  {
+    "page_id": 38,
+    "issue_date": "1928-06-01",
+    "verdict": "mismatch",
+    "reason": "Dates and content are different"
+  },
+  {
+    "page_id": 60,
+    "issue_date": "1928-06-06",
+    "verdict": "mismatch",
+    "reason": "translation is completely unrelated content"
+  },
+  {
+    "page_id": 117,
+    "issue_date": "1928-08-01",
+    "verdict": "mismatch",
+    "reason": "Translation content is completely unrelated"
+  },
+  {
+    "page_id": 132,
+    "issue_date": "1928-09-01",
+    "verdict": "mismatch",
+    "reason": "Translation discusses unrelated political history"
+  },
+  {
+    "page_id": 137,
+    "issue_date": "1928-09-01",
+    "verdict": "mismatch",
+    "reason": "Pashto is history, English is poetry"
+  },
+  {
+    "page_id": 138,
+    "issue_date": "1928-09-01",
+    "verdict": "mismatch",
+    "reason": "Pashto is social critique, English is memoir"
+  },
+  {
+    "page_id": 206,
+    "issue_date": "1928-12-01",
+    "verdict": "mismatch",
+    "reason": "Translation describes different letter content"
+  },
+  {
+    "page_id": 220,
+    "issue_date": "1928-12-01",
+    "verdict": "mismatch",
+    "reason": "Translation lists rules not present"
+  },
+  {
+    "page_id": 222,
+    "issue_date": "1928-12-01",
+    "verdict": "mismatch",
+    "reason": "Translation discusses reform not story"
+  },
+  {
+    "page_id": 226,
+    "issue_date": "1928-12-01",
+    "verdict": "mismatch",
+    "reason": "Content discusses different historical topics"
+  },
+  {
+    "page_id": 229,
+    "issue_date": "1928-12-01",
+    "verdict": "mismatch",
+    "reason": "Translation describes unrelated European politics"
+  },
+  {
+    "page_id": 260,
+    "issue_date": "1929-02-01",
+    "verdict": "mismatch",
+    "reason": "Translation content is completely unrelated"
+  },
+  {
+    "page_id": 274,
+    "issue_date": "1929-02-01",
+    "verdict": "mismatch",
+    "reason": "Translation is fragmented and garbled"
+  },
+  {
+    "page_id": 276,
+    "issue_date": "1929-02-01",
+    "verdict": "mismatch",
+    "reason": "Translation mixes unrelated text segments"
+  },
+  {
+    "page_id": 318,
+    "issue_date": "1929-02-02",
+    "verdict": "mismatch",
+    "reason": "Translation content is completely unrelated"
+  },
+  {
+    "page_id": 360,
+    "issue_date": "1929-03-01",
+    "verdict": "mismatch",
+    "reason": "Translation is completely unrelated text"
+  },
+  {
+    "page_id": 401,
+    "issue_date": "1929-05-01",
+    "verdict": "mismatch",
+    "reason": "Translation describes slavery poem content"
+  },
+  {
+    "page_id": 417,
+    "issue_date": "1929-06-01",
+    "verdict": "mismatch",
+    "reason": "Translation is incoherent gibberish text"
+  },
+  {
+    "page_id": 425,
+    "issue_date": "1929-06-01",
+    "verdict": "mismatch",
+    "reason": "different subjects and historical contexts"
+  },
+  {
+    "page_id": 433,
+    "issue_date": "1929-07-01",
+    "verdict": "mismatch",
+    "reason": "Translation content is completely different"
+  },
+  {
+    "page_id": 448,
+    "issue_date": "1929-07-01",
+    "verdict": "mismatch",
+    "reason": "Translation discusses education and Helmand"
+  },
+  {
+    "page_id": 466,
+    "issue_date": "1929-08-01",
+    "verdict": "mismatch",
+    "reason": "Pashto is political, English poem"
+  },
+  {
+    "page_id": 519,
+    "issue_date": "1929-10-01",
+    "verdict": "mismatch",
+    "reason": "Translation discusses different political topics"
+  },
+  {
+    "page_id": 541,
+    "issue_date": "1929-12-01",
+    "verdict": "mismatch",
+    "reason": "Content topics are completely different"
+  },
+  {
+    "page_id": 547,
+    "issue_date": "1929-12-01",
+    "verdict": "mismatch",
+    "reason": "Translation discusses unrelated historical narrative"
+  },
+  {
+    "page_id": 559,
+    "issue_date": "1930-01-01",
+    "verdict": "mismatch",
+    "reason": "translation describes different historical period"
+  },
+  {
+    "page_id": 616,
+    "issue_date": "1931-05-01",
+    "verdict": "mismatch",
+    "reason": "Table of contents versus article"
+  },
+  {
+    "page_id": 617,
+    "issue_date": "1931-05-01",
+    "verdict": "mismatch",
+    "reason": "Political speech versus general essay"
+  },
+  {
+    "page_id": 618,
+    "issue_date": "1931-05-01",
+    "verdict": "mismatch",
+    "reason": "Legal petition versus organizational history"
+  },
+  {
+    "page_id": 619,
+    "issue_date": "1931-05-01",
+    "verdict": "mismatch",
+    "reason": "Personal letter versus economic theory"
+  },
+  {
+    "page_id": 620,
+    "issue_date": "1931-05-01",
+    "verdict": "mismatch",
+    "reason": "Political peace versus poetic imagery"
+  },
+  {
+    "page_id": 621,
+    "issue_date": "1931-05-01",
+    "verdict": "mismatch",
+    "reason": "Political peace versus religious philosophy"
+  },
+  {
+    "page_id": 622,
+    "issue_date": "1931-05-01",
+    "verdict": "mismatch",
+    "reason": "Historical report versus personal commentary"
+  },
+  {
+    "page_id": 623,
+    "issue_date": "1931-05-01",
+    "verdict": "mismatch",
+    "reason": "Local incident versus political speech"
+  },
+  {
+    "page_id": 624,
+    "issue_date": "1931-05-01",
+    "verdict": "mismatch",
+    "reason": "Translation discusses education curriculum instead"
+  },
+  {
+    "page_id": 626,
+    "issue_date": "1931-05-01",
+    "verdict": "mismatch",
+    "reason": "Translation discusses Russian-Armenian diplomatic history"
+  },
+  {
+    "page_id": 679,
+    "issue_date": "1931-06-01",
+    "verdict": "mismatch",
+    "reason": "Table of contents versus text"
+  },
+  {
+    "page_id": 681,
+    "issue_date": "1931-06-01",
+    "verdict": "mismatch",
+    "reason": "Pashto is poetry; English is prose"
+  },
+  {
+    "page_id": 682,
+    "issue_date": "1931-06-01",
+    "verdict": "mismatch",
+    "reason": "Pashto is index; English is political commentary"
+  },
+  {
+    "page_id": 683,
+    "issue_date": "1931-06-01",
+    "verdict": "mismatch",
+    "reason": "Pashto is table of contents; English is poetry"
+  },
+  {
+    "page_id": 684,
+    "issue_date": "1931-06-01",
+    "verdict": "mismatch",
+    "reason": "Pashto is poetry; English is political news"
+  },
+  {
+    "page_id": 685,
+    "issue_date": "1931-06-01",
+    "verdict": "mismatch",
+    "reason": "Pashto is political critique; English is history"
+  },
+  {
+    "page_id": 687,
+    "issue_date": "1931-06-01",
+    "verdict": "mismatch",
+    "reason": "Pashto is political critique; English is education"
+  },
+  {
+    "page_id": 688,
+    "issue_date": "1931-06-01",
+    "verdict": "mismatch",
+    "reason": "Translation is about poetry/anthem"
+  },
+  {
+    "page_id": 689,
+    "issue_date": "1931-06-01",
+    "verdict": "mismatch",
+    "reason": "Translation is about historical narrative"
+  },
+  {
+    "page_id": 690,
+    "issue_date": "1931-06-01",
+    "verdict": "mismatch",
+    "reason": "Translation is about political advice"
+  },
+  {
+    "page_id": 691,
+    "issue_date": "1931-06-01",
+    "verdict": "mismatch",
+    "reason": "Translation is about government administration"
+  },
+  {
+    "page_id": 692,
+    "issue_date": "1931-06-01",
+    "verdict": "mismatch",
+    "reason": "Translation is about historical narrative"
+  },
+  {
+    "page_id": 693,
+    "issue_date": "1931-06-01",
+    "verdict": "mismatch",
+    "reason": "Translation is about historical narrative"
+  },
+  {
+    "page_id": 694,
+    "issue_date": "1931-06-01",
+    "verdict": "mismatch",
+    "reason": "Translation is about literary biography"
+  },
+  {
+    "page_id": 695,
+    "issue_date": "1931-06-01",
+    "verdict": "mismatch",
+    "reason": "Translation is about poetic definition"
+  },
+  {
+    "page_id": 696,
+    "issue_date": "1931-06-01",
+    "verdict": "mismatch",
+    "reason": "Different topics and content subjects"
+  },
+  {
+    "page_id": 697,
+    "issue_date": "1931-06-01",
+    "verdict": "mismatch",
+    "reason": "Different topics and content subjects"
+  },
+  {
+    "page_id": 698,
+    "issue_date": "1931-06-01",
+    "verdict": "mismatch",
+    "reason": "Different topics and content subjects"
+  },
+  {
+    "page_id": 699,
+    "issue_date": "1931-06-01",
+    "verdict": "mismatch",
+    "reason": "Different topics and content subjects"
+  },
+  {
+    "page_id": 700,
+    "issue_date": "1931-06-01",
+    "verdict": "mismatch",
+    "reason": "Different topics and content subjects"
+  },
+  {
+    "page_id": 701,
+    "issue_date": "1931-06-01",
+    "verdict": "mismatch",
+    "reason": "Different topics and content subjects"
+  },
+  {
+    "page_id": 702,
+    "issue_date": "1931-06-01",
+    "verdict": "mismatch",
+    "reason": "Different topics and content subjects"
+  },
+  {
+    "page_id": 703,
+    "issue_date": "1931-06-01",
+    "verdict": "mismatch",
+    "reason": "Different topics and content subjects"
+  },
+  {
+    "page_id": 706,
+    "issue_date": "1931-06-01",
+    "verdict": "mismatch",
+    "reason": "Translation discusses unrelated religious rules"
+  },
+  {
+    "page_id": 707,
+    "issue_date": "1931-06-01",
+    "verdict": "mismatch",
+    "reason": "Translation discusses unrelated religious poetry"
+  },
+  {
+    "page_id": 708,
+    "issue_date": "1931-06-01",
+    "verdict": "mismatch",
+    "reason": "Translation discusses unrelated royal decrees"
+  },
+  {
+    "page_id": 709,
+    "issue_date": "1931-06-01",
+    "verdict": "mismatch",
+    "reason": "Translation discusses unrelated historical narrative"
+  },
+  {
+    "page_id": 710,
+    "issue_date": "1931-06-01",
+    "verdict": "mismatch",
+    "reason": "Translation discusses unrelated murder statistics"
+  },
+  {
+    "page_id": 712,
+    "issue_date": "1931-06-01",
+    "verdict": "mismatch",
+    "reason": "Translation discusses unrelated personal musings"
+  },
+  {
+    "page_id": 713,
+    "issue_date": "1931-06-01",
+    "verdict": "mismatch",
+    "reason": "Translation discusses Albanian King Zogu"
+  },
+  {
+    "page_id": 714,
+    "issue_date": "1931-06-01",
+    "verdict": "mismatch",
+    "reason": "Translation discusses Zogu's marriage history"
+  },
+  {
+    "page_id": 715,
+    "issue_date": "1931-06-01",
+    "verdict": "mismatch",
+    "reason": "Translation is a poem about politics"
+  },
+  {
+    "page_id": 716,
+    "issue_date": "1931-06-01",
+    "verdict": "mismatch",
+    "reason": "Translation discusses Pashtun bravery themes"
+  },
+  {
+    "page_id": 717,
+    "issue_date": "1931-06-01",
+    "verdict": "mismatch",
+    "reason": "Translation is a poem about wine"
+  },
+  {
+    "page_id": 718,
+    "issue_date": "1931-06-01",
+    "verdict": "mismatch",
+    "reason": "Translation discusses Khushal Khan's poetry"
+  },
+  {
+    "page_id": 719,
+    "issue_date": "1931-06-01",
+    "verdict": "mismatch",
+    "reason": "Translation is a poem about wine"
+  },
+  {
+    "page_id": 720,
+    "issue_date": "1931-06-01",
+    "verdict": "mismatch",
+    "reason": "Translation discusses unrelated newspaper topics"
+  },
+  {
+    "page_id": 721,
+    "issue_date": "1931-06-01",
+    "verdict": "mismatch",
+    "reason": "Translation is a poem about father-child"
+  },
+  {
+    "page_id": 722,
+    "issue_date": "1931-06-01",
+    "verdict": "mismatch",
+    "reason": "Translation discusses global population and insurance"
+  },
+  {
+    "page_id": 723,
+    "issue_date": "1931-06-01",
+    "verdict": "mismatch",
+    "reason": "Translation is an insurance company advertisement"
+  },
+  {
+    "page_id": 724,
+    "issue_date": "1931-06-01",
+    "verdict": "mismatch",
+    "reason": "Translation is a poem about servants"
+  },
+  {
+    "page_id": 725,
+    "issue_date": "1931-06-01",
+    "verdict": "mismatch",
+    "reason": "Translation is a magazine table contents"
+  },
+  {
+    "page_id": 727,
+    "issue_date": "1931-06-01",
+    "verdict": "mismatch",
+    "reason": "Translation discusses British and Russian relations"
+  },
+  {
+    "page_id": 728,
+    "issue_date": "1931-06-01",
+    "verdict": "mismatch",
+    "reason": "Religious discourse versus political commentary"
+  },
+  {
+    "page_id": 729,
+    "issue_date": "1931-06-01",
+    "verdict": "mismatch",
+    "reason": "Community unity versus biographical profile"
+  },
+  {
+    "page_id": 730,
+    "issue_date": "1931-06-01",
+    "verdict": "mismatch",
+    "reason": "Public meeting versus editorial correspondence"
+  },
+  {
+    "page_id": 731,
+    "issue_date": "1931-06-01",
+    "verdict": "mismatch",
+    "reason": "Personal prayer versus fictional animal story"
+  },
+  {
+    "page_id": 732,
+    "issue_date": "1931-06-01",
+    "verdict": "mismatch",
+    "reason": "Reception of guest versus poetic merchant imagery"
+  },
+  {
+    "page_id": 733,
+    "issue_date": "1931-06-01",
+    "verdict": "mismatch",
+    "reason": "Magazine publication history versus religious sermon"
+  },
+  {
+    "page_id": 734,
+    "issue_date": "1931-06-01",
+    "verdict": "mismatch",
+    "reason": "Political meeting versus educational statistics report"
+  },
+  {
+    "page_id": 735,
+    "issue_date": "1931-06-01",
+    "verdict": "mismatch",
+    "reason": "Poetic tribute versus news about Iraq"
+  },
+  {
+    "page_id": 737,
+    "issue_date": "1931-06-01",
+    "verdict": "mismatch",
+    "reason": "Pashto discusses leadership; English lists crimes"
+  },
+  {
+    "page_id": 740,
+    "issue_date": "1931-06-01",
+    "verdict": "mismatch",
+    "reason": "Pashto discusses education; English discusses floods"
+  },
+  {
+    "page_id": 741,
+    "issue_date": "1931-06-01",
+    "verdict": "mismatch",
+    "reason": "Pashto discusses education; English discusses politics"
+  },
+  {
+    "page_id": 742,
+    "issue_date": "1931-06-01",
+    "verdict": "mismatch",
+    "reason": "Pashto discusses language; English discusses conference"
+  },
+  {
+    "page_id": 744,
+    "issue_date": "1931-06-01",
+    "verdict": "mismatch",
+    "reason": "Pashto education vs Indian politics"
+  },
+  {
+    "page_id": 745,
+    "issue_date": "1931-06-01",
+    "verdict": "mismatch",
+    "reason": "Parenting ethics vs Soviet history"
+  },
+  {
+    "page_id": 746,
+    "issue_date": "1931-06-01",
+    "verdict": "mismatch",
+    "reason": "National unity vs Russian war strategy"
+  },
+  {
+    "page_id": 747,
+    "issue_date": "1931-06-01",
+    "verdict": "mismatch",
+    "reason": "British colonialism vs tribal treaty issues"
+  },
+  {
+    "page_id": 748,
+    "issue_date": "1931-06-01",
+    "verdict": "mismatch",
+    "reason": "Diplomatic telegrams vs Mirwais Khan"
+  },
+  {
+    "page_id": 749,
+    "issue_date": "1931-06-01",
+    "verdict": "mismatch",
+    "reason": "Provincial taxes vs philosophical servitude"
+  },
+  {
+    "page_id": 750,
+    "issue_date": "1931-06-01",
+    "verdict": "mismatch",
+    "reason": "Political movements vs language conference"
+  },
+  {
+    "page_id": 751,
+    "issue_date": "1931-06-01",
+    "verdict": "mismatch",
+    "reason": "Frontier province activism vs poetry"
+  },
+  {
+    "page_id": 760,
+    "issue_date": "1931-06-01",
+    "verdict": "mismatch",
+    "reason": "Pashto is advertising, English is philosophical."
+  },
+  {
+    "page_id": 761,
+    "issue_date": "1931-06-01",
+    "verdict": "mismatch",
+    "reason": "Pashto is brick factory, English is Nazis."
+  },
+  {
+    "page_id": 762,
+    "issue_date": "1931-08-01",
+    "verdict": "mismatch",
+    "reason": "Pashto is subscription info, English is prisoners."
+  },
+  {
+    "page_id": 763,
+    "issue_date": "1931-08-01",
+    "verdict": "mismatch",
+    "reason": "Pashto is patriotic poetry, English is factory."
+  },
+  {
+    "page_id": 764,
+    "issue_date": "1931-08-01",
+    "verdict": "mismatch",
+    "reason": "Pashto is poetry, English is political commentary."
+  },
+  {
+    "page_id": 765,
+    "issue_date": "1931-08-01",
+    "verdict": "mismatch",
+    "reason": "Pashto is table of contents, English is prose."
+  },
+  {
+    "page_id": 766,
+    "issue_date": "1931-08-01",
+    "verdict": "mismatch",
+    "reason": "Pashto is freedom poetry, English is prose."
+  },
+  {
+    "page_id": 767,
+    "issue_date": "1931-08-01",
+    "verdict": "mismatch",
+    "reason": "Pashto is Khudai Khidmatgar, English is Britain."
+  },
+  {
+    "page_id": 768,
+    "issue_date": "1931-08-01",
+    "verdict": "mismatch",
+    "reason": "Different topics and historical contexts"
+  },
+  {
+    "page_id": 769,
+    "issue_date": "1931-08-01",
+    "verdict": "mismatch",
+    "reason": "Different subjects and narrative content"
+  },
+  {
+    "page_id": 770,
+    "issue_date": "1931-08-01",
+    "verdict": "mismatch",
+    "reason": "Different topics and structural formats"
+  },
+  {
+    "page_id": 771,
+    "issue_date": "1931-08-01",
+    "verdict": "mismatch",
+    "reason": "Different themes and poetic content"
+  },
+  {
+    "page_id": 772,
+    "issue_date": "1931-08-01",
+    "verdict": "mismatch",
+    "reason": "Different topics and target audiences"
+  },
+  {
+    "page_id": 773,
+    "issue_date": "1931-08-01",
+    "verdict": "mismatch",
+    "reason": "Different themes and literary styles"
+  },
+  {
+    "page_id": 774,
+    "issue_date": "1931-08-01",
+    "verdict": "mismatch",
+    "reason": "Different topics and historical focus"
+  },
+  {
+    "page_id": 775,
+    "issue_date": "1931-08-01",
+    "verdict": "mismatch",
+    "reason": "Different topics and subject matter"
+  },
+  {
+    "page_id": 776,
+    "issue_date": "1931-08-01",
+    "verdict": "mismatch",
+    "reason": "Political text vs insurance advertisement"
+  },
+  {
+    "page_id": 777,
+    "issue_date": "1931-08-01",
+    "verdict": "mismatch",
+    "reason": "Political commentary vs poetic fragments"
+  },
+  {
+    "page_id": 778,
+    "issue_date": "1931-08-01",
+    "verdict": "mismatch",
+    "reason": "Political discourse vs insurance advertisement"
+  },
+  {
+    "page_id": 779,
+    "issue_date": "1931-08-01",
+    "verdict": "mismatch",
+    "reason": "Political governance vs patriotic poetry"
+  },
+  {
+    "page_id": 780,
+    "issue_date": "1931-08-01",
+    "verdict": "mismatch",
+    "reason": "Political theory vs magazine table contents"
+  },
+  {
+    "page_id": 781,
+    "issue_date": "1931-08-01",
+    "verdict": "mismatch",
+    "reason": "Poem about cannon vs essay on character"
+  },
+  {
+    "page_id": 782,
+    "issue_date": "1931-08-01",
+    "verdict": "mismatch",
+    "reason": "Women's appreciation letter vs speech transcript"
+  },
+  {
+    "page_id": 784,
+    "issue_date": "1931-08-01",
+    "verdict": "mismatch",
+    "reason": "Pashto is social, English political"
+  },
+  {
+    "page_id": 785,
+    "issue_date": "1931-08-01",
+    "verdict": "mismatch",
+    "reason": "Pashto is social, English political"
+  },
+  {
+    "page_id": 786,
+    "issue_date": "1931-08-01",
+    "verdict": "mismatch",
+    "reason": "Pashto is social, English international"
+  },
+  {
+    "page_id": 787,
+    "issue_date": "1931-08-01",
+    "verdict": "mismatch",
+    "reason": "Pashto is poetry, English political"
+  },
+  {
+    "page_id": 788,
+    "issue_date": "1931-08-01",
+    "verdict": "mismatch",
+    "reason": "Pashto is poetry, English international"
+  },
+  {
+    "page_id": 789,
+    "issue_date": "1931-08-01",
+    "verdict": "mismatch",
+    "reason": "Pashto is religious, English international"
+  },
+  {
+    "page_id": 790,
+    "issue_date": "1931-08-01",
+    "verdict": "mismatch",
+    "reason": "Pashto is religious, English international"
+  },
+  {
+    "page_id": 791,
+    "issue_date": "1931-08-01",
+    "verdict": "mismatch",
+    "reason": "Pashto is religious, English international"
+  },
+  {
+    "page_id": 792,
+    "issue_date": "1931-08-01",
+    "verdict": "mismatch",
+    "reason": "Different topics and historical contexts"
+  },
+  {
+    "page_id": 793,
+    "issue_date": "1931-08-01",
+    "verdict": "mismatch",
+    "reason": "Different subjects and narrative content"
+  },
+  {
+    "page_id": 794,
+    "issue_date": "1931-08-01",
+    "verdict": "mismatch",
+    "reason": "Different topics and thematic focus"
+  },
+  {
+    "page_id": 795,
+    "issue_date": "1931-08-01",
+    "verdict": "mismatch",
+    "reason": "Different subjects and political contexts"
+  },
+  {
+    "page_id": 797,
+    "issue_date": "1931-08-01",
+    "verdict": "mismatch",
+    "reason": "Different topics and political figures"
+  },
+  {
+    "page_id": 798,
+    "issue_date": "1931-08-01",
+    "verdict": "mismatch",
+    "reason": "Different subjects and thematic focus"
+  },
+  {
+    "page_id": 799,
+    "issue_date": "1931-08-01",
+    "verdict": "mismatch",
+    "reason": "Different topics and commercial content"
+  },
+  {
+    "page_id": 800,
+    "issue_date": "1931-08-01",
+    "verdict": "mismatch",
+    "reason": "Religious text vs poetic lament"
+  },
+  {
+    "page_id": 801,
+    "issue_date": "1931-08-01",
+    "verdict": "mismatch",
+    "reason": "Religious text vs table contents"
+  },
+  {
+    "page_id": 802,
+    "issue_date": "1931-08-01",
+    "verdict": "mismatch",
+    "reason": "Religious text vs slavery poem"
+  },
+  {
+    "page_id": 803,
+    "issue_date": "1931-08-01",
+    "verdict": "mismatch",
+    "reason": "Religious text vs moral advice"
+  },
+  {
+    "page_id": 804,
+    "issue_date": "1931-08-01",
+    "verdict": "mismatch",
+    "reason": "Religious text vs international news"
+  },
+  {
+    "page_id": 805,
+    "issue_date": "1931-08-01",
+    "verdict": "mismatch",
+    "reason": "Religious text vs Indian news"
+  },
+  {
+    "page_id": 806,
+    "issue_date": "1931-08-01",
+    "verdict": "mismatch",
+    "reason": "Religious text vs frontier news"
+  },
+  {
+    "page_id": 808,
+    "issue_date": "1931-08-01",
+    "verdict": "mismatch",
+    "reason": "Political essay versus personal biography"
+  },
+  {
+    "page_id": 809,
+    "issue_date": "1931-08-01",
+    "verdict": "mismatch",
+    "reason": "Political history versus personal narrative"
+  },
+  {
+    "page_id": 810,
+    "issue_date": "1931-08-01",
+    "verdict": "mismatch",
+    "reason": "Romantic story versus educational policy"
+  },
+  {
+    "page_id": 811,
+    "issue_date": "1931-08-01",
+    "verdict": "mismatch",
+    "reason": "Poetic narrative versus political commentary"
+  },
+  {
+    "page_id": 812,
+    "issue_date": "1931-08-01",
+    "verdict": "mismatch",
+    "reason": "Religious definition versus personal anecdote"
+  },
+  {
+    "page_id": 813,
+    "issue_date": "1931-08-01",
+    "verdict": "mismatch",
+    "reason": "Political theology versus personal memoir"
+  },
+  {
+    "page_id": 814,
+    "issue_date": "1931-08-01",
+    "verdict": "mismatch",
+    "reason": "Religious freedom versus dramatic fiction"
+  },
+  {
+    "page_id": 815,
+    "issue_date": "1931-08-01",
+    "verdict": "mismatch",
+    "reason": "Legal justice versus adult education"
+  },
+  {
+    "page_id": 816,
+    "issue_date": "1931-08-01",
+    "verdict": "mismatch",
+    "reason": "Content is completely different topics"
+  },
+  {
+    "page_id": 817,
+    "issue_date": "1931-08-01",
+    "verdict": "mismatch",
+    "reason": "Poetry vs religious/philosophical prose"
+  },
+  {
+    "page_id": 818,
+    "issue_date": "1931-08-01",
+    "verdict": "mismatch",
+    "reason": "Government policy vs religious history"
+  },
+  {
+    "page_id": 819,
+    "issue_date": "1931-08-01",
+    "verdict": "mismatch",
+    "reason": "Political commentary vs poetic verses"
+  },
+  {
+    "page_id": 820,
+    "issue_date": "1931-08-01",
+    "verdict": "mismatch",
+    "reason": "Condolences vs nationalist protest poetry"
+  },
+  {
+    "page_id": 821,
+    "issue_date": "1931-08-01",
+    "verdict": "mismatch",
+    "reason": "Editorial vs table of contents"
+  },
+  {
+    "page_id": 822,
+    "issue_date": "1931-08-01",
+    "verdict": "mismatch",
+    "reason": "Editorial policy vs poetic verses"
+  },
+  {
+    "page_id": 823,
+    "issue_date": "1931-08-01",
+    "verdict": "mismatch",
+    "reason": "Personal service vs political questions"
+  },
+  {
+    "page_id": 824,
+    "issue_date": "1931-08-01",
+    "verdict": "mismatch",
+    "reason": "Pashto is editorial guidelines; English is political correspondence."
+  },
+  {
+    "page_id": 825,
+    "issue_date": "1931-09-01",
+    "verdict": "mismatch",
+    "reason": "Pashto is magazine info; English is police/administrative report."
+  },
+  {
+    "page_id": 826,
+    "issue_date": "1931-09-01",
+    "verdict": "mismatch",
+    "reason": "Pashto is about fashion design; English is Iraqi political news."
+  },
+  {
+    "page_id": 827,
+    "issue_date": "1931-09-01",
+    "verdict": "mismatch",
+    "reason": "Pashto is a table of contents; English is Indian financial news."
+  },
+  {
+    "page_id": 828,
+    "issue_date": "1931-09-01",
+    "verdict": "mismatch",
+    "reason": "Pashto is a letter from Nehru; English is Frontier Jirga news."
+  },
+  {
+    "page_id": 829,
+    "issue_date": "1931-09-01",
+    "verdict": "mismatch",
+    "reason": "Pashto is political commentary; English is list of American publications."
+  },
+  {
+    "page_id": 830,
+    "issue_date": "1931-09-01",
+    "verdict": "mismatch",
+    "reason": "Pashto is social commentary; English is linguistic debate on India."
+  },
+  {
+    "page_id": 831,
+    "issue_date": "1931-09-01",
+    "verdict": "mismatch",
+    "reason": "Pashto is religious/moral exhortation; English is poem about slavery."
+  },
+  {
+    "page_id": 832,
+    "issue_date": "1931-09-01",
+    "verdict": "mismatch",
+    "reason": "Content is completely different topics"
+  },
+  {
+    "page_id": 833,
+    "issue_date": "1931-09-01",
+    "verdict": "mismatch",
+    "reason": "Content is completely different topics"
+  },
+  {
+    "page_id": 834,
+    "issue_date": "1931-09-01",
+    "verdict": "mismatch",
+    "reason": "Content is completely different topics"
+  },
+  {
+    "page_id": 835,
+    "issue_date": "1931-09-01",
+    "verdict": "mismatch",
+    "reason": "Content is completely different topics"
+  },
+  {
+    "page_id": 836,
+    "issue_date": "1931-09-01",
+    "verdict": "mismatch",
+    "reason": "Content is completely different topics"
+  },
+  {
+    "page_id": 837,
+    "issue_date": "1931-09-01",
+    "verdict": "mismatch",
+    "reason": "Content is completely different topics"
+  },
+  {
+    "page_id": 838,
+    "issue_date": "1931-09-01",
+    "verdict": "mismatch",
+    "reason": "Content is completely different topics"
+  },
+  {
+    "page_id": 839,
+    "issue_date": "1931-09-01",
+    "verdict": "mismatch",
+    "reason": "Content is completely different topics"
+  },
+  {
+    "page_id": 840,
+    "issue_date": "1931-09-01",
+    "verdict": "mismatch",
+    "reason": "Pashto is religious/moral, English is municipal tax notice."
+  },
+  {
+    "page_id": 841,
+    "issue_date": "1931-09-01",
+    "verdict": "mismatch",
+    "reason": "Pashto is religious/Quranic, English is life insurance advertisement."
+  },
+  {
+    "page_id": 842,
+    "issue_date": "1931-09-01",
+    "verdict": "mismatch",
+    "reason": "Pashto is prose/social commentary, English is a poem."
+  },
+  {
+    "page_id": 843,
+    "issue_date": "1931-09-01",
+    "verdict": "mismatch",
+    "reason": "Pashto is religious/moral, English is a table of contents."
+  },
+  {
+    "page_id": 844,
+    "issue_date": "1931-09-01",
+    "verdict": "mismatch",
+    "reason": "Pashto is religious/moral, English is a poem about a messenger."
+  },
+  {
+    "page_id": 845,
+    "issue_date": "1931-09-01",
+    "verdict": "mismatch",
+    "reason": "Pashto is about Pashtun social ethics, English is about linguistics/government."
+  },
+  {
+    "page_id": 846,
+    "issue_date": "1931-09-01",
+    "verdict": "mismatch",
+    "reason": "Pashto is about Pashtun unity, English is about government reform/foreigners."
+  },
+  {
+    "page_id": 847,
+    "issue_date": "1931-09-01",
+    "verdict": "mismatch",
+    "reason": "Pashto is religious/moral, English is about international political treaties."
+  },
+  {
+    "page_id": 848,
+    "issue_date": "1931-09-01",
+    "verdict": "mismatch",
+    "reason": "Poetry vs historical news report"
+  },
+  {
+    "page_id": 849,
+    "issue_date": "1931-09-01",
+    "verdict": "mismatch",
+    "reason": "Editorial vs list of names"
+  },
+  {
+    "page_id": 850,
+    "issue_date": "1931-09-01",
+    "verdict": "mismatch",
+    "reason": "Poetry vs letter from America"
+  },
+  {
+    "page_id": 851,
+    "issue_date": "1931-09-01",
+    "verdict": "mismatch",
+    "reason": "Poetry vs historical military account"
+  },
+  {
+    "page_id": 852,
+    "issue_date": "1931-09-01",
+    "verdict": "mismatch",
+    "reason": "Poetry vs biographical narrative"
+  },
+  {
+    "page_id": 853,
+    "issue_date": "1931-09-01",
+    "verdict": "mismatch",
+    "reason": "Political complaint vs historical account"
+  },
+  {
+    "page_id": 855,
+    "issue_date": "1931-09-01",
+    "verdict": "mismatch",
+    "reason": "Language exercise vs personal opinion"
+  },
+  {
+    "page_id": 856,
+    "issue_date": "1931-09-01",
+    "verdict": "mismatch",
+    "reason": "Pashto political text vs religious biography"
+  },
+  {
+    "page_id": 857,
+    "issue_date": "1931-09-01",
+    "verdict": "mismatch",
+    "reason": "Pashto social reform vs English poem"
+  },
+  {
+    "page_id": 858,
+    "issue_date": "1931-09-01",
+    "verdict": "mismatch",
+    "reason": "Pashto political movement vs industrial report"
+  },
+  {
+    "page_id": 859,
+    "issue_date": "1931-09-01",
+    "verdict": "mismatch",
+    "reason": "Pashto historical review vs war news"
+  },
+  {
+    "page_id": 860,
+    "issue_date": "1931-09-01",
+    "verdict": "mismatch",
+    "reason": "Pashto meeting report vs English poem"
+  },
+  {
+    "page_id": 861,
+    "issue_date": "1931-09-01",
+    "verdict": "mismatch",
+    "reason": "Pashto funeral report vs table of contents"
+  },
+  {
+    "page_id": 862,
+    "issue_date": "1931-09-01",
+    "verdict": "mismatch",
+    "reason": "Pashto funeral report vs table of contents"
+  },
+  {
+    "page_id": 863,
+    "issue_date": "1931-09-01",
+    "verdict": "mismatch",
+    "reason": "Pashto committee report vs literary prose"
+  },
+  {
+    "page_id": 864,
+    "issue_date": "1931-09-01",
+    "verdict": "mismatch",
+    "reason": "Different topics and content themes"
+  },
+  {
+    "page_id": 865,
+    "issue_date": "1931-09-01",
+    "verdict": "mismatch",
+    "reason": "Different subjects and news events"
+  },
+  {
+    "page_id": 866,
+    "issue_date": "1931-09-01",
+    "verdict": "mismatch",
+    "reason": "Different topics and news reports"
+  },
+  {
+    "page_id": 867,
+    "issue_date": "1931-09-01",
+    "verdict": "mismatch",
+    "reason": "Different subjects and news items"
+  },
+  {
+    "page_id": 868,
+    "issue_date": "1931-09-01",
+    "verdict": "mismatch",
+    "reason": "Different topics and narrative content"
+  },
+  {
+    "page_id": 869,
+    "issue_date": "1931-09-01",
+    "verdict": "mismatch",
+    "reason": "Different subjects and content themes"
+  },
+  {
+    "page_id": 870,
+    "issue_date": "1931-09-01",
+    "verdict": "mismatch",
+    "reason": "Different topics and news events"
+  },
+  {
+    "page_id": 871,
+    "issue_date": "1931-09-01",
+    "verdict": "mismatch",
+    "reason": "Different subjects and historical accounts"
+  },
+  {
+    "page_id": 872,
+    "issue_date": "1931-09-01",
+    "verdict": "mismatch",
+    "reason": "Translation describes military/political history."
+  },
+  {
+    "page_id": 873,
+    "issue_date": "1931-09-01",
+    "verdict": "mismatch",
+    "reason": "Translation discusses British India politics."
+  },
+  {
+    "page_id": 874,
+    "issue_date": "1931-09-01",
+    "verdict": "mismatch",
+    "reason": "Translation lists hospital report dates."
+  },
+  {
+    "page_id": 875,
+    "issue_date": "1931-09-01",
+    "verdict": "mismatch",
+    "reason": "Translation is abstract philosophical poetry."
+  },
+  {
+    "page_id": 876,
+    "issue_date": "1931-09-01",
+    "verdict": "mismatch",
+    "reason": "Translation describes a historical narrative."
+  },
+  {
+    "page_id": 877,
+    "issue_date": "1931-09-01",
+    "verdict": "mismatch",
+    "reason": "Translation describes a village anecdote."
+  },
+  {
+    "page_id": 878,
+    "issue_date": "1931-09-01",
+    "verdict": "mismatch",
+    "reason": "Translation discusses adult education programs."
+  },
+  {
+    "page_id": 879,
+    "issue_date": "1931-09-01",
+    "verdict": "mismatch",
+    "reason": "Translation discusses Helmand public education."
+  },
+  {
+    "page_id": 880,
+    "issue_date": "1931-09-01",
+    "verdict": "mismatch",
+    "reason": "Translation is unrelated poetic text"
+  },
+  {
+    "page_id": 881,
+    "issue_date": "1931-09-01",
+    "verdict": "mismatch",
+    "reason": "Translation is about military news"
+  },
+  {
+    "page_id": 882,
+    "issue_date": "1931-09-01",
+    "verdict": "mismatch",
+    "reason": "Translation is about life insurance"
+  },
+  {
+    "page_id": 883,
+    "issue_date": "1931-09-01",
+    "verdict": "mismatch",
+    "reason": "Translation is a table contents"
+  },
+  {
+    "page_id": 884,
+    "issue_date": "1931-09-01",
+    "verdict": "mismatch",
+    "reason": "Translation is a table contents"
+  },
+  {
+    "page_id": 885,
+    "issue_date": "1931-09-01",
+    "verdict": "mismatch",
+    "reason": "Translation is a political warning"
+  },
+  {
+    "page_id": 886,
+    "issue_date": "1931-09-01",
+    "verdict": "mismatch",
+    "reason": "Translation is about religious worship"
+  },
+  {
+    "page_id": 889,
+    "issue_date": "1931-09-01",
+    "verdict": "mismatch",
+    "reason": "Different topics and content"
+  },
+  {
+    "page_id": 890,
+    "issue_date": "1934-06-01",
+    "verdict": "mismatch",
+    "reason": "Different topics and content"
+  },
+  {
+    "page_id": 891,
+    "issue_date": "1934-06-01",
+    "verdict": "mismatch",
+    "reason": "Different topics and content"
+  },
+  {
+    "page_id": 892,
+    "issue_date": "1934-06-01",
+    "verdict": "mismatch",
+    "reason": "Different topics and content"
+  },
+  {
+    "page_id": 893,
+    "issue_date": "1934-06-01",
+    "verdict": "mismatch",
+    "reason": "Different topics and content"
+  },
+  {
+    "page_id": 894,
+    "issue_date": "1934-06-01",
+    "verdict": "mismatch",
+    "reason": "Different topics and content"
+  },
+  {
+    "page_id": 895,
+    "issue_date": "1934-06-01",
+    "verdict": "mismatch",
+    "reason": "Different topics and content"
+  },
+  {
+    "page_id": 896,
+    "issue_date": "1934-06-01",
+    "verdict": "mismatch",
+    "reason": "Content is completely unrelated stories"
+  },
+  {
+    "page_id": 897,
+    "issue_date": "1934-06-01",
+    "verdict": "mismatch",
+    "reason": "Translation is about a poem"
+  },
+  {
+    "page_id": 898,
+    "issue_date": "1934-06-01",
+    "verdict": "mismatch",
+    "reason": "Translation is about Tipu Sultan"
+  },
+  {
+    "page_id": 899,
+    "issue_date": "1934-06-01",
+    "verdict": "mismatch",
+    "reason": "Translation is about English village"
+  },
+  {
+    "page_id": 900,
+    "issue_date": "1934-06-01",
+    "verdict": "mismatch",
+    "reason": "Translation is about a theft"
+  },
+  {
+    "page_id": 901,
+    "issue_date": "1934-06-01",
+    "verdict": "mismatch",
+    "reason": "Translation is about literary jirga"
+  },
+  {
+    "page_id": 902,
+    "issue_date": "1934-06-01",
+    "verdict": "mismatch",
+    "reason": "Translation is about life philosophy"
+  },
+  {
+    "page_id": 903,
+    "issue_date": "1934-06-01",
+    "verdict": "mismatch",
+    "reason": "Translation is about British nation"
+  },
+  {
+    "page_id": 904,
+    "issue_date": "1934-06-01",
+    "verdict": "mismatch",
+    "reason": "Translation is unrelated commercial advertisement"
+  },
+  {
+    "page_id": 911,
+    "issue_date": "1934-06-01",
+    "verdict": "mismatch",
+    "reason": "Translation is about Palestinian politics"
+  },
+  {
+    "page_id": 912,
+    "issue_date": "1934-06-01",
+    "verdict": "mismatch",
+    "reason": "Pashto religious text vs history"
+  },
+  {
+    "page_id": 913,
+    "issue_date": "1934-06-01",
+    "verdict": "mismatch",
+    "reason": "Pashto religious text vs battle"
+  },
+  {
+    "page_id": 914,
+    "issue_date": "1934-06-01",
+    "verdict": "mismatch",
+    "reason": "Pashto social commentary vs military"
+  },
+  {
+    "page_id": 915,
+    "issue_date": "1934-06-01",
+    "verdict": "mismatch",
+    "reason": "Pashto historical justice vs linguistics"
+  },
+  {
+    "page_id": 916,
+    "issue_date": "1934-06-01",
+    "verdict": "mismatch",
+    "reason": "Pashto moral philosophy vs service"
+  },
+  {
+    "page_id": 917,
+    "issue_date": "1934-06-01",
+    "verdict": "mismatch",
+    "reason": "Pashto geography vs poetic advice"
+  },
+  {
+    "page_id": 918,
+    "issue_date": "1934-06-01",
+    "verdict": "mismatch",
+    "reason": "Pashto political history vs speech"
+  },
+  {
+    "page_id": 919,
+    "issue_date": "1934-06-01",
+    "verdict": "mismatch",
+    "reason": "Pashto diplomatic history vs poetry"
+  },
+  {
+    "page_id": 920,
+    "issue_date": "1934-06-01",
+    "verdict": "mismatch",
+    "reason": "Pashto history text vs poetry"
+  },
+  {
+    "page_id": 921,
+    "issue_date": "1934-06-01",
+    "verdict": "mismatch",
+    "reason": "Pashto legal text vs index"
+  },
+  {
+    "page_id": 922,
+    "issue_date": "1934-06-01",
+    "verdict": "mismatch",
+    "reason": "Pashto history text vs war"
+  },
+  {
+    "page_id": 923,
+    "issue_date": "1934-06-01",
+    "verdict": "mismatch",
+    "reason": "Pashto ethics text vs politics"
+  },
+  {
+    "page_id": 924,
+    "issue_date": "1934-06-01",
+    "verdict": "mismatch",
+    "reason": "Pashto religious text vs politics"
+  },
+  {
+    "page_id": 925,
+    "issue_date": "1934-06-01",
+    "verdict": "mismatch",
+    "reason": "Pashto religious story vs biography"
+  },
+  {
+    "page_id": 926,
+    "issue_date": "1934-06-01",
+    "verdict": "mismatch",
+    "reason": "Pashto religious text vs index"
+  },
+  {
+    "page_id": 927,
+    "issue_date": "1934-06-01",
+    "verdict": "mismatch",
+    "reason": "Pashto narrative text vs politics"
+  },
+  {
+    "page_id": 928,
+    "issue_date": "1934-06-01",
+    "verdict": "mismatch",
+    "reason": "religious text vs literary commentary"
+  },
+  {
+    "page_id": 929,
+    "issue_date": "1934-06-01",
+    "verdict": "mismatch",
+    "reason": "pilgrimage vs historical military account"
+  },
+  {
+    "page_id": 930,
+    "issue_date": "1934-06-01",
+    "verdict": "mismatch",
+    "reason": "personal confusion vs political news"
+  },
+  {
+    "page_id": 931,
+    "issue_date": "1934-06-01",
+    "verdict": "mismatch",
+    "reason": "philosophical advice vs political history"
+  },
+  {
+    "page_id": 932,
+    "issue_date": "1934-06-01",
+    "verdict": "mismatch",
+    "reason": "Islamic history vs political commentary"
+  },
+  {
+    "page_id": 933,
+    "issue_date": "1934-06-01",
+    "verdict": "mismatch",
+    "reason": "poetic reflection vs political analysis"
+  },
+  {
+    "page_id": 934,
+    "issue_date": "1934-06-01",
+    "verdict": "mismatch",
+    "reason": "literary advice vs political reconciliation"
+  },
+  {
+    "page_id": 935,
+    "issue_date": "1934-06-01",
+    "verdict": "mismatch",
+    "reason": "Pashto language vs religious biography"
+  },
+  {
+    "page_id": 936,
+    "issue_date": "1934-06-01",
+    "verdict": "mismatch",
+    "reason": "Translation is unrelated poetic text"
+  },
+  {
+    "page_id": 937,
+    "issue_date": "1934-06-01",
+    "verdict": "mismatch",
+    "reason": "Translation is unrelated philosophical text"
+  },
+  {
+    "page_id": 938,
+    "issue_date": "1934-06-01",
+    "verdict": "mismatch",
+    "reason": "Translation is unrelated literary prose"
+  },
+  {
+    "page_id": 939,
+    "issue_date": "1934-06-01",
+    "verdict": "mismatch",
+    "reason": "Translation is unrelated narrative text"
+  },
+  {
+    "page_id": 940,
+    "issue_date": "1934-06-01",
+    "verdict": "mismatch",
+    "reason": "Translation is unrelated court scene"
+  },
+  {
+    "page_id": 941,
+    "issue_date": "1934-06-01",
+    "verdict": "mismatch",
+    "reason": "Translation is unrelated administrative proposal"
+  },
+  {
+    "page_id": 942,
+    "issue_date": "1934-06-01",
+    "verdict": "mismatch",
+    "reason": "Translation is unrelated literary commentary"
+  },
+  {
+    "page_id": 943,
+    "issue_date": "1934-06-01",
+    "verdict": "mismatch",
+    "reason": "Translation is unrelated political report"
+  },
+  {
+    "page_id": 944,
+    "issue_date": "1934-06-01",
+    "verdict": "mismatch",
+    "reason": "Poem about unity vs news report"
+  },
+  {
+    "page_id": 945,
+    "issue_date": "1934-06-01",
+    "verdict": "mismatch",
+    "reason": "Historical poem vs military report"
+  },
+  {
+    "page_id": 946,
+    "issue_date": "1934-06-01",
+    "verdict": "mismatch",
+    "reason": "Literary critique vs insurance policy"
+  },
+  {
+    "page_id": 947,
+    "issue_date": "1934-06-01",
+    "verdict": "mismatch",
+    "reason": "Poetry vs magazine table of contents"
+  },
+  {
+    "page_id": 949,
+    "issue_date": "1934-06-01",
+    "verdict": "mismatch",
+    "reason": "Poetry vs biographical magazine snippet"
+  },
+  {
+    "page_id": 951,
+    "issue_date": "1938-04-05",
+    "verdict": "mismatch",
+    "reason": "Political poem vs war news report"
+  },
+  {
+    "page_id": 952,
+    "issue_date": "1938-04-05",
+    "verdict": "mismatch",
+    "reason": "Different dates and news topics"
+  },
+  {
+    "page_id": 953,
+    "issue_date": "1938-04-05",
+    "verdict": "mismatch",
+    "reason": "Different dates and news topics"
+  },
+  {
+    "page_id": 954,
+    "issue_date": "1938-04-05",
+    "verdict": "mismatch",
+    "reason": "Poetry versus political news report"
+  },
+  {
+    "page_id": 955,
+    "issue_date": "1938-04-05",
+    "verdict": "mismatch",
+    "reason": "Different dates and subject matter"
+  },
+  {
+    "page_id": 956,
+    "issue_date": "1938-04-05",
+    "verdict": "mismatch",
+    "reason": "Political history versus poetic quatrains"
+  },
+  {
+    "page_id": 957,
+    "issue_date": "1938-04-05",
+    "verdict": "mismatch",
+    "reason": "Political movement versus technical description"
+  },
+  {
+    "page_id": 958,
+    "issue_date": "1938-04-05",
+    "verdict": "mismatch",
+    "reason": "Different dates and news topics"
+  },
+  {
+    "page_id": 959,
+    "issue_date": "1938-04-05",
+    "verdict": "mismatch",
+    "reason": "Political philosophy versus census statistics"
+  },
+  {
+    "page_id": 960,
+    "issue_date": "1938-04-05",
+    "verdict": "mismatch",
+    "reason": "Translation describes unrelated poetic verses"
+  },
+  {
+    "page_id": 961,
+    "issue_date": "1938-04-05",
+    "verdict": "mismatch",
+    "reason": "Translation discusses trade and university"
+  },
+  {
+    "page_id": 962,
+    "issue_date": "1938-04-05",
+    "verdict": "mismatch",
+    "reason": "Translation discusses history of Hijri calendar"
+  },
+  {
+    "page_id": 963,
+    "issue_date": "1938-04-05",
+    "verdict": "mismatch",
+    "reason": "Translation discusses NWFP landowner debt issues"
+  },
+  {
+    "page_id": 964,
+    "issue_date": "1938-04-05",
+    "verdict": "mismatch",
+    "reason": "Translation discusses famine in Isfahan city"
+  },
+  {
+    "page_id": 965,
+    "issue_date": "1938-04-05",
+    "verdict": "mismatch",
+    "reason": "Translation discusses philosophical meaning of life"
+  },
+  {
+    "page_id": 966,
+    "issue_date": "1938-04-05",
+    "verdict": "mismatch",
+    "reason": "Translation discusses Peshawar municipal traffic notice"
+  },
+  {
+    "page_id": 967,
+    "issue_date": "1938-04-05",
+    "verdict": "mismatch",
+    "reason": "Translation discusses municipal cattle tax rates"
+  },
+  {
+    "page_id": 968,
+    "issue_date": "1938-04-05",
+    "verdict": "mismatch",
+    "reason": "Translation is unrelated poetic fragments"
+  },
+  {
+    "page_id": 969,
+    "issue_date": "1938-04-05",
+    "verdict": "mismatch",
+    "reason": "Translation is a table of contents"
+  },
+  {
+    "page_id": 970,
+    "issue_date": "1938-04-05",
+    "verdict": "mismatch",
+    "reason": "Translation is a letter to readers"
+  },
+  {
+    "page_id": 971,
+    "issue_date": "1938-04-05",
+    "verdict": "mismatch",
+    "reason": "Translation is a summary of magazine"
+  },
+  {
+    "page_id": 972,
+    "issue_date": "1938-04-05",
+    "verdict": "mismatch",
+    "reason": "Translation is a generic service appeal"
+  },
+  {
+    "page_id": 974,
+    "issue_date": "1938-04-05",
+    "verdict": "mismatch",
+    "reason": "Translation is about political assembly"
+  },
+  {
+    "page_id": 975,
+    "issue_date": "1938-04-05",
+    "verdict": "mismatch",
+    "reason": "Translation is about cabinet proceedings"
+  },
+  {
+    "page_id": 976,
+    "issue_date": "1938-04-05",
+    "verdict": "mismatch",
+    "reason": "Pashto magazine news vs international war"
+  },
+  {
+    "page_id": 977,
+    "issue_date": "1938-04-05",
+    "verdict": "mismatch",
+    "reason": "Congress politics vs railway air mail"
+  },
+  {
+    "page_id": 978,
+    "issue_date": "1938-04-05",
+    "verdict": "mismatch",
+    "reason": "Congress political policy vs personal honor"
+  },
+  {
+    "page_id": 979,
+    "issue_date": "1938-04-05",
+    "verdict": "mismatch",
+    "reason": "Colonial government policy vs European republic hypocrisy"
+  },
+  {
+    "page_id": 980,
+    "issue_date": "1938-04-05",
+    "verdict": "mismatch",
+    "reason": "Congress organizational goals vs British colonial tactics"
+  },
+  {
+    "page_id": 981,
+    "issue_date": "1938-04-05",
+    "verdict": "mismatch",
+    "reason": "Islamic religious discourse vs political imprisonment history"
+  },
+  {
+    "page_id": 982,
+    "issue_date": "1938-04-05",
+    "verdict": "mismatch",
+    "reason": "Religious freedom discourse vs constitutional progress talks"
+  },
+  {
+    "page_id": 983,
+    "issue_date": "1938-04-05",
+    "verdict": "mismatch",
+    "reason": "Religious parable vs Finland war news report"
+  },
+  {
+    "page_id": 984,
+    "issue_date": "1938-04-05",
+    "verdict": "mismatch",
+    "reason": "Table of contents versus essay"
+  },
+  {
+    "page_id": 985,
+    "issue_date": "1938-04-05",
+    "verdict": "mismatch",
+    "reason": "Medical charity versus political tour"
+  },
+  {
+    "page_id": 986,
+    "issue_date": "1938-04-05",
+    "verdict": "mismatch",
+    "reason": "Literary history versus political trusts"
+  },
+  {
+    "page_id": 987,
+    "issue_date": "1938-04-05",
+    "verdict": "mismatch",
+    "reason": "Historical lessons versus political jirga"
+  },
+  {
+    "page_id": 988,
+    "issue_date": "1938-04-05",
+    "verdict": "mismatch",
+    "reason": "Education policy versus political proposals"
+  },
+  {
+    "page_id": 989,
+    "issue_date": "1938-04-05",
+    "verdict": "mismatch",
+    "reason": "Presidential speech versus congress politics"
+  },
+  {
+    "page_id": 990,
+    "issue_date": "1938-04-05",
+    "verdict": "mismatch",
+    "reason": "Educational reform versus volunteer organization"
+  },
+  {
+    "page_id": 991,
+    "issue_date": "1938-04-05",
+    "verdict": "mismatch",
+    "reason": "Importance of education versus poem"
+  },
+  {
+    "page_id": 992,
+    "issue_date": "1938-04-05",
+    "verdict": "mismatch",
+    "reason": "Pashto text discusses unity; English discusses Isfahan siege."
+  },
+  {
+    "page_id": 993,
+    "issue_date": "1938-04-05",
+    "verdict": "mismatch",
+    "reason": "Pashto text discusses education; English discusses Mir Mahmud's conquests."
+  },
+  {
+    "page_id": 994,
+    "issue_date": "1938-04-05",
+    "verdict": "mismatch",
+    "reason": "Pashto text is a letter; English discusses absolute power/dictatorship."
+  },
+  {
+    "page_id": 995,
+    "issue_date": "1938-04-05",
+    "verdict": "mismatch",
+    "reason": "Pashto text is a price list; English discusses Pashto script."
+  },
+  {
+    "page_id": 996,
+    "issue_date": "1938-04-05",
+    "verdict": "mismatch",
+    "reason": "Pashto text is an advertisement; English discusses educational India."
+  },
+  {
+    "page_id": 997,
+    "issue_date": "1938-04-05",
+    "verdict": "mismatch",
+    "reason": "Pashto text is a letter; English discusses education in Waziristan."
+  },
+  {
+    "page_id": 998,
+    "issue_date": "1938-04-05",
+    "verdict": "mismatch",
+    "reason": "Pashto text discusses education; English discusses Maulana Madani."
+  },
+  {
+    "page_id": 999,
+    "issue_date": "1938-04-05",
+    "verdict": "mismatch",
+    "reason": "Pashto text discusses death; English discusses Khudai Khidmatgari."
+  },
+  {
+    "page_id": 1000,
+    "issue_date": "1938-04-05",
+    "verdict": "mismatch",
+    "reason": "Calendar vs educational reform history"
+  },
+  {
+    "page_id": 1001,
+    "issue_date": "1938-04-05",
+    "verdict": "mismatch",
+    "reason": "Spring nature vs insurance policy"
+  },
+  {
+    "page_id": 1002,
+    "issue_date": "1938-04-05",
+    "verdict": "mismatch",
+    "reason": "College speech vs magazine advertisement policy"
+  },
+  {
+    "page_id": 1003,
+    "issue_date": "1938-04-05",
+    "verdict": "mismatch",
+    "reason": "Language rights vs Hijra history"
+  },
+  {
+    "page_id": 1004,
+    "issue_date": "1938-04-05",
+    "verdict": "mismatch",
+    "reason": "Turkish independence vs poetic verses"
+  },
+  {
+    "page_id": 1005,
+    "issue_date": "1938-04-05",
+    "verdict": "mismatch",
+    "reason": "Literary critique vs political petition"
+  },
+  {
+    "page_id": 1006,
+    "issue_date": "1938-04-05",
+    "verdict": "mismatch",
+    "reason": "Newspaper announcement vs political history"
+  },
+  {
+    "page_id": 1007,
+    "issue_date": "1938-04-05",
+    "verdict": "mismatch",
+    "reason": "Religious history vs war treaties"
+  },
+  {
+    "page_id": 1008,
+    "issue_date": "1938-04-05",
+    "verdict": "mismatch",
+    "reason": "Religious conference vs Indian politics"
+  },
+  {
+    "page_id": 1010,
+    "issue_date": "1938-04-05",
+    "verdict": "mismatch",
+    "reason": "Government law vs anti-monarchy rhetoric"
+  },
+  {
+    "page_id": 1011,
+    "issue_date": "1938-04-05",
+    "verdict": "mismatch",
+    "reason": "Administrative policy vs Congress resignation"
+  },
+  {
+    "page_id": 1012,
+    "issue_date": "1938-04-05",
+    "verdict": "mismatch",
+    "reason": "Congress session vs national unity"
+  },
+  {
+    "page_id": 1013,
+    "issue_date": "1938-04-05",
+    "verdict": "mismatch",
+    "reason": "Editorial apology vs table contents"
+  },
+  {
+    "page_id": 1014,
+    "issue_date": "1938-04-05",
+    "verdict": "mismatch",
+    "reason": "Refuting objections vs table contents"
+  },
+  {
+    "page_id": 1015,
+    "issue_date": "1938-04-05",
+    "verdict": "mismatch",
+    "reason": "Editorial note vs official announcement"
+  },
+  {
+    "page_id": 1016,
+    "issue_date": "1938-04-05",
+    "verdict": "mismatch",
+    "reason": "Pashto is poetry/letter, English news"
+  },
+  {
+    "page_id": 1017,
+    "issue_date": "1938-04-05",
+    "verdict": "mismatch",
+    "reason": "Pashto is philosophical, English is interview"
+  },
+  {
+    "page_id": 1018,
+    "issue_date": "1938-04-05",
+    "verdict": "mismatch",
+    "reason": "Pashto is about honor, English is hardship"
+  },
+  {
+    "page_id": 1019,
+    "issue_date": "1938-04-05",
+    "verdict": "mismatch",
+    "reason": "Pashto is personal, English is international politics"
+  },
+  {
+    "page_id": 1020,
+    "issue_date": "1938-04-05",
+    "verdict": "mismatch",
+    "reason": "Pashto is about Maulana, English is Gandhi"
+  },
+  {
+    "page_id": 1021,
+    "issue_date": "1938-04-05",
+    "verdict": "mismatch",
+    "reason": "Pashto is about Maulana, English is recommendations"
+  },
+  {
+    "page_id": 1022,
+    "issue_date": "1938-04-05",
+    "verdict": "mismatch",
+    "reason": "Pashto is about funeral, English is poetry"
+  },
+  {
+    "page_id": 1023,
+    "issue_date": "1938-04-05",
+    "verdict": "mismatch",
+    "reason": "Pashto is about dates, English is sacrifice"
+  },
+  {
+    "page_id": 1024,
+    "issue_date": "1938-04-05",
+    "verdict": "mismatch",
+    "reason": "Different topics and historical contexts"
+  },
+  {
+    "page_id": 1025,
+    "issue_date": "1938-04-05",
+    "verdict": "mismatch",
+    "reason": "Different subjects and content themes"
+  },
+  {
+    "page_id": 1026,
+    "issue_date": "1938-04-05",
+    "verdict": "mismatch",
+    "reason": "Different topics and historical narratives"
+  },
+  {
+    "page_id": 1027,
+    "issue_date": "1938-04-05",
+    "verdict": "mismatch",
+    "reason": "Different subjects and historical events"
+  },
+  {
+    "page_id": 1030,
+    "issue_date": "1938-04-05",
+    "verdict": "mismatch",
+    "reason": "Different topics and literary styles"
+  },
+  {
+    "page_id": 1033,
+    "issue_date": "1938-04-05",
+    "verdict": "mismatch",
+    "reason": "translation is about insurance policy"
+  },
+  {
+    "page_id": 1036,
+    "issue_date": "1938-04-05",
+    "verdict": "mismatch",
+    "reason": "translation is a random poem"
+  },
+  {
+    "page_id": 1038,
+    "issue_date": "1938-05-01",
+    "verdict": "mismatch",
+    "reason": "translation is about congress resolution"
+  },
+  {
+    "page_id": 1039,
+    "issue_date": "1938-05-01",
+    "verdict": "mismatch",
+    "reason": "translation is about indian politics"
+  },
+  {
+    "page_id": 1040,
+    "issue_date": "1938-05-01",
+    "verdict": "mismatch",
+    "reason": "Poem about education vs political news"
+  },
+  {
+    "page_id": 1041,
+    "issue_date": "1938-05-01",
+    "verdict": "mismatch",
+    "reason": "Assembly language policy vs political commentary"
+  },
+  {
+    "page_id": 1042,
+    "issue_date": "1938-05-01",
+    "verdict": "mismatch",
+    "reason": "Cultural critique vs political meeting circular"
+  },
+  {
+    "page_id": 1043,
+    "issue_date": "1938-05-01",
+    "verdict": "mismatch",
+    "reason": "Youth education vs Polish freedom war"
+  },
+  {
+    "page_id": 1044,
+    "issue_date": "1938-05-01",
+    "verdict": "mismatch",
+    "reason": "Educational philosophy vs political imprisonment history"
+  },
+  {
+    "page_id": 1045,
+    "issue_date": "1938-05-01",
+    "verdict": "mismatch",
+    "reason": "Literary critique vs religious political commentary"
+  },
+  {
+    "page_id": 1046,
+    "issue_date": "1938-05-01",
+    "verdict": "mismatch",
+    "reason": "Poem about freedom vs foreign news"
+  },
+  {
+    "page_id": 1047,
+    "issue_date": "1938-05-01",
+    "verdict": "mismatch",
+    "reason": "Local regional meeting vs British history"
+  },
+  {
+    "page_id": 1048,
+    "issue_date": "1938-05-01",
+    "verdict": "mismatch",
+    "reason": "Pashto is political, English historical."
+  },
+  {
+    "page_id": 1049,
+    "issue_date": "1938-05-01",
+    "verdict": "mismatch",
+    "reason": "Pashto is political, English aviation."
+  },
+  {
+    "page_id": 1050,
+    "issue_date": "1938-05-01",
+    "verdict": "mismatch",
+    "reason": "Pashto is political, English advice."
+  },
+  {
+    "page_id": 1051,
+    "issue_date": "1938-05-01",
+    "verdict": "mismatch",
+    "reason": "Pashto is educational, English dialogue."
+  },
+  {
+    "page_id": 1052,
+    "issue_date": "1938-05-01",
+    "verdict": "mismatch",
+    "reason": "Pashto is philosophical, English dialogue."
+  },
+  {
+    "page_id": 1053,
+    "issue_date": "1938-05-01",
+    "verdict": "mismatch",
+    "reason": "Pashto is statistical, English narrative."
+  },
+  {
+    "page_id": 1054,
+    "issue_date": "1938-05-01",
+    "verdict": "mismatch",
+    "reason": "Pashto is political, English poetry."
+  },
+  {
+    "page_id": 1055,
+    "issue_date": "1938-05-01",
+    "verdict": "mismatch",
+    "reason": "Pashto is religious, English advertisement."
+  },
+  {
+    "page_id": 1056,
+    "issue_date": "1938-05-01",
+    "verdict": "mismatch",
+    "reason": "Political news vs assembly resignation"
+  },
+  {
+    "page_id": 1057,
+    "issue_date": "1938-05-01",
+    "verdict": "mismatch",
+    "reason": "Literary interview vs war policy"
+  },
+  {
+    "page_id": 1058,
+    "issue_date": "1938-05-01",
+    "verdict": "mismatch",
+    "reason": "Personal ethics vs assembly proceedings"
+  },
+  {
+    "page_id": 1059,
+    "issue_date": "1938-05-01",
+    "verdict": "mismatch",
+    "reason": "Personal suffering vs war preparations"
+  },
+  {
+    "page_id": 1060,
+    "issue_date": "1938-05-01",
+    "verdict": "mismatch",
+    "reason": "Language promotion vs railway news"
+  },
+  {
+    "page_id": 1061,
+    "issue_date": "1938-05-01",
+    "verdict": "mismatch",
+    "reason": "Literary prose vs political commentary"
+  },
+  {
+    "page_id": 1062,
+    "issue_date": "1938-05-01",
+    "verdict": "mismatch",
+    "reason": "Poem on knowledge vs international politics"
+  },
+  {
+    "page_id": 1063,
+    "issue_date": "1938-05-01",
+    "verdict": "mismatch",
+    "reason": "Hitler war crimes vs British colonialism"
+  },
+  {
+    "page_id": 1066,
+    "issue_date": "1938-05-01",
+    "verdict": "mismatch",
+    "reason": "Magazine header versus political text"
+  },
+  {
+    "page_id": 1067,
+    "issue_date": "1938-05-01",
+    "verdict": "mismatch",
+    "reason": "Educational text versus table contents"
+  },
+  {
+    "page_id": 1072,
+    "issue_date": "1938-05-01",
+    "verdict": "mismatch",
+    "reason": "Pashto text discusses soldiers/army"
+  },
+  {
+    "page_id": 1073,
+    "issue_date": "1938-05-01",
+    "verdict": "mismatch",
+    "reason": "Pashto discusses Khudai Khidmatgar organization"
+  },
+  {
+    "page_id": 1074,
+    "issue_date": "1938-05-01",
+    "verdict": "mismatch",
+    "reason": "Pashto discusses educational sermon/speech"
+  },
+  {
+    "page_id": 1075,
+    "issue_date": "1938-05-01",
+    "verdict": "mismatch",
+    "reason": "Pashto discusses religion and humanity"
+  },
+  {
+    "page_id": 1076,
+    "issue_date": "1938-05-01",
+    "verdict": "mismatch",
+    "reason": "Pashto discusses Quran and Islam"
+  },
+  {
+    "page_id": 1077,
+    "issue_date": "1938-05-01",
+    "verdict": "mismatch",
+    "reason": "Pashto discusses religious prejudice/politics"
+  },
+  {
+    "page_id": 1078,
+    "issue_date": "1938-05-01",
+    "verdict": "mismatch",
+    "reason": "Pashto discusses religious sacrifice/students"
+  },
+  {
+    "page_id": 1079,
+    "issue_date": "1938-05-01",
+    "verdict": "mismatch",
+    "reason": "Pashto discusses legal rights history"
+  },
+  {
+    "page_id": 1080,
+    "issue_date": "1938-05-01",
+    "verdict": "mismatch",
+    "reason": "Different topics and content matter"
+  },
+  {
+    "page_id": 1081,
+    "issue_date": "1938-05-01",
+    "verdict": "mismatch",
+    "reason": "Different topics and content matter"
+  },
+  {
+    "page_id": 1082,
+    "issue_date": "1938-05-01",
+    "verdict": "mismatch",
+    "reason": "Different topics and content matter"
+  },
+  {
+    "page_id": 1083,
+    "issue_date": "1938-05-01",
+    "verdict": "mismatch",
+    "reason": "Different topics and content matter"
+  },
+  {
+    "page_id": 1084,
+    "issue_date": "1938-05-01",
+    "verdict": "mismatch",
+    "reason": "Different topics and content matter"
+  },
+  {
+    "page_id": 1085,
+    "issue_date": "1938-05-19",
+    "verdict": "mismatch",
+    "reason": "Different topics and content matter"
+  },
+  {
+    "page_id": 1086,
+    "issue_date": "1938-05-19",
+    "verdict": "mismatch",
+    "reason": "Different topics and content matter"
+  },
+  {
+    "page_id": 1087,
+    "issue_date": "1938-05-19",
+    "verdict": "mismatch",
+    "reason": "Different topics and content matter"
+  },
+  {
+    "page_id": 1088,
+    "issue_date": "1938-05-19",
+    "verdict": "mismatch",
+    "reason": "Pashto discusses police and crime"
+  },
+  {
+    "page_id": 1089,
+    "issue_date": "1938-05-19",
+    "verdict": "mismatch",
+    "reason": "Pashto discusses Khudai Khidmatgar government"
+  },
+  {
+    "page_id": 1090,
+    "issue_date": "1938-05-19",
+    "verdict": "mismatch",
+    "reason": "Pashto discusses British colonial responsibility"
+  },
+  {
+    "page_id": 1091,
+    "issue_date": "1938-05-19",
+    "verdict": "mismatch",
+    "reason": "Pashto discusses police and colonial rule"
+  },
+  {
+    "page_id": 1092,
+    "issue_date": "1938-05-19",
+    "verdict": "mismatch",
+    "reason": "Pashto is a Pashto poem"
+  },
+  {
+    "page_id": 1093,
+    "issue_date": "1938-05-19",
+    "verdict": "mismatch",
+    "reason": "Pashto discusses literary term usage"
+  },
+  {
+    "page_id": 1094,
+    "issue_date": "1938-05-19",
+    "verdict": "mismatch",
+    "reason": "Pashto discusses Lord Lothian's advice"
+  },
+  {
+    "page_id": 1095,
+    "issue_date": "1938-05-19",
+    "verdict": "mismatch",
+    "reason": "Pashto discusses provincial ministerial politics"
+  },
+  {
+    "page_id": 1096,
+    "issue_date": "1938-05-19",
+    "verdict": "mismatch",
+    "reason": "Different topics and dates"
+  },
+  {
+    "page_id": 1097,
+    "issue_date": "1938-05-19",
+    "verdict": "mismatch",
+    "reason": "Different topics and dates"
+  },
+  {
+    "page_id": 1098,
+    "issue_date": "1938-05-19",
+    "verdict": "mismatch",
+    "reason": "Different topics and dates"
+  },
+  {
+    "page_id": 1099,
+    "issue_date": "1938-05-19",
+    "verdict": "mismatch",
+    "reason": "Different topics and dates"
+  },
+  {
+    "page_id": 1100,
+    "issue_date": "1938-05-19",
+    "verdict": "mismatch",
+    "reason": "Different topics and dates"
+  },
+  {
+    "page_id": 1101,
+    "issue_date": "1938-05-19",
+    "verdict": "mismatch",
+    "reason": "Different topics and dates"
+  },
+  {
+    "page_id": 1102,
+    "issue_date": "1938-05-19",
+    "verdict": "mismatch",
+    "reason": "Different topics and dates"
+  },
+  {
+    "page_id": 1104,
+    "issue_date": "1938-05-19",
+    "verdict": "mismatch",
+    "reason": "Translation discusses gratitude and greetings"
+  },
+  {
+    "page_id": 1105,
+    "issue_date": "1938-05-19",
+    "verdict": "mismatch",
+    "reason": "Translation is a poem about sacrifice"
+  },
+  {
+    "page_id": 1106,
+    "issue_date": "1938-05-19",
+    "verdict": "mismatch",
+    "reason": "Translation is a poem about sacrifice"
+  },
+  {
+    "page_id": 1107,
+    "issue_date": "1938-05-19",
+    "verdict": "mismatch",
+    "reason": "Translation is about municipal committee rules"
+  },
+  {
+    "page_id": 1108,
+    "issue_date": "1938-05-19",
+    "verdict": "mismatch",
+    "reason": "Translation is about a night drop"
+  },
+  {
+    "page_id": 1109,
+    "issue_date": "1938-05-19",
+    "verdict": "mismatch",
+    "reason": "Translation is about historical Afghan wars"
+  },
+  {
+    "page_id": 1110,
+    "issue_date": "1938-05-19",
+    "verdict": "mismatch",
+    "reason": "Translation is about Isfahan famine history"
+  },
+  {
+    "page_id": 1111,
+    "issue_date": "1938-05-19",
+    "verdict": "mismatch",
+    "reason": "Translation is about nature and seeds"
+  },
+  {
+    "page_id": 1112,
+    "issue_date": "1938-05-19",
+    "verdict": "mismatch",
+    "reason": "Pashto prose vs English prose"
+  },
+  {
+    "page_id": 1113,
+    "issue_date": "1938-05-19",
+    "verdict": "mismatch",
+    "reason": "Pashto prose vs English poetry"
+  },
+  {
+    "page_id": 1114,
+    "issue_date": "1938-05-19",
+    "verdict": "mismatch",
+    "reason": "Pashto prose vs English poetry"
+  },
+  {
+    "page_id": 1115,
+    "issue_date": "1938-05-19",
+    "verdict": "mismatch",
+    "reason": "Pashto prose vs English poetry"
+  },
+  {
+    "page_id": 1116,
+    "issue_date": "1938-05-19",
+    "verdict": "mismatch",
+    "reason": "Pashto political vs English insurance"
+  },
+  {
+    "page_id": 1117,
+    "issue_date": "1938-05-19",
+    "verdict": "mismatch",
+    "reason": "Pashto political vs English index"
+  },
+  {
+    "page_id": 1118,
+    "issue_date": "1938-05-19",
+    "verdict": "mismatch",
+    "reason": "Pashto political vs English index"
+  },
+  {
+    "page_id": 1119,
+    "issue_date": "1938-05-19",
+    "verdict": "mismatch",
+    "reason": "Pashto political vs English poetry"
+  },
+  {
+    "page_id": 1120,
+    "issue_date": "1938-05-19",
+    "verdict": "mismatch",
+    "reason": "Content is completely unrelated topics"
+  },
+  {
+    "page_id": 1121,
+    "issue_date": "1938-05-19",
+    "verdict": "mismatch",
+    "reason": "Content is completely unrelated topics"
+  },
+  {
+    "page_id": 1122,
+    "issue_date": "1938-05-19",
+    "verdict": "mismatch",
+    "reason": "Content is completely unrelated topics"
+  },
+  {
+    "page_id": 1123,
+    "issue_date": "1938-05-19",
+    "verdict": "mismatch",
+    "reason": "Content is completely unrelated topics"
+  },
+  {
+    "page_id": 1124,
+    "issue_date": "1938-05-19",
+    "verdict": "mismatch",
+    "reason": "Content is completely unrelated topics"
+  },
+  {
+    "page_id": 1125,
+    "issue_date": "1938-05-19",
+    "verdict": "mismatch",
+    "reason": "Content is completely unrelated topics"
+  },
+  {
+    "page_id": 1126,
+    "issue_date": "1938-05-19",
+    "verdict": "mismatch",
+    "reason": "Content is completely unrelated topics"
+  },
+  {
+    "page_id": 1127,
+    "issue_date": "1938-06-01",
+    "verdict": "mismatch",
+    "reason": "Content is completely unrelated topics"
+  },
+  {
+    "page_id": 1128,
+    "issue_date": "1938-06-01",
+    "verdict": "mismatch",
+    "reason": "Content is completely different topics"
+  },
+  {
+    "page_id": 1129,
+    "issue_date": "1938-06-01",
+    "verdict": "mismatch",
+    "reason": "Pashto education vs foreign news"
+  },
+  {
+    "page_id": 1130,
+    "issue_date": "1938-06-01",
+    "verdict": "mismatch",
+    "reason": "Pashto editorial vs British history"
+  },
+  {
+    "page_id": 1131,
+    "issue_date": "1938-06-01",
+    "verdict": "mismatch",
+    "reason": "Pashto prison report vs history"
+  },
+  {
+    "page_id": 1132,
+    "issue_date": "1938-06-01",
+    "verdict": "mismatch",
+    "reason": "Pashto prison report vs aviation"
+  },
+  {
+    "page_id": 1133,
+    "issue_date": "1938-06-01",
+    "verdict": "mismatch",
+    "reason": "Pashto travelogue vs social commentary"
+  },
+  {
+    "page_id": 1134,
+    "issue_date": "1938-06-01",
+    "verdict": "mismatch",
+    "reason": "Pashto literary society vs dialogue"
+  },
+  {
+    "page_id": 1135,
+    "issue_date": "1938-06-01",
+    "verdict": "mismatch",
+    "reason": "Pashto political speech vs dialogue"
+  },
+  {
+    "page_id": 1136,
+    "issue_date": "1938-06-01",
+    "verdict": "mismatch",
+    "reason": "Different topics and dates involved"
+  },
+  {
+    "page_id": 1137,
+    "issue_date": "1938-06-01",
+    "verdict": "mismatch",
+    "reason": "Political analysis versus poetic verses"
+  },
+  {
+    "page_id": 1138,
+    "issue_date": "1938-06-01",
+    "verdict": "mismatch",
+    "reason": "Geopolitics versus life insurance advertisement"
+  },
+  {
+    "page_id": 1139,
+    "issue_date": "1938-06-01",
+    "verdict": "mismatch",
+    "reason": "Political theory versus historical narrative"
+  },
+  {
+    "page_id": 1141,
+    "issue_date": "1938-06-01",
+    "verdict": "mismatch",
+    "reason": "Japan-China relations versus Pashto script"
+  },
+  {
+    "page_id": 1142,
+    "issue_date": "1938-06-01",
+    "verdict": "mismatch",
+    "reason": "Japan-China conflict versus Indian education"
+  },
+  {
+    "page_id": 1144,
+    "issue_date": "1938-06-01",
+    "verdict": "mismatch",
+    "reason": "Translation discusses Deoband religious school"
+  },
+  {
+    "page_id": 1146,
+    "issue_date": "1938-06-01",
+    "verdict": "mismatch",
+    "reason": "Translation discusses national calendar importance"
+  },
+  {
+    "page_id": 1147,
+    "issue_date": "1938-06-01",
+    "verdict": "mismatch",
+    "reason": "Translation discusses life insurance policy"
+  },
+  {
+    "page_id": 1148,
+    "issue_date": "1938-06-01",
+    "verdict": "mismatch",
+    "reason": "Translation discusses magazine advertisement policy"
+  },
+  {
+    "page_id": 1149,
+    "issue_date": "1938-06-01",
+    "verdict": "mismatch",
+    "reason": "Translation discusses Hijra and history"
+  },
+  {
+    "page_id": 1151,
+    "issue_date": "1938-06-01",
+    "verdict": "mismatch",
+    "reason": "Translation discusses Grand National Jirga"
+  },
+  {
+    "page_id": 1153,
+    "issue_date": "1938-06-01",
+    "verdict": "mismatch",
+    "reason": "Translation discusses political treaties instead"
+  },
+  {
+    "page_id": 1154,
+    "issue_date": "1938-06-01",
+    "verdict": "mismatch",
+    "reason": "Translation discusses Indian constitution assembly"
+  },
+  {
+    "page_id": 1155,
+    "issue_date": "1938-06-01",
+    "verdict": "mismatch",
+    "reason": "Translation discusses Indian constitution assembly"
+  },
+  {
+    "page_id": 1156,
+    "issue_date": "1938-06-01",
+    "verdict": "mismatch",
+    "reason": "Translation discusses democracy and freedom"
+  },
+  {
+    "page_id": 1157,
+    "issue_date": "1938-06-01",
+    "verdict": "mismatch",
+    "reason": "Translation discusses Congress party politics"
+  },
+  {
+    "page_id": 1158,
+    "issue_date": "1938-06-01",
+    "verdict": "mismatch",
+    "reason": "Translation discusses national jirga unity"
+  },
+  {
+    "page_id": 1159,
+    "issue_date": "1938-06-01",
+    "verdict": "mismatch",
+    "reason": "Translation is a magazine index"
+  },
+  {
+    "page_id": 1160,
+    "issue_date": "1938-06-01",
+    "verdict": "mismatch",
+    "reason": "Table of contents versus essay"
+  },
+  {
+    "page_id": 1161,
+    "issue_date": "1938-06-01",
+    "verdict": "mismatch",
+    "reason": "Announcement versus philosophical war commentary"
+  },
+  {
+    "page_id": 1162,
+    "issue_date": "1938-06-01",
+    "verdict": "mismatch",
+    "reason": "Social commentary versus personal reflection"
+  },
+  {
+    "page_id": 1163,
+    "issue_date": "1938-06-01",
+    "verdict": "mismatch",
+    "reason": "Agriculture trade versus prison experience"
+  },
+  {
+    "page_id": 1164,
+    "issue_date": "1938-06-01",
+    "verdict": "mismatch",
+    "reason": "National defense versus personal hardship"
+  },
+  {
+    "page_id": 1165,
+    "issue_date": "1938-06-01",
+    "verdict": "mismatch",
+    "reason": "War impact versus international news"
+  },
+  {
+    "page_id": 1166,
+    "issue_date": "1938-06-01",
+    "verdict": "mismatch",
+    "reason": "Religious jihad versus political news"
+  },
+  {
+    "page_id": 1167,
+    "issue_date": "1938-06-01",
+    "verdict": "mismatch",
+    "reason": "War philosophy versus speech transcript"
+  },
+  {
+    "page_id": 1168,
+    "issue_date": "1938-06-01",
+    "verdict": "mismatch",
+    "reason": "Poem vs political news article"
+  },
+  {
+    "page_id": 1169,
+    "issue_date": "1938-06-01",
+    "verdict": "mismatch",
+    "reason": "Table of contents vs essay"
+  },
+  {
+    "page_id": 1170,
+    "issue_date": "1938-06-21",
+    "verdict": "mismatch",
+    "reason": "Editorial vs municipal act notice"
+  },
+  {
+    "page_id": 1171,
+    "issue_date": "1938-06-21",
+    "verdict": "mismatch",
+    "reason": "Table of contents vs essay"
+  },
+  {
+    "page_id": 1172,
+    "issue_date": "1938-06-21",
+    "verdict": "mismatch",
+    "reason": "Table of contents vs history"
+  },
+  {
+    "page_id": 1173,
+    "issue_date": "1938-06-21",
+    "verdict": "mismatch",
+    "reason": "Poem vs historical famine account"
+  },
+  {
+    "page_id": 1174,
+    "issue_date": "1938-06-21",
+    "verdict": "mismatch",
+    "reason": "Police conduct vs nature philosophy"
+  },
+  {
+    "page_id": 1175,
+    "issue_date": "1938-06-21",
+    "verdict": "mismatch",
+    "reason": "Police critique vs moral education"
+  },
+  {
+    "page_id": 1176,
+    "issue_date": "1938-06-21",
+    "verdict": "mismatch",
+    "reason": "News report vs poetic lament"
+  },
+  {
+    "page_id": 1177,
+    "issue_date": "1938-06-21",
+    "verdict": "mismatch",
+    "reason": "Historical account vs poem"
+  },
+  {
+    "page_id": 1178,
+    "issue_date": "1938-06-21",
+    "verdict": "mismatch",
+    "reason": "Social critique vs poem"
+  },
+  {
+    "page_id": 1179,
+    "issue_date": "1938-06-21",
+    "verdict": "mismatch",
+    "reason": "Social critique vs insurance advertisement"
+  },
+  {
+    "page_id": 1180,
+    "issue_date": "1938-06-21",
+    "verdict": "mismatch",
+    "reason": "Health advice vs table of contents"
+  },
+  {
+    "page_id": 1182,
+    "issue_date": "1938-06-21",
+    "verdict": "mismatch",
+    "reason": "Speech on education vs poem"
+  },
+  {
+    "page_id": 1183,
+    "issue_date": "1938-06-21",
+    "verdict": "mismatch",
+    "reason": "Economic analysis vs political commentary"
+  },
+  {
+    "page_id": 1184,
+    "issue_date": "1938-06-21",
+    "verdict": "mismatch",
+    "reason": "Pashto discusses economics; English politics"
+  },
+  {
+    "page_id": 1185,
+    "issue_date": "1938-06-21",
+    "verdict": "mismatch",
+    "reason": "Pashto discusses geography; English politics"
+  },
+  {
+    "page_id": 1186,
+    "issue_date": "1938-06-21",
+    "verdict": "mismatch",
+    "reason": "Pashto discusses local incident; English politics"
+  },
+  {
+    "page_id": 1187,
+    "issue_date": "1938-06-21",
+    "verdict": "mismatch",
+    "reason": "Pashto discusses tyranny; English political assembly"
+  },
+  {
+    "page_id": 1188,
+    "issue_date": "1938-06-21",
+    "verdict": "mismatch",
+    "reason": "Pashto discusses prayer; English political circular"
+  },
+  {
+    "page_id": 1189,
+    "issue_date": "1938-06-21",
+    "verdict": "mismatch",
+    "reason": "Pashto discusses youth; English war policy"
+  },
+  {
+    "page_id": 1190,
+    "issue_date": "1938-06-21",
+    "verdict": "mismatch",
+    "reason": "Pashto discusses rebellion; English prison memoirs"
+  },
+  {
+    "page_id": 1191,
+    "issue_date": "1938-06-21",
+    "verdict": "mismatch",
+    "reason": "Pashto discusses government; English religious books"
+  },
+  {
+    "page_id": 1192,
+    "issue_date": "1938-06-21",
+    "verdict": "mismatch",
+    "reason": "Pashto political speech vs news"
+  },
+  {
+    "page_id": 1193,
+    "issue_date": "1938-06-21",
+    "verdict": "mismatch",
+    "reason": "Corruption article vs British history"
+  },
+  {
+    "page_id": 1194,
+    "issue_date": "1938-06-21",
+    "verdict": "mismatch",
+    "reason": "Anti-corruption policy vs British history"
+  },
+  {
+    "page_id": 1195,
+    "issue_date": "1938-06-21",
+    "verdict": "mismatch",
+    "reason": "Service to nation vs air war"
+  },
+  {
+    "page_id": 1196,
+    "issue_date": "1938-06-21",
+    "verdict": "mismatch",
+    "reason": "History of Palestine vs advice"
+  },
+  {
+    "page_id": 1197,
+    "issue_date": "1938-06-21",
+    "verdict": "mismatch",
+    "reason": "Palestine conflict vs dialogue script"
+  },
+  {
+    "page_id": 1198,
+    "issue_date": "1938-06-21",
+    "verdict": "mismatch",
+    "reason": "Pashtunistan politics vs dialogue script"
+  },
+  {
+    "page_id": 1199,
+    "issue_date": "1938-06-21",
+    "verdict": "mismatch",
+    "reason": "Global peace policy vs dialogue"
+  },
+  {
+    "page_id": 1201,
+    "issue_date": "1938-06-21",
+    "verdict": "mismatch",
+    "reason": "Translation is about life insurance"
+  },
+  {
+    "page_id": 1202,
+    "issue_date": "1938-06-21",
+    "verdict": "mismatch",
+    "reason": "Translation is about Iranian history"
+  },
+  {
+    "page_id": 1203,
+    "issue_date": "1938-06-21",
+    "verdict": "mismatch",
+    "reason": "Translation is about Iranian history"
+  },
+  {
+    "page_id": 1204,
+    "issue_date": "1938-06-21",
+    "verdict": "mismatch",
+    "reason": "Translation is about Iranian history"
+  },
+  {
+    "page_id": 1205,
+    "issue_date": "1938-06-21",
+    "verdict": "mismatch",
+    "reason": "Translation is about government power"
+  },
+  {
+    "page_id": 1206,
+    "issue_date": "1938-06-21",
+    "verdict": "mismatch",
+    "reason": "Translation is about Pashto script"
+  },
+  {
+    "page_id": 1207,
+    "issue_date": "1938-06-21",
+    "verdict": "mismatch",
+    "reason": "Translation is about Indian education"
+  },
+  {
+    "page_id": 1208,
+    "issue_date": "1938-06-21",
+    "verdict": "mismatch",
+    "reason": "Translation discusses education and philosophy"
+  },
+  {
+    "page_id": 1209,
+    "issue_date": "1938-06-21",
+    "verdict": "mismatch",
+    "reason": "Translation discusses religious scholars instead"
+  },
+  {
+    "page_id": 1210,
+    "issue_date": "1938-07-01",
+    "verdict": "mismatch",
+    "reason": "Translation is a poetic reflection"
+  },
+  {
+    "page_id": 1211,
+    "issue_date": "1938-07-01",
+    "verdict": "mismatch",
+    "reason": "Translation discusses history and progress"
+  },
+  {
+    "page_id": 1212,
+    "issue_date": "1938-07-01",
+    "verdict": "mismatch",
+    "reason": "Translation is about insurance policies"
+  },
+  {
+    "page_id": 1213,
+    "issue_date": "1938-07-01",
+    "verdict": "mismatch",
+    "reason": "Translation is about magazine marketing"
+  },
+  {
+    "page_id": 1214,
+    "issue_date": "1938-07-01",
+    "verdict": "mismatch",
+    "reason": "Translation discusses religious migration history"
+  },
+  {
+    "page_id": 1215,
+    "issue_date": "1938-07-01",
+    "verdict": "mismatch",
+    "reason": "Translation is a poetic excerpt"
+  },
+  {
+    "page_id": 1216,
+    "issue_date": "1938-07-01",
+    "verdict": "mismatch",
+    "reason": "Different topics and time periods"
+  },
+  {
+    "page_id": 1218,
+    "issue_date": "1938-07-01",
+    "verdict": "mismatch",
+    "reason": "Different subjects and historical contexts"
+  },
+  {
+    "page_id": 1219,
+    "issue_date": "1938-07-01",
+    "verdict": "mismatch",
+    "reason": "Different topics and political focus"
+  },
+  {
+    "page_id": 1220,
+    "issue_date": "1938-07-01",
+    "verdict": "mismatch",
+    "reason": "Different topics and political focus"
+  },
+  {
+    "page_id": 1221,
+    "issue_date": "1938-07-01",
+    "verdict": "mismatch",
+    "reason": "Different topics and political focus"
+  },
+  {
+    "page_id": 1222,
+    "issue_date": "1938-07-01",
+    "verdict": "mismatch",
+    "reason": "Different topics and political focus"
+  },
+  {
+    "page_id": 1223,
+    "issue_date": "1938-07-01",
+    "verdict": "mismatch",
+    "reason": "Different topics and political focus"
+  },
+  {
+    "page_id": 1224,
+    "issue_date": "1938-07-01",
+    "verdict": "mismatch",
+    "reason": "Pashto text discusses economics/trade"
+  },
+  {
+    "page_id": 1225,
+    "issue_date": "1938-07-01",
+    "verdict": "mismatch",
+    "reason": "Pashto text discusses book publication"
+  },
+  {
+    "page_id": 1226,
+    "issue_date": "1938-07-01",
+    "verdict": "mismatch",
+    "reason": "Pashto text discusses historical biography"
+  },
+  {
+    "page_id": 1227,
+    "issue_date": "1938-07-01",
+    "verdict": "mismatch",
+    "reason": "Pashto text discusses military hero"
+  },
+  {
+    "page_id": 1229,
+    "issue_date": "1938-07-01",
+    "verdict": "mismatch",
+    "reason": "Pashto text discusses Turkish independence"
+  },
+  {
+    "page_id": 1230,
+    "issue_date": "1938-07-01",
+    "verdict": "mismatch",
+    "reason": "Pashto text discusses postal regulations"
+  },
+  {
+    "page_id": 1231,
+    "issue_date": "1938-07-01",
+    "verdict": "mismatch",
+    "reason": "Pashto text discusses national education"
+  },
+  {
+    "page_id": 1232,
+    "issue_date": "1938-07-01",
+    "verdict": "mismatch",
+    "reason": "Translation discusses religious greetings/truthfulness"
+  },
+  {
+    "page_id": 1233,
+    "issue_date": "1938-07-01",
+    "verdict": "mismatch",
+    "reason": "Translation is a poem about sacrifice"
+  },
+  {
+    "page_id": 1234,
+    "issue_date": "1938-07-01",
+    "verdict": "mismatch",
+    "reason": "Translation is a poem about sacrifice"
+  },
+  {
+    "page_id": 1235,
+    "issue_date": "1938-07-01",
+    "verdict": "mismatch",
+    "reason": "Translation is about municipal committee regulations"
+  },
+  {
+    "page_id": 1236,
+    "issue_date": "1938-07-01",
+    "verdict": "mismatch",
+    "reason": "Translation is about government power/Mullahs"
+  },
+  {
+    "page_id": 1237,
+    "issue_date": "1938-07-01",
+    "verdict": "mismatch",
+    "reason": "Translation is about historical war events"
+  },
+  {
+    "page_id": 1238,
+    "issue_date": "1938-07-01",
+    "verdict": "mismatch",
+    "reason": "Translation is about the siege of Isfahan"
+  },
+  {
+    "page_id": 1239,
+    "issue_date": "1938-07-01",
+    "verdict": "mismatch",
+    "reason": "Translation is about municipal fodder regulations"
+  },
+  {
+    "page_id": 1240,
+    "issue_date": "1938-07-01",
+    "verdict": "mismatch",
+    "reason": "Pashto news vs English philosophy"
+  },
+  {
+    "page_id": 1241,
+    "issue_date": "1938-07-01",
+    "verdict": "mismatch",
+    "reason": "Pashto news vs English poetry"
+  },
+  {
+    "page_id": 1242,
+    "issue_date": "1938-07-01",
+    "verdict": "mismatch",
+    "reason": "Pashto event report vs English poetry"
+  },
+  {
+    "page_id": 1243,
+    "issue_date": "1938-07-01",
+    "verdict": "mismatch",
+    "reason": "Pashto book review vs English poetry"
+  },
+  {
+    "page_id": 1244,
+    "issue_date": "1938-07-01",
+    "verdict": "mismatch",
+    "reason": "Pashto social essay vs English insurance"
+  },
+  {
+    "page_id": 1245,
+    "issue_date": "1938-07-01",
+    "verdict": "mismatch",
+    "reason": "Pashto religious sermon vs English index"
+  },
+  {
+    "page_id": 1246,
+    "issue_date": "1938-07-01",
+    "verdict": "mismatch",
+    "reason": "Pashto philosophical essay vs English index"
+  },
+  {
+    "page_id": 1247,
+    "issue_date": "1938-07-01",
+    "verdict": "mismatch",
+    "reason": "Pashto literary history vs English poetry"
+  },
+  {
+    "page_id": 1248,
+    "issue_date": "1938-07-01",
+    "verdict": "mismatch",
+    "reason": "Unrelated political and religious content"
+  },
+  {
+    "page_id": 1249,
+    "issue_date": "1938-07-01",
+    "verdict": "mismatch",
+    "reason": "Different topics and time periods"
+  },
+  {
+    "page_id": 1250,
+    "issue_date": "1938-07-01",
+    "verdict": "mismatch",
+    "reason": "Different subjects and historical contexts"
+  },
+  {
+    "page_id": 1251,
+    "issue_date": "1938-07-01",
+    "verdict": "mismatch",
+    "reason": "Different topics and historical events"
+  },
+  {
+    "page_id": 1252,
+    "issue_date": "1938-07-01",
+    "verdict": "mismatch",
+    "reason": "Different subjects and thematic focus"
+  },
+  {
+    "page_id": 1253,
+    "issue_date": "1938-08-01",
+    "verdict": "mismatch",
+    "reason": "Poetry versus political meeting report"
+  },
+  {
+    "page_id": 1254,
+    "issue_date": "1938-08-01",
+    "verdict": "mismatch",
+    "reason": "Table of contents versus political commentary"
+  },
+  {
+    "page_id": 1255,
+    "issue_date": "1938-08-01",
+    "verdict": "mismatch",
+    "reason": "Social customs versus political imprisonment history"
+  },
+  {
+    "page_id": 1256,
+    "issue_date": "1938-08-01",
+    "verdict": "mismatch",
+    "reason": "Pashto discusses Pashtun development; English discusses religious books."
+  },
+  {
+    "page_id": 1257,
+    "issue_date": "1938-08-01",
+    "verdict": "mismatch",
+    "reason": "Pashto discusses moral character; English discusses foreign news/Sultan Saud."
+  },
+  {
+    "page_id": 1258,
+    "issue_date": "1938-08-01",
+    "verdict": "mismatch",
+    "reason": "Pashto discusses Peshawar law; English discusses British India history."
+  },
+  {
+    "page_id": 1259,
+    "issue_date": "1938-08-01",
+    "verdict": "mismatch",
+    "reason": "Pashto discusses a story/narrative; English discusses East India Company history."
+  },
+  {
+    "page_id": 1260,
+    "issue_date": "1938-08-01",
+    "verdict": "mismatch",
+    "reason": "Pashto is fragmented text; English discusses types of warplanes."
+  },
+  {
+    "page_id": 1261,
+    "issue_date": "1938-08-01",
+    "verdict": "mismatch",
+    "reason": "Pashto discusses legal education; English discusses national decline/leadership."
+  },
+  {
+    "page_id": 1262,
+    "issue_date": "1938-08-01",
+    "verdict": "mismatch",
+    "reason": "Pashto discusses global conflict/Hitler; English discusses a dialogue/lesson."
+  },
+  {
+    "page_id": 1263,
+    "issue_date": "1938-08-01",
+    "verdict": "mismatch",
+    "reason": "Pashto discusses Indian independence; English discusses a personal dialogue."
+  },
+  {
+    "page_id": 1264,
+    "issue_date": "1938-08-01",
+    "verdict": "mismatch",
+    "reason": "Different topics and time periods"
+  },
+  {
+    "page_id": 1265,
+    "issue_date": "1938-08-01",
+    "verdict": "mismatch",
+    "reason": "Poetry versus political prose content"
+  },
+  {
+    "page_id": 1266,
+    "issue_date": "1938-08-01",
+    "verdict": "mismatch",
+    "reason": "Government achievements versus insurance advertisement"
+  },
+  {
+    "page_id": 1267,
+    "issue_date": "1938-08-01",
+    "verdict": "mismatch",
+    "reason": "Justice system versus language script"
+  },
+  {
+    "page_id": 1268,
+    "issue_date": "1938-08-01",
+    "verdict": "mismatch",
+    "reason": "Family conflict versus educational systems"
+  },
+  {
+    "page_id": 1269,
+    "issue_date": "1938-08-01",
+    "verdict": "mismatch",
+    "reason": "Biographical narrative versus political commentary"
+  },
+  {
+    "page_id": 1270,
+    "issue_date": "1938-08-01",
+    "verdict": "mismatch",
+    "reason": "Historical revolution versus religious biography"
+  },
+  {
+    "page_id": 1271,
+    "issue_date": "1938-08-01",
+    "verdict": "mismatch",
+    "reason": "Political revolution versus service definition"
+  },
+  {
+    "page_id": 1272,
+    "issue_date": "1938-08-01",
+    "verdict": "mismatch",
+    "reason": "Different topics and subject matter"
+  },
+  {
+    "page_id": 1273,
+    "issue_date": "1938-08-01",
+    "verdict": "mismatch",
+    "reason": "Different topics and subject matter"
+  },
+  {
+    "page_id": 1274,
+    "issue_date": "1938-08-01",
+    "verdict": "mismatch",
+    "reason": "Different topics and subject matter"
+  },
+  {
+    "page_id": 1275,
+    "issue_date": "1938-08-01",
+    "verdict": "mismatch",
+    "reason": "Different topics and subject matter"
+  },
+  {
+    "page_id": 1276,
+    "issue_date": "1938-08-01",
+    "verdict": "mismatch",
+    "reason": "Different topics and subject matter"
+  },
+  {
+    "page_id": 1277,
+    "issue_date": "1938-08-01",
+    "verdict": "mismatch",
+    "reason": "Different topics and subject matter"
+  },
+  {
+    "page_id": 1279,
+    "issue_date": "1938-08-01",
+    "verdict": "mismatch",
+    "reason": "Different topics and subject matter"
+  },
+  {
+    "page_id": 1280,
+    "issue_date": "1938-08-01",
+    "verdict": "mismatch",
+    "reason": "Pashto poem vs Indian politics"
+  },
+  {
+    "page_id": 1281,
+    "issue_date": "1938-08-01",
+    "verdict": "mismatch",
+    "reason": "Pashto martyrdom vs Hijri calendar"
+  },
+  {
+    "page_id": 1283,
+    "issue_date": "1938-08-01",
+    "verdict": "mismatch",
+    "reason": "Pashto narrative vs Congress politics"
+  },
+  {
+    "page_id": 1284,
+    "issue_date": "1938-08-01",
+    "verdict": "mismatch",
+    "reason": "Pashto police vs national assembly"
+  },
+  {
+    "page_id": 1286,
+    "issue_date": "1938-08-01",
+    "verdict": "mismatch",
+    "reason": "Pashto poem vs table contents"
+  },
+  {
+    "page_id": 1287,
+    "issue_date": "1938-08-01",
+    "verdict": "mismatch",
+    "reason": "Pashto torture story vs announcement"
+  },
+  {
+    "page_id": 1289,
+    "issue_date": "1938-08-01",
+    "verdict": "mismatch",
+    "reason": "Different topics and dates"
+  },
+  {
+    "page_id": 1290,
+    "issue_date": "1938-08-01",
+    "verdict": "mismatch",
+    "reason": "Different topics and content"
+  },
+  {
+    "page_id": 1291,
+    "issue_date": "1938-08-01",
+    "verdict": "mismatch",
+    "reason": "Different topics and content"
+  },
+  {
+    "page_id": 1292,
+    "issue_date": "1938-08-01",
+    "verdict": "mismatch",
+    "reason": "Different topics and content"
+  },
+  {
+    "page_id": 1293,
+    "issue_date": "1938-08-01",
+    "verdict": "mismatch",
+    "reason": "Different topics and content"
+  },
+  {
+    "page_id": 1295,
+    "issue_date": "1938-08-11",
+    "verdict": "mismatch",
+    "reason": "Different topics and content"
+  },
+  {
+    "page_id": 1296,
+    "issue_date": "1938-08-11",
+    "verdict": "mismatch",
+    "reason": "Railway news vs political poetry"
+  },
+  {
+    "page_id": 1297,
+    "issue_date": "1938-08-11",
+    "verdict": "mismatch",
+    "reason": "Political struggle vs abstract philosophy"
+  },
+  {
+    "page_id": 1298,
+    "issue_date": "1938-08-11",
+    "verdict": "mismatch",
+    "reason": "Political struggle vs historical war account"
+  },
+  {
+    "page_id": 1299,
+    "issue_date": "1938-08-11",
+    "verdict": "mismatch",
+    "reason": "Congress alliance vs historical siege account"
+  },
+  {
+    "page_id": 1300,
+    "issue_date": "1938-08-11",
+    "verdict": "mismatch",
+    "reason": "Khudai Khidmatgar vs philosophical law theory"
+  },
+  {
+    "page_id": 1301,
+    "issue_date": "1938-08-11",
+    "verdict": "mismatch",
+    "reason": "Political speech vs religious moral theory"
+  },
+  {
+    "page_id": 1302,
+    "issue_date": "1938-08-11",
+    "verdict": "mismatch",
+    "reason": "Patriotic poem vs wolf cub poem"
+  },
+  {
+    "page_id": 1303,
+    "issue_date": "1938-08-11",
+    "verdict": "mismatch",
+    "reason": "Takkar martyrs speech vs poetry"
+  },
+  {
+    "page_id": 1304,
+    "issue_date": "1938-08-11",
+    "verdict": "mismatch",
+    "reason": "Poem vs political prose content"
+  },
+  {
+    "page_id": 1305,
+    "issue_date": "1938-08-11",
+    "verdict": "mismatch",
+    "reason": "Political prose vs insurance advertisement"
+  },
+  {
+    "page_id": 1306,
+    "issue_date": "1938-08-11",
+    "verdict": "mismatch",
+    "reason": "Political commentary vs table of contents"
+  },
+  {
+    "page_id": 1307,
+    "issue_date": "1938-08-11",
+    "verdict": "mismatch",
+    "reason": "Political commentary vs table of contents"
+  },
+  {
+    "page_id": 1308,
+    "issue_date": "1938-08-11",
+    "verdict": "mismatch",
+    "reason": "Political ethics vs Congress party policy"
+  },
+  {
+    "page_id": 1309,
+    "issue_date": "1938-08-11",
+    "verdict": "mismatch",
+    "reason": "Address to women vs political critique"
+  },
+  {
+    "page_id": 1310,
+    "issue_date": "1938-08-11",
+    "verdict": "mismatch",
+    "reason": "Advice on clothing vs Congress resolution"
+  },
+  {
+    "page_id": 1311,
+    "issue_date": "1938-08-11",
+    "verdict": "mismatch",
+    "reason": "New Year poem vs political analysis"
+  },
+  {
+    "page_id": 1313,
+    "issue_date": "1938-08-11",
+    "verdict": "mismatch",
+    "reason": "Content discusses politics versus government"
+  },
+  {
+    "page_id": 1314,
+    "issue_date": "1938-08-11",
+    "verdict": "mismatch",
+    "reason": "Content discusses service versus literature"
+  },
+  {
+    "page_id": 1315,
+    "issue_date": "1938-08-11",
+    "verdict": "mismatch",
+    "reason": "Content discusses reforms versus education"
+  },
+  {
+    "page_id": 1316,
+    "issue_date": "1938-08-11",
+    "verdict": "mismatch",
+    "reason": "Content discusses reforms versus imprisonment"
+  },
+  {
+    "page_id": 1317,
+    "issue_date": "1938-08-11",
+    "verdict": "mismatch",
+    "reason": "Content discusses provinces versus religion"
+  },
+  {
+    "page_id": 1318,
+    "issue_date": "1938-08-11",
+    "verdict": "mismatch",
+    "reason": "Content discusses governance versus foreign news"
+  },
+  {
+    "page_id": 1319,
+    "issue_date": "1938-08-11",
+    "verdict": "mismatch",
+    "reason": "Content discusses assembly versus history"
+  },
+  {
+    "page_id": 1320,
+    "issue_date": "1938-08-11",
+    "verdict": "mismatch",
+    "reason": "Translation discusses EIC and history"
+  },
+  {
+    "page_id": 1321,
+    "issue_date": "1938-08-11",
+    "verdict": "mismatch",
+    "reason": "Translation is about magazine advertisements"
+  },
+  {
+    "page_id": 1322,
+    "issue_date": "1938-08-11",
+    "verdict": "mismatch",
+    "reason": "Translation is a letter format"
+  },
+  {
+    "page_id": 1323,
+    "issue_date": "1938-08-11",
+    "verdict": "mismatch",
+    "reason": "Translation is a fictional dialogue"
+  },
+  {
+    "page_id": 1324,
+    "issue_date": "1938-08-11",
+    "verdict": "mismatch",
+    "reason": "Translation is about a Jirga"
+  },
+  {
+    "page_id": 1325,
+    "issue_date": "1938-08-11",
+    "verdict": "mismatch",
+    "reason": "Translation is about household affairs"
+  },
+  {
+    "page_id": 1326,
+    "issue_date": "1938-08-11",
+    "verdict": "mismatch",
+    "reason": "Translation is about war treaties"
+  },
+  {
+    "page_id": 1327,
+    "issue_date": "1938-08-11",
+    "verdict": "mismatch",
+    "reason": "Translation is about insurance advertisements"
+  },
+  {
+    "page_id": 1328,
+    "issue_date": "1938-08-11",
+    "verdict": "mismatch",
+    "reason": "Pashto literary essay vs political"
+  },
+  {
+    "page_id": 1329,
+    "issue_date": "1938-08-11",
+    "verdict": "mismatch",
+    "reason": "Pashto education report vs political"
+  },
+  {
+    "page_id": 1330,
+    "issue_date": "1938-08-11",
+    "verdict": "mismatch",
+    "reason": "Pashto dialogue vs political report"
+  },
+  {
+    "page_id": 1331,
+    "issue_date": "1938-08-11",
+    "verdict": "mismatch",
+    "reason": "Pashto legal discussion vs political"
+  },
+  {
+    "page_id": 1332,
+    "issue_date": "1938-08-11",
+    "verdict": "mismatch",
+    "reason": "Pashto medical drama vs magazine"
+  },
+  {
+    "page_id": 1333,
+    "issue_date": "1938-08-11",
+    "verdict": "mismatch",
+    "reason": "Pashto praise vs magazine index"
+  },
+  {
+    "page_id": 1334,
+    "issue_date": "1938-08-11",
+    "verdict": "mismatch",
+    "reason": "Pashto medical advice vs announcement"
+  },
+  {
+    "page_id": 1335,
+    "issue_date": "1938-08-11",
+    "verdict": "mismatch",
+    "reason": "Pashto dialogue vs political speech"
+  },
+  {
+    "page_id": 1336,
+    "issue_date": "1938-08-11",
+    "verdict": "mismatch",
+    "reason": "Content is completely unrelated topics"
+  },
+  {
+    "page_id": 1337,
+    "issue_date": "1938-09-01",
+    "verdict": "mismatch",
+    "reason": "Poetry vs prose about research"
+  },
+  {
+    "page_id": 1338,
+    "issue_date": "1938-09-01",
+    "verdict": "mismatch",
+    "reason": "Table of contents vs politics"
+  },
+  {
+    "page_id": 1339,
+    "issue_date": "1938-09-01",
+    "verdict": "mismatch",
+    "reason": "Azerbaijan history vs Gandhi meeting"
+  },
+  {
+    "page_id": 1340,
+    "issue_date": "1938-09-01",
+    "verdict": "mismatch",
+    "reason": "Religious sermon vs political recommendations"
+  },
+  {
+    "page_id": 1341,
+    "issue_date": "1938-09-01",
+    "verdict": "mismatch",
+    "reason": "Political commentary vs poetic tribute"
+  },
+  {
+    "page_id": 1342,
+    "issue_date": "1938-09-01",
+    "verdict": "mismatch",
+    "reason": "Cultural policy vs religious sacrifice"
+  },
+  {
+    "page_id": 1343,
+    "issue_date": "1938-09-01",
+    "verdict": "mismatch",
+    "reason": "Prison transfer vs municipal act"
+  },
+  {
+    "page_id": 1344,
+    "issue_date": "1938-09-01",
+    "verdict": "mismatch",
+    "reason": "Different dates and unrelated content"
+  },
+  {
+    "page_id": 1345,
+    "issue_date": "1938-09-01",
+    "verdict": "mismatch",
+    "reason": "Different dates and unrelated content"
+  },
+  {
+    "page_id": 1346,
+    "issue_date": "1938-09-01",
+    "verdict": "mismatch",
+    "reason": "Different dates and unrelated content"
+  },
+  {
+    "page_id": 1347,
+    "issue_date": "1938-09-01",
+    "verdict": "mismatch",
+    "reason": "Different dates and unrelated content"
+  },
+  {
+    "page_id": 1348,
+    "issue_date": "1938-09-01",
+    "verdict": "mismatch",
+    "reason": "Different dates and unrelated content"
+  },
+  {
+    "page_id": 1349,
+    "issue_date": "1938-09-01",
+    "verdict": "mismatch",
+    "reason": "Different dates and unrelated content"
+  },
+  {
+    "page_id": 1350,
+    "issue_date": "1938-09-01",
+    "verdict": "mismatch",
+    "reason": "Different dates and unrelated content"
+  },
+  {
+    "page_id": 1351,
+    "issue_date": "1938-09-01",
+    "verdict": "mismatch",
+    "reason": "Different dates and unrelated content"
+  },
+  {
+    "page_id": 1352,
+    "issue_date": "1938-09-01",
+    "verdict": "mismatch",
+    "reason": "Financial data vs insurance advertisement"
+  },
+  {
+    "page_id": 1353,
+    "issue_date": "1938-09-01",
+    "verdict": "mismatch",
+    "reason": "Military budget vs table of contents"
+  },
+  {
+    "page_id": 1355,
+    "issue_date": "1938-09-01",
+    "verdict": "mismatch",
+    "reason": "Religious philosophy vs political poem"
+  },
+  {
+    "page_id": 1356,
+    "issue_date": "1938-09-01",
+    "verdict": "mismatch",
+    "reason": "Pashtun freedom vs political party dispute"
+  },
+  {
+    "page_id": 1357,
+    "issue_date": "1938-09-01",
+    "verdict": "mismatch",
+    "reason": "Patriotism essay vs Congress resolution"
+  },
+  {
+    "page_id": 1358,
+    "issue_date": "1938-09-01",
+    "verdict": "mismatch",
+    "reason": "Colonial critique vs political freedom debate"
+  },
+  {
+    "page_id": 1360,
+    "issue_date": "1938-09-01",
+    "verdict": "mismatch",
+    "reason": "Content is completely unrelated topics"
+  },
+  {
+    "page_id": 1361,
+    "issue_date": "1938-09-01",
+    "verdict": "mismatch",
+    "reason": "Different subjects and dates mentioned"
+  },
+  {
+    "page_id": 1362,
+    "issue_date": "1938-09-01",
+    "verdict": "mismatch",
+    "reason": "Content is about different subjects"
+  },
+  {
+    "page_id": 1363,
+    "issue_date": "1938-09-01",
+    "verdict": "mismatch",
+    "reason": "Poetry vs political prisoner biography"
+  },
+  {
+    "page_id": 1364,
+    "issue_date": "1938-09-01",
+    "verdict": "mismatch",
+    "reason": "Poetry vs political commentary/religion"
+  },
+  {
+    "page_id": 1365,
+    "issue_date": "1938-09-01",
+    "verdict": "mismatch",
+    "reason": "Publishing logistics vs foreign news"
+  },
+  {
+    "page_id": 1366,
+    "issue_date": "1938-09-01",
+    "verdict": "mismatch",
+    "reason": "Religious philosophy vs British history"
+  },
+  {
+    "page_id": 1367,
+    "issue_date": "1938-09-01",
+    "verdict": "mismatch",
+    "reason": "Educational scheme vs British history"
+  },
+  {
+    "page_id": 1368,
+    "issue_date": "1938-09-01",
+    "verdict": "mismatch",
+    "reason": "Pashto discusses literature; English discusses warplanes."
+  },
+  {
+    "page_id": 1369,
+    "issue_date": "1938-09-01",
+    "verdict": "mismatch",
+    "reason": "Pashto discusses logic/truth; English discusses national decline."
+  },
+  {
+    "page_id": 1370,
+    "issue_date": "1938-09-01",
+    "verdict": "mismatch",
+    "reason": "Pashto is a travelogue; English is a dialogue."
+  },
+  {
+    "page_id": 1371,
+    "issue_date": "1938-09-01",
+    "verdict": "mismatch",
+    "reason": "Pashto discusses book publishing; English is a dialogue."
+  },
+  {
+    "page_id": 1372,
+    "issue_date": "1938-09-01",
+    "verdict": "mismatch",
+    "reason": "Pashto discusses public petitions; English discusses political reform."
+  },
+  {
+    "page_id": 1373,
+    "issue_date": "1938-09-01",
+    "verdict": "mismatch",
+    "reason": "Pashto discusses editorial policy; English is a poem."
+  },
+  {
+    "page_id": 1374,
+    "issue_date": "1938-09-01",
+    "verdict": "mismatch",
+    "reason": "Pashto discusses journalism; English is an advertisement."
+  },
+  {
+    "page_id": 1375,
+    "issue_date": "1938-09-01",
+    "verdict": "mismatch",
+    "reason": "Pashto is a dialogue; English is a table."
+  },
+  {
+    "page_id": 1376,
+    "issue_date": "1938-09-01",
+    "verdict": "mismatch",
+    "reason": "Different topics and dates provided"
+  },
+  {
+    "page_id": 1377,
+    "issue_date": "1938-09-01",
+    "verdict": "mismatch",
+    "reason": "Different content and subject matter"
+  },
+  {
+    "page_id": 1378,
+    "issue_date": "1938-09-01",
+    "verdict": "mismatch",
+    "reason": "Different topics and context provided"
+  },
+  {
+    "page_id": 1379,
+    "issue_date": "1938-09-01",
+    "verdict": "mismatch",
+    "reason": "Different subjects and content matter"
+  },
+  {
+    "page_id": 1380,
+    "issue_date": "1938-09-11",
+    "verdict": "mismatch",
+    "reason": "Different topics and news content"
+  },
+  {
+    "page_id": 1381,
+    "issue_date": "1938-09-11",
+    "verdict": "mismatch",
+    "reason": "Different content and subject matter"
+  },
+  {
+    "page_id": 1382,
+    "issue_date": "1938-09-11",
+    "verdict": "mismatch",
+    "reason": "Different topics and content matter"
+  },
+  {
+    "page_id": 1383,
+    "issue_date": "1938-09-11",
+    "verdict": "mismatch",
+    "reason": "Different content and subject matter"
+  },
+  {
+    "page_id": 1384,
+    "issue_date": "1938-09-11",
+    "verdict": "mismatch",
+    "reason": "Translation is unrelated religious poetry"
+  },
+  {
+    "page_id": 1385,
+    "issue_date": "1938-09-11",
+    "verdict": "mismatch",
+    "reason": "Translation discusses municipal act details"
+  },
+  {
+    "page_id": 1386,
+    "issue_date": "1938-09-11",
+    "verdict": "mismatch",
+    "reason": "Translation discusses abstract power dynamics"
+  },
+  {
+    "page_id": 1387,
+    "issue_date": "1938-09-11",
+    "verdict": "mismatch",
+    "reason": "Translation discusses historical Iranian wars"
+  },
+  {
+    "page_id": 1388,
+    "issue_date": "1938-09-11",
+    "verdict": "mismatch",
+    "reason": "Translation discusses Isfahan famine history"
+  },
+  {
+    "page_id": 1389,
+    "issue_date": "1938-09-11",
+    "verdict": "mismatch",
+    "reason": "Translation discusses abstract natural laws"
+  },
+  {
+    "page_id": 1390,
+    "issue_date": "1938-09-11",
+    "verdict": "mismatch",
+    "reason": "Translation discusses Islamic moral principles"
+  },
+  {
+    "page_id": 1391,
+    "issue_date": "1938-09-11",
+    "verdict": "mismatch",
+    "reason": "Translation is unrelated melancholic poetry"
+  },
+  {
+    "page_id": 1392,
+    "issue_date": "1938-09-11",
+    "verdict": "mismatch",
+    "reason": "Poem vs government tax report"
+  },
+  {
+    "page_id": 1394,
+    "issue_date": "1938-09-11",
+    "verdict": "mismatch",
+    "reason": "Insurance policy vs political assembly"
+  },
+  {
+    "page_id": 1395,
+    "issue_date": "1938-09-11",
+    "verdict": "mismatch",
+    "reason": "Poem vs table of contents"
+  },
+  {
+    "page_id": 1397,
+    "issue_date": "1938-09-11",
+    "verdict": "mismatch",
+    "reason": "Debate article vs national poem"
+  },
+  {
+    "page_id": 1399,
+    "issue_date": "1938-09-11",
+    "verdict": "mismatch",
+    "reason": "Oppression article vs congress resolution"
+  },
+  {
+    "page_id": 1400,
+    "issue_date": "1938-09-11",
+    "verdict": "mismatch",
+    "reason": "Pashto discusses literature; English politics."
+  },
+  {
+    "page_id": 1401,
+    "issue_date": "1938-09-11",
+    "verdict": "mismatch",
+    "reason": "Pashto discusses calligraphy; English politics."
+  },
+  {
+    "page_id": 1402,
+    "issue_date": "1938-09-11",
+    "verdict": "mismatch",
+    "reason": "Pashto discusses literature; English politics."
+  },
+  {
+    "page_id": 1403,
+    "issue_date": "1938-09-11",
+    "verdict": "mismatch",
+    "reason": "Pashto discusses Eid; English political circulars."
+  },
+  {
+    "page_id": 1404,
+    "issue_date": "1938-09-11",
+    "verdict": "mismatch",
+    "reason": "Pashto discusses diplomacy; English war policy."
+  },
+  {
+    "page_id": 1405,
+    "issue_date": "1938-09-11",
+    "verdict": "mismatch",
+    "reason": "Pashto discusses crime; English religious history."
+  },
+  {
+    "page_id": 1406,
+    "issue_date": "1938-09-11",
+    "verdict": "mismatch",
+    "reason": "Pashto discusses fiction; English political commentary."
+  },
+  {
+    "page_id": 1407,
+    "issue_date": "1938-09-11",
+    "verdict": "mismatch",
+    "reason": "Pashto discusses art; English foreign news."
+  },
+  {
+    "page_id": 1408,
+    "issue_date": "1938-09-11",
+    "verdict": "mismatch",
+    "reason": "Pashto office admin vs British history"
+  },
+  {
+    "page_id": 1409,
+    "issue_date": "1938-09-11",
+    "verdict": "mismatch",
+    "reason": "Pashto poem vs British history timeline"
+  },
+  {
+    "page_id": 1410,
+    "issue_date": "1938-09-11",
+    "verdict": "mismatch",
+    "reason": "Pashto political speech vs air war"
+  },
+  {
+    "page_id": 1412,
+    "issue_date": "1938-09-11",
+    "verdict": "mismatch",
+    "reason": "Pashto political critique vs dialogue script"
+  },
+  {
+    "page_id": 1413,
+    "issue_date": "1938-09-11",
+    "verdict": "mismatch",
+    "reason": "Pashto poem vs dialogue and gratitude"
+  },
+  {
+    "page_id": 1414,
+    "issue_date": "1938-09-11",
+    "verdict": "mismatch",
+    "reason": "Pashto drama script vs political commentary"
+  },
+  {
+    "page_id": 1415,
+    "issue_date": "1938-09-11",
+    "verdict": "mismatch",
+    "reason": "Pashto play script vs abstract poem"
+  },
+  {
+    "page_id": 1416,
+    "issue_date": "1938-09-11",
+    "verdict": "mismatch",
+    "reason": "Translation is unrelated insurance advertisement"
+  },
+  {
+    "page_id": 1417,
+    "issue_date": "1938-09-11",
+    "verdict": "mismatch",
+    "reason": "Translation is a table contents"
+  },
+  {
+    "page_id": 1418,
+    "issue_date": "1938-09-11",
+    "verdict": "mismatch",
+    "reason": "Translation is a table contents"
+  },
+  {
+    "page_id": 1419,
+    "issue_date": "1938-09-11",
+    "verdict": "mismatch",
+    "reason": "Translation is a political announcement"
+  },
+  {
+    "page_id": 1420,
+    "issue_date": "1938-09-11",
+    "verdict": "mismatch",
+    "reason": "Translation is a personal reflection"
+  },
+  {
+    "page_id": 1421,
+    "issue_date": "1938-09-11",
+    "verdict": "mismatch",
+    "reason": "Translation is a prison narrative"
+  },
+  {
+    "page_id": 1422,
+    "issue_date": "1938-09-21",
+    "verdict": "mismatch",
+    "reason": "Translation is a personal reflection"
+  },
+  {
+    "page_id": 1423,
+    "issue_date": "1938-09-21",
+    "verdict": "mismatch",
+    "reason": "Translation is about international politics"
+  },
+  {
+    "page_id": 1424,
+    "issue_date": "1938-09-21",
+    "verdict": "mismatch",
+    "reason": "Poetry vs political news report"
+  },
+  {
+    "page_id": 1425,
+    "issue_date": "1938-09-21",
+    "verdict": "mismatch",
+    "reason": "Narrative story vs political recommendation"
+  },
+  {
+    "page_id": 1426,
+    "issue_date": "1938-09-21",
+    "verdict": "mismatch",
+    "reason": "Personal medical account vs poetry"
+  },
+  {
+    "page_id": 1427,
+    "issue_date": "1938-09-21",
+    "verdict": "mismatch",
+    "reason": "Personal travel account vs philosophy"
+  },
+  {
+    "page_id": 1428,
+    "issue_date": "1938-09-21",
+    "verdict": "mismatch",
+    "reason": "Personal medical account vs municipal act"
+  },
+  {
+    "page_id": 1429,
+    "issue_date": "1938-09-21",
+    "verdict": "mismatch",
+    "reason": "Literary discussion vs political rhetoric"
+  },
+  {
+    "page_id": 1430,
+    "issue_date": "1938-09-21",
+    "verdict": "mismatch",
+    "reason": "Village narrative vs historical account"
+  },
+  {
+    "page_id": 1431,
+    "issue_date": "1938-09-21",
+    "verdict": "mismatch",
+    "reason": "Village narrative vs historical account"
+  },
+  {
+    "page_id": 1433,
+    "issue_date": "1938-09-21",
+    "verdict": "mismatch",
+    "reason": "Pashto discusses philosophy; English discusses Islam."
+  },
+  {
+    "page_id": 1434,
+    "issue_date": "1938-09-21",
+    "verdict": "mismatch",
+    "reason": "Pashto is a dialogue; English is a poem."
+  },
+  {
+    "page_id": 1436,
+    "issue_date": "1938-09-21",
+    "verdict": "mismatch",
+    "reason": "Pashto is a report; English is a poem."
+  },
+  {
+    "page_id": 1437,
+    "issue_date": "1938-09-21",
+    "verdict": "mismatch",
+    "reason": "Pashto discusses literature; English discusses insurance."
+  },
+  {
+    "page_id": 1438,
+    "issue_date": "1938-09-21",
+    "verdict": "mismatch",
+    "reason": "Pashto discusses government; English is a table."
+  },
+  {
+    "page_id": 1440,
+    "issue_date": "1938-09-21",
+    "verdict": "mismatch",
+    "reason": "Pashto is political essay, English is poem"
+  },
+  {
+    "page_id": 1441,
+    "issue_date": "1938-09-21",
+    "verdict": "mismatch",
+    "reason": "Pashto is education reform, English is politics"
+  },
+  {
+    "page_id": 1442,
+    "issue_date": "1938-09-21",
+    "verdict": "mismatch",
+    "reason": "Pashto is religious/slavery, English is Congress resolution"
+  },
+  {
+    "page_id": 1443,
+    "issue_date": "1938-09-21",
+    "verdict": "mismatch",
+    "reason": "Pashto is Prince of Wales, English is Congress policy"
+  },
+  {
+    "page_id": 1444,
+    "issue_date": "1938-09-21",
+    "verdict": "mismatch",
+    "reason": "Pashto is literary history, English is political ultimatum"
+  },
+  {
+    "page_id": 1445,
+    "issue_date": "1938-09-21",
+    "verdict": "mismatch",
+    "reason": "Pashto is anecdotal story, English is democratic governance"
+  },
+  {
+    "page_id": 1446,
+    "issue_date": "1938-09-21",
+    "verdict": "mismatch",
+    "reason": "Pashto is poetry, English is political meeting notice"
+  },
+  {
+    "page_id": 1447,
+    "issue_date": "1938-09-21",
+    "verdict": "mismatch",
+    "reason": "Pashto is village governance, English is Poland/war policy"
+  },
+  {
+    "page_id": 1448,
+    "issue_date": "1938-09-21",
+    "verdict": "mismatch",
+    "reason": "Different topics and historical figures"
+  },
+  {
+    "page_id": 1449,
+    "issue_date": "1938-09-21",
+    "verdict": "mismatch",
+    "reason": "Different subjects and time periods"
+  },
+  {
+    "page_id": 1450,
+    "issue_date": "1938-09-21",
+    "verdict": "mismatch",
+    "reason": "Different topics and news content"
+  },
+  {
+    "page_id": 1451,
+    "issue_date": "1938-09-21",
+    "verdict": "mismatch",
+    "reason": "Different subjects and historical events"
+  },
+  {
+    "page_id": 1452,
+    "issue_date": "1938-09-21",
+    "verdict": "mismatch",
+    "reason": "Different topics and historical timelines"
+  },
+  {
+    "page_id": 1453,
+    "issue_date": "1938-09-21",
+    "verdict": "mismatch",
+    "reason": "Different subjects and technical content"
+  },
+  {
+    "page_id": 1454,
+    "issue_date": "1938-09-21",
+    "verdict": "mismatch",
+    "reason": "Different topics and cultural content"
+  },
+  {
+    "page_id": 1455,
+    "issue_date": "1938-09-21",
+    "verdict": "mismatch",
+    "reason": "Different subjects and narrative content"
+  },
+  {
+    "page_id": 1456,
+    "issue_date": "1938-09-21",
+    "verdict": "mismatch",
+    "reason": "Translation is about personal correspondence"
+  },
+  {
+    "page_id": 1457,
+    "issue_date": "1938-09-21",
+    "verdict": "mismatch",
+    "reason": "Translation is about household affairs"
+  },
+  {
+    "page_id": 1458,
+    "issue_date": "1938-09-21",
+    "verdict": "mismatch",
+    "reason": "Translation is about poetic metaphors"
+  },
+  {
+    "page_id": 1459,
+    "issue_date": "1938-09-21",
+    "verdict": "mismatch",
+    "reason": "Translation is about life insurance"
+  },
+  {
+    "page_id": 1460,
+    "issue_date": "1938-09-21",
+    "verdict": "mismatch",
+    "reason": "Translation is about personal speeches"
+  },
+  {
+    "page_id": 1461,
+    "issue_date": "1938-09-21",
+    "verdict": "mismatch",
+    "reason": "Translation is about prison experiences"
+  },
+  {
+    "page_id": 1462,
+    "issue_date": "1938-09-21",
+    "verdict": "mismatch",
+    "reason": "Translation is about personal research"
+  },
+  {
+    "page_id": 1463,
+    "issue_date": "1939-06-01",
+    "verdict": "mismatch",
+    "reason": "Translation is about international politics"
+  },
+  {
+    "page_id": 1464,
+    "issue_date": "1939-06-01",
+    "verdict": "mismatch",
+    "reason": "Pashto political speech vs English news"
+  },
+  {
+    "page_id": 1465,
+    "issue_date": "1939-06-01",
+    "verdict": "mismatch",
+    "reason": "Pashto service appeal vs English speech"
+  },
+  {
+    "page_id": 1466,
+    "issue_date": "1939-06-01",
+    "verdict": "mismatch",
+    "reason": "Pashto economic critique vs English poetry"
+  },
+  {
+    "page_id": 1467,
+    "issue_date": "1939-06-01",
+    "verdict": "mismatch",
+    "reason": "Pashto political commentary vs English religious text"
+  },
+  {
+    "page_id": 1468,
+    "issue_date": "1939-06-01",
+    "verdict": "mismatch",
+    "reason": "Pashto political critique vs English municipal act"
+  },
+  {
+    "page_id": 1469,
+    "issue_date": "1939-06-01",
+    "verdict": "mismatch",
+    "reason": "Pashto philosophy vs English government announcement"
+  },
+  {
+    "page_id": 1470,
+    "issue_date": "1939-06-01",
+    "verdict": "mismatch",
+    "reason": "Pashto political theory vs English historical narrative"
+  },
+  {
+    "page_id": 1471,
+    "issue_date": "1939-06-01",
+    "verdict": "mismatch",
+    "reason": "Pashto education reform vs English historical narrative"
+  },
+  {
+    "page_id": 1473,
+    "issue_date": "1939-06-01",
+    "verdict": "mismatch",
+    "reason": "Translation is about philosophy/Islam"
+  },
+  {
+    "page_id": 1474,
+    "issue_date": "1939-06-01",
+    "verdict": "mismatch",
+    "reason": "Translation is a sad poem"
+  },
+  {
+    "page_id": 1475,
+    "issue_date": "1939-06-01",
+    "verdict": "mismatch",
+    "reason": "Translation is a patriotic poem"
+  },
+  {
+    "page_id": 1476,
+    "issue_date": "1939-06-01",
+    "verdict": "mismatch",
+    "reason": "Translation is a patriotic poem"
+  },
+  {
+    "page_id": 1477,
+    "issue_date": "1939-06-01",
+    "verdict": "mismatch",
+    "reason": "Translation is an insurance advertisement"
+  },
+  {
+    "page_id": 1478,
+    "issue_date": "1939-06-01",
+    "verdict": "mismatch",
+    "reason": "Translation is a table contents"
+  },
+  {
+    "page_id": 1480,
+    "issue_date": "1939-06-01",
+    "verdict": "mismatch",
+    "reason": "Pashto is historical/literary; English is poetry."
+  },
+  {
+    "page_id": 1481,
+    "issue_date": "1939-06-01",
+    "verdict": "mismatch",
+    "reason": "Pashto is a poem; English is political commentary."
+  },
+  {
+    "page_id": 1482,
+    "issue_date": "1939-06-01",
+    "verdict": "mismatch",
+    "reason": "Pashto is a personal arrest account; English is Congress."
+  },
+  {
+    "page_id": 1483,
+    "issue_date": "1939-06-01",
+    "verdict": "mismatch",
+    "reason": "Pashto is a narrative story; English is political analysis."
+  },
+  {
+    "page_id": 1484,
+    "issue_date": "1939-06-01",
+    "verdict": "mismatch",
+    "reason": "Pashto is a personal anecdote; English is political news."
+  },
+  {
+    "page_id": 1485,
+    "issue_date": "1939-06-01",
+    "verdict": "mismatch",
+    "reason": "Pashto is an insurance advertisement; English is political."
+  },
+  {
+    "page_id": 1486,
+    "issue_date": "1939-06-01",
+    "verdict": "mismatch",
+    "reason": "Pashto is a poem; English is a meeting announcement."
+  },
+  {
+    "page_id": 1487,
+    "issue_date": "1939-06-01",
+    "verdict": "mismatch",
+    "reason": "Pashto is a table of contents; English is war commentary."
+  },
+  {
+    "page_id": 1488,
+    "issue_date": "1939-06-01",
+    "verdict": "mismatch",
+    "reason": "Different topics and historical figures"
+  },
+  {
+    "page_id": 1489,
+    "issue_date": "1939-06-01",
+    "verdict": "mismatch",
+    "reason": "Different subjects and content focus"
+  },
+  {
+    "page_id": 1490,
+    "issue_date": "1939-06-01",
+    "verdict": "mismatch",
+    "reason": "Pashto is local, English is international"
+  },
+  {
+    "page_id": 1491,
+    "issue_date": "1939-06-01",
+    "verdict": "mismatch",
+    "reason": "Pashto is poetry, English is history"
+  },
+  {
+    "page_id": 1492,
+    "issue_date": "1939-06-01",
+    "verdict": "mismatch",
+    "reason": "Different topics and historical contexts"
+  },
+  {
+    "page_id": 1493,
+    "issue_date": "1939-06-01",
+    "verdict": "mismatch",
+    "reason": "Pashto is history, English is aviation"
+  },
+  {
+    "page_id": 1494,
+    "issue_date": "1939-06-01",
+    "verdict": "mismatch",
+    "reason": "Different topics and subject matter"
+  },
+  {
+    "page_id": 1495,
+    "issue_date": "1939-06-01",
+    "verdict": "mismatch",
+    "reason": "Different topics and content focus"
+  },
+  {
+    "page_id": 1496,
+    "issue_date": "1939-06-01",
+    "verdict": "mismatch",
+    "reason": "Poem vs personal letter content"
+  },
+  {
+    "page_id": 1497,
+    "issue_date": "1939-06-01",
+    "verdict": "mismatch",
+    "reason": "Historical biography vs dialogue transcript"
+  },
+  {
+    "page_id": 1498,
+    "issue_date": "1939-06-01",
+    "verdict": "mismatch",
+    "reason": "Poem vs insurance advertisement text"
+  },
+  {
+    "page_id": 1499,
+    "issue_date": "1939-06-01",
+    "verdict": "mismatch",
+    "reason": "Poem vs insurance advertisement text"
+  },
+  {
+    "page_id": 1500,
+    "issue_date": "1939-06-01",
+    "verdict": "mismatch",
+    "reason": "Patriotic essay vs table of contents"
+  },
+  {
+    "page_id": 1501,
+    "issue_date": "1939-06-01",
+    "verdict": "mismatch",
+    "reason": "Poetry vs table of contents"
+  },
+  {
+    "page_id": 1502,
+    "issue_date": "1939-06-01",
+    "verdict": "mismatch",
+    "reason": "Literary analysis vs official announcement"
+  },
+  {
+    "page_id": 1503,
+    "issue_date": "1939-06-01",
+    "verdict": "mismatch",
+    "reason": "Poetry vs philosophical prose commentary"
+  },
+  {
+    "page_id": 1504,
+    "issue_date": "1939-06-01",
+    "verdict": "mismatch",
+    "reason": "Pashto is editorial; English is prison-report."
+  },
+  {
+    "page_id": 1505,
+    "issue_date": "1939-06-01",
+    "verdict": "mismatch",
+    "reason": "Pashto is a poem; English is prose-research."
+  },
+  {
+    "page_id": 1506,
+    "issue_date": "1939-06-01",
+    "verdict": "mismatch",
+    "reason": "Pashto is geopolitical; English is London-news."
+  },
+  {
+    "page_id": 1507,
+    "issue_date": "1939-06-01",
+    "verdict": "mismatch",
+    "reason": "Pashto is insurance-ad; English is Gandhi-meeting."
+  },
+  {
+    "page_id": 1508,
+    "issue_date": "1939-06-01",
+    "verdict": "mismatch",
+    "reason": "Pashto is a poem; English is speech-transcript."
+  },
+  {
+    "page_id": 1509,
+    "issue_date": "1939-06-01",
+    "verdict": "mismatch",
+    "reason": "Pashto is table-of-contents; English is poem."
+  },
+  {
+    "page_id": 1510,
+    "issue_date": "1939-06-01",
+    "verdict": "mismatch",
+    "reason": "Pashto is obituary; English is religious-sacrifice."
+  },
+  {
+    "page_id": 1511,
+    "issue_date": "1939-06-01",
+    "verdict": "mismatch",
+    "reason": "Pashto is social-commentary; English is municipal-act."
+  },
+  {
+    "page_id": 1512,
+    "issue_date": "1939-06-01",
+    "verdict": "mismatch",
+    "reason": "Pashto news vs English poetry"
+  },
+  {
+    "page_id": 1513,
+    "issue_date": "1939-06-01",
+    "verdict": "mismatch",
+    "reason": "Pashto biography vs English history"
+  },
+  {
+    "page_id": 1514,
+    "issue_date": "1939-06-01",
+    "verdict": "mismatch",
+    "reason": "Pashto letter vs English history"
+  },
+  {
+    "page_id": 1515,
+    "issue_date": "1939-06-01",
+    "verdict": "mismatch",
+    "reason": "Pashto fable vs English philosophy"
+  },
+  {
+    "page_id": 1516,
+    "issue_date": "1939-06-01",
+    "verdict": "mismatch",
+    "reason": "Pashto story vs English essay"
+  },
+  {
+    "page_id": 1518,
+    "issue_date": "1939-06-01",
+    "verdict": "mismatch",
+    "reason": "Pashto education vs English poetry"
+  },
+  {
+    "page_id": 1519,
+    "issue_date": "1939-07-01",
+    "verdict": "mismatch",
+    "reason": "Pashto news vs English poetry"
+  },
+  {
+    "page_id": 1520,
+    "issue_date": "1939-07-01",
+    "verdict": "mismatch",
+    "reason": "Pashto is index, English is insurance"
+  },
+  {
+    "page_id": 1521,
+    "issue_date": "1939-07-01",
+    "verdict": "mismatch",
+    "reason": "Pashto is legal case, English is index"
+  },
+  {
+    "page_id": 1523,
+    "issue_date": "1939-07-01",
+    "verdict": "mismatch",
+    "reason": "Pashto is editorial, English is poem"
+  },
+  {
+    "page_id": 1524,
+    "issue_date": "1939-07-01",
+    "verdict": "mismatch",
+    "reason": "Pashto is news, English is political commentary"
+  },
+  {
+    "page_id": 1526,
+    "issue_date": "1939-07-01",
+    "verdict": "mismatch",
+    "reason": "Pashto is conference, English is politics"
+  },
+  {
+    "page_id": 1527,
+    "issue_date": "1939-07-01",
+    "verdict": "mismatch",
+    "reason": "Pashto is Ghaffar Khan, English is politics"
+  },
+  {
+    "page_id": 1528,
+    "issue_date": "1939-07-01",
+    "verdict": "mismatch",
+    "reason": "Pashto discusses politics and Islam"
+  },
+  {
+    "page_id": 1529,
+    "issue_date": "1939-07-01",
+    "verdict": "mismatch",
+    "reason": "Pashto discusses Soviet Russia progress"
+  },
+  {
+    "page_id": 1530,
+    "issue_date": "1939-07-01",
+    "verdict": "mismatch",
+    "reason": "Pashto discusses Russian military strength"
+  },
+  {
+    "page_id": 1531,
+    "issue_date": "1939-07-01",
+    "verdict": "mismatch",
+    "reason": "Pashto discusses Russian foreign policy"
+  },
+  {
+    "page_id": 1532,
+    "issue_date": "1939-07-01",
+    "verdict": "mismatch",
+    "reason": "Pashto discusses Mirwais Hotak history"
+  },
+  {
+    "page_id": 1533,
+    "issue_date": "1939-07-01",
+    "verdict": "mismatch",
+    "reason": "Pashto discusses ethics and honor"
+  },
+  {
+    "page_id": 1534,
+    "issue_date": "1939-07-01",
+    "verdict": "mismatch",
+    "reason": "Pashto discusses Pashto language reform"
+  },
+  {
+    "page_id": 1535,
+    "issue_date": "1939-07-01",
+    "verdict": "mismatch",
+    "reason": "Pashto discusses Pashto grammar poetry"
+  },
+  {
+    "page_id": 1536,
+    "issue_date": "1939-07-01",
+    "verdict": "mismatch",
+    "reason": "Pashto poetry vs aviation technical"
+  },
+  {
+    "page_id": 1537,
+    "issue_date": "1939-07-01",
+    "verdict": "mismatch",
+    "reason": "Personal anecdote vs political essay"
+  },
+  {
+    "page_id": 1538,
+    "issue_date": "1939-07-01",
+    "verdict": "mismatch",
+    "reason": "Poetic list vs dialogue transcript"
+  },
+  {
+    "page_id": 1539,
+    "issue_date": "1939-07-01",
+    "verdict": "mismatch",
+    "reason": "Patriotic poem vs dialogue transcript"
+  },
+  {
+    "page_id": 1540,
+    "issue_date": "1939-07-01",
+    "verdict": "mismatch",
+    "reason": "Poetry vs political meeting notes"
+  },
+  {
+    "page_id": 1541,
+    "issue_date": "1939-07-01",
+    "verdict": "mismatch",
+    "reason": "Table of contents vs poem"
+  },
+  {
+    "page_id": 1542,
+    "issue_date": "1939-07-01",
+    "verdict": "mismatch",
+    "reason": "Political speech vs insurance advertisement"
+  },
+  {
+    "page_id": 1544,
+    "issue_date": "1939-07-01",
+    "verdict": "mismatch",
+    "reason": "Different topics and content themes"
+  },
+  {
+    "page_id": 1545,
+    "issue_date": "1939-07-01",
+    "verdict": "mismatch",
+    "reason": "Different topics and content themes"
+  },
+  {
+    "page_id": 1546,
+    "issue_date": "1939-07-01",
+    "verdict": "mismatch",
+    "reason": "Different topics and content themes"
+  },
+  {
+    "page_id": 1547,
+    "issue_date": "1939-07-01",
+    "verdict": "mismatch",
+    "reason": "Different topics and content themes"
+  },
+  {
+    "page_id": 1548,
+    "issue_date": "1939-07-01",
+    "verdict": "mismatch",
+    "reason": "Different topics and content themes"
+  },
+  {
+    "page_id": 1552,
+    "issue_date": "1939-07-01",
+    "verdict": "mismatch",
+    "reason": "Pashto history vs municipal act"
+  },
+  {
+    "page_id": 1553,
+    "issue_date": "1939-07-01",
+    "verdict": "mismatch",
+    "reason": "Personal grievances vs political movement"
+  },
+  {
+    "page_id": 1554,
+    "issue_date": "1939-07-01",
+    "verdict": "mismatch",
+    "reason": "Advice/poetry vs historical military account"
+  },
+  {
+    "page_id": 1555,
+    "issue_date": "1939-07-01",
+    "verdict": "mismatch",
+    "reason": "Social critique vs historical famine account"
+  },
+  {
+    "page_id": 1556,
+    "issue_date": "1939-07-01",
+    "verdict": "mismatch",
+    "reason": "Student advice vs philosophical nature law"
+  },
+  {
+    "page_id": 1557,
+    "issue_date": "1939-07-01",
+    "verdict": "mismatch",
+    "reason": "Poetry vs Islamic educational principles"
+  },
+  {
+    "page_id": 1559,
+    "issue_date": "1939-07-01",
+    "verdict": "mismatch",
+    "reason": "Palestine political news vs poetry"
+  },
+  {
+    "page_id": 1560,
+    "issue_date": "1939-07-01",
+    "verdict": "mismatch",
+    "reason": "Poem vs magazine subscription details"
+  },
+  {
+    "page_id": 1561,
+    "issue_date": "1939-08-01",
+    "verdict": "mismatch",
+    "reason": "Poem vs insurance company advertisement"
+  },
+  {
+    "page_id": 1563,
+    "issue_date": "1939-08-01",
+    "verdict": "mismatch",
+    "reason": "Poem vs table of contents"
+  },
+  {
+    "page_id": 1564,
+    "issue_date": "1939-08-01",
+    "verdict": "mismatch",
+    "reason": "Philosophy of service vs poem"
+  },
+  {
+    "page_id": 1565,
+    "issue_date": "1939-08-01",
+    "verdict": "mismatch",
+    "reason": "Discussion on ethics vs political commentary"
+  },
+  {
+    "page_id": 1566,
+    "issue_date": "1939-08-01",
+    "verdict": "mismatch",
+    "reason": "Personal reflection vs political resolution"
+  },
+  {
+    "page_id": 1567,
+    "issue_date": "1939-08-01",
+    "verdict": "mismatch",
+    "reason": "Non-violence philosophy vs political statement"
+  },
+  {
+    "page_id": 1569,
+    "issue_date": "1939-08-01",
+    "verdict": "mismatch",
+    "reason": "content discusses jirga vs politics"
+  },
+  {
+    "page_id": 1570,
+    "issue_date": "1939-08-01",
+    "verdict": "mismatch",
+    "reason": "content discusses europe vs india"
+  },
+  {
+    "page_id": 1571,
+    "issue_date": "1939-08-01",
+    "verdict": "mismatch",
+    "reason": "content discusses local news vs war"
+  },
+  {
+    "page_id": 1572,
+    "issue_date": "1939-08-01",
+    "verdict": "mismatch",
+    "reason": "content discusses geopolitics vs imprisonment"
+  },
+  {
+    "page_id": 1573,
+    "issue_date": "1939-08-01",
+    "verdict": "mismatch",
+    "reason": "content discusses poland vs religion"
+  },
+  {
+    "page_id": 1574,
+    "issue_date": "1939-08-01",
+    "verdict": "mismatch",
+    "reason": "content discusses russia vs saudi"
+  },
+  {
+    "page_id": 1575,
+    "issue_date": "1939-08-01",
+    "verdict": "mismatch",
+    "reason": "content discusses philosophy vs history"
+  },
+  {
+    "page_id": 1576,
+    "issue_date": "1939-08-01",
+    "verdict": "mismatch",
+    "reason": "Different historical topics and dates"
+  },
+  {
+    "page_id": 1577,
+    "issue_date": "1939-08-01",
+    "verdict": "mismatch",
+    "reason": "Pashto is military/political; English is aviation"
+  },
+  {
+    "page_id": 1578,
+    "issue_date": "1939-08-01",
+    "verdict": "mismatch",
+    "reason": "Pashto is education; English is national decline"
+  },
+  {
+    "page_id": 1579,
+    "issue_date": "1939-08-01",
+    "verdict": "mismatch",
+    "reason": "Pashto is religious/social; English is dialogue"
+  },
+  {
+    "page_id": 1580,
+    "issue_date": "1939-08-01",
+    "verdict": "mismatch",
+    "reason": "Pashto is poetry; English is prose dialogue"
+  },
+  {
+    "page_id": 1581,
+    "issue_date": "1939-08-01",
+    "verdict": "mismatch",
+    "reason": "Pashto is political; English is household affairs"
+  },
+  {
+    "page_id": 1582,
+    "issue_date": "1939-08-01",
+    "verdict": "mismatch",
+    "reason": "Pashto is political; English is poetic verses"
+  },
+  {
+    "page_id": 3595,
+    "issue_date": "1957b",
+    "verdict": "mismatch",
+    "reason": "Translation describes picture of feet"
+  }
+]

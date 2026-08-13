@@ -1,0 +1,2996 @@
+[
+  {
+    "article_id": 10,
+    "issue_date": "1928-05-01",
+    "verdict": "bundled",
+    "reason": "Unrelated topics and fragmented text"
+  },
+  {
+    "article_id": 15,
+    "issue_date": "1928-05-01",
+    "verdict": "bundled",
+    "reason": "Repeated text from previous article"
+  },
+  {
+    "article_id": 16,
+    "issue_date": "1928-05-01",
+    "verdict": "bundled",
+    "reason": "Unrelated text appended to article"
+  },
+  {
+    "article_id": 19,
+    "issue_date": "1928-05-01",
+    "verdict": "bundled",
+    "reason": "Unrelated text appended to article"
+  },
+  {
+    "article_id": 20,
+    "issue_date": "1928-05-01",
+    "verdict": "bundled",
+    "reason": "Columns contain repetitive, disjointed text."
+  },
+  {
+    "article_id": 27,
+    "issue_date": "1928-05-01",
+    "verdict": "bundled",
+    "reason": "Columns contain unrelated repeated fragments."
+  },
+  {
+    "article_id": 36,
+    "issue_date": "1928-06-01",
+    "verdict": "bundled",
+    "reason": "Columns contain unrelated, fragmented content."
+  },
+  {
+    "article_id": 37,
+    "issue_date": "1928-06-01",
+    "verdict": "bundled",
+    "reason": "Unrelated text fragments mixed together"
+  },
+  {
+    "article_id": 39,
+    "issue_date": "1928-06-01",
+    "verdict": "bundled",
+    "reason": "Multiple distinct articles incorrectly merged"
+  },
+  {
+    "article_id": 42,
+    "issue_date": "1928-06-01",
+    "verdict": "bundled",
+    "reason": "Two unrelated article segments combined"
+  },
+  {
+    "article_id": 49,
+    "issue_date": "1928-06-01",
+    "verdict": "bundled",
+    "reason": "Advertisement mixed with article content"
+  },
+  {
+    "article_id": 50,
+    "issue_date": "1928-06-01",
+    "verdict": "bundled",
+    "reason": "Advertisement mixed with article content"
+  },
+  {
+    "article_id": 53,
+    "issue_date": "1928-06-06",
+    "verdict": "bundled",
+    "reason": "Advertisement mixed with magazine masthead"
+  },
+  {
+    "article_id": 54,
+    "issue_date": "1928-06-06",
+    "verdict": "bundled",
+    "reason": "Advertisement mixed with magazine masthead"
+  },
+  {
+    "article_id": 59,
+    "issue_date": "1928-06-06",
+    "verdict": "bundled",
+    "reason": "Unrelated topics and page breaks"
+  },
+  {
+    "article_id": 60,
+    "issue_date": "1928-06-06",
+    "verdict": "bundled",
+    "reason": "Multiple unrelated articles and fragments"
+  },
+  {
+    "article_id": 64,
+    "issue_date": "1928-06-06",
+    "verdict": "bundled",
+    "reason": "Repetitive and disjointed text segments"
+  },
+  {
+    "article_id": 69,
+    "issue_date": "1928-06-06",
+    "verdict": "bundled",
+    "reason": "Unrelated fragments joined together incorrectly"
+  },
+  {
+    "article_id": 74,
+    "issue_date": "1928-06-06",
+    "verdict": "bundled",
+    "reason": "Advertisement mixed with article content"
+  },
+  {
+    "article_id": 79,
+    "issue_date": "1928-07-01",
+    "verdict": "bundled",
+    "reason": "Poetry mixed with advertising pitch"
+  },
+  {
+    "article_id": 85,
+    "issue_date": "1928-07-01",
+    "verdict": "bundled",
+    "reason": "Two separate letters to editor"
+  },
+  {
+    "article_id": 86,
+    "issue_date": "1928-07-01",
+    "verdict": "bundled",
+    "reason": "Multiple unrelated articles mixed together"
+  },
+  {
+    "article_id": 87,
+    "issue_date": "1928-07-01",
+    "verdict": "bundled",
+    "reason": "Repeated text and unrelated fragments"
+  },
+  {
+    "article_id": 92,
+    "issue_date": "1928-07-01",
+    "verdict": "bundled",
+    "reason": "Poetry mixed with prose article"
+  },
+  {
+    "article_id": 96,
+    "issue_date": "1928-07-01",
+    "verdict": "bundled",
+    "reason": "Multiple unrelated article fragments included"
+  },
+  {
+    "article_id": 98,
+    "issue_date": "1928-07-01",
+    "verdict": "bundled",
+    "reason": "Repetitive and fragmented text blocks"
+  },
+  {
+    "article_id": 107,
+    "issue_date": "1928-08-01",
+    "verdict": "bundled",
+    "reason": "Multiple unrelated narrative fragments mixed"
+  },
+  {
+    "article_id": 114,
+    "issue_date": "1928-08-01",
+    "verdict": "bundled",
+    "reason": "Editorial note is separate piece"
+  },
+  {
+    "article_id": 117,
+    "issue_date": "1928-08-01",
+    "verdict": "bundled",
+    "reason": "Unrelated text about dogs/bones"
+  },
+  {
+    "article_id": 122,
+    "issue_date": "1928-09-01",
+    "verdict": "bundled",
+    "reason": "Masthead and advertisements mixed together"
+  },
+  {
+    "article_id": 127,
+    "issue_date": "1928-09-01",
+    "verdict": "bundled",
+    "reason": "Narrative interrupted by unrelated text"
+  },
+  {
+    "article_id": 140,
+    "issue_date": "1928-09-01",
+    "verdict": "bundled",
+    "reason": "Unrelated text about family history"
+  },
+  {
+    "article_id": 144,
+    "issue_date": "1928-09-01",
+    "verdict": "bundled",
+    "reason": "Unrelated text fragments joined together"
+  },
+  {
+    "article_id": 173,
+    "issue_date": "1928-10-01",
+    "verdict": "bundled",
+    "reason": "Unrelated religious text and correspondence"
+  },
+  {
+    "article_id": 184,
+    "issue_date": "1928-12-01",
+    "verdict": "bundled",
+    "reason": "Multiple unrelated fragments and dates"
+  },
+  {
+    "article_id": 202,
+    "issue_date": "1928-12-01",
+    "verdict": "bundled",
+    "reason": "Masthead and unrelated text mixed"
+  },
+  {
+    "article_id": 211,
+    "issue_date": "1928-12-01",
+    "verdict": "bundled",
+    "reason": "Multiple distinct letters and notices"
+  },
+  {
+    "article_id": 212,
+    "issue_date": "1928-12-01",
+    "verdict": "bundled",
+    "reason": "Unrelated historical fragments and notes"
+  },
+  {
+    "article_id": 219,
+    "issue_date": "1928-12-01",
+    "verdict": "bundled",
+    "reason": "Incoherent text and fragmented layout"
+  },
+  {
+    "article_id": 229,
+    "issue_date": "1928-12-01",
+    "verdict": "bundled",
+    "reason": "Repeated text blocks and fragments"
+  },
+  {
+    "article_id": 235,
+    "issue_date": "1929-01-01",
+    "verdict": "bundled",
+    "reason": "Multiple unrelated poems and fragments"
+  },
+  {
+    "article_id": 236,
+    "issue_date": "1929-01-01",
+    "verdict": "bundled",
+    "reason": "Mixed poem and unrelated fragments"
+  },
+  {
+    "article_id": 238,
+    "issue_date": "1929-01-01",
+    "verdict": "bundled",
+    "reason": "Bundled unrelated articles and fragments"
+  },
+  {
+    "article_id": 240,
+    "issue_date": "1929-01-01",
+    "verdict": "bundled",
+    "reason": "Mixed education article and politics"
+  },
+  {
+    "article_id": 243,
+    "issue_date": "1929-01-01",
+    "verdict": "bundled",
+    "reason": "Multiple unrelated articles mixed together"
+  },
+  {
+    "article_id": 244,
+    "issue_date": "1929-01-01",
+    "verdict": "bundled",
+    "reason": "Multiple unrelated articles mixed together"
+  },
+  {
+    "article_id": 246,
+    "issue_date": "1929-01-01",
+    "verdict": "bundled",
+    "reason": "Multiple unrelated articles mixed together"
+  },
+  {
+    "article_id": 247,
+    "issue_date": "1929-01-01",
+    "verdict": "bundled",
+    "reason": "Multiple unrelated articles mixed together"
+  },
+  {
+    "article_id": 250,
+    "issue_date": "1929-01-01",
+    "verdict": "bundled",
+    "reason": "Multiple unrelated topics and dates"
+  },
+  {
+    "article_id": 258,
+    "issue_date": "1929-02-01",
+    "verdict": "bundled",
+    "reason": "Article mixed with unrelated text"
+  },
+  {
+    "article_id": 264,
+    "issue_date": "1929-02-01",
+    "verdict": "bundled",
+    "reason": "Story mixed with unrelated poem"
+  },
+  {
+    "article_id": 265,
+    "issue_date": "1929-02-01",
+    "verdict": "bundled",
+    "reason": "Unrelated fiction and magazine masthead"
+  },
+  {
+    "article_id": 269,
+    "issue_date": "1929-02-01",
+    "verdict": "bundled",
+    "reason": "Article content mixed with unrelated text"
+  },
+  {
+    "article_id": 277,
+    "issue_date": "1929-02-01",
+    "verdict": "bundled",
+    "reason": "Unrelated news items mixed together"
+  },
+  {
+    "article_id": 293,
+    "issue_date": "1929-02-02",
+    "verdict": "bundled",
+    "reason": "Unrelated masthead text mixed in"
+  },
+  {
+    "article_id": 296,
+    "issue_date": "1929-02-02",
+    "verdict": "bundled",
+    "reason": "unrelated topics joined together abruptly"
+  },
+  {
+    "article_id": 302,
+    "issue_date": "1929-02-02",
+    "verdict": "bundled",
+    "reason": "Notice mixed with literary essay"
+  },
+  {
+    "article_id": 308,
+    "issue_date": "1929-02-02",
+    "verdict": "bundled",
+    "reason": "Two completely different news topics"
+  },
+  {
+    "article_id": 315,
+    "issue_date": "1929-03-01",
+    "verdict": "bundled",
+    "reason": "Masthead and poem mixed together"
+  },
+  {
+    "article_id": 333,
+    "issue_date": "1929-03-01",
+    "verdict": "bundled",
+    "reason": "Poetry mixed with prose analysis"
+  },
+  {
+    "article_id": 335,
+    "issue_date": "1929-03-01",
+    "verdict": "bundled",
+    "reason": "Unrelated text about car factories"
+  },
+  {
+    "article_id": 336,
+    "issue_date": "1929-03-01",
+    "verdict": "bundled",
+    "reason": "Repeated text and unrelated fragments"
+  },
+  {
+    "article_id": 341,
+    "issue_date": "1929-03-01",
+    "verdict": "bundled",
+    "reason": "Unrelated literary and news snippets"
+  },
+  {
+    "article_id": 378,
+    "issue_date": "1929-05-01",
+    "verdict": "bundled",
+    "reason": "Multiple unrelated topics and fragments"
+  },
+  {
+    "article_id": 381,
+    "issue_date": "1929-05-01",
+    "verdict": "bundled",
+    "reason": "Unrelated text fragments joined together"
+  },
+  {
+    "article_id": 383,
+    "issue_date": "1929-05-01",
+    "verdict": "bundled",
+    "reason": "Multiple distinct dialogue/narrative segments"
+  },
+  {
+    "article_id": 401,
+    "issue_date": "1929-06-01",
+    "verdict": "bundled",
+    "reason": "Unrelated text segments joined together"
+  },
+  {
+    "article_id": 406,
+    "issue_date": "1929-06-01",
+    "verdict": "bundled",
+    "reason": "Unrelated text fragments mixed together"
+  },
+  {
+    "article_id": 407,
+    "issue_date": "1929-06-01",
+    "verdict": "bundled",
+    "reason": "Article content abruptly switches topics"
+  },
+  {
+    "article_id": 412,
+    "issue_date": "1929-06-01",
+    "verdict": "bundled",
+    "reason": "Unrelated historical snippets joined together"
+  },
+  {
+    "article_id": 426,
+    "issue_date": "1929-07-01",
+    "verdict": "bundled",
+    "reason": "Two unrelated topics and texts"
+  },
+  {
+    "article_id": 430,
+    "issue_date": "1929-07-01",
+    "verdict": "bundled",
+    "reason": "Unrelated political commentary and news"
+  },
+  {
+    "article_id": 437,
+    "issue_date": "1929-07-01",
+    "verdict": "bundled",
+    "reason": "Education proposal mixed with sermon"
+  },
+  {
+    "article_id": 441,
+    "issue_date": "1929-07-01",
+    "verdict": "bundled",
+    "reason": "Unrelated text fragments mixed together"
+  },
+  {
+    "article_id": 450,
+    "issue_date": "1929-07-01",
+    "verdict": "bundled",
+    "reason": "Multiple unrelated news snippets bundled"
+  },
+  {
+    "article_id": 453,
+    "issue_date": "1929-08-01",
+    "verdict": "bundled",
+    "reason": "Masthead mixed with article content"
+  },
+  {
+    "article_id": 457,
+    "issue_date": "1929-08-01",
+    "verdict": "bundled",
+    "reason": "Unrelated political text mixed in"
+  },
+  {
+    "article_id": 466,
+    "issue_date": "1929-08-01",
+    "verdict": "bundled",
+    "reason": "Unrelated text fragments mixed together"
+  },
+  {
+    "article_id": 482,
+    "issue_date": "1929-09-01",
+    "verdict": "bundled",
+    "reason": "Multiple unrelated topics and sections"
+  },
+  {
+    "article_id": 488,
+    "issue_date": "1929-09-01",
+    "verdict": "bundled",
+    "reason": "Unrelated text fragments and reports"
+  },
+  {
+    "article_id": 489,
+    "issue_date": "1929-09-01",
+    "verdict": "bundled",
+    "reason": "Multiple unrelated topics and headers"
+  },
+  {
+    "article_id": 493,
+    "issue_date": "1929-09-01",
+    "verdict": "bundled",
+    "reason": "Prose mixed with unrelated poem"
+  },
+  {
+    "article_id": 504,
+    "issue_date": "1929-10-01",
+    "verdict": "bundled",
+    "reason": "Unrelated text about Pashto magazine"
+  },
+  {
+    "article_id": 512,
+    "issue_date": "1929-10-01",
+    "verdict": "bundled",
+    "reason": "Two distinct news report snippets"
+  },
+  {
+    "article_id": 525,
+    "issue_date": "1929-12-01",
+    "verdict": "bundled",
+    "reason": "Second column discusses poetry advice"
+  },
+  {
+    "article_id": 530,
+    "issue_date": "1929-12-01",
+    "verdict": "bundled",
+    "reason": "Mixed article and unrelated commentary"
+  },
+  {
+    "article_id": 540,
+    "issue_date": "1930-01-01",
+    "verdict": "bundled",
+    "reason": "Two distinct articles are joined"
+  },
+  {
+    "article_id": 541,
+    "issue_date": "1930-01-01",
+    "verdict": "bundled",
+    "reason": "Two distinct articles are joined"
+  },
+  {
+    "article_id": 543,
+    "issue_date": "1930-01-01",
+    "verdict": "bundled",
+    "reason": "Multiple unrelated articles mixed together"
+  },
+  {
+    "article_id": 544,
+    "issue_date": "1930-01-01",
+    "verdict": "bundled",
+    "reason": "Multiple unrelated articles mixed together"
+  },
+  {
+    "article_id": 545,
+    "issue_date": "1930-01-01",
+    "verdict": "bundled",
+    "reason": "Multiple unrelated articles mixed together"
+  },
+  {
+    "article_id": 546,
+    "issue_date": "1930-01-01",
+    "verdict": "bundled",
+    "reason": "Repeated and fragmented text segments"
+  },
+  {
+    "article_id": 553,
+    "issue_date": "1930-01-01",
+    "verdict": "bundled",
+    "reason": "Multiple unrelated letters and topics"
+  },
+  {
+    "article_id": 557,
+    "issue_date": "1930-02-01",
+    "verdict": "bundled",
+    "reason": "Masthead mixed with article content"
+  },
+  {
+    "article_id": 558,
+    "issue_date": "1930-02-01",
+    "verdict": "bundled",
+    "reason": "Duplicate content and masthead included"
+  },
+  {
+    "article_id": 561,
+    "issue_date": "1930-02-01",
+    "verdict": "bundled",
+    "reason": "Two different articles are mixed"
+  },
+  {
+    "article_id": 562,
+    "issue_date": "1930-02-01",
+    "verdict": "bundled",
+    "reason": "Two different articles are mixed"
+  },
+  {
+    "article_id": 567,
+    "issue_date": "1930-02-01",
+    "verdict": "bundled",
+    "reason": "Two different articles are mixed"
+  },
+  {
+    "article_id": 568,
+    "issue_date": "1930-02-01",
+    "verdict": "bundled",
+    "reason": "Two different articles are mixed"
+  },
+  {
+    "article_id": 573,
+    "issue_date": "1930-02-01",
+    "verdict": "bundled",
+    "reason": "Different articles mixed together incorrectly"
+  },
+  {
+    "article_id": 577,
+    "issue_date": "1930-02-01",
+    "verdict": "bundled",
+    "reason": "Table of contents mixed content"
+  },
+  {
+    "article_id": 581,
+    "issue_date": "1930-03-01",
+    "verdict": "bundled",
+    "reason": "Unrelated text about Tagore inserted"
+  },
+  {
+    "article_id": 582,
+    "issue_date": "1930-03-01",
+    "verdict": "bundled",
+    "reason": "Repeated columns and unrelated text"
+  },
+  {
+    "article_id": 588,
+    "issue_date": "1930-03-01",
+    "verdict": "bundled",
+    "reason": "Poetry mixed with administrative report"
+  },
+  {
+    "article_id": 590,
+    "issue_date": "1930-03-01",
+    "verdict": "bundled",
+    "reason": "Two distinct articles incorrectly merged"
+  },
+  {
+    "article_id": 591,
+    "issue_date": "1930-03-01",
+    "verdict": "bundled",
+    "reason": "Article title mismatched with content"
+  },
+  {
+    "article_id": 592,
+    "issue_date": "1930-03-01",
+    "verdict": "bundled",
+    "reason": "Multiple unrelated text segments bundled"
+  },
+  {
+    "article_id": 593,
+    "issue_date": "1930-03-01",
+    "verdict": "bundled",
+    "reason": "Poetry mixed with biographical prose"
+  },
+  {
+    "article_id": 594,
+    "issue_date": "1930-03-01",
+    "verdict": "bundled",
+    "reason": "Duplicate columns of same poem"
+  },
+  {
+    "article_id": 595,
+    "issue_date": "1930-03-01",
+    "verdict": "bundled",
+    "reason": "Poem mixed with political report"
+  },
+  {
+    "article_id": 633,
+    "issue_date": "1931-05-01",
+    "verdict": "bundled",
+    "reason": "Multiple distinct articles and fragments"
+  },
+  {
+    "article_id": 636,
+    "issue_date": "1931-05-01",
+    "verdict": "bundled",
+    "reason": "Repeated text and unrelated fragments"
+  },
+  {
+    "article_id": 647,
+    "issue_date": "1931-05-01",
+    "verdict": "bundled",
+    "reason": "Multiple unrelated topics and articles"
+  },
+  {
+    "article_id": 660,
+    "issue_date": "1931-05-01",
+    "verdict": "bundled",
+    "reason": "Multiple unrelated articles and fragments"
+  },
+  {
+    "article_id": 679,
+    "issue_date": "1931-05-01",
+    "verdict": "bundled",
+    "reason": "Poem mixed with prose report"
+  },
+  {
+    "article_id": 702,
+    "issue_date": "1931-06-01",
+    "verdict": "bundled",
+    "reason": "Table of contents is not article"
+  },
+  {
+    "article_id": 711,
+    "issue_date": "1931-06-01",
+    "verdict": "bundled",
+    "reason": "Unrelated text fragments mixed together"
+  },
+  {
+    "article_id": 713,
+    "issue_date": "1931-06-01",
+    "verdict": "bundled",
+    "reason": "Multiple unrelated snippets and headers"
+  },
+  {
+    "article_id": 714,
+    "issue_date": "1931-06-01",
+    "verdict": "bundled",
+    "reason": "Fragmented text with repeated headers"
+  },
+  {
+    "article_id": 717,
+    "issue_date": "1931-06-01",
+    "verdict": "bundled",
+    "reason": "Masthead mixed with poem fragments"
+  },
+  {
+    "article_id": 719,
+    "issue_date": "1931-06-01",
+    "verdict": "bundled",
+    "reason": "Multiple unrelated letters and fragments"
+  },
+  {
+    "article_id": 731,
+    "issue_date": "1931-06-01",
+    "verdict": "bundled",
+    "reason": "Unrelated poetry mixed with prose"
+  },
+  {
+    "article_id": 750,
+    "issue_date": "1931-06-01",
+    "verdict": "bundled",
+    "reason": "Unrelated fragments and broken text"
+  },
+  {
+    "article_id": 779,
+    "issue_date": "1931-06-01",
+    "verdict": "bundled",
+    "reason": "Multiple unrelated text fragments mixed"
+  },
+  {
+    "article_id": 780,
+    "issue_date": "1931-06-01",
+    "verdict": "bundled",
+    "reason": "Repetitive and disjointed text segments"
+  },
+  {
+    "article_id": 840,
+    "issue_date": "1931-09-01",
+    "verdict": "bundled",
+    "reason": "Table of contents lists multiple"
+  },
+  {
+    "article_id": 852,
+    "issue_date": "1934-06-01",
+    "verdict": "bundled",
+    "reason": "Table of contents lists multiple"
+  },
+  {
+    "article_id": 864,
+    "issue_date": "1934-06-01",
+    "verdict": "bundled",
+    "reason": "Two distinct topics bundled together"
+  },
+  {
+    "article_id": 882,
+    "issue_date": "1934-06-01",
+    "verdict": "bundled",
+    "reason": "Multiple distinct topics and headers"
+  },
+  {
+    "article_id": 887,
+    "issue_date": "1934-06-01",
+    "verdict": "bundled",
+    "reason": "Unrelated text fragments and names"
+  },
+  {
+    "article_id": 888,
+    "issue_date": "1934-06-01",
+    "verdict": "bundled",
+    "reason": "Unrelated text fragments mixed together"
+  },
+  {
+    "article_id": 908,
+    "issue_date": "1934-06-01",
+    "verdict": "bundled",
+    "reason": "Unrelated text fragments mixed together"
+  },
+  {
+    "article_id": 922,
+    "issue_date": "1938-04-05",
+    "verdict": "bundled",
+    "reason": "Multiple unrelated article fragments included"
+  },
+  {
+    "article_id": 942,
+    "issue_date": "1938-04-05",
+    "verdict": "bundled",
+    "reason": "Unrelated text fragments and lists"
+  },
+  {
+    "article_id": 972,
+    "issue_date": "1938-04-05",
+    "verdict": "bundled",
+    "reason": "Unrelated text fragments mixed together"
+  },
+  {
+    "article_id": 983,
+    "issue_date": "1938-04-05",
+    "verdict": "bundled",
+    "reason": "Poetry mixed with prose analysis"
+  },
+  {
+    "article_id": 988,
+    "issue_date": "1938-04-05",
+    "verdict": "bundled",
+    "reason": "Multiple unrelated editorial snippets combined"
+  },
+  {
+    "article_id": 1004,
+    "issue_date": "1938-05-01",
+    "verdict": "bundled",
+    "reason": "List of unrelated magazine articles"
+  },
+  {
+    "article_id": 1016,
+    "issue_date": "1938-05-01",
+    "verdict": "bundled",
+    "reason": "List unrelated to main text"
+  },
+  {
+    "article_id": 1017,
+    "issue_date": "1938-05-01",
+    "verdict": "bundled",
+    "reason": "Unrelated fragments and data tables"
+  },
+  {
+    "article_id": 1019,
+    "issue_date": "1938-05-01",
+    "verdict": "bundled",
+    "reason": "Unrelated text fragments and masthead"
+  },
+  {
+    "article_id": 1021,
+    "issue_date": "1938-05-01",
+    "verdict": "bundled",
+    "reason": "Religious phrase appended to article"
+  },
+  {
+    "article_id": 1033,
+    "issue_date": "1938-05-01",
+    "verdict": "bundled",
+    "reason": "Unrelated topics and different people"
+  },
+  {
+    "article_id": 1036,
+    "issue_date": "1938-05-01",
+    "verdict": "bundled",
+    "reason": "Unrelated fragments of different texts"
+  },
+  {
+    "article_id": 1037,
+    "issue_date": "1938-05-01",
+    "verdict": "bundled",
+    "reason": "Fragmented text lacks coherent flow"
+  },
+  {
+    "article_id": 1045,
+    "issue_date": "1938-05-01",
+    "verdict": "bundled",
+    "reason": "Poetry mixed with prose article"
+  },
+  {
+    "article_id": 1046,
+    "issue_date": "1938-05-01",
+    "verdict": "bundled",
+    "reason": "Poetry mixed with prose article"
+  },
+  {
+    "article_id": 1050,
+    "issue_date": "1938-05-01",
+    "verdict": "bundled",
+    "reason": "Adverts mixed with unrelated text"
+  },
+  {
+    "article_id": 1088,
+    "issue_date": "1938-06-01",
+    "verdict": "bundled",
+    "reason": "Multiple unrelated text fragments mixed"
+  },
+  {
+    "article_id": 1092,
+    "issue_date": "1938-06-01",
+    "verdict": "bundled",
+    "reason": "Fragmented text with unrelated content"
+  },
+  {
+    "article_id": 1096,
+    "issue_date": "1938-06-01",
+    "verdict": "bundled",
+    "reason": "Unrelated topics mixed with fragments"
+  },
+  {
+    "article_id": 1098,
+    "issue_date": "1938-06-01",
+    "verdict": "bundled",
+    "reason": "Unrelated fragments and lists mixed"
+  },
+  {
+    "article_id": 1103,
+    "issue_date": "1938-06-01",
+    "verdict": "bundled",
+    "reason": "Unrelated subscription info and text"
+  },
+  {
+    "article_id": 1105,
+    "issue_date": "1938-06-01",
+    "verdict": "bundled",
+    "reason": "Unrelated text fragments mixed together"
+  },
+  {
+    "article_id": 1106,
+    "issue_date": "1938-06-01",
+    "verdict": "bundled",
+    "reason": "Unrelated text fragments mixed together"
+  },
+  {
+    "article_id": 1108,
+    "issue_date": "1938-06-01",
+    "verdict": "bundled",
+    "reason": "Unrelated text fragments mixed together"
+  },
+  {
+    "article_id": 1109,
+    "issue_date": "1938-06-01",
+    "verdict": "bundled",
+    "reason": "Unrelated text fragments mixed together"
+  },
+  {
+    "article_id": 1115,
+    "issue_date": "1938-06-01",
+    "verdict": "bundled",
+    "reason": "Advertisement mixed with article text"
+  },
+  {
+    "article_id": 1126,
+    "issue_date": "1938-06-21",
+    "verdict": "bundled",
+    "reason": "Unrelated text fragments mixed together"
+  },
+  {
+    "article_id": 1134,
+    "issue_date": "1938-06-21",
+    "verdict": "bundled",
+    "reason": "Unrelated political topics mixed together"
+  },
+  {
+    "article_id": 1144,
+    "issue_date": "1938-07-01",
+    "verdict": "bundled",
+    "reason": "Duplicate content repeated across columns"
+  },
+  {
+    "article_id": 1145,
+    "issue_date": "1938-07-01",
+    "verdict": "bundled",
+    "reason": "Masthead mixed with article text"
+  },
+  {
+    "article_id": 1149,
+    "issue_date": "1938-07-01",
+    "verdict": "bundled",
+    "reason": "Duplicate content repeated across columns"
+  },
+  {
+    "article_id": 1153,
+    "issue_date": "1938-07-01",
+    "verdict": "bundled",
+    "reason": "Unrelated lecture and market report"
+  },
+  {
+    "article_id": 1156,
+    "issue_date": "1938-07-01",
+    "verdict": "bundled",
+    "reason": "Unrelated fragments and column noise"
+  },
+  {
+    "article_id": 1157,
+    "issue_date": "1938-07-01",
+    "verdict": "bundled",
+    "reason": "Unrelated fragments and column noise"
+  },
+  {
+    "article_id": 1171,
+    "issue_date": "1938-07-01",
+    "verdict": "bundled",
+    "reason": "Unrelated date line appended incorrectly"
+  },
+  {
+    "article_id": 1185,
+    "issue_date": "1938-07-01",
+    "verdict": "bundled",
+    "reason": "Book list mixed with notes"
+  },
+  {
+    "article_id": 1197,
+    "issue_date": "1938-08-01",
+    "verdict": "bundled",
+    "reason": "Fragmented text and unrelated snippets"
+  },
+  {
+    "article_id": 1214,
+    "issue_date": "1938-08-01",
+    "verdict": "bundled",
+    "reason": "Unrelated fragments and list items"
+  },
+  {
+    "article_id": 1230,
+    "issue_date": "1938-08-01",
+    "verdict": "bundled",
+    "reason": "Poem mixed with narrative prose"
+  },
+  {
+    "article_id": 1240,
+    "issue_date": "1938-08-01",
+    "verdict": "bundled",
+    "reason": "Subscription rates mixed with ads"
+  },
+  {
+    "article_id": 1244,
+    "issue_date": "1938-08-11",
+    "verdict": "bundled",
+    "reason": "Masthead and unrelated poetry mixed"
+  },
+  {
+    "article_id": 1251,
+    "issue_date": "1938-08-11",
+    "verdict": "bundled",
+    "reason": "Columns contain unrelated text fragments"
+  },
+  {
+    "article_id": 1252,
+    "issue_date": "1938-08-11",
+    "verdict": "bundled",
+    "reason": "Columns contain unrelated poem fragments"
+  },
+  {
+    "article_id": 1257,
+    "issue_date": "1938-08-11",
+    "verdict": "bundled",
+    "reason": "Multiple unrelated dramatic scene fragments"
+  },
+  {
+    "article_id": 1268,
+    "issue_date": "1938-09-01",
+    "verdict": "bundled",
+    "reason": "Masthead mixed with article text"
+  },
+  {
+    "article_id": 1274,
+    "issue_date": "1938-09-01",
+    "verdict": "bundled",
+    "reason": "Unrelated text fragments joined together"
+  },
+  {
+    "article_id": 1283,
+    "issue_date": "1938-09-01",
+    "verdict": "bundled",
+    "reason": "Unrelated text fragments mixed together"
+  },
+  {
+    "article_id": 1301,
+    "issue_date": "1938-09-01",
+    "verdict": "bundled",
+    "reason": "Travelogue mixed with unrelated commentary"
+  },
+  {
+    "article_id": 1305,
+    "issue_date": "1938-09-01",
+    "verdict": "bundled",
+    "reason": "Fragmented text and unrelated snippets"
+  },
+  {
+    "article_id": 1309,
+    "issue_date": "1938-09-01",
+    "verdict": "bundled",
+    "reason": "Unrelated dialogue and page number"
+  },
+  {
+    "article_id": 1319,
+    "issue_date": "1938-09-11",
+    "verdict": "bundled",
+    "reason": "Multiple unrelated news snippets included"
+  },
+  {
+    "article_id": 1322,
+    "issue_date": "1938-09-11",
+    "verdict": "bundled",
+    "reason": "Multiple unrelated diary entries mixed"
+  },
+  {
+    "article_id": 1327,
+    "issue_date": "1938-09-11",
+    "verdict": "bundled",
+    "reason": "Unrelated text fragments and masthead"
+  },
+  {
+    "article_id": 1331,
+    "issue_date": "1938-09-11",
+    "verdict": "bundled",
+    "reason": "Two distinct philosophical opinion pieces"
+  },
+  {
+    "article_id": 1333,
+    "issue_date": "1938-09-11",
+    "verdict": "bundled",
+    "reason": "Multiple unrelated segments and fragments"
+  },
+  {
+    "article_id": 1337,
+    "issue_date": "1938-09-21",
+    "verdict": "bundled",
+    "reason": "Disjointed narrative and unrelated fragments"
+  },
+  {
+    "article_id": 1339,
+    "issue_date": "1938-09-21",
+    "verdict": "bundled",
+    "reason": "Unrelated poem appended to article"
+  },
+  {
+    "article_id": 1340,
+    "issue_date": "1938-09-21",
+    "verdict": "bundled",
+    "reason": "Unrelated text fragments and poetry"
+  },
+  {
+    "article_id": 1344,
+    "issue_date": "1938-09-21",
+    "verdict": "bundled",
+    "reason": "Unrelated text fragments and title"
+  },
+  {
+    "article_id": 1346,
+    "issue_date": "1938-09-21",
+    "verdict": "bundled",
+    "reason": "Two unrelated articles mixed together"
+  },
+  {
+    "article_id": 1354,
+    "issue_date": "1938-09-21",
+    "verdict": "bundled",
+    "reason": "Unrelated text fragments appended incorrectly"
+  },
+  {
+    "article_id": 1358,
+    "issue_date": "1938-09-21",
+    "verdict": "bundled",
+    "reason": "Unrelated historical text fragments mixed"
+  },
+  {
+    "article_id": 1360,
+    "issue_date": "1938-09-21",
+    "verdict": "bundled",
+    "reason": "Unrelated travel and historical content"
+  },
+  {
+    "article_id": 1371,
+    "issue_date": "1939-06-01",
+    "verdict": "bundled",
+    "reason": "Unrelated text segments joined together"
+  },
+  {
+    "article_id": 1376,
+    "issue_date": "1939-06-01",
+    "verdict": "bundled",
+    "reason": "Unrelated text fragments and masthead"
+  },
+  {
+    "article_id": 1381,
+    "issue_date": "1939-06-01",
+    "verdict": "bundled",
+    "reason": "Poem followed by unrelated philosophical text"
+  },
+  {
+    "article_id": 1382,
+    "issue_date": "1939-06-01",
+    "verdict": "bundled",
+    "reason": "Unrelated text fragments mixed together"
+  },
+  {
+    "article_id": 1390,
+    "issue_date": "1939-06-01",
+    "verdict": "bundled",
+    "reason": "Duplicate text and fragmented content"
+  },
+  {
+    "article_id": 1408,
+    "issue_date": "1939-06-01",
+    "verdict": "bundled",
+    "reason": "Two unrelated biographical subject profiles"
+  },
+  {
+    "article_id": 1417,
+    "issue_date": "1939-06-01",
+    "verdict": "bundled",
+    "reason": "Religious poem mixed with geography"
+  },
+  {
+    "article_id": 1418,
+    "issue_date": "1939-06-01",
+    "verdict": "bundled",
+    "reason": "Geography mixed with education report"
+  },
+  {
+    "article_id": 1421,
+    "issue_date": "1939-06-01",
+    "verdict": "bundled",
+    "reason": "Poetry mixed with prose article"
+  },
+  {
+    "article_id": 1423,
+    "issue_date": "1939-06-01",
+    "verdict": "bundled",
+    "reason": "Prose article mixed with poetry"
+  },
+  {
+    "article_id": 1434,
+    "issue_date": "1939-07-01",
+    "verdict": "bundled",
+    "reason": "Two distinct unrelated text topics"
+  },
+  {
+    "article_id": 1440,
+    "issue_date": "1939-07-01",
+    "verdict": "bundled",
+    "reason": "Multiple unrelated news snippets included"
+  },
+  {
+    "article_id": 1449,
+    "issue_date": "1939-07-01",
+    "verdict": "bundled",
+    "reason": "Unrelated text appended at end"
+  },
+  {
+    "article_id": 1450,
+    "issue_date": "1939-07-01",
+    "verdict": "bundled",
+    "reason": "Repeated content from previous article"
+  },
+  {
+    "article_id": 1452,
+    "issue_date": "1939-07-01",
+    "verdict": "bundled",
+    "reason": "Unrelated poem appended to article"
+  },
+  {
+    "article_id": 1458,
+    "issue_date": "1939-07-01",
+    "verdict": "bundled",
+    "reason": "Poetry unrelated to article text"
+  },
+  {
+    "article_id": 1466,
+    "issue_date": "1939-07-01",
+    "verdict": "bundled",
+    "reason": "Multiple unrelated news items mixed"
+  },
+  {
+    "article_id": 1467,
+    "issue_date": "1939-07-01",
+    "verdict": "bundled",
+    "reason": "Multiple unrelated news items mixed"
+  },
+  {
+    "article_id": 1468,
+    "issue_date": "1939-07-01",
+    "verdict": "bundled",
+    "reason": "Multiple unrelated news items mixed"
+  },
+  {
+    "article_id": 1469,
+    "issue_date": "1939-07-01",
+    "verdict": "bundled",
+    "reason": "Multiple unrelated news items mixed"
+  },
+  {
+    "article_id": 1473,
+    "issue_date": "1939-07-01",
+    "verdict": "bundled",
+    "reason": "Multiple unrelated news items mixed"
+  },
+  {
+    "article_id": 1475,
+    "issue_date": "1939-07-01",
+    "verdict": "bundled",
+    "reason": "Two distinct news reports combined"
+  },
+  {
+    "article_id": 1485,
+    "issue_date": "1939-07-01",
+    "verdict": "bundled",
+    "reason": "Two unrelated texts incorrectly joined"
+  },
+  {
+    "article_id": 1489,
+    "issue_date": "1939-07-01",
+    "verdict": "bundled",
+    "reason": "Table of contents repeated twice"
+  },
+  {
+    "article_id": 1493,
+    "issue_date": "1939-08-01",
+    "verdict": "bundled",
+    "reason": "Multiple unrelated article titles listed"
+  },
+  {
+    "article_id": 1499,
+    "issue_date": "1939-08-01",
+    "verdict": "bundled",
+    "reason": "Multiple unrelated articles are mixed"
+  },
+  {
+    "article_id": 1502,
+    "issue_date": "1939-08-01",
+    "verdict": "bundled",
+    "reason": "Unrelated text header incorrectly included"
+  },
+  {
+    "article_id": 1510,
+    "issue_date": "1939-08-01",
+    "verdict": "bundled",
+    "reason": "Columns contain unrelated historical text"
+  },
+  {
+    "article_id": 1511,
+    "issue_date": "1939-08-01",
+    "verdict": "bundled",
+    "reason": "Columns contain unrelated historical text"
+  },
+  {
+    "article_id": 1517,
+    "issue_date": "1939-08-01",
+    "verdict": "bundled",
+    "reason": "Poetry mixed with unrelated prose"
+  },
+  {
+    "article_id": 1519,
+    "issue_date": "1939-08-01",
+    "verdict": "bundled",
+    "reason": "Multiple unrelated dates and topics"
+  },
+  {
+    "article_id": 1520,
+    "issue_date": "1939-08-01",
+    "verdict": "bundled",
+    "reason": "Poetry mixed with unrelated text"
+  },
+  {
+    "article_id": 1533,
+    "issue_date": "1939-08-01",
+    "verdict": "bundled",
+    "reason": "Masthead and unrelated news mixed"
+  },
+  {
+    "article_id": 1540,
+    "issue_date": "1939-08-01",
+    "verdict": "bundled",
+    "reason": "Multiple unrelated literary topics mixed"
+  },
+  {
+    "article_id": 1548,
+    "issue_date": "1939-09-01",
+    "verdict": "bundled",
+    "reason": "Duplicate columns and unrelated content"
+  },
+  {
+    "article_id": 1551,
+    "issue_date": "1939-09-01",
+    "verdict": "bundled",
+    "reason": "Unrelated news items bundled together"
+  },
+  {
+    "article_id": 1552,
+    "issue_date": "1939-09-01",
+    "verdict": "bundled",
+    "reason": "Multiple distinct news reports bundled"
+  },
+  {
+    "article_id": 1559,
+    "issue_date": "1939-09-01",
+    "verdict": "bundled",
+    "reason": "Unrelated text fragments joined together"
+  },
+  {
+    "article_id": 1563,
+    "issue_date": "1939-09-01",
+    "verdict": "bundled",
+    "reason": "Table of contents repeats twice"
+  },
+  {
+    "article_id": 1567,
+    "issue_date": "1939-09-01",
+    "verdict": "bundled",
+    "reason": "Two distinct regional news sections"
+  },
+  {
+    "article_id": 1569,
+    "issue_date": "1939-09-01",
+    "verdict": "bundled",
+    "reason": "Unrelated news and literary text"
+  },
+  {
+    "article_id": 1570,
+    "issue_date": "1939-09-01",
+    "verdict": "bundled",
+    "reason": "Unrelated narrative and political commentary"
+  },
+  {
+    "article_id": 1573,
+    "issue_date": "1939-09-01",
+    "verdict": "bundled",
+    "reason": "Two distinct unrelated article snippets"
+  },
+  {
+    "article_id": 1574,
+    "issue_date": "1939-09-01",
+    "verdict": "bundled",
+    "reason": "Repeated columns and disjointed text"
+  },
+  {
+    "article_id": 1585,
+    "issue_date": "1939-09-01",
+    "verdict": "bundled",
+    "reason": "Unrelated content mixed with text"
+  },
+  {
+    "article_id": 1593,
+    "issue_date": "1939-09-01",
+    "verdict": "bundled",
+    "reason": "Poetry and prose mixed together"
+  },
+  {
+    "article_id": 1595,
+    "issue_date": "1939-09-01",
+    "verdict": "bundled",
+    "reason": "Multiple unrelated topics and stories"
+  },
+  {
+    "article_id": 1596,
+    "issue_date": "1939-09-01",
+    "verdict": "bundled",
+    "reason": "Mixed literary report and politics"
+  },
+  {
+    "article_id": 1605,
+    "issue_date": "1939-10-01",
+    "verdict": "bundled",
+    "reason": "Multiple unrelated historical literary snippets"
+  },
+  {
+    "article_id": 1609,
+    "issue_date": "1939-10-01",
+    "verdict": "bundled",
+    "reason": "Unrelated text fragments mixed together"
+  },
+  {
+    "article_id": 1610,
+    "issue_date": "1939-10-01",
+    "verdict": "bundled",
+    "reason": "Unrelated text fragments mixed together"
+  },
+  {
+    "article_id": 1611,
+    "issue_date": "1939-10-01",
+    "verdict": "bundled",
+    "reason": "Poetry mixed with religious commentary"
+  },
+  {
+    "article_id": 1612,
+    "issue_date": "1939-10-01",
+    "verdict": "bundled",
+    "reason": "Poetry mixed with international news"
+  },
+  {
+    "article_id": 1614,
+    "issue_date": "1939-10-01",
+    "verdict": "bundled",
+    "reason": "Unrelated news topics mixed together"
+  },
+  {
+    "article_id": 1616,
+    "issue_date": "1939-10-01",
+    "verdict": "bundled",
+    "reason": "Article mixed with subscription rates"
+  },
+  {
+    "article_id": 1623,
+    "issue_date": "1939-10-01",
+    "verdict": "bundled",
+    "reason": "Multiple unrelated news snippets combined"
+  },
+  {
+    "article_id": 1624,
+    "issue_date": "1939-10-01",
+    "verdict": "bundled",
+    "reason": "Unrelated text fragments incorrectly joined"
+  },
+  {
+    "article_id": 1625,
+    "issue_date": "1939-10-01",
+    "verdict": "bundled",
+    "reason": "Disjointed text segments from different"
+  },
+  {
+    "article_id": 1629,
+    "issue_date": "1939-10-01",
+    "verdict": "bundled",
+    "reason": "Unrelated topics and page fragments"
+  },
+  {
+    "article_id": 1636,
+    "issue_date": "1939-10-01",
+    "verdict": "bundled",
+    "reason": "Table of contents repeats content"
+  },
+  {
+    "article_id": 1642,
+    "issue_date": "1939-10-01",
+    "verdict": "bundled",
+    "reason": "Unrelated international news items mixed"
+  },
+  {
+    "article_id": 1643,
+    "issue_date": "1939-10-01",
+    "verdict": "bundled",
+    "reason": "Unrelated news topics incorrectly joined"
+  },
+  {
+    "article_id": 1644,
+    "issue_date": "1939-10-01",
+    "verdict": "bundled",
+    "reason": "Unrelated local news and lists"
+  },
+  {
+    "article_id": 1646,
+    "issue_date": "1939-10-01",
+    "verdict": "bundled",
+    "reason": "Multiple unrelated articles mixed together"
+  },
+  {
+    "article_id": 1652,
+    "issue_date": "1939-10-01",
+    "verdict": "bundled",
+    "reason": "Poem mixed with municipal notice"
+  },
+  {
+    "article_id": 1653,
+    "issue_date": "1939-10-01",
+    "verdict": "bundled",
+    "reason": "Municipal notices mixed with poetry"
+  },
+  {
+    "article_id": 1654,
+    "issue_date": "1939-10-01",
+    "verdict": "bundled",
+    "reason": "Municipal notices mixed with poetry"
+  },
+  {
+    "article_id": 1662,
+    "issue_date": "1939-11-01",
+    "verdict": "bundled",
+    "reason": "Two unrelated topics mixed together"
+  },
+  {
+    "article_id": 1663,
+    "issue_date": "1939-11-01",
+    "verdict": "bundled",
+    "reason": "Unrelated news items mixed together"
+  },
+  {
+    "article_id": 1665,
+    "issue_date": "1939-11-01",
+    "verdict": "bundled",
+    "reason": "Multiple unrelated topics and fragments"
+  },
+  {
+    "article_id": 1670,
+    "issue_date": "1939-11-01",
+    "verdict": "bundled",
+    "reason": "Travelogue mixed with unrelated poetry"
+  },
+  {
+    "article_id": 1672,
+    "issue_date": "1939-11-01",
+    "verdict": "bundled",
+    "reason": "Unrelated text fragments and snippets"
+  },
+  {
+    "article_id": 1678,
+    "issue_date": "1939-11-01",
+    "verdict": "bundled",
+    "reason": "Unrelated topics and page breaks"
+  },
+  {
+    "article_id": 1688,
+    "issue_date": "1939-11-01",
+    "verdict": "bundled",
+    "reason": "Repeated columns and disjointed text"
+  },
+  {
+    "article_id": 1691,
+    "issue_date": "1939-11-01",
+    "verdict": "bundled",
+    "reason": "Table of contents repeated thrice"
+  },
+  {
+    "article_id": 1701,
+    "issue_date": "1939-11-01",
+    "verdict": "bundled",
+    "reason": "Historical narrative mixed with philosophy"
+  },
+  {
+    "article_id": 1708,
+    "issue_date": "1939-11-01",
+    "verdict": "bundled",
+    "reason": "Article text mixed with advertisement"
+  },
+  {
+    "article_id": 1709,
+    "issue_date": "1939-11-01",
+    "verdict": "bundled",
+    "reason": "Advertisement mixed with subscription details"
+  },
+  {
+    "article_id": 1716,
+    "issue_date": "1939-12-01",
+    "verdict": "bundled",
+    "reason": "Repeated text and unrelated headers"
+  },
+  {
+    "article_id": 1719,
+    "issue_date": "1939-12-01",
+    "verdict": "bundled",
+    "reason": "Multiple unrelated articles are mixed"
+  },
+  {
+    "article_id": 1726,
+    "issue_date": "1939-12-01",
+    "verdict": "bundled",
+    "reason": "Two distinct literary pieces combined"
+  },
+  {
+    "article_id": 1754,
+    "issue_date": "1940-02-01",
+    "verdict": "bundled",
+    "reason": "Multiple unrelated dialogue fragments mixed"
+  },
+  {
+    "article_id": 1763,
+    "issue_date": "1940-02-01",
+    "verdict": "bundled",
+    "reason": "Historical text mixed with newspaper"
+  },
+  {
+    "article_id": 1770,
+    "issue_date": "1940-02-01",
+    "verdict": "bundled",
+    "reason": "Multiple unrelated article summaries listed"
+  },
+  {
+    "article_id": 1771,
+    "issue_date": "1940-02-01",
+    "verdict": "bundled",
+    "reason": "Magazine contents mixed with publisher"
+  },
+  {
+    "article_id": 1772,
+    "issue_date": "1940-02-01",
+    "verdict": "bundled",
+    "reason": "Incoherent text and price lists"
+  },
+  {
+    "article_id": 1782,
+    "issue_date": "1940-03-01",
+    "verdict": "bundled",
+    "reason": "Multiple unrelated news snippets mixed"
+  },
+  {
+    "article_id": 1783,
+    "issue_date": "1940-03-01",
+    "verdict": "bundled",
+    "reason": "Unrelated news and poetry fragments"
+  },
+  {
+    "article_id": 1795,
+    "issue_date": "1940-04-01",
+    "verdict": "bundled",
+    "reason": "Table of contents mixed content"
+  },
+  {
+    "article_id": 1797,
+    "issue_date": "1940-04-01",
+    "verdict": "bundled",
+    "reason": "Multiple unrelated fragments and headers"
+  },
+  {
+    "article_id": 1801,
+    "issue_date": "1940-04-01",
+    "verdict": "bundled",
+    "reason": "Unrelated meeting minutes and headers"
+  },
+  {
+    "article_id": 1802,
+    "issue_date": "1940-04-01",
+    "verdict": "bundled",
+    "reason": "Unrelated text fragments mixed together"
+  },
+  {
+    "article_id": 1803,
+    "issue_date": "1940-04-01",
+    "verdict": "bundled",
+    "reason": "Multiple distinct news reports combined"
+  },
+  {
+    "article_id": 1807,
+    "issue_date": "1940-04-01",
+    "verdict": "bundled",
+    "reason": "Unrelated text fragments mixed together"
+  },
+  {
+    "article_id": 1810,
+    "issue_date": "1940-04-01",
+    "verdict": "bundled",
+    "reason": "Title and text are completely unrelated"
+  },
+  {
+    "article_id": 1814,
+    "issue_date": "1940-04-01",
+    "verdict": "bundled",
+    "reason": "Unrelated text fragments and masthead"
+  },
+  {
+    "article_id": 1818,
+    "issue_date": "1940-04-01",
+    "verdict": "bundled",
+    "reason": "Poetry mixed with unrelated fragments"
+  },
+  {
+    "article_id": 1819,
+    "issue_date": "1940-04-01",
+    "verdict": "bundled",
+    "reason": "Article text mixed with fragments"
+  },
+  {
+    "article_id": 1820,
+    "issue_date": "1940-04-01",
+    "verdict": "bundled",
+    "reason": "Multiple unrelated text segments bundled"
+  },
+  {
+    "article_id": 1830,
+    "issue_date": "1940-04-01",
+    "verdict": "bundled",
+    "reason": "Legal text mixed with news"
+  },
+  {
+    "article_id": 1835,
+    "issue_date": "1940-04-11",
+    "verdict": "bundled",
+    "reason": "Multiple unrelated news snippets included"
+  },
+  {
+    "article_id": 1845,
+    "issue_date": "1940-04-11",
+    "verdict": "bundled",
+    "reason": "OCR text is incoherent gibberish"
+  },
+  {
+    "article_id": 1848,
+    "issue_date": "1940-04-11",
+    "verdict": "bundled",
+    "reason": "Masthead mixed with article content"
+  },
+  {
+    "article_id": 1849,
+    "issue_date": "1940-04-21",
+    "verdict": "bundled",
+    "reason": "Masthead and unrelated administrative text"
+  },
+  {
+    "article_id": 1859,
+    "issue_date": "1940-04-21",
+    "verdict": "bundled",
+    "reason": "Two distinct meeting report segments"
+  },
+  {
+    "article_id": 1866,
+    "issue_date": "1940-04-21",
+    "verdict": "bundled",
+    "reason": "Multiple unrelated speech fragments combined"
+  },
+  {
+    "article_id": 1870,
+    "issue_date": "1940-04-21",
+    "verdict": "bundled",
+    "reason": "Masthead and unrelated educational snippets"
+  },
+  {
+    "article_id": 1879,
+    "issue_date": "1940-05-01",
+    "verdict": "bundled",
+    "reason": "Poetry fragment and unrelated metadata"
+  },
+  {
+    "article_id": 1881,
+    "issue_date": "1940-05-01",
+    "verdict": "bundled",
+    "reason": "Unrelated insurance ad mixed content"
+  },
+  {
+    "article_id": 1886,
+    "issue_date": "1940-05-01",
+    "verdict": "bundled",
+    "reason": "Two unrelated news/announcement items"
+  },
+  {
+    "article_id": 1891,
+    "issue_date": "1940-05-01",
+    "verdict": "bundled",
+    "reason": "Unrelated poem appended to article"
+  },
+  {
+    "article_id": 1894,
+    "issue_date": "1940-05-01",
+    "verdict": "bundled",
+    "reason": "Unrelated poetry and fragmented text"
+  },
+  {
+    "article_id": 1901,
+    "issue_date": "1940-05-01",
+    "verdict": "bundled",
+    "reason": "Two separate municipal legal notices"
+  },
+  {
+    "article_id": 1903,
+    "issue_date": "1940-05-01",
+    "verdict": "bundled",
+    "reason": "Unrelated fragments and advertisements mixed"
+  },
+  {
+    "article_id": 1908,
+    "issue_date": "1940-05-11",
+    "verdict": "bundled",
+    "reason": "Poetry mixed with unrelated footer"
+  },
+  {
+    "article_id": 1910,
+    "issue_date": "1940-05-11",
+    "verdict": "bundled",
+    "reason": "Multiple unrelated text fragments mixed"
+  },
+  {
+    "article_id": 1911,
+    "issue_date": "1940-05-11",
+    "verdict": "bundled",
+    "reason": "Fragmented text from different sources"
+  },
+  {
+    "article_id": 1916,
+    "issue_date": "1940-05-11",
+    "verdict": "bundled",
+    "reason": "Multiple unrelated news snippets mixed"
+  },
+  {
+    "article_id": 1926,
+    "issue_date": "1940-05-21",
+    "verdict": "bundled",
+    "reason": "Masthead mixed with poem content"
+  },
+  {
+    "article_id": 1938,
+    "issue_date": "1940-05-21",
+    "verdict": "bundled",
+    "reason": "Unrelated date and page number"
+  },
+  {
+    "article_id": 1940,
+    "issue_date": "1940-05-21",
+    "verdict": "bundled",
+    "reason": "Unrelated list and article text"
+  },
+  {
+    "article_id": 1969,
+    "issue_date": "1940-05-21",
+    "verdict": "bundled",
+    "reason": "Masthead mixed with unrelated text"
+  },
+  {
+    "article_id": 1970,
+    "issue_date": "1940-06-01",
+    "verdict": "bundled",
+    "reason": "Editorial mixed with administrative data"
+  },
+  {
+    "article_id": 1972,
+    "issue_date": "1940-06-01",
+    "verdict": "bundled",
+    "reason": "Advertisement mixed with unrelated fragments"
+  },
+  {
+    "article_id": 1973,
+    "issue_date": "1940-06-01",
+    "verdict": "bundled",
+    "reason": "Multiple unrelated news snippets mixed"
+  },
+  {
+    "article_id": 1979,
+    "issue_date": "1940-06-01",
+    "verdict": "bundled",
+    "reason": "Masthead and unrelated text included"
+  },
+  {
+    "article_id": 1981,
+    "issue_date": "1940-06-01",
+    "verdict": "bundled",
+    "reason": "Unrelated administrative notice and signature"
+  },
+  {
+    "article_id": 1982,
+    "issue_date": "1940-06-01",
+    "verdict": "bundled",
+    "reason": "Multiple unrelated fragments and headers"
+  },
+  {
+    "article_id": 1984,
+    "issue_date": "1940-06-01",
+    "verdict": "bundled",
+    "reason": "Advertisement mixed with unrelated text"
+  },
+  {
+    "article_id": 1986,
+    "issue_date": "1940-06-11",
+    "verdict": "bundled",
+    "reason": "Masthead and unrelated personal notes"
+  },
+  {
+    "article_id": 1990,
+    "issue_date": "1940-06-11",
+    "verdict": "bundled",
+    "reason": "Two distinct topics abruptly joined"
+  },
+  {
+    "article_id": 1991,
+    "issue_date": "1940-06-11",
+    "verdict": "bundled",
+    "reason": "Fragmented text and unrelated snippets"
+  },
+  {
+    "article_id": 1992,
+    "issue_date": "1940-06-11",
+    "verdict": "bundled",
+    "reason": "Multiple unrelated news snippets mixed"
+  },
+  {
+    "article_id": 1994,
+    "issue_date": "1940-06-11",
+    "verdict": "bundled",
+    "reason": "Unrelated news and economic reports"
+  },
+  {
+    "article_id": 1996,
+    "issue_date": "1940-06-11",
+    "verdict": "bundled",
+    "reason": "Multiple distinct stories and articles"
+  },
+  {
+    "article_id": 1997,
+    "issue_date": "1940-06-11",
+    "verdict": "bundled",
+    "reason": "Multiple unrelated news snippets mixed."
+  },
+  {
+    "article_id": 1998,
+    "issue_date": "1940-06-11",
+    "verdict": "bundled",
+    "reason": "Article text mixed with poetry."
+  },
+  {
+    "article_id": 1999,
+    "issue_date": "1940-06-11",
+    "verdict": "bundled",
+    "reason": "Unrelated text fragments and poetry."
+  },
+  {
+    "article_id": 2002,
+    "issue_date": "1940-06-11",
+    "verdict": "bundled",
+    "reason": "Poetry mixed with unrelated fragments."
+  },
+  {
+    "article_id": 2003,
+    "issue_date": "1940-06-11",
+    "verdict": "bundled",
+    "reason": "Multiple unrelated articles mixed together"
+  },
+  {
+    "article_id": 2004,
+    "issue_date": "1940-06-11",
+    "verdict": "bundled",
+    "reason": "Article content mixed with advertisements"
+  },
+  {
+    "article_id": 2016,
+    "issue_date": "1940-06-21",
+    "verdict": "bundled",
+    "reason": "Unrelated text fragments and repetition"
+  },
+  {
+    "article_id": 2018,
+    "issue_date": "1940-06-21",
+    "verdict": "bundled",
+    "reason": "Unrelated administrative text at end"
+  },
+  {
+    "article_id": 2024,
+    "issue_date": "1940-06-21",
+    "verdict": "bundled",
+    "reason": "Unrelated news snippets and lists"
+  },
+  {
+    "article_id": 2025,
+    "issue_date": "1940-06-21",
+    "verdict": "bundled",
+    "reason": "Fragmented text and unrelated headers"
+  },
+  {
+    "article_id": 2026,
+    "issue_date": "1940-06-21",
+    "verdict": "bundled",
+    "reason": "Incoherent text and unrelated fragments"
+  },
+  {
+    "article_id": 2031,
+    "issue_date": "1940-06-21",
+    "verdict": "bundled",
+    "reason": "Unrelated historical topics and regions"
+  },
+  {
+    "article_id": 2043,
+    "issue_date": "1940-06-21",
+    "verdict": "bundled",
+    "reason": "Legal notice mixed with fragments"
+  },
+  {
+    "article_id": 2045,
+    "issue_date": "1940-06-21",
+    "verdict": "bundled",
+    "reason": "Subscription info mixed with fragments"
+  },
+  {
+    "article_id": 2046,
+    "issue_date": "1940-07-01",
+    "verdict": "bundled",
+    "reason": "Poetry mixed with administrative fragments"
+  },
+  {
+    "article_id": 2049,
+    "issue_date": "1940-07-01",
+    "verdict": "bundled",
+    "reason": "Article mixed with unrelated fragments"
+  },
+  {
+    "article_id": 2066,
+    "issue_date": "1940-07-01",
+    "verdict": "bundled",
+    "reason": "advertisement mixed with article text"
+  },
+  {
+    "article_id": 2068,
+    "issue_date": "1940-07-11",
+    "verdict": "bundled",
+    "reason": "Masthead mixed with poem content"
+  },
+  {
+    "article_id": 2070,
+    "issue_date": "1940-07-11",
+    "verdict": "bundled",
+    "reason": "Unrelated job listings and notices"
+  },
+  {
+    "article_id": 2072,
+    "issue_date": "1940-07-11",
+    "verdict": "bundled",
+    "reason": "Article mixed with unrelated signatures"
+  },
+  {
+    "article_id": 2074,
+    "issue_date": "1940-07-11",
+    "verdict": "bundled",
+    "reason": "Multiple unrelated news snippets mixed"
+  },
+  {
+    "article_id": 2078,
+    "issue_date": "1940-07-11",
+    "verdict": "bundled",
+    "reason": "Religious text mixed with administrative"
+  },
+  {
+    "article_id": 2079,
+    "issue_date": "1940-07-11",
+    "verdict": "bundled",
+    "reason": "Unrelated text fragments mixed together"
+  },
+  {
+    "article_id": 2080,
+    "issue_date": "1940-07-11",
+    "verdict": "bundled",
+    "reason": "Article content interrupted by unrelated text"
+  },
+  {
+    "article_id": 2087,
+    "issue_date": "1940-07-11",
+    "verdict": "bundled",
+    "reason": "Poetry mixed with editorial contact"
+  },
+  {
+    "article_id": 2101,
+    "issue_date": "1940-08-11",
+    "verdict": "bundled",
+    "reason": "Topic shifts from Waziristan politics"
+  },
+  {
+    "article_id": 2103,
+    "issue_date": "1940-08-11",
+    "verdict": "bundled",
+    "reason": "Unrelated fragments and disjointed text"
+  },
+  {
+    "article_id": 2105,
+    "issue_date": "1940-08-11",
+    "verdict": "bundled",
+    "reason": "Unrelated text fragments mixed together"
+  },
+  {
+    "article_id": 2107,
+    "issue_date": "1940-08-11",
+    "verdict": "bundled",
+    "reason": "Fragmented text lacks coherent flow"
+  },
+  {
+    "article_id": 2113,
+    "issue_date": "1940-08-11",
+    "verdict": "bundled",
+    "reason": "unrelated text fragments mixed together"
+  },
+  {
+    "article_id": 2114,
+    "issue_date": "1940-08-11",
+    "verdict": "bundled",
+    "reason": "Two unrelated text fragments joined"
+  },
+  {
+    "article_id": 2115,
+    "issue_date": "1940-08-11",
+    "verdict": "bundled",
+    "reason": "Poetry mixed with prose report"
+  },
+  {
+    "article_id": 2119,
+    "issue_date": "1940-08-11",
+    "verdict": "bundled",
+    "reason": "Two distinct unrelated article fragments"
+  },
+  {
+    "article_id": 2120,
+    "issue_date": "1940-08-11",
+    "verdict": "bundled",
+    "reason": "Multiple unrelated list items bundled"
+  },
+  {
+    "article_id": 2125,
+    "issue_date": "1940-08-11",
+    "verdict": "bundled",
+    "reason": "Two distinct religious/political topics"
+  },
+  {
+    "article_id": 2130,
+    "issue_date": "1940-08-11",
+    "verdict": "bundled",
+    "reason": "Poem mixed with unrelated date"
+  },
+  {
+    "article_id": 2134,
+    "issue_date": "1940-08-11",
+    "verdict": "bundled",
+    "reason": "Article text mixed with fragments"
+  },
+  {
+    "article_id": 2142,
+    "issue_date": "1940-08-21",
+    "verdict": "bundled",
+    "reason": "Contains unrelated school/office directory listings"
+  },
+  {
+    "article_id": 2154,
+    "issue_date": "1940-08-21",
+    "verdict": "bundled",
+    "reason": "Two distinct topics mixed together"
+  },
+  {
+    "article_id": 2161,
+    "issue_date": "1940-08-21",
+    "verdict": "bundled",
+    "reason": "Poetry mixed with prose article"
+  },
+  {
+    "article_id": 2173,
+    "issue_date": "1940-09-01",
+    "verdict": "bundled",
+    "reason": "Unrelated text fragments mixed together"
+  },
+  {
+    "article_id": 2177,
+    "issue_date": "1940-09-01",
+    "verdict": "bundled",
+    "reason": "Two unrelated topics mixed together"
+  },
+  {
+    "article_id": 2179,
+    "issue_date": "1940-09-01",
+    "verdict": "bundled",
+    "reason": "Two unrelated topics mixed together"
+  },
+  {
+    "article_id": 2183,
+    "issue_date": "1940-09-01",
+    "verdict": "bundled",
+    "reason": "Repeated columns and disjointed text"
+  },
+  {
+    "article_id": 2189,
+    "issue_date": "1940-09-01",
+    "verdict": "bundled",
+    "reason": "Unrelated fragments and mixed content"
+  },
+  {
+    "article_id": 2202,
+    "issue_date": "1940-09-01",
+    "verdict": "bundled",
+    "reason": "Administrative notice mixed with article"
+  },
+  {
+    "article_id": 2216,
+    "issue_date": "1940-09-01",
+    "verdict": "bundled",
+    "reason": "Poetry mixed with prose essay"
+  },
+  {
+    "article_id": 2219,
+    "issue_date": "1940-09-01",
+    "verdict": "bundled",
+    "reason": "Political text mixed with lists"
+  },
+  {
+    "article_id": 2222,
+    "issue_date": "1940-09-01",
+    "verdict": "bundled",
+    "reason": "Unrelated news and political essay"
+  },
+  {
+    "article_id": 2230,
+    "issue_date": "1940-09-01",
+    "verdict": "bundled",
+    "reason": "Unrelated header and subject matter"
+  },
+  {
+    "article_id": 2231,
+    "issue_date": "1940-09-01",
+    "verdict": "bundled",
+    "reason": "Unrelated text and masthead mixed"
+  },
+  {
+    "article_id": 2232,
+    "issue_date": "1940-09-01",
+    "verdict": "bundled",
+    "reason": "Unrelated fragments and masthead mixed"
+  },
+  {
+    "article_id": 2238,
+    "issue_date": "1940-09-01",
+    "verdict": "bundled",
+    "reason": "Poetry mixed with unrelated prose"
+  },
+  {
+    "article_id": 2239,
+    "issue_date": "1940-09-01",
+    "verdict": "bundled",
+    "reason": "Poetry mixed with educational announcement"
+  },
+  {
+    "article_id": 2243,
+    "issue_date": "1940-09-01",
+    "verdict": "bundled",
+    "reason": "Unrelated text fragments mixed together"
+  },
+  {
+    "article_id": 2268,
+    "issue_date": "1945-08-15",
+    "verdict": "bundled",
+    "reason": "Unrelated text fragments and headers"
+  },
+  {
+    "article_id": 2269,
+    "issue_date": "1945-08-15",
+    "verdict": "bundled",
+    "reason": "Two unrelated texts joined together"
+  },
+  {
+    "article_id": 2280,
+    "issue_date": "1945-08-22",
+    "verdict": "bundled",
+    "reason": "Unrelated text segments incorrectly joined"
+  },
+  {
+    "article_id": 2281,
+    "issue_date": "1945-08-22",
+    "verdict": "bundled",
+    "reason": "Repeated column from previous record"
+  },
+  {
+    "article_id": 2283,
+    "issue_date": "1945-08-22",
+    "verdict": "bundled",
+    "reason": "Multiple distinct narrative segments bundled"
+  },
+  {
+    "article_id": 2284,
+    "issue_date": "1945-09-05",
+    "verdict": "bundled",
+    "reason": "Table of contents mixed content"
+  },
+  {
+    "article_id": 2292,
+    "issue_date": "1945-09-05",
+    "verdict": "bundled",
+    "reason": "Previous article text incorrectly repeated"
+  },
+  {
+    "article_id": 2304,
+    "issue_date": "1945-09-05",
+    "verdict": "bundled",
+    "reason": "Multiple unrelated news list items"
+  },
+  {
+    "article_id": 2306,
+    "issue_date": "1945-09-15",
+    "verdict": "bundled",
+    "reason": "Unrelated administrative report content appended"
+  },
+  {
+    "article_id": 2307,
+    "issue_date": "1945-09-15",
+    "verdict": "bundled",
+    "reason": "Unrelated political commentary segments mixed"
+  },
+  {
+    "article_id": 2309,
+    "issue_date": "1945-09-15",
+    "verdict": "bundled",
+    "reason": "Multiple unrelated news snippets included"
+  },
+  {
+    "article_id": 2319,
+    "issue_date": "1945-09-25",
+    "verdict": "bundled",
+    "reason": "Columns contain unrelated fragmented text"
+  },
+  {
+    "article_id": 2321,
+    "issue_date": "1945-09-25",
+    "verdict": "bundled",
+    "reason": "Columns contain unrelated disjointed topics"
+  },
+  {
+    "article_id": 2325,
+    "issue_date": "1945-09-25",
+    "verdict": "bundled",
+    "reason": "Announcement mixed with unrelated text"
+  },
+  {
+    "article_id": 2335,
+    "issue_date": "1945-10-09",
+    "verdict": "bundled",
+    "reason": "Unrelated topics mixed together abruptly"
+  },
+  {
+    "article_id": 2345,
+    "issue_date": "1945-10-24",
+    "verdict": "bundled",
+    "reason": "Table of contents mixed lists"
+  },
+  {
+    "article_id": 2349,
+    "issue_date": "1945-10-24",
+    "verdict": "bundled",
+    "reason": "unrelated sentence at the end"
+  },
+  {
+    "article_id": 2357,
+    "issue_date": "1945-10-24",
+    "verdict": "bundled",
+    "reason": "Unrelated text fragments and noise"
+  },
+  {
+    "article_id": 2371,
+    "issue_date": "1945-11-01",
+    "verdict": "bundled",
+    "reason": "Table of contents lists mixed"
+  },
+  {
+    "article_id": 2400,
+    "issue_date": "1945-11-08",
+    "verdict": "bundled",
+    "reason": "List of names unrelated content"
+  },
+  {
+    "article_id": 2401,
+    "issue_date": "1945-11-08",
+    "verdict": "bundled",
+    "reason": "List of names versus poetry"
+  },
+  {
+    "article_id": 2411,
+    "issue_date": "1945-11-17",
+    "verdict": "bundled",
+    "reason": "Unrelated political and social commentary"
+  },
+  {
+    "article_id": 2431,
+    "issue_date": "1945-11-24",
+    "verdict": "bundled",
+    "reason": "Unrelated text fragments and headers"
+  },
+  {
+    "article_id": 2439,
+    "issue_date": "1945-12-01",
+    "verdict": "bundled",
+    "reason": "Masthead and metadata only content"
+  },
+  {
+    "article_id": 2443,
+    "issue_date": "1945-12-01",
+    "verdict": "bundled",
+    "reason": "Unrelated literary critique and linguistics"
+  },
+  {
+    "article_id": 2459,
+    "issue_date": "1946-01",
+    "verdict": "bundled",
+    "reason": "Unrelated poetry and prose fragments"
+  },
+  {
+    "article_id": 2504,
+    "issue_date": "1946-02",
+    "verdict": "bundled",
+    "reason": "Unrelated text fragments and ads"
+  },
+  {
+    "article_id": 2505,
+    "issue_date": "1946-02",
+    "verdict": "bundled",
+    "reason": "Fragmented text and unrelated metadata"
+  },
+  {
+    "article_id": 2516,
+    "issue_date": "1946-02",
+    "verdict": "bundled",
+    "reason": "Unrelated poem and article fragments"
+  },
+  {
+    "article_id": 2520,
+    "issue_date": "1946-02",
+    "verdict": "bundled",
+    "reason": "Unrelated text fragments and headers"
+  },
+  {
+    "article_id": 2523,
+    "issue_date": "1946-02",
+    "verdict": "bundled",
+    "reason": "Fragmented text and unrelated content"
+  },
+  {
+    "article_id": 2675,
+    "issue_date": "1946-03-24",
+    "verdict": "bundled",
+    "reason": "Unrelated fragments and garbled text"
+  },
+  {
+    "article_id": 2677,
+    "issue_date": "1946-03-24",
+    "verdict": "bundled",
+    "reason": "Masthead and donation lists mixed"
+  },
+  {
+    "article_id": 2687,
+    "issue_date": "1946-03-24",
+    "verdict": "bundled",
+    "reason": "Unrelated historical and medical snippets"
+  },
+  {
+    "article_id": 2689,
+    "issue_date": "1946-03-24",
+    "verdict": "bundled",
+    "reason": "Columns contain unrelated fragmented text"
+  },
+  {
+    "article_id": 2690,
+    "issue_date": "1946-03-24",
+    "verdict": "bundled",
+    "reason": "Columns contain unrelated fragmented text"
+  },
+  {
+    "article_id": 2704,
+    "issue_date": "1946-04-01",
+    "verdict": "bundled",
+    "reason": "Incoherent text fragments joined together"
+  },
+  {
+    "article_id": 2718,
+    "issue_date": "1946-04-01",
+    "verdict": "bundled",
+    "reason": "Two distinct unrelated interview questions"
+  },
+  {
+    "article_id": 2738,
+    "issue_date": "1946-04-17",
+    "verdict": "bundled",
+    "reason": "Table of contents mixed content"
+  },
+  {
+    "article_id": 2745,
+    "issue_date": "1946-04-17",
+    "verdict": "bundled",
+    "reason": "Unrelated poem fragment at end"
+  },
+  {
+    "article_id": 2760,
+    "issue_date": "1946-04-24",
+    "verdict": "bundled",
+    "reason": "Unrelated fragments and poetic text"
+  },
+  {
+    "article_id": 2785,
+    "issue_date": "1946-05",
+    "verdict": "bundled",
+    "reason": "Unrelated poem fragment at end"
+  },
+  {
+    "article_id": 2807,
+    "issue_date": "1946-06-01",
+    "verdict": "bundled",
+    "reason": "Unrelated text fragments and poetry"
+  },
+  {
+    "article_id": 2820,
+    "issue_date": "1946-06-17",
+    "verdict": "bundled",
+    "reason": "Masthead mixed with unrelated text"
+  },
+  {
+    "article_id": 2837,
+    "issue_date": "1946-06-24",
+    "verdict": "bundled",
+    "reason": "Table of contents mixed content"
+  },
+  {
+    "article_id": 2881,
+    "issue_date": "1946-07-17",
+    "verdict": "bundled",
+    "reason": "Table of contents mixed content"
+  },
+  {
+    "article_id": 2882,
+    "issue_date": "1946-07-17",
+    "verdict": "bundled",
+    "reason": "Unrelated text fragments and headers"
+  },
+  {
+    "article_id": 2884,
+    "issue_date": "1946-07-17",
+    "verdict": "bundled",
+    "reason": "Multiple unrelated article segments joined"
+  },
+  {
+    "article_id": 2903,
+    "issue_date": "1946-07-24",
+    "verdict": "bundled",
+    "reason": "Financial report mixed with lists"
+  },
+  {
+    "article_id": 2907,
+    "issue_date": "1946-07-24",
+    "verdict": "bundled",
+    "reason": "Unrelated text fragments and questions"
+  },
+  {
+    "article_id": 2933,
+    "issue_date": "1946-08-17",
+    "verdict": "bundled",
+    "reason": "Two distinct poems are combined"
+  },
+  {
+    "article_id": 2934,
+    "issue_date": "1946-08-17",
+    "verdict": "bundled",
+    "reason": "Two distinct poems are combined"
+  },
+  {
+    "article_id": 2955,
+    "issue_date": "1946-08-17",
+    "verdict": "bundled",
+    "reason": "Unrelated text about marriage advice"
+  },
+  {
+    "article_id": 2959,
+    "issue_date": "1946-08-24",
+    "verdict": "bundled",
+    "reason": "Article mixed with unrelated lists"
+  },
+  {
+    "article_id": 2984,
+    "issue_date": "1946-09-17",
+    "verdict": "bundled",
+    "reason": "Multiple unrelated stories and poems"
+  },
+  {
+    "article_id": 3002,
+    "issue_date": "1946-09-24",
+    "verdict": "bundled",
+    "reason": "Repetitive text blocks are unrelated"
+  },
+  {
+    "article_id": 3005,
+    "issue_date": "1946-09-24",
+    "verdict": "bundled",
+    "reason": "Two distinct topics abruptly joined"
+  },
+  {
+    "article_id": 3014,
+    "issue_date": "1946-10-01",
+    "verdict": "bundled",
+    "reason": "Masthead mixed with article text"
+  },
+  {
+    "article_id": 3016,
+    "issue_date": "1946-10-01",
+    "verdict": "bundled",
+    "reason": "Unrelated administrative text mixed in"
+  },
+  {
+    "article_id": 3022,
+    "issue_date": "1946-10-01",
+    "verdict": "bundled",
+    "reason": "Unrelated political text and poetry"
+  },
+  {
+    "article_id": 3053,
+    "issue_date": "1946-10-17",
+    "verdict": "bundled",
+    "reason": "Unrelated text fragments and topics"
+  },
+  {
+    "article_id": 3060,
+    "issue_date": "1946-10-17",
+    "verdict": "bundled",
+    "reason": "List of names unrelated text"
+  },
+  {
+    "article_id": 3065,
+    "issue_date": "1946-10-17",
+    "verdict": "bundled",
+    "reason": "Multiple unrelated poetic fragments mixed"
+  },
+  {
+    "article_id": 3071,
+    "issue_date": "1946-10-24",
+    "verdict": "bundled",
+    "reason": "Multiple unrelated news snippets mixed"
+  },
+  {
+    "article_id": 3073,
+    "issue_date": "1946-10-24",
+    "verdict": "bundled",
+    "reason": "Unrelated Q&A and political news"
+  },
+  {
+    "article_id": 3083,
+    "issue_date": "1946-11-01",
+    "verdict": "bundled",
+    "reason": "Political speech mixed with narrative"
+  },
+  {
+    "article_id": 3084,
+    "issue_date": "1946-11-01",
+    "verdict": "bundled",
+    "reason": "Unrelated letters and historical topics"
+  },
+  {
+    "article_id": 3085,
+    "issue_date": "1946-11-01",
+    "verdict": "bundled",
+    "reason": "Mixed political commentary and philosophy"
+  },
+  {
+    "article_id": 3086,
+    "issue_date": "1946-11-01",
+    "verdict": "bundled",
+    "reason": "Personal narrative mixed with poetry"
+  },
+  {
+    "article_id": 3087,
+    "issue_date": "1946-11-01",
+    "verdict": "bundled",
+    "reason": "Editorial announcement mixed with report"
+  },
+  {
+    "article_id": 3088,
+    "issue_date": "1946-11-01",
+    "verdict": "bundled",
+    "reason": "Correspondence mixed with unrelated commentary"
+  },
+  {
+    "article_id": 3089,
+    "issue_date": "1946-11-01",
+    "verdict": "bundled",
+    "reason": "Multiple unrelated articles and fragments"
+  },
+  {
+    "article_id": 3091,
+    "issue_date": "1946-11-01",
+    "verdict": "bundled",
+    "reason": "Mixed poetry and unrelated prose"
+  },
+  {
+    "article_id": 3094,
+    "issue_date": "1946-11-01",
+    "verdict": "bundled",
+    "reason": "Multiple unrelated articles and mastheads"
+  },
+  {
+    "article_id": 3097,
+    "issue_date": "1946-11-01",
+    "verdict": "bundled",
+    "reason": "Multiple unrelated articles and mastheads"
+  },
+  {
+    "article_id": 3100,
+    "issue_date": "1946-11-17",
+    "verdict": "bundled",
+    "reason": "Multiple unrelated articles and mastheads"
+  },
+  {
+    "article_id": 3105,
+    "issue_date": "1946-11-17",
+    "verdict": "bundled",
+    "reason": "Multiple unrelated snippets and authors"
+  },
+  {
+    "article_id": 3108,
+    "issue_date": "1946-11-17",
+    "verdict": "bundled",
+    "reason": "Two distinct topics abruptly joined"
+  },
+  {
+    "article_id": 3113,
+    "issue_date": "1946-11-17",
+    "verdict": "bundled",
+    "reason": "Pashto text mixed with Urdu"
+  },
+  {
+    "article_id": 3121,
+    "issue_date": "1946-12-01",
+    "verdict": "bundled",
+    "reason": "Unrelated text fragments and headers"
+  },
+  {
+    "article_id": 3127,
+    "issue_date": "1946-12-01",
+    "verdict": "bundled",
+    "reason": "Multiple distinct news/political reports"
+  },
+  {
+    "article_id": 3129,
+    "issue_date": "1946-12-01",
+    "verdict": "bundled",
+    "reason": "Unrelated essay and interview fragments"
+  },
+  {
+    "article_id": 3142,
+    "issue_date": "1946-12-09",
+    "verdict": "bundled",
+    "reason": "Unrelated interview and biographical profile"
+  },
+  {
+    "article_id": 3144,
+    "issue_date": "1946-12-09",
+    "verdict": "bundled",
+    "reason": "Political poem and historical commentary"
+  },
+  {
+    "article_id": 3154,
+    "issue_date": "1946-12-24",
+    "verdict": "bundled",
+    "reason": "Table of contents mixed content"
+  },
+  {
+    "article_id": 3186,
+    "issue_date": "1947-04",
+    "verdict": "bundled",
+    "reason": "Unrelated text fragments mixed together"
+  },
+  {
+    "article_id": 3206,
+    "issue_date": "1947-04",
+    "verdict": "bundled",
+    "reason": "Ad mixed with article content"
+  },
+  {
+    "article_id": 3211,
+    "issue_date": "1947-08",
+    "verdict": "bundled",
+    "reason": "Multiple unrelated article fragments combined"
+  },
+  {
+    "article_id": 3213,
+    "issue_date": "1947-08",
+    "verdict": "bundled",
+    "reason": "Poetry mixed with prose text"
+  },
+  {
+    "article_id": 3217,
+    "issue_date": "1947-08",
+    "verdict": "bundled",
+    "reason": "Article ends with unrelated metadata"
+  },
+  {
+    "article_id": 3224,
+    "issue_date": "1947-08",
+    "verdict": "bundled",
+    "reason": "Two unrelated texts joined together"
+  },
+  {
+    "article_id": 3228,
+    "issue_date": "1956-05",
+    "verdict": "bundled",
+    "reason": "Table of contents mixed content"
+  },
+  {
+    "article_id": 3232,
+    "issue_date": "1956-05",
+    "verdict": "bundled",
+    "reason": "Article shifts to unrelated topic"
+  },
+  {
+    "article_id": 3233,
+    "issue_date": "1956-05",
+    "verdict": "bundled",
+    "reason": "Two distinct Q&A topics mixed"
+  },
+  {
+    "article_id": 3236,
+    "issue_date": "1956-05",
+    "verdict": "bundled",
+    "reason": "Multiple unrelated news segments bundled"
+  },
+  {
+    "article_id": 3238,
+    "issue_date": "1956-05",
+    "verdict": "bundled",
+    "reason": "Poetry appended to prose article"
+  },
+  {
+    "article_id": 3241,
+    "issue_date": "1956-05",
+    "verdict": "bundled",
+    "reason": "Unrelated narrative text appended abruptly"
+  },
+  {
+    "article_id": 3249,
+    "issue_date": "1957a",
+    "verdict": "bundled",
+    "reason": "Poetry appended to prose article"
+  },
+  {
+    "article_id": 3255,
+    "issue_date": "1957a",
+    "verdict": "bundled",
+    "reason": "Multiple unrelated narrative story segments"
+  },
+  {
+    "article_id": 3271,
+    "issue_date": "1957b",
+    "verdict": "bundled",
+    "reason": "Poem ends then new article"
+  },
+  {
+    "article_id": 3274,
+    "issue_date": "1957b",
+    "verdict": "bundled",
+    "reason": "Article ends then new poem"
+  },
+  {
+    "article_id": 3278,
+    "issue_date": "1957b",
+    "verdict": "bundled",
+    "reason": "Linguistics article ends then poem"
+  },
+  {
+    "article_id": 3282,
+    "issue_date": "1957b",
+    "verdict": "bundled",
+    "reason": "Poem mixed with medical advertisement"
+  },
+  {
+    "article_id": 3302,
+    "issue_date": "1957b",
+    "verdict": "bundled",
+    "reason": "Captions mixed with printing info"
+  },
+  {
+    "article_id": 3309,
+    "issue_date": "1957b",
+    "verdict": "bundled",
+    "reason": "Article content mixed with editorial"
+  },
+  {
+    "article_id": 3315,
+    "issue_date": "1957b",
+    "verdict": "bundled",
+    "reason": "Letter mixed with unrelated poetry"
+  },
+  {
+    "article_id": 3317,
+    "issue_date": "1957b",
+    "verdict": "bundled",
+    "reason": "Poem mixed with unrelated letter"
+  },
+  {
+    "article_id": 3322,
+    "issue_date": "1957b",
+    "verdict": "bundled",
+    "reason": "Article mixed with unrelated fragment"
+  },
+  {
+    "article_id": 3328,
+    "issue_date": "1957b",
+    "verdict": "bundled",
+    "reason": "Unrelated poem titles and fragments"
+  },
+  {
+    "article_id": 3331,
+    "issue_date": "1957b",
+    "verdict": "bundled",
+    "reason": "Repetitive text and unrelated fragments"
+  },
+  {
+    "article_id": 3343,
+    "issue_date": "1957b",
+    "verdict": "bundled",
+    "reason": "Multiple unrelated literary fragments mixed"
+  },
+  {
+    "article_id": 3350,
+    "issue_date": "1960-07",
+    "verdict": "bundled",
+    "reason": "Unrelated biography and political commentary"
+  },
+  {
+    "article_id": 3360,
+    "issue_date": "1960-07",
+    "verdict": "bundled",
+    "reason": "Two unrelated philosophical narrative topics"
+  },
+  {
+    "article_id": 3370,
+    "issue_date": "1960-07",
+    "verdict": "bundled",
+    "reason": "Unrelated poem fragment mixed in"
+  }
+]
