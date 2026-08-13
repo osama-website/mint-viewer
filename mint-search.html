@@ -1414,29 +1414,51 @@ document.addEventListener('keydown', e => {
 // ── TIMELINE ──────────────────────────────────────────────────────────────────
 let semData=null,tlWord=null,tlSlider=-1,psEnMap={},tlHistory=[],tlShowNeighbors=true;
 
+let lemmaMap={};
 async function initTimeline(){
   if(semData)return buildDriftChips();
-  const[d,t,wt]=await Promise.all([loadJSON('mint_semantic'),loadJSON('mint_translations'),loadJSON('mint_word_trans').catch(()=>null)]);
+  const[d,t,wt,lm]=await Promise.all([loadJSON('mint_semantic'),loadJSON('mint_translations'),loadJSON('mint_word_trans').catch(()=>null),loadJSON('mint_lemmas').catch(()=>null)]);
   if(!d)return;
   semData=d;
   // Build psEnMap: start with sparse hand-curated map, overlay full vocab translations
   psEnMap={};
   if(t){if(!Object.keys(trans).length)trans=t;Object.entries(t).forEach(([en,ps])=>{psEnMap[normalizePashto(ps)]=en;});}
   if(wt){Object.entries(wt).forEach(([ps,en])=>{if(!psEnMap[ps])psEnMap[ps]=en;});}
+  lemmaMap=lm||{};
   buildDriftChips();
 }
 
+// Words present in fewer than this many distinct issues produce highly
+// noisy drift scores (often a degenerate tie at exactly 1.000 from only 1-2
+// pairwise issue comparisons) that dominate the top of the ranked list
+// without being a meaningful "most changed" signal.
+const MIN_ISSUES_FOR_LIST=15;
+
 function buildDriftChips(){
   const w=document.getElementById('drift-chips');w.innerHTML='';
-  // All words sorted by drift score descending
-  const allDrift=Object.entries(semData.words||{})
-    .filter(([,wd])=>wd.drift_score!=null)
-    .sort(([,a],[,b])=>b.drift_score-a.drift_score);
-  allDrift.forEach(([word,wd])=>{
+  const qualifying=Object.entries(semData.words||{})
+    .filter(([,wd])=>wd.drift_score!=null&&Object.keys(wd.neighbors||{}).length>=MIN_ISSUES_FOR_LIST);
+  // Group inflected surface forms of the same word (e.g. اخستلو/اخسته/اخستې,
+  // all forms of "to take") under one lemma so they don't clutter the list
+  // as separate near-duplicate rows. mint_lemmas.json maps normalized
+  // surface form -> normalized lemma; words missing from it (or when the
+  // file failed to load) fall back to being their own lemma, i.e. ungrouped.
+  const groups=new Map(); // lemma -> [[word,wd], ...]
+  qualifying.forEach(([word,wd])=>{
+    const norm=normalizePashto(word);
+    const lemma=lemmaMap[norm]||norm;
+    if(!groups.has(lemma))groups.set(lemma,[]);
+    groups.get(lemma).push([word,wd]);
+  });
+  const rows=[...groups.values()].map(members=>{
+    members.sort(([,a],[,b])=>b.drift_score-a.drift_score);
+    return {rep:members[0],altCount:members.length-1};
+  }).sort((a,b)=>b.rep[1].drift_score-a.rep[1].drift_score);
+  rows.forEach(({rep:[word,wd],altCount})=>{
     const en=psEnMap[normalizePashto(word)]||'';
     const score=(wd.drift_score||0).toFixed(3);
     const b=document.createElement('button');b.className='drift-btn';
-    b.innerHTML=`<span style="font-family:var(--font-ps);font-size:.83rem">${esc(word)}</span><span style="font-family:system-ui;font-size:.6rem;color:var(--muted);float:left;direction:ltr;opacity:.6">${score}</span>${en?`<span style="font-family:system-ui;font-size:.63rem;color:var(--muted);display:block;direction:ltr;clear:both"> ${esc(en)}</span>`:''}`;
+    b.innerHTML=`<span style="font-family:var(--font-ps);font-size:.83rem">${esc(word)}</span><span style="font-family:system-ui;font-size:.6rem;color:var(--muted);float:left;direction:ltr;opacity:.6">${score}</span>${en?`<span style="font-family:system-ui;font-size:.63rem;color:var(--muted);display:block;direction:ltr;clear:both"> ${esc(en)}</span>`:''}${altCount?`<span style="font-family:system-ui;font-size:.58rem;color:var(--muted);display:block;direction:ltr;clear:both;opacity:.55">+${altCount} form${altCount!==1?'s':''}</span>`:''}`;
     b.onclick=()=>{document.querySelectorAll('.drift-btn').forEach(x=>x.classList.remove('active'));b.classList.add('active');document.getElementById('tl-input').value=word;loadTlWord(word);};
     w.appendChild(b);
   });
@@ -1567,22 +1589,17 @@ function loadTlWord(word,keepHistory){
   sl.min=0;sl.max=dates.length;sl.value=0;
   document.getElementById('tl-prev').disabled=true;
   document.getElementById('tl-next').disabled=dates.length===0;
-  // Build tick labels -- one per distinct YEAR (not month, not a uniform
-  // index-decimation), at that year's first appearance in this word's issue
-  // list. Issues jump unevenly across the 1928-1960 span (long real gaps
-  // where the magazine didn't publish or the word doesn't appear), so
-  // decimating by array index produced confusing, non-chronological-looking
-  // labels like "1946-12" next to "1960-07". Labeling by year keeps the
-  // sequence readable as "which years does this word's history touch."
+  // Bare (unlabeled) tick marks, one per issue. Year labels used to be shown
+  // at each year's first appearance, but with many dozens of ticks in a
+  // narrow flex row even a 2-digit "'37" form overlapped/clipped illegibly
+  // (e.g. up to ~70 ticks for a common word spanning most of the archive) --
+  // removed the text entirely and kept the dash markers as position cues;
+  // the "Overview"/date readout above the slider already shows the exact
+  // selected date.
   const ticks=document.getElementById('tl-tick-row');ticks.innerHTML='';
   const ovSpan=document.createElement('span');ovSpan.className='tl-tick';ovSpan.textContent='All';ticks.appendChild(ovSpan);
-  const seenYears=new Set();
   dates.forEach((dt,i)=>{
-    const yr=dt.slice(0,4);
-    const showLabel=!seenYears.has(yr);
-    if(showLabel)seenYears.add(yr);
-    const s=document.createElement('span');s.className='tl-tick'+(showLabel?'':' tl-tick-bare');
-    s.textContent=showLabel?("'"+yr.slice(2)):'';
+    const s=document.createElement('span');s.className='tl-tick tl-tick-bare';
     ticks.appendChild(s);
   });
   document.getElementById('tl-active-year').textContent='Overview';
@@ -1845,7 +1862,17 @@ function showTlSnippets(word,filterDate){
   if(searchMode==='articles'){
     ensureArticles().then(()=>{
       const arts=buildArticlesForPageIds(m.map(p=>p.id));
-      if(!arts.length){w.innerHTML=`<div class="tl-pages-title">No articles found for "${esc(word)}"${filterDate?' in '+fmtDate(filterDate):''}</div>`;return;}
+      if(!arts.length){
+        if(!m.length){w.innerHTML=`<div class="tl-pages-title">No articles found for "${esc(word)}"${filterDate?' in '+fmtDate(filterDate):''}</div>`;return;}
+        // The word IS on real page(s) here (per the drift/neighbor data) but
+        // those pages aren't covered by any extracted article -- article
+        // extraction doesn't reach every page. Fall back to showing the
+        // pages directly instead of a bare "not found" that reads as if the
+        // semantic data were wrong.
+        w.innerHTML=`<div class="tl-pages-title">"${esc(word)}"${en?' ('+esc(en)+')':''} — on ${m.length} page${m.length!==1?'s':''} ${filterDate?'in '+fmtDate(filterDate):'across all issues'}, but not covered by any extracted article. Showing pages instead:</div>`;
+        m.slice(0,15).forEach(p=>buildCards(p,word).forEach(c=>w.appendChild(c)));
+        return;
+      }
       w.innerHTML=`<div class="tl-pages-title">"${esc(word)}"${en?' ('+esc(en)+')':''} — ${arts.length} article${arts.length!==1?'s':''} ${filterDate?'in '+fmtDate(filterDate):'across all issues'}</div>`;
       arts.forEach(a=>w.appendChild(buildArtCard(a)));
     });
