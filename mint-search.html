@@ -1562,16 +1562,22 @@ function loadTlWord(word,keepHistory){
   sl.min=0;sl.max=dates.length;sl.value=0;
   document.getElementById('tl-prev').disabled=true;
   document.getElementById('tl-next').disabled=dates.length===0;
-  // Build tick labels -- decimate to a fixed max so labels never collide,
-  // regardless of how many issues this word appears in (up to 111 now)
+  // Build tick labels -- one per distinct YEAR (not month, not a uniform
+  // index-decimation), at that year's first appearance in this word's issue
+  // list. Issues jump unevenly across the 1928-1960 span (long real gaps
+  // where the magazine didn't publish or the word doesn't appear), so
+  // decimating by array index produced confusing, non-chronological-looking
+  // labels like "1946-12" next to "1960-07". Labeling by year keeps the
+  // sequence readable as "which years does this word's history touch."
   const ticks=document.getElementById('tl-tick-row');ticks.innerHTML='';
   const ovSpan=document.createElement('span');ovSpan.className='tl-tick';ovSpan.textContent='All';ticks.appendChild(ovSpan);
-  const MAX_TICKS=13;
-  const step=Math.max(1,Math.ceil(dates.length/MAX_TICKS));
+  const seenYears=new Set();
   dates.forEach((dt,i)=>{
-    const showLabel=(i%step===0)||i===dates.length-1;
+    const yr=dt.slice(0,4);
+    const showLabel=!seenYears.has(yr);
+    if(showLabel)seenYears.add(yr);
     const s=document.createElement('span');s.className='tl-tick'+(showLabel?'':' tl-tick-bare');
-    s.textContent=showLabel?dt.slice(0,7):'';
+    s.textContent=showLabel?yr:'';
     ticks.appendChild(s);
   });
   document.getElementById('tl-active-year').textContent='Overview';
