@@ -199,16 +199,17 @@ body{background:var(--bg);color:var(--ink);font-family:var(--font-ui);min-height
 #auth-network-wrap{position:relative;width:100%;height:620px;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;background:var(--surface);cursor:grab}
 #auth-network-wrap:active{cursor:grabbing}
 #auth-canvas{width:100%;height:100%}
-.auth-card{background:var(--surface);border:1.5px solid var(--border);border-radius:var(--radius);padding:.6rem .8rem;cursor:pointer;display:flex;align-items:center;gap:.6rem;transition:border-color .15s}
+.auth-card{background:var(--surface);border:1.5px solid var(--border);border-radius:var(--radius);padding:.6rem .8rem;cursor:pointer;display:flex;flex-direction:column;align-items:stretch;gap:.4rem;transition:border-color .15s;align-self:start}
 .auth-card:hover{border-color:var(--accent)}
 .auth-card.selected{border-color:var(--accent);background:#fef8f2}
-.auth-card input[type=checkbox]{accent-color:var(--accent);width:14px;height:14px;flex-shrink:0}
-.auth-card-name{font-family:var(--font-ps);font-size:.95rem;color:var(--ink)}
-.auth-card-en{font-size:.72rem;color:var(--muted)}
-.auth-card-badges{margin-left:auto;display:flex;gap:.25rem;flex-wrap:wrap;justify-content:flex-end}
-.auth-issue-badge{font-size:.62rem;padding:.1rem .35rem;border-radius:8px;background:var(--sand);color:var(--muted)}
-.auth-count-badge{font-size:.7rem;font-weight:600;color:var(--accent)}
-#auth-list-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:.5rem;max-height:420px;overflow-y:auto}
+.auth-card-top{display:flex;align-items:flex-start;gap:.6rem}
+.auth-card input[type=checkbox]{accent-color:var(--accent);width:14px;height:14px;flex-shrink:0;margin-top:.2rem}
+.auth-card-name{font-family:var(--font-ps);font-size:.95rem;color:var(--ink);overflow-wrap:anywhere}
+.auth-card-en{font-size:.72rem;color:var(--muted);overflow-wrap:anywhere}
+.auth-card-badges{display:flex;gap:.25rem;flex-wrap:wrap}
+.auth-issue-badge{font-size:.62rem;padding:.1rem .35rem;border-radius:8px;background:var(--sand);color:var(--muted);white-space:nowrap}
+.auth-count-badge{font-size:.7rem;font-weight:600;color:var(--accent);white-space:nowrap}
+#auth-list-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:.5rem;max-height:420px;overflow-y:auto;align-items:start}
 #auth-works-title{font-size:.88rem;color:var(--muted);margin-bottom:.6rem}
 /* ── /Authors ── */
 .cluster-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(215px,1fr));gap:.9rem;margin-bottom:1rem}
@@ -710,7 +711,12 @@ function setSearchMode(mode,el){
   // Refresh whichever tab is active
   switch(activeTab){
     case 'search':{ const raw=document.getElementById('search-input').value.trim(); if(raw)doSearch(); else clearSearch(); break; }
-    case 'tags':  { const label=document.getElementById('tag-res-title').textContent.split(' — ')[0]; if(label&&tagMap[label])showTagResults(label); break; }
+    case 'tags':  {
+      const onMain=document.getElementById('tags-browser').style.display!=='none';
+      if(onMain){ renderTagCols(); }
+      else { const label=document.getElementById('tag-res-title').textContent.split(' — ')[0]; if(label&&tagMap[label])showTagResults(label); }
+      break;
+    }
     case 'topics':{
       const onGrid=document.getElementById('cluster-grid').style.display!=='none';
       if(onGrid){ initTopics(); }
@@ -2008,8 +2014,10 @@ function renderTagCols(){
   let tags=allTags;
   if(tagType!=='all')tags=tags.filter(t=>t.type===tagType);
   if(q)tags=tags.filter(t=>t.label.includes(q)||(t.label_en||'').toLowerCase().includes(q));
+  const tagCount=t=>searchMode==='articles'?(t.art_ids||[]).length:t.ids.length;
   const cols={location:[],person:[],keyword:[]};
   tags.forEach(t=>(cols[t.type]||(cols.keyword)).push(t));
+  Object.values(cols).forEach(list=>list.sort((a,b)=>tagCount(b)-tagCount(a)));
   const w=document.getElementById('tag-cols');w.innerHTML='';
   [['location','Locations'],['person','People'],['keyword','Keywords']].forEach(([type,label])=>{
     const items=(tagType==='all'||tagType===type)?cols[type]:[];
@@ -2017,7 +2025,8 @@ function renderTagCols(){
     const list=col.querySelector('.tag-list');
     items.slice(0,60).forEach(t=>{
       const row=document.createElement('div');row.className='tag-row';
-      row.innerHTML=`<span dir="rtl">${esc(t.label)}</span>${t.label_en?`<span class="tag-en" style="font-size:.7rem;color:var(--muted);font-family:var(--font-ui);margin-left:.3rem">${esc(t.label_en)}</span>`:''}<span class="tag-count">${t.ids.length}</span>`;
+      const count=tagCount(t);
+      row.innerHTML=`<span dir="rtl">${esc(t.label)}</span>${t.label_en?`<span class="tag-en" style="font-size:.7rem;color:var(--muted);font-family:var(--font-ui);margin-left:.3rem">${esc(t.label_en)}</span>`:''}<span class="tag-count">${count}</span>`;
       row.onclick=()=>showTagResults(t.label);list.appendChild(row);
     });
   });
@@ -2341,16 +2350,26 @@ function renderAuthList(){
   const q=(document.getElementById('auth-search').value||'').toLowerCase();
   const g=document.getElementById('auth-list-grid');g.innerHTML='';
   const nodes=authData.nodes.filter(n=>!q||(n.name_en||'').toLowerCase().includes(q)||n.name.includes(q));
+  const MAX_BADGES=6; // prolific authors can have 40+ issue occurrences -- an
+  // unbounded badge list made cards wildly uneven in height, and since CSS
+  // grid rows stretch to their tallest card by default, that forced short
+  // cards to stretch and left large blank gaps inside them. Capping keeps
+  // card heights consistent; the full list is still one click away.
   nodes.forEach(n=>{
     const card=document.createElement('div');card.className='auth-card'+(authSelected.has(n.id)?' selected':'');
+    const top=document.createElement('div');top.className='auth-card-top';
     const cb=document.createElement('input');cb.type='checkbox';cb.checked=authSelected.has(n.id);
     cb.onchange=()=>toggleAuthSelect(n.id);
     const info=document.createElement('div');info.style.flex='1';info.style.minWidth=0;
     info.innerHTML=`<div class="auth-card-name">${esc(n.name)}</div><div class="auth-card-en">${esc(n.name_en||'')}</div>`;
+    top.appendChild(cb);top.appendChild(info);
     const badges=document.createElement('div');badges.className='auth-card-badges';
+    const shown=n.issue_dates.slice(0,MAX_BADGES);
+    const extra=n.issue_dates.length-shown.length;
     badges.innerHTML=`<span class="auth-count-badge">${n.article_count} art</span>`
-      +n.issue_dates.map(d=>`<span class="auth-issue-badge">${fmtDate(d).replace(/\s\d{4}/,'')}</span>`).join('');
-    card.appendChild(cb);card.appendChild(info);card.appendChild(badges);
+      +shown.map(d=>`<span class="auth-issue-badge">${fmtDate(d).replace(/\s\d{4}/,'')}</span>`).join('')
+      +(extra>0?`<span class="auth-issue-badge">+${extra} more</span>`:'');
+    card.appendChild(top);card.appendChild(badges);
     card.onclick=ev=>{if(ev.target!==cb){cb.checked=!cb.checked;toggleAuthSelect(n.id);}};
     g.appendChild(card);
   });
